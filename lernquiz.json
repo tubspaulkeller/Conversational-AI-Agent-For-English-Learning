@@ -1,0 +1,21 @@
+{
+    "badge_naturtalent": "https://res.cloudinary.com/dmnkxrxes/image/upload/v1667925124/Ben_Bot/Abzeichen_Naturtalent_evz2oo.png",
+    "badge_aufstieg": "https://res.cloudinary.com/dmnkxrxes/image/upload/v1667925124/Ben_Bot/Aufstieg_Level_jcep0m.png",
+    "badge_grammatik": "https://res.cloudinary.com/dmnkxrxes/image/upload/v1667925124/Ben_Bot/Grammatik_abgeschlossen_b2k2hy.png",
+    "total_questions": 3,
+    "s_dp1_q1": { 
+        "solution": "Sleep",
+        "points": 5,
+        "question": 1
+    }, 
+    "s_dp1_q2": { 
+        "solution": "Fought",
+        "points": 5,
+        "question": 2
+    },
+    "s_dp1_q3": { 
+        "solution": "Drove",
+        "points": 5,
+        "question": 3
+    }
+}

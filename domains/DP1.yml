@@ -1,0 +1,110 @@
+version: "3.0"
+
+intents:
+  - i_dp1_q1:
+      use_entities: e_dp1_q1
+  - i_dp1_q2:
+      use_entities: e_dp1_q2
+  - i_dp1_q3:
+      use_entities: e_dp1_q3
+
+entities:
+  - e_dp1_q1
+  - e_dp1_q2 
+  - e_dp1_q3
+
+slots:
+  s_dp1_q1:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp1_q1
+
+  s_dp1_q2:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp1_q2
+
+  s_dp1_q3:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp1_q3
+
+responses:
+  utter_dp1_correct_1_first_approach:
+  - text: "Super, das war richtig! 😊 Damit hast du 5 Punkte gesammelt. Lass uns gleich weitermachen."
+  - text: "Klasse, das war richtig! 😊 Du hast dir 5 Punkte verdient. Lass uns gleich weitermachen."
+
+  utter_dp1_correct_n_first_approach:
+  - text: "Super, das war ebenfalls richtig! 😊 Damit hast du 5 weitere Punkte gesammelt."
+  - text: "Klasse, das war ebenfalls richtig! 😊 Du hast dir weitere 5 Punkte verdient."
+
+  utter_dp1_correct_second_approach:
+  - text: "Super, jetzt ist es richtig! 😊 Damit hast du 5 weitere Punkte gesammelt."
+  - text: "Klasse, jetzt ist es richtig! 😊 Du hast dir weitere 5 Punkte verdient."
+
+  utter_dp1_another_correct_answer:
+  - text: "Super, das war richtig! 😊 Damit hast du weitere 5 Punkte gesammelt."
+
+  utter_dp1_first_correct_answer:
+  - text: "Klasse, das war richtig! 😊 Damit hast du 5 Punkte gesammelt."
+
+  utter_dp1_wrong:
+  - text: "Das war leider nicht richtig. Versuche es nochmal. Du hast noch einen weiteren Versuch für diese Frage übrig."
+  utter_ask_s_dp1_q1:
+  - buttons:
+    - payload: /i_dp1_q1{{"e_dp1_q1":"Went"}}
+      title: Went
+
+    - payload: /i_dp1_q1{{"e_dp1_q1":"Drank"}}
+      title: Drank
+
+    - payload: /i_dp1_q1{{"e_dp1_q1":"Sleep"}}
+      title: Sleep
+
+    - payload: /i_dp1_q1{{"e_dp1_q1":"Bought"}}
+      title: Bought
+    text: Bei welchem der folgenden Wörter handelt es sich nicht um eine Simple-Past-Form?
+
+  utter_ask_s_dp1_q2:
+  - buttons:
+    - payload: /i_dp1_q2{{"e_dp1_q2":"Sell"}}
+      title: Sell
+
+    - payload: /i_dp1_q2{{"e_dp1_q2":"Fought"}}
+      title: Fought
+
+    - payload: /i_dp1_q2{{"e_dp1_q2":"Run"}}
+      title: Run
+
+    - payload: /i_dp1_q2{{"e_dp1_q2":"Wash"}}
+      title: Wash
+    text: Welches der folgenden Wörter ist eine Simple Past-Form?
+
+  utter_ask_s_dp1_q3:
+  - buttons:
+    - payload: /i_dp1_q3{{"e_dp1_q3":"Visited"}}
+      title: Visited
+
+    - payload: /i_dp1_q3{{"e_dp1_q3":"Take"}}
+      title: Take
+
+    - payload: /i_dp1_q3{{"e_dp1_q3":"Ate"}}
+      title: Ate
+
+    - payload: /i_dp1_q3{{"e_dp1_q3":"Drove"}}
+      title: Drove
+    text: Welches der folgenden Wörter ist keine Simple Past-Form? 🤔
+
+actions: 
+  - validate_dp1_form
+  - action_dp1_finish
+
+forms:
+  dp1_form:
+    required_slots:
+    - s_dp1_q1
+    - s_dp1_q2
+    - s_dp1_q3

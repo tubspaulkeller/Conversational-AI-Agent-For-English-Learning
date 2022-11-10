@@ -1,0 +1,94 @@
+version: "3.0"
+
+intents:
+  - i_goodbye
+  - i_greet
+  - i_restart_conversation
+  - i_dp1:
+      use_entities: e_dp1
+  - i_dp2:
+      use_entities: e_dp2
+  - i_dp3:
+      use_entities: e_dp3
+  - i_dp4:
+      use_entities: e_dp4
+  - i_dp5:
+      use_entities: e_dp5
+
+
+entities: 
+  - e_dp1
+  - e_dp2
+  - e_dp3
+  - e_dp4
+  - e_dp5
+
+
+slots: 
+  s_dp1:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp1
+
+  s_dp2:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp2
+
+  s_dp3:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp3
+
+  s_dp4:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp4
+
+  s_dp5:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp5
+
+responses:
+  utter_greet:
+  - text: "Hi! "
+  utter_goodbye:
+  - text: "Tschüss!"
+
+  utter_rephrase/de:
+  - text: Tut mir leid, ich habe dich nicht richtig verstanden. Kannst du das bitte wiederholen? 😊
+
+  utter_rephrase/en:
+  - text: I'm sorry, I didn't understand you correctly. Can you please repeat that? 😊
+  
+  utter_get_dp:
+  - buttons:
+    - payload: /i_dp1{{"e_dp1":"DP1"}}
+      title: DP1
+
+    - payload: /i_dp2{{"e_dp2":"DP2"}}
+      title: DP2
+
+    - payload: /i_dp3{{"e_dp3":"DP3"}}
+      title: DP3
+
+    - payload: /i_dp4{{"e_dp4":"DP4"}}
+      title: DP4
+
+    - payload: /i_dp5{{"e_dp5":"DP5"}}
+      title: DP5
+    text: Mit welchem DP möchtest du starten? 
+
+actions: 
+  - action_restart
+  - action_rephrase
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

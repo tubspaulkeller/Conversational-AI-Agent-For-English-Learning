@@ -1,0 +1,17 @@
+version: "3.0"
+
+slots:
+  s_dp2_q1:
+    type: any
+    mappings:
+    - type: custom
+
+actions:
+  - validate_dp2_form
+  - action_dp2_finish
+
+forms:
+  dp2_form:
+    required_slots:
+    - s_dp2_q1
+

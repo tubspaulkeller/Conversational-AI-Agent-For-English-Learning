@@ -1,0 +1,18 @@
+# Run multiple domains (path_to_domain_directory)
+    rasa train --domain /Users/pkeller/Repositories/companion_ben/domains
+    rasa train --domain domains 
+
+
+# select python interpreter
+-> settings: python interpreter
+-> choose conda rasa 
+
+
+#slack 
+rasa run --port 5002 --connector slack
+ngrok http 5002
+/webhooks/slack/webhook
+https://029c-2001-638-602-d025-1c4c-fb2e-8a5f-5b1d.eu.ngrok.io/webhooks/slack/webhook
+
+# telegram 
+ngrok http 5005

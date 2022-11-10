@@ -1,0 +1,83 @@
+version: "3.0"
+
+nlu:
+- intent: i_greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - na 
+    - moin 
+    - hallo 
+    - was geht 
+    - hey buddy 
+    - guten Tag
+    - Guten Abend 
+
+- intent: i_goodbye
+  examples: |
+    - cu
+    - bye 
+    - tschüss
+    - machs gut
+    - hau rein 
+    - bis dann
+    - see you 
+    - tschau 
+
+- intent: i_restart_conversation
+  examples: |
+    - /restart 
+    - Restart 
+    - restart 
+    - /Restart
+    - restart bitte 
+    - starte neu
+    - neustart
+
+- intent: i_dp4_q1
+  examples: |
+    - [We](e_dp4_q1) want to the [Coliseum](e_dp4_q1)
+    - [We](e_dp4_q1) are going to the [Coliseum](e_dp4_q1) 
+    - [We](e_dp4_q1) would like to go to the [Coliseum](e_dp4_q1) 
+    - [We](e_dp4_q1) would like to visit [Coliseum](e_dp4_q1) 
+    - [We](e_dp4_q1) would love to go to the [Coliseum](e_dp4_q1) 
+  
+- intent: i_dp4_q2
+  examples: |
+    - [How](e_dp4_q2) much does it [costs](e_dp4_q2)?
+    - [How](e_dp4_q2) much would it [costs](e_dp4_q2)?
+    - [How](e_dp4_q2) much would it [cost](e_dp4_q2) us to get there?
+    - [What](e_dp4_q2) is the [price](e_dp4_q2) for us to get there?
+    - [What](e_dp4_q2) is the [price](e_dp4_q2) for us?
+
+- intent: i_dp4_q3
+  examples: |
+    - I would like to buy [two](e_dp4_q3) [tickets](e_dp4_q3) for the attraction, please?
+    - I would like to buy [2](e_dp4_q3) [tickets](e_dp4_q3), please?
+    - Can I get [two](e_dp4_q3) [tickets](e_dp4_q3), please?
+    - Could you give me two](e_dp4_q3) [tickets](e_dp4_q3), please?
+    - Can I get [2](e_dp4_q3) [tickets](e_dp4_q3)?
+    - Could you give me [2](e_dp4_q3) [tickets](e_dp4_q3)?
+
+- intent: i_dp4_q4
+  examples: |
+    - Excuse me, but are you also offering [student](e_dp4_q4) [discount](e_dp4_q4)? My firend and I are both sutdents.
+    - Excuse me, but are you also offering a [discount](e_dp4_q4) for [students](e_dp4_q4)? My firend and I are both sutdents.
+    - We are both [students](e_dp4_q4). Do you have a [discount](e_dp4_q4)?
+    - Do you have a [student](e_dp4_q4) [discount](e_dp4_q4)?
+    - Do you offer a [student](e_dp4_q4) [discount](e_dp4_q4)?
+    - Is there a [student](e_dp4_q4) [discount](e_dp4_q4) also possible?
+
+- intent: i_dp4_q5
+  examples: |
+    - My [friend](e_dp4_q5) and me have lived in [Brunswick](e_dp4_q5) since 2017.
+    - [We](e_dp4_q5) have lived in [Braunschweig](e_dp4_q5) since 2017.
+    - My [friend](e_dp4_q5) and me are living in [Brunswick](e_dp4_q5) since 2017.
+    - My [buddy](e_dp4_q5) and me are living in [Brunswick](e_dp4_q5) since 2017.
+    - My [mate](e_dp4_q5) and me are living in [Brunswick](e_dp4_q5) since 2017.
+    - [We](e_dp4_q5) are living in [Brunswick](e_dp4_q5) since 2017.
+    - My [buddy](e_dp4_q5) and me live in [Brunswick](e_dp4_q5) since 2017.
+    - My [mate](e_dp4_q5) and me live  in [Brunswick](e_dp4_q5) since 2017.
+    - [We](e_dp4_q5) live in [Brunswick](e_dp4_q5) since 2017.
+

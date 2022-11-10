@@ -1,0 +1,22 @@
+{
+    "s_dp4_q1": { 
+        "entities": ["We", "Coliseum"],
+        "quantity": 2
+    },  
+    "s_dp4_q2": { 
+        "entities": ["How", "costs", "What", "Price"],
+        "quantity": 2
+    },
+    "s_dp4_q3": { 
+        "entities": ["ticket", "two", "tickets", "2"],
+        "quantity": 2
+    },
+    "s_dp4_q4": { 
+        "entities": ["student", "discount"],
+        "quantity": 2
+    },
+    "s_dp4_q5": { 
+        "entities": ["mate", "friend", "brunswick", "Braunschweig", "buddy"],
+        "quantity": 2
+    }
+}

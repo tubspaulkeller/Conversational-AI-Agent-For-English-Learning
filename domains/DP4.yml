@@ -1,0 +1,97 @@
+version: "3.0"
+
+intents: 
+  - i_dp4_q1:
+      use_entities: e_dp4_q1
+  - i_dp4_q2:
+      use_entities: e_dp4_q2
+  - i_dp4_q3:
+      use_entities: e_dp4_q3
+  - i_dp4_q4:
+      use_entities: e_dp4_q4
+  - i_dp4_q5:
+      use_entities: e_dp4_q5
+
+entities:
+  - e_dp4_q1
+  - e_dp4_q2
+  - e_dp4_q3
+  - e_dp4_q4
+  - e_dp4_q5
+slots:
+  s_dp4_q1:
+    type: list
+    mappings:
+    - type: from_entity
+      entity: e_dp4_q1
+      intent: i_dp4_q1
+      not_intent: i_dp4_q3
+  
+  s_dp4_q2:
+    type: list
+    mappings:
+    - type: from_entity
+      entity: e_dp4_q2
+      intent: i_dp4_q2
+  
+  s_dp4_q3:
+    type: list
+    mappings:
+    - type: from_entity
+      entity: e_dp4_q3
+      intent: i_dp4_q3
+      not_intent: i_dp4_q1
+  
+  s_dp4_q4:
+    type: list
+    mappings:
+    - type: from_entity
+      entity: e_dp4_q4
+      intent: i_dp4_q4
+      not_intent: i_dp4_q3
+  
+  s_dp4_q5:
+    type: list
+    mappings:
+    - type: from_entity
+      entity: e_dp4_q5
+      intent: i_dp4_q5
+
+responses:
+  utter_grammar_error:
+  - text: "That was quite good, let's have another look at your answer. I give you a hint: "
+
+  utter_grammar_success:
+  - text: "Well done!"
+  - text: "Perfect, you have solved this well"
+ 
+  utter_ask_s_dp4_q1:
+  - text: "Quest1a: Erkläre dem Taxifahrer auf Englisch, dass ihr zum Kolosseum (eng. Coliseum) wollt." 
+  
+  utter_ask_s_dp4_q2:
+  - text: "Quest1b: Wie teuer ist die Taxifahrt?"
+
+  utter_s_dp4_q3:
+  - text: "Quest2a: Kaufe für dich und deinen Freund zwei Eintrittskarten."
+
+  utter_ask_s_dp4_q4:
+  - text: "Quest2b: Wie könntest du nach einer Vergünstigtigung für Studenten fragen?"
+
+  utter_s_dp4_q5:
+  - text: "Quest3: Erkläre den Touristen, dass dein Freund und du aus Braunschweig kommt und seit wann ihr dort wohnt."
+
+  utter_dp4_finish:
+  - text: "Klasse, damit hast du alle Quests abgeschlossen sowie die Lern-Story 'Das römische Kolosseum' erfolgreich beendet."
+actions:
+  - validate_dp4_form
+  - action_ask_s_dp4_q3
+  - action_ask_s_dp4_q5
+  - action_dp4_finish
+forms:
+  dp4_form:
+    required_slots:
+    - s_dp4_q1
+    - s_dp4_q2
+    - s_dp4_q3
+    - s_dp4_q4
+    - s_dp4_q5
