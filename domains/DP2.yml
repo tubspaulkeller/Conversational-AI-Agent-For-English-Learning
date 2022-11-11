@@ -1,11 +1,124 @@
 version: "3.0"
+intents: 
+  - i_dp2_q1:
+     use_entities: e_dp2_q1
+  - i_dp2_q2:
+     use_entities: e_dp2_q2
+  - i_dp2_q3:
+     use_entities: e_dp2_q3
+  - i_dp2_q4:
+     use_entities: e_dp2_q4
+  - i_dp2_q5:
+     use_entities: e_dp2_q5
+
+entities:
+- e_dp2_q1
+- e_dp2_q2
+- e_dp2_q3
+- e_dp2_q4
+- e_dp2_q5
 
 slots:
   s_dp2_q1:
-    type: any
+    type: text
     mappings:
-    - type: custom
+    - type: from_entity
+      entity: e_dp2_q1
 
+  s_dp2_q2:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp2_q2
+
+  s_dp2_q3:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp2_q3
+
+  s_dp2_q4:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp2_q4
+
+  s_dp2_q5:
+    type: list
+    mappings:
+    - type: from_entity
+      entity: e_dp2_q5
+      intent: i_dp2_q5
+      not_intent: i_dp4_q5
+    
+responses:
+  utter_ask_s_dp2_q1:
+  - buttons:
+    - payload: /i_dp2_q1{{"e_dp2_q1":"Zusammenfassung"}}
+      title: Zusammenfassung
+
+    - payload: /i_dp2_q1{{"e_dp2_q1":"Quiz"}}
+      title: Quiz
+    text: Soll ich dir eine kurze Zusammenfassung zum Present Perfect geben oder möchtest du direkt das Quiz beginnen?
+
+  utter_correct_answer_q1:
+  - text: Richtig! Weiter geht´s! 😊
+  utter_correct_answer_qn:
+  - text: Korrekt! 😊
+  utter_another_correct_answer:
+  - text: Cool, das war erneut Korrekt! 😊
+  utter_wrong_answer:
+  - text: Das war leider nicht richtig. Versuche dir die Bildung durch 'have/has' + 'dritte From des Verbs' vor Auge zu führen. Damit sollte es die erfahrungsgemäß am einfachsten gelingen, das Present Perfect zu erkennen 👌
+  utter_zusammenfassung_part1:
+  - text: Gerne doch! 😊
+  utter_zusammenfassung_part2:
+  - text: "Bildung: 'have/has' + dritte Form des Verbs"
+  utter_zusammenfassung_part3:
+  - text: "Verwendung: \n - Etwas hat in der Vergangenheit begonnen und dauert bis in die Gegenwart an \n - Etwas wurde in der Vergangenheit abgeschlossen, aber die Folgen reichen bis in die Gegenwart"
+  utter_ask_s_dp2_q2:
+  - buttons:
+    - payload: /i_dp2_q2{{"e_dp2_q2":"have played"}}
+      title: have played
+
+    - payload: /i_dp2_q2{{"e_dp2_q2":"jumped"}}
+      title: jumped
+
+    - payload: /i_dp2_q2{{"e_dp2_q2":"skip"}}
+      title: skip
+
+    - payload: /i_dp2_q2{{"e_dp2_q2":"return"}}
+      title: return
+    text: "(Frage 1 von 2): Bei welchem der folgenden Wörter handelt es sich um eine Present Perfect-Form? 🤔"
+
+  
+  utter_ask_s_dp2_q3:
+  - buttons:
+    - payload: /i_dp2_q3{{"e_dp2_q3":"stole"}}
+      title: stole
+
+    - payload: /i_dp2_q3{{"e_dp2_q3":"swam"}}
+      title: swam
+
+    - payload: /i_dp2_q3{{"e_dp2_q3":"fought"}}
+      title: fought
+
+    - payload: /i_dp2_q3{{"e_dp2_q3":"have bought"}}
+      title: have bought
+    text: "(Frage 2 von 2): Welches der folgenden Wörter ist eine Present Perfect-Form? 🤔"
+  
+  utter_ask_s_dp2_q4:
+  - buttons:
+    - payload: /i_dp2_q4{{"e_dp2_q4":"yes"}}
+      title: Ja
+
+    - payload: /i_dp2_q4{{"e_dp2_q4":"no"}}
+      title: Nein
+    text: "Die Klausuren der letzten Jahre bestanden zu einem Großteil aus Anwendungsaufgaben. Wollen wir zusammen so eine Anwendungsaufgabe üben, damit du gut vorbereitet bist?"
+
+  utter_ask_s_dp2_q5:
+  - text: "Versuche bitte aus den folgenden Wörtern #(Braunschweig, She, since, live) einen Satz im Present Perfect zu formulieren:"
+
+  
 actions:
   - validate_dp2_form
   - action_dp2_finish
@@ -14,4 +127,8 @@ forms:
   dp2_form:
     required_slots:
     - s_dp2_q1
+    - s_dp2_q2
+    - s_dp2_q3
+    - s_dp2_q4
+    - s_dp2_q5
 

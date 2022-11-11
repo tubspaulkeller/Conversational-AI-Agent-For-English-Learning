@@ -1,10 +1,65 @@
 version: "3.0"
+intents: 
+  - i_dp3_q1:
+      use_entities: e_dp3_q1
+  - i_dp3_q2:
+      use_entities: e_dp3_q2
+  - i_dp3_q3:
+      use_entities: e_dp3_q3
+
+entities:
+- e_dp3_q1
+- e_dp3_q2
+- e_dp3_q3
 
 slots:
   s_dp3_q1:
-    type: any
+    type: text
     mappings:
-    - type: custom
+    - type: from_entity
+      entity: e_dp3_q1
+
+  s_dp3_q2:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp3_q2
+
+  s_dp3_q3:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp3_q3
+
+responses:
+  utter_ask_s_dp3_q1:
+  - buttons:
+    - payload: /i_dp3_q1{{"e_dp3_q1":"abroad"}}
+      title: Auslandssemester
+    - payload: /i_dp3_q1{{"e_dpe_dp3_q12_q2":"grades"}}
+      title: Bessere Noten
+  text: "Welches der obigen aufgeführten Themen motivieren dich am meisten für diesen Kurs? 🤔"
+
+  utter_ask_s_dp3_q2:
+  - buttons:
+    - payload: /i_dp3_q2{{"e_dp3_q2":"abroad"}}
+      title: Festlegen
+    - payload: /i_dp3_q2{{"e_dp3_q2":"grades"}}
+      title: Neu festelegen
+  text: "Soll ich das uns als übergeordnetes Lernziel für diesen Kurs festlegen? Oder möchtest du ein anderes Thema als Lernziel wählen?"
+
+  utter_affirm_learn_goal:
+  - text: Perfekt, damit hätten wir das übergeordnete Lernziel für diesen Kurs festgelegt! 😁 
+
+  utter_ask_s_dp3_q3:
+  - buttons:
+    - payload: /i_dp3_q3{{"e_dp3_q3":"vocabels"}}
+      title: Vokabeln - Basic
+    - payload: /i_dp3_q2{{"e_dp3_q2":"grammar"}}
+      title: Grammatik - Basic
+  text: "Mit welcher Grundlagen-Lektion möchtest du starten?"
+
+
 
 actions:
   - validate_dp3_form
@@ -14,4 +69,6 @@ forms:
   dp3_form:
     required_slots:
     - s_dp3_q1
+    - s_dp3_q2
+    - s_dp3_q3
 

@@ -30,6 +30,26 @@ class ActionRestart(Action):
         dispatcher.utter_message(text="Ich habe neu gestartet. 🤖")
         return [AllSlotsReset(), Restarted()]
 
+
+############################################################################################################
+##### Methods for user_scoring #####
+# These methods are used by DP1 and DP2
+############################################################################################################
+def getTries():
+    return user_points["tries"]
+
+
+def increaseTries():
+    user_points["tries"] += 1
+
+
+def resetTries():
+    user_points["tries"] = 0
+
+
+def resetUserPoints():
+    user_points.update({}.fromkeys(user_points, 0))
+
 ############################################################################################################
 ##### DP1 #####
 ############################################################################################################
@@ -42,18 +62,6 @@ class ValidateDP1Form(FormValidationAction):
         return "validate_dp1_form"
 
     def validate_general_quest(name_of_slot):
-
-        def getTries():
-            return user_points["tries"]
-
-        def increaseTries():
-            user_points["tries"] += 1
-
-        def resetTries():
-            user_points["tries"] = 0
-
-        def resetUserPoints():
-            user_points.update({}.fromkeys(user_points, 0))
 
         def setPoints(points):
             user_points["points"] += points
@@ -179,8 +187,92 @@ class ValidateDP2Form(FormValidationAction):
         # Unique identifier of the form"
         return "validate_dp2_form"
 
-    def validate_general_quest(name_of_slot):
+    async def required_slots(
+        self,
+        domain_slots: List[Text],
+        dispatcher: "CollectingDispatcher",
+        tracker: "Tracker",
+        domain: "DomainDict",
+    ) -> List[Text]:
+        updated_slots = domain_slots.copy()
+        if tracker.slots.get("s_dp2_q4") == 'no':
+            # If the user dont want more information, we dont need to ask
+            # there we will skip next slot
+            updated_slots.remove("s_dp2_q5")
+        return updated_slots
 
+    def validate_s_dp2_q1(
+        self,
+        slot_value: Any,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: "DomainDict",
+    ) -> Dict[Text, Any]:
+        value = slot_value
+        if value == "Zusammenfassung":
+            # TODO Reminder for utter as delays
+            dispatcher.utter_message(response="utter_zusammenfassung_part1")
+            dispatcher.utter_message(response="utter_zusammenfassung_part2")
+            dispatcher.utter_message(response="utter_zusammenfassung_part3")
+            dispatcher.utter_message(text="Ok, dann starte ich das Quiz. 🎮")
+            return {"s_dp2_q1": value}
+        elif value == "Quiz":
+            dispatcher.utter_message(text="Ok, dann starte ich das Quiz. 🎮")
+            return {"s_dp2_q1": value}
+        else:
+            return {"s_dp2_q1": None}
+
+    def validate_s_dp2_q4(
+        self,
+        slot_value: Any,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: "DomainDict",
+    ) -> Dict[Text, Any]:
+        value = slot_value
+        if value == "yes":
+            dispatcher.utter_message(text="Gute Entscheidung!  😊")
+            return {"s_dp2_q4": value}
+        elif value == "no":
+
+            dispatcher.utter_message(
+                text="Ok, wir können dies sonst zu einem anderen Zeitpunkt üben. 😊")
+            dispatcher.utter_message(response="utter_get_dp")
+            return {"s_dp2_q4": value}
+        else:
+            return {"s_dp2_q4": None}
+
+    def validate_s_dp2_q5(
+        self,
+        slot_value: Any,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: "DomainDict",
+    ) -> Dict[Text, Any]:
+
+        entities = slot_value
+        name_of_slot = "s_dp2_q5"
+        number_of_entities = len(entities)
+        print("Debug", entities, number_of_entities)
+
+        # check entities
+        entities_list = json.load(open('DP2.json'))
+
+        if check_entities(number_of_entities, entities_list, name_of_slot, entities, dispatcher):
+            return {name_of_slot: None}
+
+        # get Userinput
+        usertext = tracker.latest_message['text']
+        # first letter of the word is capitalized
+        usertext = usertext[0].upper() + usertext[1:]
+        utter_wrong = "Das war leider nicht richtig. Versuche dir die Bildung durch 'have/has' + 'dritte From des Verbs' vor Auge zu führen. Damit sollte es die erfahrungsgemäß am einfachsten gelingen, das Present Perfect zu erkennen 👌"
+        if not valid_grammar(usertext, dispatcher, utter_wrong):
+            return {name_of_slot: None}
+        else:
+            dispatcher.utter_message(response="utter_correct_answer_qn")
+            return {name_of_slot: True}
+
+    def validate_general_quest(name_of_slot):
         def validate_slot(
             self,
             value: Text,
@@ -189,16 +281,49 @@ class ValidateDP2Form(FormValidationAction):
             domain: Dict[Text, Any],
         ) -> Dict[Text, Any]:
             print("val", value)
+            with open("DP2.json", "r") as jsonFile:
+                dp2 = json.load(jsonFile)
+
+            solution = dp2[name_of_slot]["solution"]
+
+            # Users answer is correct
+            if solution.lower() == value.lower():
+                if dp2[name_of_slot]["question"] == 1:
+                    dispatcher.utter_message(
+                        response="utter_correct_answer_q1")
+                elif user_points["last_question_correct"] == 1:
+                    dispatcher.utter_message(
+                        response="utter_another_correct_answer")
+                else:
+                    dispatcher.utter_message(
+                        response="utter_correct_answer_qn")
+                resetTries()
+                user_points["last_question_correct"] = 1
+                if dp2[name_of_slot]["question"] == dp2["total_questions"]:
+                    resetUserPoints()
+                return {name_of_slot: value}
+
+            elif getTries() < 1:  # User hat einen weiteren Versuch
+                increaseTries()
+                dispatcher.utter_message(response="utter_wrong_answer")
+            else:
+                resetTries()
+                dispatcher.utter_message(
+                    text='Schade, leider ist die Lösung: %s' % solution)
+                if dp2[name_of_slot]["question"] == dp2["total_questions"]:
+                    resetUserPoints()
+                return {name_of_slot: solution}
             return {name_of_slot: None}
 
         return validate_slot
 
-    validate_s_dp2_q1 = validate_general_quest(name_of_slot="s_dp2_q1")
+    validate_s_dp2_q2 = validate_general_quest(name_of_slot="s_dp2_q2")
+    validate_s_dp2_q3 = validate_general_quest(name_of_slot="s_dp2_q3")
+
 
 ############################################################################################################
 ##### DP3 #####
 ############################################################################################################
-
 
 class ValidateDP3Form(FormValidationAction):
 
@@ -222,6 +347,100 @@ class ValidateDP3Form(FormValidationAction):
 
     validate_s_dp3_q1 = validate_general_quest(name_of_slot="s_dp3_q1")
 
+
+############################################################################################################
+##### Check Grammar #####
+# these methods are use for DP2 and DP4
+############################################################################################################
+
+def json_formatter(json_response):
+    print(json.dumps(json_response, indent=4))
+
+
+def grammar_check(user_input):
+    url = "https://dnaber-languagetool.p.rapidapi.com/v2/check"
+
+    payload = f"language=en-US&text={user_input}"
+    headers = {
+        "content-type": "application/x-www-form-urlencoded",
+        "X-RapidAPI-Key":
+        "dc09bffcb7msh11b3124e909d941p1fa26ajsn8621ad32fdbb",
+        "X-RapidAPI-Host": "dnaber-languagetool.p.rapidapi.com",
+        "motherTongue": "de"
+    }
+
+    response = requests.request("POST",
+                                url,
+                                data=payload,
+                                headers=headers)
+    json_formatter(response.json())
+    return response.json()
+
+
+def grammar_validation(grammar_response):
+    suggestions = []
+    if (len(grammar_response['matches']) > 0):
+        if grammar_response['matches'][0]['message']:
+            matches = grammar_response['matches'][0]['message']
+
+            if len(grammar_response['matches'][0]['replacements']) > 0:
+                for i, val in enumerate(grammar_response['matches'][0]
+                                        ['replacements']):
+                    print(i, ". suggestion: ", val['value'])
+                    suggestions.append(val['value'])
+
+        print(matches)
+        return matches, suggestions
+
+    print("No grammar errors found")
+    return None, None
+
+
+def check_missing_entities(name_of_slot, entities, entities_list):
+    for entity in entities:
+        # allow typos for entities till a certain threshold (80%)
+        fuzzy_entity = process.extractOne(
+            entity, entities_list[name_of_slot]["entities"])
+        if not fuzzy_entity[1] > 80:
+            return True
+    return False
+
+
+def check_entities(number_of_entities, entities_list, name_of_slot, entities, dispatcher):
+    if number_of_entities != entities_list[name_of_slot]["quantity"] | check_missing_entities(name_of_slot, entities, entities_list):
+        dispatcher.utter_message(
+            text="You have not answered the question correctly. Please try again.")
+        return True
+    else:
+        return False
+
+
+def valid_grammar(usertext, dispatcher, utter_wrong):
+    grammar_response = grammar_check(usertext)
+    grammar_error, grammar_suggestion = grammar_validation(grammar_response)
+    if check_grammar_error(grammar_error, dispatcher, grammar_suggestion, utter_wrong):
+        return False
+    else:
+        return True
+
+
+def check_grammar_error(grammar_error, dispatcher, grammar_suggestion, utter_wrong):
+    if grammar_error:
+        dispatcher.utter_message(response="utter_grammar_error")
+        dispatcher.utter_message(text=grammar_error)
+        if grammar_suggestion:
+            for i, val in enumerate(grammar_suggestion):
+                dispatcher.utter_message(
+                    text=f"{i}. suggestion: {val}")
+                if i == 4:
+                    break
+
+        dispatcher.utter_message(text="%s" % utter_wrong)
+        return True
+    else:
+        return False
+
+
 ############################################################################################################
 ##### DP4 #####
 ############################################################################################################
@@ -234,45 +453,6 @@ class ValidateDP4Form(FormValidationAction):
         return "validate_dp4_form"
 
     def validate_general_quest(name_of_slot):
-        def json_formatter(json_response):
-            print(json.dumps(json_response, indent=4))
-
-        def grammar_check(user_input):
-            url = "https://dnaber-languagetool.p.rapidapi.com/v2/check"
-
-            payload = f"language=en-US&text={user_input}"
-            headers = {
-                "content-type": "application/x-www-form-urlencoded",
-                "X-RapidAPI-Key":
-                "dc09bffcb7msh11b3124e909d941p1fa26ajsn8621ad32fdbb",
-                "X-RapidAPI-Host": "dnaber-languagetool.p.rapidapi.com",
-                "motherTongue": "de"
-            }
-
-            response = requests.request("POST",
-                                        url,
-                                        data=payload,
-                                        headers=headers)
-            json_formatter(response.json())
-            return response.json()
-
-        def grammar_validation(grammar_response):
-            suggestions = []
-            if (len(grammar_response['matches']) > 0):
-                if grammar_response['matches'][0]['message']:
-                    matches = grammar_response['matches'][0]['message']
-
-                    if len(grammar_response['matches'][0]['replacements']) > 0:
-                        for i, val in enumerate(grammar_response['matches'][0]
-                                                ['replacements']):
-                            print(i, ". suggestion: ", val['value'])
-                            suggestions.append(val['value'])
-
-                print(matches)
-                return matches, suggestions
-
-            print("No grammar errors found")
-            return None, None
 
         def translate_to_german(grammar_error):
 
@@ -292,15 +472,6 @@ class ValidateDP4Form(FormValidationAction):
             json_formatter(response.json())
             return response.json()
 
-        def check_missing_entities(name_of_slot, entities, entities_list):
-            for entity in entities:
-                # allow typos for entities till a certain threshold (80%)
-                fuzzy_entity = process.extractOne(
-                    entity, entities_list[name_of_slot]["entities"])
-                if not fuzzy_entity[1] > 80:
-                    return True
-            return False
-
         def validate_slot(
             self,
             value: Text,
@@ -315,40 +486,19 @@ class ValidateDP4Form(FormValidationAction):
 
             # check entities
             entities_list = json.load(open('spielgeschichte.json'))
-            if number_of_entities != entities_list[name_of_slot][
-                    "quantity"] | check_missing_entities(
-                        name_of_slot, entities, entities_list):
-                dispatcher.utter_message(
-                    text="You have not answered the question correctly. Please try again."
-                )
+
+            if check_entities(number_of_entities, entities_list, name_of_slot, entities, dispatcher):
                 return {name_of_slot: None}
 
             # get Userinput
             usertext = tracker.latest_message['text']
             # first letter of the word is capitalized
             usertext = usertext[0].upper() + usertext[1:]
-
-            # check grammar
-            grammar_response = grammar_check(usertext)
-            grammar_error, grammar_suggestion = grammar_validation(
-                grammar_response)
-
-            if grammar_error:
-                dispatcher.utter_message(response="utter_grammar_error")
-                dispatcher.utter_message(text=grammar_error)
-                if grammar_suggestion:
-                    for i, val in enumerate(grammar_suggestion):
-                        dispatcher.utter_message(
-                            text=f"{i}. suggestion: {val}")
-                        if i == 4:
-                            break
-
-                dispatcher.utter_message(text="Try it again!")
+            utter_wrong = "Try it again!"
+            if not valid_grammar(usertext, dispatcher, utter_wrong):
                 return {name_of_slot: None}
             else:
-                dispatcher.utter_message(response="utter_grammar_success")
-                if name_of_slot == "s_dp4_q5":
-                    dispatcher.utter_message(response="utter_get_dp")
+                dispatcher.utter_message(response="utter_correct_answer_qn")
                 return {name_of_slot: True}
 
         return validate_slot

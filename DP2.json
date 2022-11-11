@@ -1,0 +1,17 @@
+{
+    "total_questions": 2,
+    "s_dp2_q2": { 
+        "solution": "have played",
+        "points": 5,
+        "question": 1
+    }, 
+    "s_dp2_q3": { 
+        "solution": "have bought",
+        "points": 5,
+        "question": 2
+    },
+    "s_dp2_q5": { 
+        "entities": ["She", "lived", "since","brunswick", "Braunschweig"],
+        "quantity": 4
+    }
+}
