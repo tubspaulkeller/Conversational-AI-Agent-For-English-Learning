@@ -159,11 +159,12 @@ responses:
     text: "Bevor wir anfangen, lass uns noch ein Lernziel für diese Grundlagen-Lektion festlegen, damit wir zusammen auf etwas hinarbeitne können 😊 Welches der aufgeführten Ziele motiviert dich am meisten? 🤔"
 
   utter_ask_s_dp3_v_q2:
-    - buttons:
+  - buttons:
     - payload: /i_dp3_v_q2{{"e_dp3_v_q2":"affirm"}}
       title: Festlegen
     - payload: /i_dp3_v_q2{{"e_dp3_v_q2":"deny"}}
       title: Neu festlegen
+    text: ""
   
   utter_ask_s_dp3_v_q3:
   - buttons:
@@ -217,7 +218,7 @@ responses:
       title: Festlegen
     - payload: /i_dp3_g_q2{{"e_dp3_g_q2":"deny"}}
       title: Neu festlegen
-    
+    text: ""
   utter_ask_s_dp3_g_q3:
   - buttons:
     - payload: /i_dp3_g_q3{"e_dp3_g_q3":"play"}}
