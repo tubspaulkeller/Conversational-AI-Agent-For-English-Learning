@@ -259,6 +259,9 @@ responses:
 actions:
   - validate_dp3_form
   - action_dp3_finish
+  - action_ask_s_dp3_q3
+  - validate_dp3_form_voc
+  - validate_dp3_form_gram
 
 forms:
   dp3_form:

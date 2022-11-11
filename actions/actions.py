@@ -532,3 +532,58 @@ class ValidateDP5Form(FormValidationAction):
         return validate_slot
 
     validate_s_dp5_q1 = validate_dp5(name_of_slot="s_dp5_q1")
+
+############################################################################################################
+##### DP3 voc #####
+############################################################################################################
+
+
+class ValidateDP3VOCForm(FormValidationAction):
+
+    def name(self) -> Text:
+        # Unique identifier of the form"
+        return "validate_dp3_form_voc"
+
+    def validate_dp3voc(name_of_slot):
+
+        def validate_slot(
+            self,
+            value: Text,
+            dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any],
+        ) -> Dict[Text, Any]:
+            print("val", value)
+            return {name_of_slot: None}
+
+        return validate_slot
+
+    validate_s_dp3_v_q1 = validate_dp3voc(name_of_slot="s_dp3_v_q1")
+
+
+############################################################################################################
+##### DP3 gram #####
+############################################################################################################
+
+
+class ValidateDP3GRAMForm(FormValidationAction):
+
+    def name(self) -> Text:
+        # Unique identifier of the form"
+        return "validate_dp3_form_gram"
+
+    def validate_dp3gram(name_of_slot):
+
+        def validate_slot(
+            self,
+            value: Text,
+            dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any],
+        ) -> Dict[Text, Any]:
+            print("val", value)
+            return {name_of_slot: None}
+
+        return validate_slot
+
+    validate_s_dp3_g_q1 = validate_dp3gram(name_of_slot="s_dp3_g_q1")
