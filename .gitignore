@@ -131,3 +131,4 @@ dmypy.json
 # Rasa 
 .DS_Store 
 *.tar.gz
+*.rasa
