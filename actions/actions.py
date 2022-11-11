@@ -265,8 +265,7 @@ class ValidateDP2Form(FormValidationAction):
         usertext = tracker.latest_message['text']
         # first letter of the word is capitalized
         usertext = usertext[0].upper() + usertext[1:]
-        utter_wrong = "Das war leider nicht richtig. Versuche dir die Bildung durch 'have/has' + 'dritte From des Verbs' vor Auge zu führen. Damit sollte es die erfahrungsgemäß am einfachsten gelingen, das Present Perfect zu erkennen 👌"
-        if not valid_grammar(usertext, dispatcher, utter_wrong):
+        if not valid_grammar(usertext, dispatcher):
             return {name_of_slot: None}
         else:
             dispatcher.utter_message(response="utter_correct_answer_qn")
@@ -415,16 +414,16 @@ def check_entities(number_of_entities, entities_list, name_of_slot, entities, di
         return False
 
 
-def valid_grammar(usertext, dispatcher, utter_wrong):
+def valid_grammar(usertext, dispatcher):
     grammar_response = grammar_check(usertext)
     grammar_error, grammar_suggestion = grammar_validation(grammar_response)
-    if check_grammar_error(grammar_error, dispatcher, grammar_suggestion, utter_wrong):
+    if check_grammar_error(grammar_error, dispatcher, grammar_suggestion):
         return False
     else:
         return True
 
 
-def check_grammar_error(grammar_error, dispatcher, grammar_suggestion, utter_wrong):
+def check_grammar_error(grammar_error, dispatcher, grammar_suggestion):
     if grammar_error:
         dispatcher.utter_message(response="utter_grammar_error")
         dispatcher.utter_message(text=grammar_error)
@@ -434,8 +433,6 @@ def check_grammar_error(grammar_error, dispatcher, grammar_suggestion, utter_wro
                     text=f"{i}. suggestion: {val}")
                 if i == 4:
                     break
-
-        dispatcher.utter_message(text="%s" % utter_wrong)
         return True
     else:
         return False
@@ -494,8 +491,8 @@ class ValidateDP4Form(FormValidationAction):
             usertext = tracker.latest_message['text']
             # first letter of the word is capitalized
             usertext = usertext[0].upper() + usertext[1:]
-            utter_wrong = "Try it again!"
-            if not valid_grammar(usertext, dispatcher, utter_wrong):
+
+            if not valid_grammar(usertext, dispatcher):
                 return {name_of_slot: None}
             else:
                 dispatcher.utter_message(response="utter_correct_answer_qn")

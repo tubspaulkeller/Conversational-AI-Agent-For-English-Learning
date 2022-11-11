@@ -4,7 +4,11 @@
         "goal": {
             "abroad": "Das ist interessant! Ich würde daraus folgendes Lernziel formulieren: 'Ich möchte bis Ende des Jahres diese Level abgeschlossen haben, um gut vorbereitet in mein Auslandsssemester zu gehen.'",
             "grades": "Das ist interessant! Ich würde daraus folgendes Lernziel formulieren: 'Ich möchte bis Ende des Jahres diese Level abgeschlossen haben, um gute Noten zu bekommen.'"
-        },
-        "points": 5
+        }
+    },
+    "s_dp3_v_q1": {
+        "thema1": "Das folgende Ziel basiert auf erfolgreich erreichten Lernzielen von Kommilitonen und ist nach dem bewährten SMART-Konzept formuliert: 'Ich möchte meinen Englisch-Wortschatz bis Ende des Jahres um 2000 Wörter erweitern.'",
+        "thema2": "Das folgende Ziel basiert auf erfolgreich erreichten Lernzielen von Kommilitonen und ist nach dem bewährten SMART-Konzept formuliert: 'Ich möchte meine Englisch-Konversation bis Ende des Jahres um 20 Minuten pro Woche verbessern.'"
+
     }
 }
