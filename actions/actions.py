@@ -7,7 +7,7 @@ from rasa_sdk.events import UserUtteranceReverted, FollowupAction, AllSlotsReset
 import requests
 import json
 from fuzzywuzzy import process
-user_points = {
+user_score = {
     "points": 0,
     "stars": 0,
     "total_badges": 0,
@@ -26,7 +26,7 @@ class ActionRestart(Action):
         return "action_restart"
 
     def run(self, dispatcher, tracker, domain):
-        user_points.update({}.fromkeys(user_points, 0))
+        user_score.update({}.fromkeys(user_score, 0))
         dispatcher.utter_message(text="Ich habe neu gestartet. 🤖")
         return [AllSlotsReset(), Restarted()]
 
@@ -36,19 +36,19 @@ class ActionRestart(Action):
 # These methods are used by DP1 and DP2
 ############################################################################################################
 def getTries():
-    return user_points["tries"]
+    return user_score["tries"]
 
 
 def increaseTries():
-    user_points["tries"] += 1
+    user_score["tries"] += 1
 
 
 def resetTries():
-    user_points["tries"] = 0
+    user_score["tries"] = 0
 
 
 def resetUserPoints():
-    user_points.update({}.fromkeys(user_points, 0))
+    user_score.update({}.fromkeys(user_score, 0))
 
 ############################################################################################################
 ##### DP1 #####
@@ -61,20 +61,20 @@ class ValidateDP1Form(FormValidationAction):
         # Unique identifier of the form"
         return "validate_dp1_form"
 
-    def validate_general_quest(name_of_slot):
+    def validate_dp1(name_of_slot):
 
         def setPoints(points):
-            user_points["points"] += points
-            user_points["last_question_correct"] = 1
+            user_score["points"] += points
+            user_score["last_question_correct"] = 1
 
         def finishedDP1(dispatcher, learn_quest):
-            if (user_points["points"] == 0):
+            if (user_score["points"] == 0):
                 dispatcher.utter_message(
                     text="Damit hast du das Quiz abgeschlossen. 🎉")
             else:
                 dispatcher.utter_message(
-                    text="Damit hast du das Quiz mit insgesamt %s von 15 Punkten abgeschlossen. 🎉" % user_points["points"])
-                if user_points["not_first_attempt"] == 0:
+                    text="Damit hast du das Quiz mit insgesamt %s von 15 Punkten abgeschlossen. 🎉" % user_score["points"])
+                if user_score["not_first_attempt"] == 0:
                     dispatcher.utter_message(
                         text="Du hast alle Fragen im ersten Versuch richtig beantwortet. 🏆")
                     dispatcher.utter_message(
@@ -83,15 +83,15 @@ class ValidateDP1Form(FormValidationAction):
             resetUserPoints()
 
         def say_utter_n_question(dispatcher):
-            if user_points["points"] > 0 & user_points["tries"] == 0:
-                if user_points["last_question_correct"] == 1:
+            if user_score["points"] > 0 & user_score["tries"] == 0:
+                if user_score["last_question_correct"] == 1:
                     dispatcher.utter_message(
                         response="utter_dp1_correct_n_first_approach")
                 else:
                     dispatcher.utter_message(
                         response="utter_dp1_another_correct_answer")
 
-            elif user_points["points"] > 0 & user_points["tries"] > 0:
+            elif user_score["points"] > 0 & user_score["tries"] > 0:
                 dispatcher.utter_message(
                     response="utter_dp1_correct_n_second_approach")
             else:
@@ -99,11 +99,11 @@ class ValidateDP1Form(FormValidationAction):
                     response="utter_dp1_first_correct_answer")
 
         def say_utter_last_question(dispatcher):
-            if user_points["last_question_correct"] == 1:
+            if user_score["last_question_correct"] == 1:
                 dispatcher.utter_message(
                     response="utter_dp1_correct_n_first_approach")
 
-            elif user_points["points"] > 0:
+            elif user_score["points"] > 0:
                 dispatcher.utter_message(
                     response="utter_dp1_another_correct_answer")
             else:
@@ -119,7 +119,7 @@ class ValidateDP1Form(FormValidationAction):
         ) -> Dict[Text, Any]:
             print("val", value)
 
-            with open("lernquiz.json", "r") as jsonFile:
+            with open("DP1.json", "r") as jsonFile:
                 learn_quest = json.load(jsonFile)
 
             solution = learn_quest[name_of_slot]["solution"]
@@ -127,7 +127,7 @@ class ValidateDP1Form(FormValidationAction):
             # Users answer is correct
             if solution.lower() == value.lower():
                 # 1. Frage, direkt richtig
-                if learn_quest[name_of_slot]["question"] == 1 & user_points["tries"] == 0:
+                if learn_quest[name_of_slot]["question"] == 1 & user_score["tries"] == 0:
                     dispatcher.utter_message(
                         response="utter_dp1_correct_1_first_approach")
 
@@ -141,7 +141,7 @@ class ValidateDP1Form(FormValidationAction):
 
                 setPoints(learn_quest[name_of_slot]["points"])
                 # check letzte Frage und gibt Gesamtpunkte aus
-                print("user_points", user_points)
+                print("user_score", user_score)
                 if learn_quest[name_of_slot]["question"] == learn_quest["total_questions"]:
                     finishedDP1(dispatcher, learn_quest)
                 else:
@@ -150,30 +150,30 @@ class ValidateDP1Form(FormValidationAction):
 
             # Users answer is wrong
             elif getTries() < 1:  # User hat einen weiteren Versuch
-                user_points["not_first_attempt"] = 1
+                user_score["not_first_attempt"] = 1
                 print("tries", getTries())
                 dispatcher.utter_message(response="utter_dp1_wrong")
                 increaseTries()
-                print("user_points", user_points)
+                print("user_score", user_score)
                 return {name_of_slot: None}
 
             # User has no more tries
             else:
-                user_points["last_question_correct"] = 0
+                user_score["last_question_correct"] = 0
                 dispatcher.utter_message(
                     text='Schade, leider ist die Lösung: %s' % solution)
                 if learn_quest[name_of_slot]["question"] == learn_quest["total_questions"]:
                     finishedDP1(dispatcher, learn_quest)
                 else:
                     resetTries()
-                print("user_points", user_points)
-                return {name_of_slot: solution}
+                print("user_score", user_score)
+                return {name_of_slot: False}
 
         return validate_slot
 
-    validate_s_dp1_q1 = validate_general_quest(name_of_slot="s_dp1_q1")
-    validate_s_dp1_q2 = validate_general_quest(name_of_slot="s_dp1_q2")
-    validate_s_dp1_q3 = validate_general_quest(name_of_slot="s_dp1_q3")
+    validate_s_dp1_q1 = validate_dp1(name_of_slot="s_dp1_q1")
+    validate_s_dp1_q2 = validate_dp1(name_of_slot="s_dp1_q2")
+    validate_s_dp1_q3 = validate_dp1(name_of_slot="s_dp1_q3")
 
 
 ############################################################################################################
@@ -272,7 +272,7 @@ class ValidateDP2Form(FormValidationAction):
             dispatcher.utter_message(response="utter_correct_answer_qn")
             return {name_of_slot: True}
 
-    def validate_general_quest(name_of_slot):
+    def validate_dp2(name_of_slot):
         def validate_slot(
             self,
             value: Text,
@@ -291,14 +291,14 @@ class ValidateDP2Form(FormValidationAction):
                 if dp2[name_of_slot]["question"] == 1:
                     dispatcher.utter_message(
                         response="utter_correct_answer_q1")
-                elif user_points["last_question_correct"] == 1:
+                elif user_score["last_question_correct"] == 1:
                     dispatcher.utter_message(
                         response="utter_another_correct_answer")
                 else:
                     dispatcher.utter_message(
                         response="utter_correct_answer_qn")
                 resetTries()
-                user_points["last_question_correct"] = 1
+                user_score["last_question_correct"] = 1
                 if dp2[name_of_slot]["question"] == dp2["total_questions"]:
                     resetUserPoints()
                 return {name_of_slot: value}
@@ -312,13 +312,13 @@ class ValidateDP2Form(FormValidationAction):
                     text='Schade, leider ist die Lösung: %s' % solution)
                 if dp2[name_of_slot]["question"] == dp2["total_questions"]:
                     resetUserPoints()
-                return {name_of_slot: solution}
+                return {name_of_slot: False}
             return {name_of_slot: None}
 
         return validate_slot
 
-    validate_s_dp2_q2 = validate_general_quest(name_of_slot="s_dp2_q2")
-    validate_s_dp2_q3 = validate_general_quest(name_of_slot="s_dp2_q3")
+    validate_s_dp2_q2 = validate_dp2(name_of_slot="s_dp2_q2")
+    validate_s_dp2_q3 = validate_dp2(name_of_slot="s_dp2_q3")
 
 
 ############################################################################################################
@@ -331,7 +331,7 @@ class ValidateDP3Form(FormValidationAction):
         # Unique identifier of the form"
         return "validate_dp3_form"
 
-    def validate_general_quest(name_of_slot):
+    def validate_dp3(name_of_slot):
 
         def validate_slot(
             self,
@@ -345,7 +345,7 @@ class ValidateDP3Form(FormValidationAction):
 
         return validate_slot
 
-    validate_s_dp3_q1 = validate_general_quest(name_of_slot="s_dp3_q1")
+    validate_s_dp3_q1 = validate_dp3(name_of_slot="s_dp3_q1")
 
 
 ############################################################################################################
@@ -452,7 +452,7 @@ class ValidateDP4Form(FormValidationAction):
         # Unique identifier of the form"
         return "validate_dp4_form"
 
-    def validate_general_quest(name_of_slot):
+    def validate_dp4(name_of_slot):
 
         def translate_to_german(grammar_error):
 
@@ -485,7 +485,7 @@ class ValidateDP4Form(FormValidationAction):
             print("Debug", entities, number_of_entities)
 
             # check entities
-            entities_list = json.load(open('spielgeschichte.json'))
+            entities_list = json.load(open('DP4.json'))
 
             if check_entities(number_of_entities, entities_list, name_of_slot, entities, dispatcher):
                 return {name_of_slot: None}
@@ -503,11 +503,11 @@ class ValidateDP4Form(FormValidationAction):
 
         return validate_slot
 
-    validate_s_dp4_q1 = validate_general_quest(name_of_slot="s_dp4_q1")
-    validate_s_dp4_q2 = validate_general_quest(name_of_slot="s_dp4_q2")
-    validate_s_dp4_q3 = validate_general_quest(name_of_slot="s_dp4_q3")
-    validate_s_dp4_q4 = validate_general_quest(name_of_slot="s_dp4_q4")
-    validate_s_dp4_q5 = validate_general_quest(name_of_slot="s_dp4_q5")
+    validate_s_dp4_q1 = validate_dp4(name_of_slot="s_dp4_q1")
+    validate_s_dp4_q2 = validate_dp4(name_of_slot="s_dp4_q2")
+    validate_s_dp4_q3 = validate_dp4(name_of_slot="s_dp4_q3")
+    validate_s_dp4_q4 = validate_dp4(name_of_slot="s_dp4_q4")
+    validate_s_dp4_q5 = validate_dp4(name_of_slot="s_dp4_q5")
 
 ############################################################################################################
 ##### DP5 #####
@@ -520,7 +520,7 @@ class ValidateDP5Form(FormValidationAction):
         # Unique identifier of the form"
         return "validate_dp5_form"
 
-    def validate_general_quest(name_of_slot):
+    def validate_dp5(name_of_slot):
 
         def validate_slot(
             self,
@@ -534,4 +534,4 @@ class ValidateDP5Form(FormValidationAction):
 
         return validate_slot
 
-    validate_s_dp5_q1 = validate_general_quest(name_of_slot="s_dp5_q1")
+    validate_s_dp5_q1 = validate_dp5(name_of_slot="s_dp5_q1")
