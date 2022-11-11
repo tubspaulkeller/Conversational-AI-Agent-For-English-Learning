@@ -10,18 +10,37 @@ intents:
       use_entities: e_dp3_v_q1
   - i_dp3_v_q2:
       use_entities: e_dp3_v_q2
+  - i_dp3_v_q3:
+      use_entities: e_dp3_v_q3
+  - i_dp3_v_q4:
+      use_entities: e_dp3_v_q4
+  - i_dp3_v_q5:
+      use_entities: e_dp3_v_q5
   - i_dp3_g_q1:
       use_entities: e_dp3_g_q1
   - i_dp3_g_q2:
       use_entities: e_dp3_g_q2
+  - i_dp3_g_q3:
+      use_entities: e_dp3_g_q3
+  - i_dp3_g_q4:
+      use_entities: e_dp3_g_q4
+  - i_dp3_g_q5:
+      use_entities: e_dp3_g_q5
+
 entities:
 - e_dp3_q1
 - e_dp3_q2
 - e_dp3_q3
 - e_dp3_v_q1
 - e_dp3_v_q2
+- e_dp3_v_q3
+- e_dp3_v_q4
+- e_dp3_v_q5
 - e_dp3_g_q1
 - e_dp3_g_q2
+- e_dp3_g_q3
+- e_dp3_g_q4
+- e_dp3_g_q5
 
 slots:
   s_dp3_q1:
@@ -54,6 +73,24 @@ slots:
     - type: from_entity
       entity: e_dp3_v_q2
 
+  s_dp3_v_q3:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp3_v_q3
+
+  s_dp3_v_q4:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp3_v_q4
+  
+  s_dp3_v_q5:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp3_v_q5
+
   s_dp3_g_q1:
     type: text
     mappings:
@@ -65,6 +102,24 @@ slots:
     mappings:
     - type: from_entity
       entity: e_dp3_g_q2
+
+  s_dp3_g_q3:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp3_g_q3 
+
+  s_dp3_g_q4:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp3_g_q4 
+
+  s_dp3_g_q5:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp3_g_q5
 
 responses:
   utter_ask_s_dp3_q1:
@@ -109,6 +164,44 @@ responses:
       title: Festlegen
     - payload: /i_dp3_v_q2{{"e_dp3_v_q2":"deny"}}
       title: Neu festlegen
+  
+  utter_ask_s_dp3_v_q3:
+  - buttons:
+    - payload: /i_dp3_v_q3{"e_dp3_v_q3":"play"}}
+      title: Play
+
+    - payload: /i_dp3_v_q3{{"e_dp3_v_q3":"wrote"}}
+      title: Wrote
+
+    - payload: /i_dp3_v_q3{{"e_dp3_v_q3":"eat"}}
+      title: Eat
+
+    - payload: /i_dp3_v_q3{{"e_dp3_v_q3":"drink"}}
+      title: Drink
+    text: Welches der folgenden Wörter ist eine Simple Past-Form?
+
+  
+  utter_ask_s_dp3_v_q4:
+  - buttons:
+    - payload: /i_dp3_v_q4{{"e_dp3_v_q4":"affirm"}}
+      title: Ja
+
+    - payload: /i_dp3_v_q4{{"e_dp3_v_q4":"deny"}}
+      title: Nein
+    text: Bist du zufrieden mit deiner bisherigen Leistung?
+
+  utter_ask_s_dp3_v_q5:
+  - buttons:
+    - payload: /i_dp3_v_q5{{"e_dp3_v_q5":"shorter_learntime"}}
+      title: Lernzeit verkürzen
+
+    - payload: /i_dp3_v_q5{{"e_dp3_v_q5":"longer_learntime"}}
+      title: Lernzeit verlängern
+
+    - payload: /i_dp3_v_q5{{"e_dp3_v_q5":"deny"}}
+      title: Alles perfekt
+    text: Gibt es etwas in deinem Lernprozess, was dich stört oder was du anpassen möchtest?
+
 
   utter_ask_s_dp3_g_q1:
   - buttons:
@@ -116,17 +209,51 @@ responses:
       title: Thema1
     - payload: /i_dp3_g_q1{{"e_dp3_g_q1":"thema2"}}
       title: Thema2
-    text: "Bevor wir anfangen, lass uns noch ein Lernziel für diese Grundlagen-Lektion festlegen, damit wir zusammen auf etwas hinarbeitne können 😊 Welches der aufgeführten Ziele motiviert dich am meisten? 🤔"
+    text: "Bevor wir anfangen, lass uns noch ein Lernziel für diese Grundlagen-Lektion festlegen, damit wir zusammen auf etwas hinarbeiten können 😊 Welches der aufgeführten Ziele motiviert dich am meisten? 🤔"
 
-  utter_ask_s_dp3_v_q2:
-    - buttons:
-      - payload: /i_dp3_g_q2{{"e_dp3_g_q2":"affirm"}}
-        title: Festlegen
-      - payload: /i_dp3_g_q2{{"e_dp3_g_q2":"deny"}}
-        title: Neu festlegen
+  utter_ask_s_dp3_g_q2:
+  - buttons:
+    - payload: /i_dp3_g_q2{{"e_dp3_g_q2":"affirm"}}
+      title: Festlegen
+    - payload: /i_dp3_g_q2{{"e_dp3_g_q2":"deny"}}
+      title: Neu festlegen
+    
+  utter_ask_s_dp3_g_q3:
+  - buttons:
+    - payload: /i_dp3_g_q3{"e_dp3_g_q3":"play"}}
+      title: Play
 
+    - payload: /i_dp3_g_q3{{"e_dp3_g_q3":"wrote"}}
+      title: Wrote
 
+    - payload: /i_dp3_g_q3{{"e_dp3_g_q3":"eat"}}
+      title: Eat
 
+    - payload: /i_dp3_g_q3{{"e_dp3_g_q3":"drink"}}
+      title: Drink
+    text: Welches der folgenden Wörter ist eine Simple Past-Form?
+
+  
+  utter_ask_s_dp3_g_q4:
+  - buttons:
+    - payload: /i_dp3_g_q4{{"e_dp3_g_q4":"affirm"}}
+      title: Ja
+
+    - payload: /i_dp3_g_q4{{"e_dp3_g_q4":"deny"}}
+      title: Nein
+    text: Bist du zufrieden mit deiner bisherigen Leistung?
+
+  utter_ask_s_dp3_g_q5:
+  - buttons:
+    - payload: /i_dp3_g_q5{{"e_dp3_g_q5":"shorter_learntime"}}
+      title: Lernzeit verkürzen
+
+    - payload: /i_dp3_g_q5{{"e_dp3_g_q5":"longer_learntime"}}
+      title: Lernzeit verlängern
+
+    - payload: /i_dp3_g_q5{{"e_dp3_g_q5":"deny"}}
+      title: Alles perfekt
+    text: Gibt es etwas in deinem Lernprozess, was dich stört oder was du anpassen möchtest?
 
 actions:
   - validate_dp3_form
@@ -143,10 +270,16 @@ forms:
     required_slots:
     - s_dp3_v_q1
     - s_dp3_v_q2
+    - s_dp3_v_q3
+    - s_dp3_v_q4
+    - s_dp3_v_q5
 
   dp3_form_gram:
     required_slots:
     - s_dp3_g_q1
     - s_dp3_g_q2
+    - s_dp3_g_q3
+    - s_dp3_g_q4
+    - s_dp3_g_q5
 
 
