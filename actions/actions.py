@@ -195,6 +195,7 @@ class ValidateDP2Form(FormValidationAction):
         domain: "DomainDict",
     ) -> List[Text]:
         updated_slots = domain_slots.copy()
+
         if tracker.slots.get("s_dp2_q4") == 'no':
             # If the user dont want more information, we dont need to ask
             # there we will skip next slot
@@ -330,8 +331,21 @@ class ValidateDP3Form(FormValidationAction):
         # Unique identifier of the form"
         return "validate_dp3_form"
 
-    def validate_dp3(name_of_slot):
+    def validate_s_dp3_q1(self, slot_value: Any, dispatcher: CollectingDispatcher, tracker: Tracker, domain: "DomainDict") -> Dict[Text, Any]:
+        value = slot_value
+        dp3 = json.load(open('DP3.json'))
+        dispatcher.utter_message(
+            text="Das klingt interessant! Ich würde daraus folgendes Lernziel forumlieren: %s" % dp3["s_dp3_q1"]["goal"][value])
+        return {"s_dp3_q1": value}
 
+    def validate_s_dp3_q2(self, slot_value: Any, dispatcher: CollectingDispatcher, tracker: Tracker, domain: "DomainDict") -> Dict[Text, Any]:
+        if slot_value == "affirm":
+            dispatcher.utter_message(response="utter_affirm_learn_goal")
+            return {"s_dp3_q2": "affirm"}
+        elif slot_value == "deny":
+            return {"s_dp3_q2": "deny"}
+
+    def validate_dp3(name_of_slot):
         def validate_slot(
             self,
             value: Text,
@@ -339,12 +353,11 @@ class ValidateDP3Form(FormValidationAction):
             tracker: Tracker,
             domain: Dict[Text, Any],
         ) -> Dict[Text, Any]:
-            print("val", value)
-            return {name_of_slot: None}
-
+            return {name_of_slot: value}
         return validate_slot
 
-    validate_s_dp3_q1 = validate_dp3(name_of_slot="s_dp3_q1")
+    validate_s_dp3_q3 = validate_dp3(name_of_slot="s_dp3_q3")
+    validate_s_dp3_q4 = validate_dp3(name_of_slot="s_dp3_q4")
 
 
 ############################################################################################################
@@ -532,3 +545,227 @@ class ValidateDP5Form(FormValidationAction):
         return validate_slot
 
     validate_s_dp5_q1 = validate_dp5(name_of_slot="s_dp5_q1")
+
+############################################################################################################
+##### DP3 voc #####
+############################################################################################################
+
+
+def check_answer(name_of_slot, value, dispatcher):
+    dp3 = json.load(open('DP3.json'))
+    if (dp3[name_of_slot]["solution"] == value):
+        dispatcher.utter_message(text="Richtig!")
+        return {name_of_slot: value}
+    else:
+        dispatcher.utter_message(
+            text="Leider falsch. Versuche es noch einmal.")
+        return {name_of_slot: None}
+
+
+def define_learn_goal(slot_value, value, dispatcher):
+    dp3 = json.load(open('DP3.json'))
+    dispatcher.utter_message(
+        text="Ich würde daraus folgendes Lernziel forumlieren: %s" % dp3[slot_value][value])
+
+
+class ValidateDP3VOCForm(FormValidationAction):
+
+    def name(self) -> Text:
+        # Unique identifier of the form"
+        return "validate_dp3_form_voc"
+
+    async def required_slots(
+        self,
+        domain_slots: List[Text],
+        dispatcher: "CollectingDispatcher",
+        tracker: "Tracker",
+        domain: "DomainDict",
+    ) -> List[Text]:
+        updated_slots = domain_slots.copy()
+
+        if tracker.slots.get("s_dp3_v_q5") == 'deny':
+            # If the user dont want more information, we dont need to ask
+            # there we will skip next slot
+            updated_slots.remove("s_dp3_v_q6")
+        return updated_slots
+
+    def validate_s_dp3_v_q1(
+        self,
+        value: Text,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> Dict[Text, Any]:
+
+        define_learn_goal("s_dp3_v_q1", value, dispatcher)
+        return {"s_dp3_v_q1": value}
+
+    def validate_s_dp3_v_q2(
+        self,
+        value: Text,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> Dict[Text, Any]:
+        return {"s_dp3_v_q2": value}
+
+    def validate_s_dp3_v_q4(self,
+                            value: Text,
+                            dispatcher: CollectingDispatcher,
+                            tracker: Tracker,
+                            domain: Dict[Text, Any],
+                            ) -> Dict[Text, Any]:
+        if value == "deny":
+            dispatcher.utter_message(
+                text="Okay, vielleicht liegt es an unserem Lernprozess.")
+        elif value == "affirm":
+            dispatcher.utter_message(text="Das freut mich zu hören!")
+        return {"s_dp3_v_q4": value}
+
+    def validate_s_dp3_v_q5(self,
+                            value: Text,
+                            dispatcher: CollectingDispatcher,
+                            tracker: Tracker,
+                            domain: Dict[Text, Any],
+                            ) -> Dict[Text, Any]:
+        if value == "shorter_learntime":
+            dispatcher.utter_message(
+                text="Oh, ich verstehe. Was hälst du davon, wenn wir das Vokabelquiz von 50 auf 35 Fragen verkürzen? So könntest du dein Ziel von 2000 neuen Wörter bis zum Ende des Jahres trotzdem noch erreichen.")
+        elif value == "longer_learntime":
+            dispatcher.utter_message(
+                text="Cool, dann erhöhren wir das Vokabelquiz von 50 auf 60 Fragen. So kannst du dein Ziel von 2000 neuen Wörtern bis zum Ende des Jahres sogar übertreffen!")
+        return {"s_dp3_v_q5": value}
+
+    def validate_s_dp3_v_q6(
+        self,
+        value: Text,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> Dict[Text, Any]:
+        return {"s_dp3_v_q6": value}
+
+    def validate_s_dp3_v_q7(
+        self,
+        value: Text,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> Dict[Text, Any]:
+        return {"s_dp3_v_q7": value}
+
+    def validate_dp3voc(name_of_slot):
+        def validate_slot(
+            self,
+            value: Text,
+            dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any],
+        ) -> Dict[Text, Any]:
+            return check_answer(name_of_slot, value, dispatcher)
+        return validate_slot
+
+    validate_s_dp3_v_q3 = validate_dp3voc(name_of_slot="s_dp3_v_q3")
+
+
+############################################################################################################
+##### DP3 gram #####
+############################################################################################################
+
+
+class ValidateDP3GRAMForm(FormValidationAction):
+
+    def name(self) -> Text:
+        # Unique identifier of the form"
+        return "validate_dp3_form_gram"
+
+    async def required_slots(
+        self,
+        domain_slots: List[Text],
+        dispatcher: "CollectingDispatcher",
+        tracker: "Tracker",
+        domain: "DomainDict",
+    ) -> List[Text]:
+        updated_slots = domain_slots.copy()
+        if tracker.slots.get("s_dp3_g_q5") == 'deny':
+            updated_slots.remove("s_dp3_g_q6")
+        return updated_slots
+
+    def validate_s_dp3_g_q1(
+        self,
+        value: Text,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> Dict[Text, Any]:
+        define_learn_goal("s_dp3_g_q1", value, dispatcher)
+        return {"s_dp3_g_q1": value}
+
+    def validate_s_dp3_g_q2(
+        self,
+        value: Text,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> Dict[Text, Any]:
+        return {"s_dp3_g_q2": value}
+
+    def validate_s_dp3_g_q4(self,
+                            value: Text,
+                            dispatcher: CollectingDispatcher,
+                            tracker: Tracker,
+                            domain: Dict[Text, Any],
+                            ) -> Dict[Text, Any]:
+        if value == "deny":
+            dispatcher.utter_message(
+                text="Okay, vielleicht liegt es an unserem Lernprozess.")
+        elif value == "affirm":
+            dispatcher.utter_message(text="Das freut mich zu hören!")
+        return {"s_dp3_g_q4": value}
+
+    def validate_s_dp3_g_q5(self,
+                            value: Text,
+                            dispatcher: CollectingDispatcher,
+                            tracker: Tracker,
+                            domain: Dict[Text, Any],
+                            ) -> Dict[Text, Any]:
+        if value == "shorter_learntime":
+            dispatcher.utter_message(
+                text="Oh, ich verstehe. Was hälst du davon, wenn wir das Grammatikquiz von 50 auf 35 Fragen verkürzen? So könntest du dein Ziel von zwei Zeitformen bis zum Ende des Jahres trotzdem noch erreichen.")
+        elif value == "longer_learntime":
+            dispatcher.utter_message(
+                text="Cool, dann erhöhren wir das Grammatikquiz von 50 auf 60 Fragen. So kannst du dein Ziel von zwei Zeitformen bis zum Ende des Jahres sogar übertreffen!")
+        return {"s_dp3_g_q5": value}
+
+    def validate_s_dp3_g_q6(
+        self,
+        value: Text,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> Dict[Text, Any]:
+        return {"s_dp3_g_q6": value}
+
+    def validate_s_dp3_g_q7(
+        self,
+        value: Text,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> Dict[Text, Any]:
+        return {"s_dp3_g_q7": value}
+
+    def validate_dp3gram(name_of_slot):
+
+        def validate_slot(
+            self,
+            value: Text,
+            dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any],
+        ) -> Dict[Text, Any]:
+            return check_answer(name_of_slot, value, dispatcher)
+
+        return validate_slot
+
+    validate_s_dp3_g_q3 = validate_dp3gram(name_of_slot="s_dp3_g_q3")
