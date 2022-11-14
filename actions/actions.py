@@ -33,7 +33,7 @@ class ActionRestart(Action):
 
 ############################################################################################################
 ##### Methods for user_scoring #####
-# These methods are used by DP1 and DP2
+# These methods are used by DP1, DP2 and DP3
 ############################################################################################################
 def getTries():
     return user_score["tries"]
@@ -49,6 +49,86 @@ def resetTries():
 
 def resetUserPoints():
     user_score.update({}.fromkeys(user_score, 0))
+
+##### methods for scoring #####
+
+
+def evaluate_users_answer(solution, dp_n, name_of_slot, value, dispatcher):
+
+    if solution.lower() == value.lower():
+        evaluate_scoring(dp_n, name_of_slot, dispatcher)
+        return {name_of_slot: value}
+    # Users answer is wrong
+    elif getTries() < 1:  # User hat einen weiteren Versuch
+        return evaluate_tries_of_user(dp_n, name_of_slot, dispatcher)
+
+    # say solution
+    else:
+        return give_solution(dp_n, name_of_slot, dispatcher, solution)
+
+
+def evaluate_scoring(dp_n, name_of_slot):
+    # user got first question correct
+    if dp_n[name_of_slot]["question"] == 1 & user_score["tries"] == 0:
+        first_quest_correct(dispatcher)
+    # user got nte question correct
+    if dp_n[name_of_slot]["question"] < dp_n["total_questions"]:
+
+        # user hat die Fragen weiterhin im ersten richtig Versuch beantwortet
+
+        # user hat die vorherige Frage nicht im ersten richtig Versuch beantwortet, diese aber schon
+
+        # user hat diese Frage nicht im ersten Versuch richtig beantwortet, aber hat schon Punkte erzielt
+
+        # dies ist die aller erste Frage, die der User richtig beantwortet
+
+        # user hat die aller letzte Frage richtig beantwortet
+    if dp_n[name_of_slot]["question"] == dp_n["total_questions"]:
+        # user hat die Fragen weiterhin im ersten richtig Versuch beantwortet
+
+        # user hat schon vorherige Punkte erzielt
+
+        # user hat die letzte Frage als einziges richtig beantwortet
+
+
+def evaluate_tries_of_user(name_of_slot, dispatcher):
+    user_score["not_first_attempt"] = 1
+    dispatcher.utter_message(response="utter_dp1_wrong")
+    increaseTries()
+    print("user_score", user_score)
+    return {name_of_slot: None}
+
+
+def give_solution(dp_n, name_of_slot, dispatcher, solution):
+    user_score["last_question_correct"] = 0
+    dispatcher.utter_message(
+        text='Schade, leider ist die Lösung: %s' % solution)
+    if dp_n[name_of_slot]["question"] == dp_n["total_questions"]:
+        finish_quiz(dispatcher, dp_n)
+    else:
+        resetTries()
+    print("user_score", user_score)
+    return {name_of_slot: False}
+
+
+def first_quest_correct(dispatcher):
+    dispatcher.utter_message(response="utter_first_quest_correct")
+
+
+def finish_quiz(dispatcher, dp_n):
+    if (user_score["points"] == 0):
+        dispatcher.utter_message(
+            text="Damit hast du das Quiz abgeschlossen. 🎉")
+    else:
+        dispatcher.utter_message(
+            text="Damit hast du das Quiz mit insgesamt %s von 15 Punkten abgeschlossen. 🎉" % user_score["points"])
+        if user_score["not_first_attempt"] == 0:
+            dispatcher.utter_message(
+                text="Du hast alle Fragen im ersten Versuch richtig beantwortet. 🏆")
+            dispatcher.utter_message(
+                image=learn_quest["badge_naturtalent"])
+
+            resetUserPoints()
 
 ############################################################################################################
 ##### DP1 #####
@@ -84,16 +164,19 @@ class ValidateDP1Form(FormValidationAction):
 
         def say_utter_n_question(dispatcher):
             if user_score["points"] > 0 & user_score["tries"] == 0:
+                # user hat die Fragen weiterhin im ersten Versuch richtig beantwortet
                 if user_score["last_question_correct"] == 1:
                     dispatcher.utter_message(
                         response="utter_dp1_correct_n_first_approach")
                 else:
+                    # user hat die vorherige Frage nicht im ersten Versuch richtig beantwortet, diese aber schon
                     dispatcher.utter_message(
                         response="utter_dp1_another_correct_answer")
-
+             # user hat diese Frage nicht im ersten Versuch richtig beantwortet, aber hat schon Punkte erzielt
             elif user_score["points"] > 0 & user_score["tries"] > 0:
                 dispatcher.utter_message(
                     response="utter_dp1_correct_n_second_approach")
+            # dies ist die aller erste Frage, die der User richtig beantwortet
             else:
                 dispatcher.utter_message(
                     response="utter_dp1_first_correct_answer")
@@ -123,9 +206,13 @@ class ValidateDP1Form(FormValidationAction):
                 learn_quest = json.load(jsonFile)
 
             solution = learn_quest[name_of_slot]["solution"]
+            # scoring(solution, learn_quest, name_of_slot, value, dispatcher)
 
             # Users answer is correct
             if solution.lower() == value.lower():
+
+                # evaluate_users_answer(learn_quest, name_of_slot, value, dispatcher)
+
                 # 1. Frage, direkt richtig
                 if learn_quest[name_of_slot]["question"] == 1 & user_score["tries"] == 0:
                     dispatcher.utter_message(
