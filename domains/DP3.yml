@@ -16,6 +16,8 @@ intents:
       use_entities: e_dp3_v_q4
   - i_dp3_v_q5:
       use_entities: e_dp3_v_q5
+  - i_dp3_v_q6:
+      use_entities: e_dp3_v_q6
   - i_dp3_g_q1:
       use_entities: e_dp3_g_q1
   - i_dp3_g_q2:
@@ -26,6 +28,8 @@ intents:
       use_entities: e_dp3_g_q4
   - i_dp3_g_q5:
       use_entities: e_dp3_g_q5
+  - i_dp3_g_q6:
+      use_entities: e_dp3_g_q6
 
 entities:
 - e_dp3_q1
@@ -36,11 +40,13 @@ entities:
 - e_dp3_v_q3
 - e_dp3_v_q4
 - e_dp3_v_q5
+- e_dp3_v_q6
 - e_dp3_g_q1
 - e_dp3_g_q2
 - e_dp3_g_q3
 - e_dp3_g_q4
 - e_dp3_g_q5
+- e_dp3_g_q6
 
 slots:
   s_dp3_q1:
@@ -61,6 +67,11 @@ slots:
     - type: from_entity
       entity: e_dp3_q3
   
+  s_dp3_q4:
+    type: text
+    mappings:
+    - type: custom
+     
   s_dp3_v_q1:
     type: text
     mappings:
@@ -91,6 +102,17 @@ slots:
     - type: from_entity
       entity: e_dp3_v_q5
 
+  s_dp3_v_q6:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp3_v_q6
+
+  s_dp3_v_q7:
+    type: text
+    mappings:
+    - type: custom
+
   s_dp3_g_q1:
     type: text
     mappings:
@@ -120,6 +142,17 @@ slots:
     mappings:
     - type: from_entity
       entity: e_dp3_g_q5
+
+  s_dp3_g_q6:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp3_g_q6
+
+  s_dp3_g_q7:
+    type: text
+    mappings:
+    - type: custom
 
 responses:
   utter_ask_s_dp3_q1:
@@ -168,7 +201,7 @@ responses:
   
   utter_ask_s_dp3_v_q3:
   - buttons:
-    - payload: /i_dp3_v_q3{"e_dp3_v_q3":"play"}}
+    - payload: /i_dp3_v_q3{{"e_dp3_v_q3":"play"}}
       title: Play
 
     - payload: /i_dp3_v_q3{{"e_dp3_v_q3":"wrote"}}
@@ -202,6 +235,14 @@ responses:
     - payload: /i_dp3_v_q5{{"e_dp3_v_q5":"deny"}}
       title: Alles perfekt
     text: Gibt es etwas in deinem Lernprozess, was dich stört oder was du anpassen möchtest?
+  
+  utter_ask_s_dp3_v_q6:
+  - buttons:
+    - payload: /i_dp3_v_q6{{"e_dp3_v_q6":"affirm"}}
+      title: Ja
+    - payload: /i_dp3_v_q6{{"e_dp3_v_q6":"deny"}}
+      title: Nein
+    text: Bist du damit einverstanden? 
 
 
   utter_ask_s_dp3_g_q1:
@@ -221,7 +262,7 @@ responses:
     text: ""
   utter_ask_s_dp3_g_q3:
   - buttons:
-    - payload: /i_dp3_g_q3{"e_dp3_g_q3":"play"}}
+    - payload: /i_dp3_g_q3{{"e_dp3_g_q3":"play"}}
       title: Play
 
     - payload: /i_dp3_g_q3{{"e_dp3_g_q3":"wrote"}}
@@ -256,12 +297,26 @@ responses:
       title: Alles perfekt
     text: Gibt es etwas in deinem Lernprozess, was dich stört oder was du anpassen möchtest?
 
+  utter_ask_s_dp3_g_q6:
+  - buttons:
+    - payload: /i_dp3_g_q6{{"e_dp3_g_q6":"affirm"}}
+      title: Ja
+    - payload: /i_dp3_g_q6{{"e_dp3_g_q6":"deny"}}
+      title: Nein
+    text: Bist du damit einverstanden? 
+
 actions:
   - validate_dp3_form
   - action_dp3_finish
   - action_ask_s_dp3_q3
+  - action_ask_s_dp3_q4
   - validate_dp3_form_voc
+  - action_ask_s_dp3_v_q3
+  - action_ask_s_dp3_v_q7
   - validate_dp3_form_gram
+  - action_ask_s_dp3_g_q3
+  - action_ask_s_dp3_g_q7
+
 
 forms:
   dp3_form:
@@ -269,6 +324,7 @@ forms:
     - s_dp3_q1
     - s_dp3_q2
     - s_dp3_q3
+    - s_dp3_q4
 
   dp3_form_voc:
     required_slots:
@@ -277,6 +333,8 @@ forms:
     - s_dp3_v_q3
     - s_dp3_v_q4
     - s_dp3_v_q5
+    - s_dp3_v_q6
+    - s_dp3_v_q7
 
   dp3_form_gram:
     required_slots:
@@ -285,5 +343,7 @@ forms:
     - s_dp3_g_q3
     - s_dp3_g_q4
     - s_dp3_g_q5
+    - s_dp3_g_q6
+    - s_dp3_g_q7
 
 

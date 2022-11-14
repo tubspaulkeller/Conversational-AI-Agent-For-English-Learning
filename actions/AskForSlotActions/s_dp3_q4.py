@@ -7,13 +7,13 @@ from rasa_sdk.events import UserUtteranceReverted, FollowupAction, AllSlotsReset
 class AskForSlotAction(Action):
 
     def name(self) -> Text:
-        return "action_ask_s_dp3_q3"
+        return "action_ask_s_dp3_q4"
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker,
             domain: Dict) -> List[EventType]:
-        if tracker.slots.get("s_dp3_q2") == "deny":
-            dispatcher.utter_message(response="utter_ask_s_dp3_q1")
-            return [SlotSet("s_dp3_q1", None), SlotSet("s_dp3_q2", None)]
+
+        if tracker.slots.get("s_dp3_q3") == "vocabels":
+
+            return [FollowupAction("dp3_form_voc"), SlotSet("s_dp3_q4", "vocabel_form")]
         else:
-            dispatcher.utter_message(response="utter_ask_s_dp3_q3")
-        return []
+            return [FollowupAction("dp3_form_gram"), SlotSet("s_dp3_q4", "grammar_form")]
