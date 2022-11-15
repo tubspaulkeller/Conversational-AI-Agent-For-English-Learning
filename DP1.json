@@ -1,5 +1,6 @@
 {
     "total_questions": 3,
+    "badge_naturtalent": "https://res.cloudinary.com/dmnkxrxes/image/upload/v1667925124/Ben_Bot/Abzeichen_Naturtalent_evz2oo.png",
     "s_dp1_q1": { 
         "solution": "Sleep",
         "points": 5,

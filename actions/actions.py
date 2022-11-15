@@ -39,6 +39,11 @@ def getTries():
     return user_score["tries"]
 
 
+def setPoints(dp_n, points):
+    user_score["points"] += points
+    user_score["last_question_correct"] = 1
+
+
 def increaseTries():
     user_score["tries"] += 1
 
@@ -50,85 +55,172 @@ def resetTries():
 def resetUserPoints():
     user_score.update({}.fromkeys(user_score, 0))
 
-##### methods for scoring #####
+##### methods for evaluating users answer during quest #####
 
 
-def evaluate_users_answer(solution, dp_n, name_of_slot, value, dispatcher):
+def evaluate_users_answer(solution, dp_n, name_of_slot, value, dispatcher, slots):
 
     if solution.lower() == value.lower():
-        evaluate_scoring(dp_n, name_of_slot, dispatcher)
+        evaluate_scoring(dp_n, name_of_slot, dispatcher, slots)
+        setPoints(dp_n, dp_n[name_of_slot]["points"])
+        # check letzte Frage und gibt Gesamtpunkte aus
+        print("user_score", user_score)
+        if dp_n[name_of_slot]["question"] == dp_n["total_questions"]:
+            finish_quiz(dispatcher, dp_n)
+        else:
+            resetTries()
         return {name_of_slot: value}
     # Users answer is wrong
     elif getTries() < 1:  # User hat einen weiteren Versuch
-        return evaluate_tries_of_user(dp_n, name_of_slot, dispatcher)
+        return evaluate_tries_of_user(name_of_slot, dispatcher)
 
     # say solution
     else:
         return give_solution(dp_n, name_of_slot, dispatcher, solution)
 
 
-def evaluate_scoring(dp_n, name_of_slot):
+def evaluate_scoring(dp_n, name_of_slot, dispatcher, slots):
     # user got first question correct
-    if dp_n[name_of_slot]["question"] == 1 & user_score["tries"] == 0:
-        first_quest_correct(dispatcher)
-    # user got nte question correct
-    if dp_n[name_of_slot]["question"] < dp_n["total_questions"]:
+    if dp_n[name_of_slot]["question"] == 1 and user_score["tries"] == 0:
+        utter_first_quest_correct(dispatcher)
+    # user got nte or last  question correct at first try
+    elif user_score["tries"] == 0:
+        # user has answered the last question and the previous ones correctly
+        if "wrong_answer" not in slots.values() and dp_n[name_of_slot]["question"] == dp_n["total_questions"]:
+            utter_last_and_previous_correct(dispatcher)
 
-        # user hat die Fragen weiterhin im ersten richtig Versuch beantwortet
+        # user has correctly answered the nth question and the previous ones
+        elif "wrong_answer" not in slots.values():
+            utter_nth_and_previuos_correct(dispatcher)
 
-        # user hat die vorherige Frage nicht im ersten richtig Versuch beantwortet, diese aber schon
+        # user has answered the last question correctly for the very first time, nevertheless in the first attempt
+        elif dp_n[name_of_slot]["question"] == dp_n["total_questions"]:
+            utter_last_question_users_first_time_correct_but_first_attempt(
+                dispatcher)
 
-        # user hat diese Frage nicht im ersten Versuch richtig beantwortet, aber hat schon Punkte erzielt
+        # user has answered a question correctly for the very first time, nevertheless in the first attempt
+        else:
+            utter_users_first_time_correct_but_first_attempt(dispatcher)
 
-        # dies ist die aller erste Frage, die der User richtig beantwortet
+    # user did not answer the question correctly in the first attempt, but has already scored points
+    elif user_score["points"] > 0 and user_score["tries"] > 0:
+        # the question is the last
+        if dp_n[name_of_slot]["question"] == dp_n["total_questions"]:
+            utter_last_previous_correct_not_first_attempt(dispatcher)
+        # the question is the nth
+        else:
+            utter_nth_previous_correct_not_first_attempt(dispatcher)
 
-        # user hat die aller letzte Frage richtig beantwortet
-    if dp_n[name_of_slot]["question"] == dp_n["total_questions"]:
-        # user hat die Fragen weiterhin im ersten richtig Versuch beantwortet
-
-        # user hat schon vorherige Punkte erzielt
-
-        # user hat die letzte Frage als einziges richtig beantwortet
+    # user answers a question correctly for the very first time, but needs several tries
+    elif user_score["points"] == 0 and user_score["tries"] > 0:
+        # the question is the last
+        if dp_n[name_of_slot]["question"] == dp_n["total_questions"]:
+            utter_last_quest_users_first_correct_not_first_attempt(dispatcher)
+        # the question is the nth
+        else:
+            utter_nth_quest_user_first_correct_not_first_attempt(dispatcher)
 
 
 def evaluate_tries_of_user(name_of_slot, dispatcher):
     user_score["not_first_attempt"] = 1
-    dispatcher.utter_message(response="utter_dp1_wrong")
     increaseTries()
+    utter_wrong_answer(dispatcher)
     print("user_score", user_score)
     return {name_of_slot: None}
 
 
 def give_solution(dp_n, name_of_slot, dispatcher, solution):
     user_score["last_question_correct"] = 0
-    dispatcher.utter_message(
-        text='Schade, leider ist die Lösung: %s' % solution)
+    utter_solution(dispatcher, solution)
     if dp_n[name_of_slot]["question"] == dp_n["total_questions"]:
         finish_quiz(dispatcher, dp_n)
     else:
         resetTries()
     print("user_score", user_score)
-    return {name_of_slot: False}
-
-
-def first_quest_correct(dispatcher):
-    dispatcher.utter_message(response="utter_first_quest_correct")
+    return {name_of_slot: "wrong_answer"}
 
 
 def finish_quiz(dispatcher, dp_n):
     if (user_score["points"] == 0):
-        dispatcher.utter_message(
-            text="Damit hast du das Quiz abgeschlossen. 🎉")
+        utter_finished_quiz_no_points(dispatcher)
     else:
-        dispatcher.utter_message(
-            text="Damit hast du das Quiz mit insgesamt %s von 15 Punkten abgeschlossen. 🎉" % user_score["points"])
+        utter_finished_quiz_with_points(dispatcher)
         if user_score["not_first_attempt"] == 0:
-            dispatcher.utter_message(
-                text="Du hast alle Fragen im ersten Versuch richtig beantwortet. 🏆")
-            dispatcher.utter_message(
-                image=learn_quest["badge_naturtalent"])
+            utter_all_quest_correct_at_first_attempt(dp_n, dispatcher)
+    resetUserPoints()
 
-            resetUserPoints()
+ ##### Utter messages funtions #####
+
+
+def utter_solution(dispatcher, solution):
+    dispatcher.utter_message(
+        text='Schade, leider ist die Lösung: %s' % solution)
+
+
+def utter_wrong_answer(dispatcher):
+    # TODO rename utter_wrong_answer
+    dispatcher.utter_message(response="utter_dp1_wrong")
+
+
+def utter_first_quest_correct(dispatcher):
+    dispatcher.utter_message(
+        text="Super, das war richtig! 😊 Damit hast du 5 Punkte gesammelt. Lass uns gleich weitermachen.")
+
+
+def utter_last_and_previous_correct(dispatcher):
+    dispatcher.utter_message(
+        text="Super, das war ebenfalls richtig! 😊 Damit hast du 5 weitere Punkte gesammelt.")
+
+
+def utter_nth_and_previuos_correct(dispatcher):
+    dispatcher.utter_message(
+        text="Super, das war ebenfalls richtig! 😊 Damit hast du 5 weitere Punkte gesammelt. Mach weiter so!")
+
+
+def utter_last_question_users_first_time_correct_but_first_attempt(dispatcher):
+    dispatcher.utter_message(
+        text="Super, das war richtig! 😊 Damit hast du 5 Punkte gesammelt.")
+
+
+def utter_users_first_time_correct_but_first_attempt(dispatcher):
+    dispatcher.utter_message(
+        text="Super, das war richtig! 😊 Damit hast du 5 Punkte gesammelt. Mach weiter so!")
+
+
+def utter_last_previous_correct_not_first_attempt(dispatcher):
+    dispatcher.utter_message(
+        text="Super, jetzt ist es richtig! 😊 Damit hast du 5 weitere Punkte gesammelt.")
+
+
+def utter_nth_previous_correct_not_first_attempt(dispatcher):
+    dispatcher.utter_message(
+        text="Super, jetzt ist es richtig! 😊 Damit hast du 5 weitere Punkte gesammelt. Mach weiter so!")
+
+
+def utter_last_quest_users_first_correct_not_first_attempt(dispatcher):
+    dispatcher.utter_message(
+        text="Super, jetzt ist es richtig! 😊 Damit hast du 5 Punkte gesammelt.")
+
+
+def utter_nth_quest_user_first_correct_not_first_attempt(dispatcher):
+    dispatcher.utter_message(
+        text="Super, jetzt ist es richtig! 😊 Damit hast du 5 Punkte gesammelt. Mach weiter so!")
+
+
+def utter_finished_quiz_no_points(dispatcher):
+    dispatcher.utter_message(text="Damit hast du das Quiz abgeschlossen. 🎉")
+
+
+def utter_finished_quiz_with_points(dispatcher):
+    dispatcher.utter_message(
+        text="Damit hast du das Quiz mit insgesamt %s von 15 Punkten abgeschlossen. 🎉" % user_score["points"])
+
+
+def utter_all_quest_correct_at_first_attempt(dp_n, dispatcher):
+    dispatcher.utter_message(
+        text="Du hast alle Fragen im ersten Versuch richtig beantwortet. 🏆")
+    dispatcher.utter_message(image=dp_n["badge_naturtalent"])
+
 
 ############################################################################################################
 ##### DP1 #####
@@ -142,57 +234,6 @@ class ValidateDP1Form(FormValidationAction):
         return "validate_dp1_form"
 
     def validate_dp1(name_of_slot):
-
-        def setPoints(points):
-            user_score["points"] += points
-            user_score["last_question_correct"] = 1
-
-        def finishedDP1(dispatcher, learn_quest):
-            if (user_score["points"] == 0):
-                dispatcher.utter_message(
-                    text="Damit hast du das Quiz abgeschlossen. 🎉")
-            else:
-                dispatcher.utter_message(
-                    text="Damit hast du das Quiz mit insgesamt %s von 15 Punkten abgeschlossen. 🎉" % user_score["points"])
-                if user_score["not_first_attempt"] == 0:
-                    dispatcher.utter_message(
-                        text="Du hast alle Fragen im ersten Versuch richtig beantwortet. 🏆")
-                    dispatcher.utter_message(
-                        image=learn_quest["badge_naturtalent"])
-
-            resetUserPoints()
-
-        def say_utter_n_question(dispatcher):
-            if user_score["points"] > 0 & user_score["tries"] == 0:
-                # user hat die Fragen weiterhin im ersten Versuch richtig beantwortet
-                if user_score["last_question_correct"] == 1:
-                    dispatcher.utter_message(
-                        response="utter_dp1_correct_n_first_approach")
-                else:
-                    # user hat die vorherige Frage nicht im ersten Versuch richtig beantwortet, diese aber schon
-                    dispatcher.utter_message(
-                        response="utter_dp1_another_correct_answer")
-             # user hat diese Frage nicht im ersten Versuch richtig beantwortet, aber hat schon Punkte erzielt
-            elif user_score["points"] > 0 & user_score["tries"] > 0:
-                dispatcher.utter_message(
-                    response="utter_dp1_correct_n_second_approach")
-            # dies ist die aller erste Frage, die der User richtig beantwortet
-            else:
-                dispatcher.utter_message(
-                    response="utter_dp1_first_correct_answer")
-
-        def say_utter_last_question(dispatcher):
-            if user_score["last_question_correct"] == 1:
-                dispatcher.utter_message(
-                    response="utter_dp1_correct_n_first_approach")
-
-            elif user_score["points"] > 0:
-                dispatcher.utter_message(
-                    response="utter_dp1_another_correct_answer")
-            else:
-                dispatcher.utter_message(
-                    response="utter_dp1_first_correct_answer")
-
         def validate_slot(
             self,
             value: Text,
@@ -200,62 +241,16 @@ class ValidateDP1Form(FormValidationAction):
             tracker: Tracker,
             domain: Dict[Text, Any],
         ) -> Dict[Text, Any]:
-            print("val", value)
-
             with open("DP1.json", "r") as jsonFile:
                 learn_quest = json.load(jsonFile)
 
             solution = learn_quest[name_of_slot]["solution"]
-            # scoring(solution, learn_quest, name_of_slot, value, dispatcher)
-
-            # Users answer is correct
-            if solution.lower() == value.lower():
-
-                # evaluate_users_answer(learn_quest, name_of_slot, value, dispatcher)
-
-                # 1. Frage, direkt richtig
-                if learn_quest[name_of_slot]["question"] == 1 & user_score["tries"] == 0:
-                    dispatcher.utter_message(
-                        response="utter_dp1_correct_1_first_approach")
-
-                # nte Frage
-                if learn_quest[name_of_slot]["question"] < learn_quest["total_questions"]:
-                    say_utter_n_question(dispatcher)
-
-                # letzte Frage
-                if learn_quest[name_of_slot]["question"] == learn_quest["total_questions"]:
-                    say_utter_last_question(dispatcher)
-
-                setPoints(learn_quest[name_of_slot]["points"])
-                # check letzte Frage und gibt Gesamtpunkte aus
-                print("user_score", user_score)
-                if learn_quest[name_of_slot]["question"] == learn_quest["total_questions"]:
-                    finishedDP1(dispatcher, learn_quest)
-                else:
-                    resetTries()
-                return {name_of_slot: value}
-
-            # Users answer is wrong
-            elif getTries() < 1:  # User hat einen weiteren Versuch
-                user_score["not_first_attempt"] = 1
-                print("tries", getTries())
-                dispatcher.utter_message(response="utter_dp1_wrong")
-                increaseTries()
-                print("user_score", user_score)
-                return {name_of_slot: None}
-
-            # User has no more tries
-            else:
-                user_score["last_question_correct"] = 0
-                dispatcher.utter_message(
-                    text='Schade, leider ist die Lösung: %s' % solution)
-                if learn_quest[name_of_slot]["question"] == learn_quest["total_questions"]:
-                    finishedDP1(dispatcher, learn_quest)
-                else:
-                    resetTries()
-                print("user_score", user_score)
-                return {name_of_slot: False}
-
+            # TODO SLOTS AUF DP1 REDUZIEREN
+            slots = dict(tracker.slots)
+            slots_dp1 = {k: v for k,
+                         v in slots.items() if k.startswith('s_dp1_')}
+            print(slots_dp1)
+            return evaluate_users_answer(solution, learn_quest, name_of_slot, value, dispatcher, slots_dp1)
         return validate_slot
 
     validate_s_dp1_q1 = validate_dp1(name_of_slot="s_dp1_q1")
@@ -399,8 +394,7 @@ class ValidateDP2Form(FormValidationAction):
                     text='Schade, leider ist die Lösung: %s' % solution)
                 if dp2[name_of_slot]["question"] == dp2["total_questions"]:
                     resetUserPoints()
-                return {name_of_slot: False}
-            return {name_of_slot: None}
+                return {name_of_slot: "wrong_answer"}
 
         return validate_slot
 
