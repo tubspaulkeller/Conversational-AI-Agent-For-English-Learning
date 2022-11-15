@@ -16,10 +16,17 @@
         "thema2": "Das folgende Ziel basiert auf erfolgreich erreichten Lernzielen von Kommilitonen und ist nach dem bewährten SMART-Konzept formuliert: 'Ich möchte meine Englisch-Grammatik bis Ende des Jahres um 2 Zeitformen erweitern.'"
 
     },
+    "total_questions": 1,
+    "total_points": 5,
+    "badge_naturtalent": "https://res.cloudinary.com/dmnkxrxes/image/upload/v1667925124/Ben_Bot/Abzeichen_Naturtalent_evz2oo.png",
     "s_dp3_v_q3": {
-        "solution": "wrote"
+        "solution": "wrote",
+        "points": 5,
+        "question": 1
     },
     "s_dp3_g_q3": {
-        "solution": "wrote"
+        "solution": "wrote",
+        "points": 5,
+        "question": 1
     }
 }
