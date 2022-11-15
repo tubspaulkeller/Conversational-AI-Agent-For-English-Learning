@@ -12,7 +12,7 @@ class ActionStartLearnStory(Action):
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker,
             domain: Dict) -> List[EventType]:
         print("action_dp4_finish")
-        dispatcher.utter_message(response="utter_get_dp")
+        dispatcher.utter_message(response="utter_get_dp/3")
         return []
 
 # We want to get to the coliseum
