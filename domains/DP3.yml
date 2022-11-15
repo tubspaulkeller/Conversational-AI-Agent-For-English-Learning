@@ -315,6 +315,7 @@ actions:
   - validate_dp3_form_gram
   - action_ask_s_dp3_g_q3
   - action_ask_s_dp3_g_q7
+  - action_dp3_finish
 
 
 forms:
