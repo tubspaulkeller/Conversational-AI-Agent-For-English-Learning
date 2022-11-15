@@ -84,7 +84,124 @@ responses:
     - payload: /i_dp5{{"e_dp5":"DP5"}}
       title: DP5
     text: Mit welchem DP möchtest du starten? 
+  
+  utter_get_dp/1:
+  - buttons:
+    - payload: /i_dp2{{"e_dp2":"DP2"}}
+      title: DP2
 
+    - payload: /i_dp3{{"e_dp3":"DP3"}}
+      title: DP3
+
+    - payload: /i_dp4{{"e_dp4":"DP4"}}
+      title: DP4
+
+    - payload: /i_dp5{{"e_dp5":"DP5"}}
+      title: DP5
+    text: Mit welchem DP möchtest du starten? 
+
+  utter_get_dp/2:
+  - buttons:
+    - payload: /i_dp1{{"e_dp1":"DP1"}}
+      title: DP1
+
+    - payload: /i_dp3{{"e_dp3":"DP3"}}
+      title: DP3
+
+    - payload: /i_dp4{{"e_dp4":"DP4"}}
+      title: DP4
+
+    - payload: /i_dp5{{"e_dp5":"DP5"}}
+      title: DP5
+    text: Mit welchem DP möchtest du starten? 
+  
+  utter_get_dp/3:
+  - buttons:
+    - payload: /i_dp1{{"e_dp1":"DP1"}}
+      title: DP1
+
+    - payload: /i_dp2{{"e_dp2":"DP2"}}
+      title: DP2
+
+    - payload: /i_dp4{{"e_dp4":"DP4"}}
+      title: DP4
+
+    - payload: /i_dp5{{"e_dp5":"DP5"}}
+      title: DP5
+    text: Mit welchem DP möchtest du starten? 
+  
+    
+  utter_get_dp/4:
+  - buttons:
+    - payload: /i_dp1{{"e_dp1":"DP1"}}
+      title: DP1
+
+    - payload: /i_dp2{{"e_dp2":"DP2"}}
+      title: DP2
+
+    - payload: /i_dp3{{"e_dp3":"DP3"}}
+      title: DP3
+
+    - payload: /i_dp5{{"e_dp5":"DP5"}}
+      title: DP5
+    text: Mit welchem DP möchtest du starten? 
+  
+    
+  utter_get_dp/5:
+  - buttons:
+    - payload: /i_dp1{{"e_dp1":"DP1"}}
+      title: DP1
+
+    - payload: /i_dp2{{"e_dp2":"DP2"}}
+      title: DP2
+
+    - payload: /i_dp3{{"e_dp3":"DP3"}}
+      title: DP3
+
+    - payload: /i_dp4{{"e_dp4":"DP4"}}
+      title: DP4
+
+    text: Mit welchem DP möchtest du starten? 
+
+  utter_first_quest_correct:
+    - text: "Super, das war richtig! 😊 Damit hast du 5 Punkte gesammelt. Lass uns gleich weitermachen."
+    - text: "Klasse, das war richtig! 😊 Du hast dir 5 Punkte verdient. Lass uns gleich weitermachen."
+
+    utter_last_and_previous_correct:
+    - text: "Super, das war ebenfalls richtig! 😊 Damit hast du 5 weitere Punkte gesammelt."
+    - text: "Klasse, das war ebenfalls richtig! 😊 Du hast dir weitere 5 Punkte verdient."
+    
+    utter_nth_and_previuos_correct:
+    - text: "Super, das war ebenfalls richtig! 😊 Damit hast du 5 weitere Punkte gesammelt. Mach weiter so!"
+    - text: "Klasse, das war ebenfalls richtig! 😊 Du hast dir weitere 5 Punkte verdient. Weiter geht es!" 
+    
+    utter_last_question_users_first_time_correct_but_first_attempt:
+    - text: "Super, das war richtig! 😊 Damit hast du 5 Punkte gesammelt."
+    - text: "Klasse, das war richtig! 😊 Du hast dir 5 Punkte verdient." 
+
+    utter_last_previous_correct_not_first_attempt:
+    - text: "Super, jetzt ist es richtig! 😊 Damit hast du 5 weitere Punkte gesammelt."
+    - text: "Klasse, jetzt ist es richtig! 😊 Du hast dir 5 weitere Punkte verdient."
+
+    utter_nth_previous_correct_not_first_attempt:
+    - text: "Super, jetzt ist es richtig! 😊 Damit hast du 5 weitere Punkte gesammelt. Mach weiter so!"
+    - text: "Klasse, jetzt ist es richtig! 😊 Du hast dir weitere 5 Punkte verdient. Weiter geht es!" 
+
+    utter_last_quest_users_first_correct_not_first_attempt:
+    - text: "Super, jetzt ist es richtig! 😊 Damit hast du 5 Punkte gesammelt."
+    - text: "Klasse, jetzt ist es richtig! 😊 Du hast dir 5 Punkte verdient." 
+
+    utter_nth_quest_user_first_correct_not_first_attempt:
+    - text: "Super, jetzt ist es richtig! 😊 Damit hast du 5 Punkte gesammelt. Mach weiter so!"
+    - text: "Klasse, jetzt ist es richtig! 😊  Du hast dir 5 Punkte verdient. Weiter geht es!" 
+    
+    utter_users_first_time_correct_but_first_attempt:
+    - text: Super, das war richtig! 😊 Damit hast du 5 Punkte gesammelt. Mach weiter so!"
+    - text: Klasse, das war richtig! 😊 Du hast dir 5 Punkte verdient. Weiter geht es!" 
+
+
+    utter_quest_wrong:
+    - text: "Das war leider nicht richtig. Versuche es nochmal. Du hast noch einen weiteren Versuch für diese Frage übrig."
 actions: 
   - action_restart
   - action_rephrase

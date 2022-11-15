@@ -20,7 +20,8 @@ class ActionRephrase(Action):
     ) -> List[Dict[Text, Any]]:
         print("debug: rephrase action", len(tracker.active_loop))
         print(tracker.active_loop["name"])
-        if len(tracker.active_loop) > 0:
+
+        if len(tracker.active_loop) > 0 and tracker.active_loop["name"] == "dp4_form":
             dispatcher.utter_message(response="utter_rephrase/en")
         else:
             dispatcher.utter_message(response="utter_rephrase/de")
