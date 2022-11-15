@@ -50,6 +50,11 @@ slots:
       entity: e_dp2_q5
       intent: i_dp2_q5
       not_intent: i_dp4_q5
+  
+  s_dp2_end:
+    type: text
+    mappings:
+    - type: custom
     
 responses:
   utter_ask_s_dp2_q1:
@@ -121,7 +126,7 @@ responses:
   
 actions:
   - validate_dp2_form
-  - action_dp2_finish
+  - action_ask_s_dp2_end
 
 forms:
   dp2_form:
@@ -131,4 +136,5 @@ forms:
     - s_dp2_q3
     - s_dp2_q4
     - s_dp2_q5
+    - s_dp2_end
 

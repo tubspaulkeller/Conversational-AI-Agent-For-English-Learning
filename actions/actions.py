@@ -175,45 +175,45 @@ def utter_wrong_answer(dispatcher):
 
 
 def utter_first_quest_correct(dispatcher):
-    dispatcher.utter_message(response=utter_first_quest_correct)
+    dispatcher.utter_message(response="utter_first_quest_correct")
 
 
 def utter_last_and_previous_correct(dispatcher):
-    dispatcher.utter_message(response=utter_last_and_previous_correct)
+    dispatcher.utter_message(response="utter_last_and_previous_correct")
 
 
 def utter_nth_and_previuos_correct(dispatcher):
-    dispatcher.utter_message(response=utter_nth_and_previuos_correct)
+    dispatcher.utter_message(response="utter_nth_and_previuos_correct")
 
 
 def utter_last_question_users_first_time_correct_but_first_attempt(dispatcher):
     dispatcher.utter_message(
-        response=utter_last_question_users_first_time_correct_but_first_attempt)
+        response="utter_last_question_users_first_time_correct_but_first_attempt")
 
 
 def utter_users_first_time_correct_but_first_attempt(dispatcher):
     dispatcher.utter_message(
-        response=utter_users_first_time_correct_but_first_attempt)
+        response="utter_users_first_time_correct_but_first_attempt")
 
 
 def utter_last_previous_correct_not_first_attempt(dispatcher):
     dispatcher.utter_message(
-        response=utter_last_previous_correct_not_first_attempt)
+        response="utter_last_previous_correct_not_first_attempt")
 
 
 def utter_nth_previous_correct_not_first_attempt(dispatcher):
     dispatcher.utter_message(
-        response=utter_nth_previous_correct_not_first_attempt)
+        response="utter_nth_previous_correct_not_first_attempt")
 
 
 def utter_last_quest_users_first_correct_not_first_attempt(dispatcher):
     dispatcher.utter_message(
-        response=utter_last_quest_users_first_correct_not_first_attempt)
+        response="utter_last_quest_users_first_correct_not_first_attempt")
 
 
 def utter_nth_quest_user_first_correct_not_first_attempt(dispatcher):
     dispatcher.utter_message(
-        response=utter_nth_quest_user_first_correct_not_first_attempt)
+        response="utter_nth_quest_user_first_correct_not_first_attempt")
 
 
 def utter_finished_quiz_no_points(dispatcher):

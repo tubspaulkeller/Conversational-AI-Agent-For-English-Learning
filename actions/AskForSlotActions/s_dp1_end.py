@@ -4,13 +4,11 @@ from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import UserUtteranceReverted, FollowupAction, AllSlotsReset, Restarted, SlotSet, EventType
 
 
-class ActionStartLearnStory(Action):
+class AskForSlotAction(Action):
 
     def name(self) -> Text:
-        return "action_dp1_finish"
+        return "action_ask_s_dp1_end"
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker,
             domain: Dict) -> List[EventType]:
-        print("action_dp1_finish")
-       # dispatcher.utter_message(response="utter_get_dp/1")
-        return []
+        return [SlotSet("s_dp1_end", "end_of_dp1_form"), FollowupAction("utter_get_dp/1")]

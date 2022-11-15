@@ -11,5 +11,7 @@ class ActionStartLearnStory(Action):
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker,
             domain: Dict) -> List[EventType]:
-        dispatcher.utter_message(response="utter_get_dp/2")
+        print("action_dp2_finish")
+
+        # dispatcher.utter_message(response="utter_get_dp/2")
         return []

@@ -4,6 +4,7 @@ intents:
   - i_goodbye
   - i_greet
   - i_restart_conversation
+  - i_ask_last_question
   - i_dp1:
       use_entities: e_dp1
   - i_dp2:
@@ -205,6 +206,12 @@ responses:
 actions: 
   - action_restart
   - action_rephrase
+  - action_repeat_last_quest
+  - action_dp1_finish
+  - action_dp2_finish
+  - action_dp3_finish
+  - action_dp4_finish
+  - action_dp5_finish
 
 session_config:
   session_expiration_time: 60

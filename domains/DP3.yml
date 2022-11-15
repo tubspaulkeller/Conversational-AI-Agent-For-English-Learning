@@ -108,7 +108,7 @@ slots:
     - type: from_entity
       entity: e_dp3_v_q6
 
-  s_dp3_v_q7:
+  s_dp3_v_end:
     type: text
     mappings:
     - type: custom
@@ -149,7 +149,7 @@ slots:
     - type: from_entity
       entity: e_dp3_g_q6
 
-  s_dp3_g_q7:
+  s_dp3_g_end:
     type: text
     mappings:
     - type: custom
@@ -311,11 +311,11 @@ actions:
   - action_ask_s_dp3_q4
   - validate_dp3_form_voc
   - action_ask_s_dp3_v_q3
-  - action_ask_s_dp3_v_q7
+  - action_ask_s_dp3_v_end
   - validate_dp3_form_gram
   - action_ask_s_dp3_g_q3
-  - action_ask_s_dp3_g_q7
-  - action_dp3_finish
+  - action_ask_s_dp3_g_end
+
 
 
 forms:
@@ -334,7 +334,7 @@ forms:
     - s_dp3_v_q4
     - s_dp3_v_q5
     - s_dp3_v_q6
-    - s_dp3_v_q7
+    - s_dp3_v_end
 
   dp3_form_gram:
     required_slots:
@@ -344,6 +344,6 @@ forms:
     - s_dp3_g_q4
     - s_dp3_g_q5
     - s_dp3_g_q6
-    - s_dp3_g_q7
+    - s_dp3_g_end
 
 

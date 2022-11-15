@@ -12,6 +12,11 @@ rules:
   - intent: nlu_fallback
   - action: action_rephrase
 
+- rule: repeat the last question from the bot
+  steps:
+  - intent: i_ask_last_question
+  - action: action_repeat_last_quest
+
 - rule: DP1 action_finish
   steps:
   - action: dp1_form
@@ -48,3 +53,4 @@ rules:
   - active_loop: dp5_form
   - active_loop: null
   - action: action_dp5_finish
+

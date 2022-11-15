@@ -35,6 +35,46 @@ nlu:
     - starte neu
     - neustart
 
+- intent: i_ask_last_question
+  examples: |
+    - /repeat
+    - was ist jetzt?
+    - Was ist die Frage?
+    - Was war die Frage?
+    - Welche Frage?
+    - Kannst du die Frage wiederholen?
+    - Okay, wie lautete die Frage?
+    - Warum fängst du wieder mit denselben Fragen an?
+    - Ich habe diese Fragen schon vor einiger Zeit beantwortet.
+    - Okay, welche Frage?
+    - Danke, wie lautete die Frage?
+    - Danke, welche Frage?
+    - cool Kannst du die Frage wiederholen?
+    - Okay, kannst du die Frage wiederholen?
+    - Ich habe die Frage vergessen?
+    - Sag mir bitte die Frage
+    - Wiederhole bitte die Frage
+    - Bot, wiederhole!
+    - Quiz
+    - Lass uns spielen
+    - starte das Spiel
+    - Ben wiederholen
+    - Wo sind die Knöpfe?
+    - Wo sind die Knöpfe hin?
+    - Wie lautete die letzte Frage?
+    - Wie lautete die Frage
+    - Was war die letzte Frage?
+    - wie lautete die letzte Frage?
+    - Was war die letzte Frage?
+    - Was war die letzte Frage?
+    - Welche Frage?
+    - Entschuldigung. Welche Frage?
+    - Könntest du die Frage wiederholen?
+    - Entschuldigung, wie lautete die Frage?
+    - Wie lautete die Frage?
+
+
+
 - intent: i_dp4_q1
   examples: |
     - [We](e_dp4_q1) want to the [Coliseum](e_dp4_q1)

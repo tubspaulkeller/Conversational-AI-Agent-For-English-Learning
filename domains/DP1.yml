@@ -31,7 +31,11 @@ slots:
     mappings:
     - type: from_entity
       entity: e_dp1_q3
-
+    
+  s_dp1_end:
+    type: text
+    mappings:
+    - type: custom
 responses:
   utter_ask_s_dp1_q1:
   - buttons:
@@ -80,7 +84,7 @@ responses:
 
 actions: 
   - validate_dp1_form
-  - action_dp1_finish
+  - action_ask_s_dp1_end
 
 forms:
   dp1_form:
@@ -88,3 +92,4 @@ forms:
     - s_dp1_q1
     - s_dp1_q2
     - s_dp1_q3
+    - s_dp1_end

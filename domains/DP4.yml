@@ -57,6 +57,11 @@ slots:
       entity: e_dp4_q5
       intent: i_dp4_q5
       not_intent: i_dp2_q5
+    
+  s_dp4_end:
+    type: text
+    mappings:
+    - type: custom
 
 responses:
   utter_grammar_error:
@@ -87,7 +92,7 @@ actions:
   - validate_dp4_form
   - action_ask_s_dp4_q3
   - action_ask_s_dp4_q5
-  - action_dp4_finish
+  - action_ask_s_dp4_end
 forms:
   dp4_form:
     required_slots:
@@ -96,3 +101,4 @@ forms:
     - s_dp4_q3
     - s_dp4_q4
     - s_dp4_q5
+    - s_dp4_end

@@ -7,7 +7,7 @@ from rasa_sdk.events import UserUtteranceReverted, FollowupAction, AllSlotsReset
 class AskForSlotAction(Action):
 
     def name(self) -> Text:
-        return "action_ask_s_dp3_v_q7"
+        return "action_ask_s_dp3_v_end"
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker,
             domain: Dict) -> List[EventType]:
@@ -27,4 +27,4 @@ class AskForSlotAction(Action):
             # beide From wurde abgeschlossen
             elif tracker.slots.get("s_dp3_q4") == "grammar_form":
                 dispatcher.utter_message(text="Ok super!")
-                return [SlotSet("s_dp3_v_q7", "vocabel_form"), FollowupAction("utter_get_dp/3")]
+                return [SlotSet("s_dp3_v_end", "vocabel_form"), FollowupAction("utter_get_dp/3")]
