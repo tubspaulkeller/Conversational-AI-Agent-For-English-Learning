@@ -11,11 +11,11 @@ class ValidateNameForm(FormValidationAction):
     def name(self) -> Text:
         return "validate_get_dp_form"
 
-    def validate_s_get_dp(
+    def validate_s_get_dp_form(
         self,
         slot_value: Any,
         dispatcher: CollectingDispatcher,
         tracker: Tracker,
         domain: DomainDict,
     ) -> Dict[Text, Any]:
-        return {"s_get_dp": slot_value}
+        return {"s_get_dp_form": slot_value}

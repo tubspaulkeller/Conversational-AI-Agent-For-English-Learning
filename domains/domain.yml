@@ -7,29 +7,12 @@ intents:
   - i_ask_last_question
   - i_get_dp:
       use_entities: e_get_dp
-  # - i_dp1:
-  #     use_entities: e_dp1
-  # - i_dp2:
-  #     use_entities: e_dp2
-  # - i_dp3:
-  #     use_entities: e_dp3
-  # - i_dp4:
-  #     use_entities: e_dp4
-  # - i_dp5:
-  #     use_entities: e_dp5
-
-
+      
 entities: 
   - e_get_dp
-  # - e_dp1
-  # - e_dp2
-  # - e_dp3
-  # - e_dp4
-  # - e_dp5
-
 
 slots: 
-  s_get_dp:
+  s_get_dp_form:
     type: text
     mappings:
     - type: from_entity
@@ -39,25 +22,6 @@ slots:
     type: text
     mappings:
     - type: custom
-
-
-  # s_dp3:
-  #   type: text
-  #   mappings:
-  #   - type: from_entity
-  #     entity: e_dp3
-
-  # s_dp4:
-  #   type: text
-  #   mappings:
-  #   - type: from_entity
-  #     entity: e_dp4
-
-  # s_dp5:
-  #   type: text
-  #   mappings:
-  #   - type: from_entity
-  #     entity: e_dp5
 
 responses:
   utter_greet:
@@ -70,25 +34,6 @@ responses:
 
   utter_rephrase/en:
   - text: I'm sorry, I didn't understand you correctly. Can you please repeat that? 😊
-  
-  utter_get_dp:
-  - buttons:
-    - payload: /i_get_dp{{"e_get_dp":"dp1_form"}}
-      title: DP1
-
-    - payload: /i_get_dp{{"e_get_dp":"dp2_form"}}
-      title: DP2
-
-    - payload: /i_get_dp{{"e_get_dp":"dp3_form"}}
-      title: DP3
-
-    - payload: /i_get_dp{{"e_get_dp":"dp4_form"}}
-      title: DP4
-
-    - payload: /i_get_dp{{"e_get_dp":"dp5_form"}}
-      title: DP5
-    text: Mit welchem DP möchtest du starten? 
-
 
   utter_first_quest_correct:
   - text: "Super, das war richtig! 😊 Damit hast du 5 Punkte gesammelt. Lass uns gleich weitermachen."
@@ -133,21 +78,14 @@ actions:
   - action_restart
   - action_rephrase
   - action_repeat_last_quest
-  - action_get_dp
   - validate_get_dp_form
-  - action_ask_s_get_dp
+  - action_ask_s_get_dp_form
   - action_ask_s_set_next_form
-  - action_dp1_finish
-  - action_dp2_finish
-  - action_dp3_finish
-  - action_dp4_finish
-  - action_dp5_finish
-
 
 forms: 
   get_dp_form:
     required_slots:
-    - s_get_dp
+    - s_get_dp_form
     - s_set_next_form
 
 session_config:

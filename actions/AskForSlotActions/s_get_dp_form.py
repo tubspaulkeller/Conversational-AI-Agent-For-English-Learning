@@ -4,42 +4,43 @@ from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import UserUtteranceReverted, FollowupAction, AllSlotsReset, Restarted, SlotSet, EventType
 
 buttons_forms_to_fill = {
-    "s_dp1_end": {'title': 'DP1', 'payload': '/i_dp1{{"e_dp1":"DP1"}}'},
-    "s_dp2_end": {'title': 'DP2', 'payload': '/i_dp2{{"e_dp2":"DP2"}}'},
-    "s_dp3_g_end": {'title': 'DP3', 'payload': '/i_dp3{{"e_dp3":"DP3"}}'},
-    # "s_dp3_v_end": "",
-    "s_dp4_end": {'title': 'DP4', 'payload': '/i_dp4{{"e_dp4":"DP4"}}'},
-    "s_dp5_end": {'title': 'DP5', 'payload': '/i_dp5{{"e_dp1":"DP5"}}'},
+    "s_dp1_end": {'title': 'DP1', 'payload': "/i_get_dp{\"e_get_dp\":\"dp1_form\"}"},
+    "s_dp2_end": {'title': 'DP2', 'payload': '/i_get_dp{\"e_get_dp\":\"dp2_form\"}'},
+    "s_dp3_g_end": {'title': 'DP3', 'payload': '/i_get_dp{\"e_get_dp\":\"dp3_form\"}'},
+    "s_dp4_end": {'title': 'DP4', 'payload': '/i_get_dp{\"e_get_dp\":\"dp4_form\"}'},
+    "s_dp5_end": {'title': 'DP5', 'payload': '/i_get_dp{\"e_get_dp\":\"dp5_form\"}'},
 }
 
 
 class AskForSlotAction(Action):
 
     def name(self) -> Text:
-        return "action_get_dp"
+        return "action_ask_s_get_dp_form"
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker,
             domain: Dict) -> List[EventType]:
-        print(tracker.active_loop["name"])
-        none_slots_for_form = get_none_slots(tracker.slots)
-
-        print("none_slots", none_slots_for_form)
-
-        debug(self, tracker)
-
+        none_slots_for_form = get_none_slots_for_form(tracker.slots)
+        #debug(self, tracker)
         buttons = []
-       # shared_items = {k: x[k] for k in x if k in y and x[k] == y[k]}
+        remaining_slots = get_remaining_slots(none_slots_for_form)
+        for key in remaining_slots:
+            buttons.append(buttons_forms_to_fill[key])
 
-        d1_keys = set(buttons_forms_to_fill.keys())
-        d2_keys = set(none_slots_for_form.keys())
-        shared_keys = d1_keys.intersection(d2_keys)
-
-        print("shared_key", shared_keys)
-
-       # dispatcher.utter_message(text = text, buttons = button_stop_emoji)
-        dispatcher.utter_message(response="utter_get_dp")
-        # tracker.change_loop_to
+        if len(buttons) == 0:  # TODO set to 4, just for testing
+            dispatcher.utter_message(text="You have filled all forms")
+            return [SlotSet("s_get_dp_form", "done")]
+        dispatcher.utter_message(text="Wähle ein DP!", buttons=buttons)
         return []
+
+
+def get_none_slots_for_form(slots):
+    return {k: v for k, v in slots.items() if k.endswith('_end') and v is None}
+
+
+def get_remaining_slots(none_slots_for_form):
+    d1_keys = set(buttons_forms_to_fill.keys())
+    d2_keys = set(none_slots_for_form.keys())
+    return d1_keys.intersection(d2_keys)
 
 
 def debug(action, tracker=None):
@@ -65,7 +66,3 @@ def debug(action, tracker=None):
         except Exception as e:
             print(f'\n> announce: [ERROR] {e}')
     print(output)
-
-
-def get_none_slots(slots):
-    return {k: v for k, v in slots.items() if k.endswith('_end') and v is None}

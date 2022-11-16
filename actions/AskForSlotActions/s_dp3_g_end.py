@@ -27,4 +27,4 @@ class AskForSlotAction(Action):
             # beide Froms wurden abgeschlossen
             elif tracker.slots.get("s_dp3_q4") == "vocabel_form":
                 dispatcher.utter_message(text="Ok super!")
-                return [SlotSet("s_dp3_g_end", "grammar_form"), SlotSet("s_get_dp", None), SlotSet("s_set_next_form", None), FollowupAction("get_dp_form")]
+                return [SlotSet("s_dp3_g_end", "grammar_form"), SlotSet("s_get_dp_form", None), SlotSet("s_set_next_form", None), FollowupAction("get_dp_form")]

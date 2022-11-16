@@ -16,7 +16,6 @@ stories:
   - action: dp1_form
   - active_loop: dp1_form
   - active_loop: null
-  - action: action_dp1_finish
   - checkpoint: flow_finishing
 
 - story: DP2
@@ -24,7 +23,6 @@ stories:
   - action: dp2_form
   - active_loop: dp2_form
   - active_loop: null
-  - action: action_dp2_finish
   - checkpoint: flow_finishing
 
 
@@ -33,7 +31,6 @@ stories:
   - action: dp3_form
   - active_loop: dp3_form
   - active_loop: null
-  - action: action_dp3_finish 
   - checkpoint: flow_finishing
 
 - story: DP4
@@ -41,7 +38,6 @@ stories:
   - action: dp4_form
   - active_loop: dp4_form
   - active_loop: null
-  - action: action_dp4_finish
   - checkpoint: flow_finishing
 
 - story: DP5
@@ -49,7 +45,6 @@ stories:
   - action: dp5_form
   - active_loop: dp5_form
   - active_loop: null
-  - action: action_dp5_finish
   - checkpoint: flow_finishing
 
 

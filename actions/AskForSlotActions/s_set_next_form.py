@@ -11,5 +11,5 @@ class AskForSlotAction(Action):
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker,
             domain: Dict) -> List[EventType]:
-        next_form = tracker.get_slot("s_get_dp")
+        next_form = tracker.get_slot("s_get_dp_form")
         return [FollowupAction(next_form), SlotSet("s_set_next_form", next_form)]
