@@ -3,17 +3,44 @@ from rasa_sdk import Action, Tracker, FormValidationAction
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import UserUtteranceReverted, FollowupAction, AllSlotsReset, Restarted, SlotSet, EventType
 
+buttons_forms_to_fill = {
+    "s_dp1_end": {'title': 'DP1', 'payload': '/i_get_dp{{"e_get_dp":"dp1_form"}}'},
+    "s_dp2_end": {'title': 'DP2', 'payload': '/i_get_dp{{"e_get_dp":"dp2_form"}}'},
+    "s_dp3_g_end": {'title': 'DP3', 'payload': '/i_get_dp{{"e_get_dp":"dp3_form"}}'},
+    # "s_dp3_v_end": "",
+    "s_dp4_end": {'title': 'DP4', 'payload': '/i_get_dp{{"e_get_dp":"dp4_form"}}'},
+    "s_dp5_end": {'title': 'DP5', 'payload': '/i_get_dp{{"e_get_dp":"dp5_form"}}'},
+}
+
 
 class AskForSlotAction(Action):
 
     def name(self) -> Text:
-        return "action_ask_s_dp1_end"
+        return "action_ask_s_get_dp"
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker,
             domain: Dict) -> List[EventType]:
-        print("HOHOHOHO")
+
+        print(tracker.active_loop["name"])
+        none_slots_for_form = get_none_slots(tracker.slots)
+
+        print("none_slots", none_slots_for_form)
+
         debug(self, tracker)
-        return [SlotSet("s_dp1_end", "end_of_dp1_form"), SlotSet("s_get_dp", None), SlotSet("s_set_next_form", None), FollowupAction("get_dp_form")]
+
+        buttons = []
+       # shared_items = {k: x[k] for k in x if k in y and x[k] == y[k]}
+
+        d1_keys = set(buttons_forms_to_fill.keys())
+        d2_keys = set(none_slots_for_form.keys())
+        shared_keys = d1_keys.intersection(d2_keys)
+
+        print("shared_key", shared_keys)
+
+       # dispatcher.utter_message(text = text, buttons = button_stop_emoji)
+        dispatcher.utter_message(response="utter_get_dp")
+        # tracker.change_loop_to
+        return []
 
 
 def debug(action, tracker=None):
@@ -39,3 +66,7 @@ def debug(action, tracker=None):
         except Exception as e:
             print(f'\n> announce: [ERROR] {e}')
     print(output)
+
+
+def get_none_slots(slots):
+    return {k: v for k, v in slots.items() if k.endswith('_end') and v is None}

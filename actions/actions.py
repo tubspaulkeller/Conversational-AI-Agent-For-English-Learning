@@ -283,7 +283,6 @@ class ValidateDP2Form(FormValidationAction):
         updated_slots = domain_slots.copy()
 
         if tracker.slots.get("s_dp2_q4") == 'no':
-            # If the user dont want more information, we dont need to ask
             # there we will skip next slot
             updated_slots.remove("s_dp2_q5")
         return updated_slots
@@ -682,14 +681,14 @@ class ValidateDP3VOCForm(FormValidationAction):
     ) -> Dict[Text, Any]:
         return {"s_dp3_v_q6": value}
 
-    def validate_s_dp3_v_q7(
+    def validate_s_dp3_v_end(
         self,
         value: Text,
         dispatcher: CollectingDispatcher,
         tracker: Tracker,
         domain: Dict[Text, Any],
     ) -> Dict[Text, Any]:
-        return {"s_dp3_v_q7": value}
+        return {"s_dp3_v_end": value}
 
     def validate_dp3voc(name_of_slot):
         def validate_slot(
@@ -785,14 +784,14 @@ class ValidateDP3GRAMForm(FormValidationAction):
     ) -> Dict[Text, Any]:
         return {"s_dp3_g_q6": value}
 
-    def validate_s_dp3_g_q7(
+    def validate_s_dp3_g_end(
         self,
         value: Text,
         dispatcher: CollectingDispatcher,
         tracker: Tracker,
         domain: Dict[Text, Any],
     ) -> Dict[Text, Any]:
-        return {"s_dp3_g_q7": value}
+        return {"s_dp3_g_end": value}
 
     def validate_dp3gram(name_of_slot):
 

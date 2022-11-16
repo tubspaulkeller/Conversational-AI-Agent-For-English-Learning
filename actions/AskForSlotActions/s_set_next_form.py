@@ -4,19 +4,12 @@ from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import UserUtteranceReverted, FollowupAction, AllSlotsReset, Restarted, SlotSet, EventType
 
 
-class ActionStartLearnStory(Action):
+class AskForSlotAction(Action):
 
     def name(self) -> Text:
-        return "action_dp4_finish"
+        return "action_ask_s_set_next_form"
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker,
             domain: Dict) -> List[EventType]:
-        print("action_dp4_finish")
-        return []
-      #  return [SlotSet("s_get_dp", None), SlotSet("s_set_next_form", None), FollowupAction("get_dp_form")]
-
-# We want to get to the coliseum
-#  How much does it cost
-#  Can I get two tickets please
-#  Do you offer a student discount?
-#  We have been living in Brunswick since 2017
+        next_form = tracker.get_slot("s_get_dp")
+        return [FollowupAction(next_form), SlotSet("s_set_next_form", next_form)]

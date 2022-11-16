@@ -12,5 +12,5 @@ class ActionStartLearnStory(Action):
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker,
             domain: Dict) -> List[EventType]:
         print("action_dp1_finish")
-       # dispatcher.utter_message(response="utter_get_dp/1")
         return []
+        # return [SlotSet("s_get_dp_form", None), SlotSet("s_set_next_form", None), FollowupAction("get_dp_form")]

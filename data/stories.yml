@@ -6,15 +6,13 @@ stories:
   steps:
   - intent: i_greet
   - action: utter_greet
-  - action: utter_get_dp
-  - checkpoint: dp_choice
+  - action: get_dp_form
+  - active_loop: get_dp_form
+  - active_loop: null
+
 
 - story: DP1
   steps:
-  - checkpoint: dp_choice
-  - intent: i_dp1
-  - slot_was_set:
-    - s_dp1: DP1
   - action: dp1_form
   - active_loop: dp1_form
   - active_loop: null
@@ -23,10 +21,6 @@ stories:
 
 - story: DP2
   steps:
-  - checkpoint: dp_choice
-  - intent: i_dp2
-  - slot_was_set:
-    - s_dp2: DP2
   - action: dp2_form
   - active_loop: dp2_form
   - active_loop: null
@@ -36,10 +30,6 @@ stories:
 
 - story: DP3
   steps:
-  - checkpoint: dp_choice
-  - intent: i_dp3
-  - slot_was_set:
-    - s_dp3: DP3
   - action: dp3_form
   - active_loop: dp3_form
   - active_loop: null
@@ -48,10 +38,6 @@ stories:
 
 - story: DP4
   steps:
-  - checkpoint: dp_choice
-  - intent: i_dp4
-  - slot_was_set:
-    - s_dp4: DP4
   - action: dp4_form
   - active_loop: dp4_form
   - active_loop: null
@@ -60,10 +46,6 @@ stories:
 
 - story: DP5
   steps:
-  - checkpoint: dp_choice
-  - intent: i_dp5
-  - slot_was_set:
-    - s_dp5: DP5
   - action: dp5_form
   - active_loop: dp5_form
   - active_loop: null

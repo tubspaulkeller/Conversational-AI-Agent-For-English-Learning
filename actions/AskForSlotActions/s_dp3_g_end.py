@@ -22,9 +22,9 @@ class AskForSlotAction(Action):
             if tracker.slots.get("s_dp3_q4") == "grammar_form":
                 dispatcher.utter_message(
                     text="Super, dann können wir uns auf die Vokabel Lektion konzentrieren.")
-                return [FollowupAction("dp3_form_voc"), SlotSet("s_dp3_g_q7", "vocabel_form")]
+                return [FollowupAction("dp3_form_voc"), SlotSet("s_dp3_g_end", "vocabel_form")]
 
             # beide Froms wurden abgeschlossen
             elif tracker.slots.get("s_dp3_q4") == "vocabel_form":
                 dispatcher.utter_message(text="Ok super!")
-                return [SlotSet("s_dp3_g_end", "grammar_form"), FollowupAction("utter_get_dp/3")]
+                return [SlotSet("s_dp3_g_end", "grammar_form"), SlotSet("s_get_dp", None), SlotSet("s_set_next_form", None), FollowupAction("get_dp_form")]

@@ -14,9 +14,10 @@ class ActionRepeatLastQuest(Action):
             if event['event'] == 'slot':
                 if event['name'] == 'requested_slot':
                     getSlotValue = event['value']
-                    print(getSlotValue)
+                 #   print(getSlotValue)
        # if getSlotValue is not None:
         #    if getSlotValue[0] == '2':
          #       dispatcher.utter_message(response='utter_ask_' + getSlotValue))
-        print("a", tracker.active_form.get('latest_action_name'))
+       # print("a", tracker.active_form.get('latest_action_name'))
+        print("TRACKER", tracker)
         return [UserUtteranceReverted(), FollowupAction(tracker.active_form.get('latest_action_name'))]
