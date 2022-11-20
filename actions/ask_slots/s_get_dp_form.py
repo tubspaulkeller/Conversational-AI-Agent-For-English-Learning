@@ -2,7 +2,7 @@ from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker, FormValidationAction
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import UserUtteranceReverted, FollowupAction, AllSlotsReset, Restarted, SlotSet, EventType
-
+from actions.helper.debug import debug
 buttons_forms_to_fill = {
     "s_dp1_end": {'title': 'DP1', 'payload': "/i_get_dp{\"e_get_dp\":\"dp1_form\"}"},
     "s_dp2_end": {'title': 'DP2', 'payload': '/i_get_dp{\"e_get_dp\":\"dp2_form\"}'},
@@ -41,28 +41,3 @@ def get_remaining_slots(none_slots_for_form):
     d1_keys = set(buttons_forms_to_fill.keys())
     d2_keys = set(none_slots_for_form.keys())
     return d1_keys.intersection(d2_keys)
-
-
-def debug(action, tracker=None):
-    output = '>>> Action: ' + action.name()
-    output = '=' * min(100, len(output)) + '\n' + output
-    if tracker:
-        try:
-            msg = tracker.latest_message
-            slots = tracker.slots
-            filled_slots = {}
-            output += '\n- Text:       ' + str(msg['text'])
-            output += '\n- Intent:     ' + str(msg['intent']['name'])
-            output += '\n- Confidence: ' + str(msg['intent']['confidence'])
-            output += '\n- Entities:   ' + ', '.join(msg['entities'])
-            output += '\n- Slots:      '
-            for slot_key, slot_value in slots.items():
-                if slot_value is not None:
-                    filled_slots[slot_key] = slot_value
-            if len(filled_slots) > 0:
-                for slot_key, slot_value in filled_slots.items():
-                    output += str(slot_key) + ': ' + str(slot_value) + ', '
-                output = output[:-2]
-        except Exception as e:
-            print(f'\n> announce: [ERROR] {e}')
-    print(output)
