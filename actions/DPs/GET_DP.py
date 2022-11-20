@@ -7,7 +7,7 @@ from fuzzywuzzy import process
 from datetime import datetime
 
 
-class ValidateNameForm(FormValidationAction):
+class ValidateGetDPForm(FormValidationAction):
     def name(self) -> Text:
         return "validate_get_dp_form"
 
