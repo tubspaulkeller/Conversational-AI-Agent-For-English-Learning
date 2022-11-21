@@ -1,7 +1,3 @@
-
-############################################################################################################
-##### DP1 #####
-############################################################################################################
 from cgitb import text
 from lib2to3.pgen2 import grammar
 from typing import Any, Text, Dict, List
@@ -9,16 +5,27 @@ from rasa_sdk import Action, Tracker, FormValidationAction
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import UserUtteranceReverted, FollowupAction, AllSlotsReset, Restarted
 
+# imports from different files 
 from actions.gamification.evaluate_user_scoring import evaluate_users_answer
 from actions.common.common import get_dp_inmemory_db, get_slots_for_dp
 
-class ValidateDP1Form(FormValidationAction):
+############################################################################################################
+##### DP1 #####
+############################################################################################################
 
+class ValidateDP1Form(FormValidationAction):
+"""
+This function validates the slots corresponding to the users answer for question of DP1
+"""
     def name(self) -> Text:
         # Unique identifier of the form"
         return "validate_dp1_form"
 
     def validate_dp1(name_of_slot):
+        """
+        This function validates the slots 
+        corresponding to the users answer for question of DP1
+        """
         def validate_slot(
             self,
             value: Text,

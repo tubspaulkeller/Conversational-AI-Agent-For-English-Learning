@@ -8,10 +8,11 @@ import requests
 import json
 from fuzzywuzzy import process
 
-
+# imports from different files
 from actions.gamification.evaluate_user_scoring import evaluate_users_answer
 from actions.helper.check_grammar_of_users_input import validate_grammar_for_user_answer
 from actions.common.common import get_dp_inmemory_db, get_slots_for_dp
+
 ############################################################################################################
 ##### DP3 #####
 ############################################################################################################
@@ -23,11 +24,13 @@ class ValidateDP3Form(FormValidationAction):
         return "validate_dp3_form"
 
     def validate_s_dp3_q1(self, slot_value: Any, dispatcher: CollectingDispatcher, tracker: Tracker, domain: "DomainDict") -> Dict[Text, Any]:
+        """ validates the first question of DP3. The user can choose his learning goal """
         dp3 = get_dp_inmemory_db("DP3.json")
         self.utter_learn_goal(dispatcher, dp3, slot_value)
         return {"s_dp3_q1": slot_value}
 
     def validate_s_dp3_q2(self, slot_value: Any, dispatcher: CollectingDispatcher, tracker: Tracker, domain: "DomainDict") -> Dict[Text, Any]:
+        """ validates the second question of DP3. The user can affirm or deny his learning goal """
         if slot_value == "affirm":
             self.utter_affirm_learn_goal(dispatcher)
             return {"s_dp3_q2": "affirm"}
@@ -35,6 +38,7 @@ class ValidateDP3Form(FormValidationAction):
             return {"s_dp3_q2": "deny"}
 
     def validate_dp3(name_of_slot):
+        """validates the following questions of DP3. The answers has not be checked at all bcs they are checked at different actions. """
         def validate_slot(
             self,
             value: Text,
@@ -79,6 +83,7 @@ class ValidateDP3VOCForm(FormValidationAction):
         tracker: "Tracker",
         domain: "DomainDict",
     ) -> List[Text]:
+        """ updates the required slots of the form """
         updated_slots = domain_slots.copy()
         if tracker.slots.get("s_dp3_v_q5") == 'deny':
             # there we will skip next slot
@@ -92,6 +97,7 @@ class ValidateDP3VOCForm(FormValidationAction):
         tracker: Tracker,
         domain: Dict[Text, Any],
     ) -> Dict[Text, Any]:
+        """ validates the first question of DP3. The user can choose his learning goal """
 
         define_learn_goal("s_dp3_v_q1", value, dispatcher)
         return {"s_dp3_v_q1": value}
@@ -103,6 +109,7 @@ class ValidateDP3VOCForm(FormValidationAction):
         tracker: Tracker,
         domain: Dict[Text, Any],
     ) -> Dict[Text, Any]:
+        """ validates the second question of DP3. It does not need to be validated bcs it is checked at the action """
         return {"s_dp3_v_q2": value}
 
     def validate_s_dp3_v_q4(self,
@@ -123,6 +130,7 @@ class ValidateDP3VOCForm(FormValidationAction):
                             tracker: Tracker,
                             domain: Dict[Text, Any],
                             ) -> Dict[Text, Any]:
+        """ validates the fifth question of DP3. The user can change his learning goal """
         if value == "shorter_learntime":
             utter_shorter_learntime(
                 dispatcher, "Vobabelquiz", "2000 neuen Wörtern")
@@ -138,6 +146,7 @@ class ValidateDP3VOCForm(FormValidationAction):
         tracker: Tracker,
         domain: Dict[Text, Any],
     ) -> Dict[Text, Any]:
+        """ slot does not need to be validated bcs it is checked at the action """
         return {"s_dp3_v_q6": value}
 
     def validate_s_dp3_v_end(
@@ -147,6 +156,7 @@ class ValidateDP3VOCForm(FormValidationAction):
         tracker: Tracker,
         domain: Dict[Text, Any],
     ) -> Dict[Text, Any]:
+        """ slot does not need to be validated bcs it is checked at the action """
         return {"s_dp3_v_end": value}
 
     def validate_dp3voc(name_of_slot):
@@ -157,6 +167,7 @@ class ValidateDP3VOCForm(FormValidationAction):
             tracker: Tracker,
             domain: Dict[Text, Any],
         ) -> Dict[Text, Any]:
+            """ validates the multiple choice questions of DP3. The user can choose one of the given answers """
             dp_3 = get_dp_inmemory_db("DP3.json")
             solution = dp_3[name_of_slot]["solution"]
             slots = dict(tracker.slots)
@@ -184,6 +195,7 @@ class ValidateDP3GRAMForm(FormValidationAction):
         tracker: "Tracker",
         domain: "DomainDict",
     ) -> List[Text]:
+        """ updates the required slots of the form """
         updated_slots = domain_slots.copy()
         if tracker.slots.get("s_dp3_g_q5") == 'deny':
             updated_slots.remove("s_dp3_g_q6")
@@ -196,6 +208,7 @@ class ValidateDP3GRAMForm(FormValidationAction):
         tracker: Tracker,
         domain: Dict[Text, Any],
     ) -> Dict[Text, Any]:
+        """ the user can choose his learning goal """
         define_learn_goal("s_dp3_g_q1", value, dispatcher)
         return {"s_dp3_g_q1": value}
 
@@ -206,6 +219,7 @@ class ValidateDP3GRAMForm(FormValidationAction):
         tracker: Tracker,
         domain: Dict[Text, Any],
     ) -> Dict[Text, Any]:
+        """ does not need to be validated bcs it is checked at different action """
         return {"s_dp3_g_q2": value}
 
     def validate_s_dp3_g_q4(self,
@@ -214,6 +228,7 @@ class ValidateDP3GRAMForm(FormValidationAction):
                             tracker: Tracker,
                             domain: Dict[Text, Any],
                             ) -> Dict[Text, Any]:
+        """ user can choose if he wants to change his learning goal """
         if value == "deny":
             utter_problem_of_learn_process(dispatcher)
         elif value == "affirm":
@@ -226,6 +241,7 @@ class ValidateDP3GRAMForm(FormValidationAction):
                             tracker: Tracker,
                             domain: Dict[Text, Any],
                             ) -> Dict[Text, Any]:
+        """ user can change his learning goal """
         if value == "shorter_learntime":
             utter_shorter_learntime(
                 dispatcher, "Grammatikquiz", "zwei Zeitformen")
@@ -241,6 +257,7 @@ class ValidateDP3GRAMForm(FormValidationAction):
         tracker: Tracker,
         domain: Dict[Text, Any],
     ) -> Dict[Text, Any]:
+        """ does not need to be validated bcs it is checked at different action """
         return {"s_dp3_g_q6": value}
 
     def validate_s_dp3_g_end(
@@ -250,6 +267,7 @@ class ValidateDP3GRAMForm(FormValidationAction):
         tracker: Tracker,
         domain: Dict[Text, Any],
     ) -> Dict[Text, Any]:
+        """ does not need to be validated bcs it is checked at different action """
         return {"s_dp3_g_end": value}
 
     def validate_dp3gram(name_of_slot):
@@ -261,6 +279,7 @@ class ValidateDP3GRAMForm(FormValidationAction):
             tracker: Tracker,
             domain: Dict[Text, Any],
         ) -> Dict[Text, Any]:
+            """ validates the multiple choice questions of DP3. The user can choose one of the given answers """
             dp_3 = get_dp_inmemory_db("DP3.json")
             solution = dp_3[name_of_slot]["solution"]
             slots = dict(tracker.slots)

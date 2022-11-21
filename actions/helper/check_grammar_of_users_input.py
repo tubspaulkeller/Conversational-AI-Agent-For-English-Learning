@@ -11,13 +11,17 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 
+# import functions from other files
 from actions.common.common import get_dp_inmemory_db
+
 ############################################################################################################
 ##### Check Grammar #####
-# these methods are use for DP2 and DP4
 ############################################################################################################
 
+"""these methods are use for DP2 and DP4 """
+
 def validate_grammar_for_user_answer(value, json_file, name_of_slot, dispatcher, tracker):
+    """ validate the grammar of the user input """
     entities = value
     number_of_entities = len(entities)
     print("Debug", entities, number_of_entities)
@@ -40,10 +44,12 @@ def validate_grammar_for_user_answer(value, json_file, name_of_slot, dispatcher,
 
 
 def json_formatter(json_response):
+    """ format json response """
     print(json.dumps(json_response, indent=4))
 
 
 def grammar_check(user_input):
+    """ calls a grammar check api """
     url = "https://dnaber-languagetool.p.rapidapi.com/v2/check"
 
     payload = f"language=en-US&text={user_input}"
@@ -64,7 +70,7 @@ def grammar_check(user_input):
 
 
 def translate_to_german(grammar_error):
-
+""" calls the translate api and translates the grammar error to german """
     url = "https://deep-translate1.p.rapidapi.com/language/translate/v2"
     payload = {"q": grammar_error, "source": "en", "target": "de"}
     headers = {
@@ -83,6 +89,7 @@ def translate_to_german(grammar_error):
 
 
 def grammar_validation(grammar_response):
+    """ checks if the grammar is correct. If not it returns the error and the suggestion  """ 
     suggestions = []
     if (len(grammar_response['matches']) > 0):
         if grammar_response['matches'][0]['message']:
@@ -102,6 +109,7 @@ def grammar_validation(grammar_response):
 
 
 def check_missing_entities(name_of_slot, entities, entities_list):
+    """ check if the user input contains all entities which are asked by the question of the quiz. The bot will ask the user to repeat the question if the user input is missing an entity """
     for entity in entities:
         # allow typos for entities till a certain threshold (80%)
         fuzzy_entity = process.extractOne(
@@ -112,15 +120,17 @@ def check_missing_entities(name_of_slot, entities, entities_list):
 
 
 def check_entities(number_of_entities, entities_list, name_of_slot, entities, dispatcher):
+    """ checks user input if the number of entities is correct and if the entities are correct """
     if number_of_entities != entities_list[name_of_slot]["quantity"] | check_missing_entities(name_of_slot, entities, entities_list):
         dispatcher.utter_message(
-            text="You have not answered the question correctly. Please try again.")
+            text="You didn't answer all parts of the question, unfortunately. Try to make your answer more detailed. Try again. :)")
         return True
     else:
         return False
 
 
 def valid_grammar(usertext, dispatcher):
+    """ a meta method which calls the grammar check api and checks if the grammar is correct """
     grammar_response = grammar_check(usertext)
     grammar_error, grammar_suggestion = grammar_validation(grammar_response)
     if check_grammar_error(grammar_error, dispatcher, grammar_suggestion):
@@ -130,6 +140,7 @@ def valid_grammar(usertext, dispatcher):
 
 
 def check_grammar_error(grammar_error, dispatcher, grammar_suggestion):
+    """ returns the suggestions for the correct answer """
     if grammar_error:
         dispatcher.utter_message(response="utter_grammar_error")
         dispatcher.utter_message(text=grammar_error)
@@ -137,7 +148,7 @@ def check_grammar_error(grammar_error, dispatcher, grammar_suggestion):
             for i, val in enumerate(grammar_suggestion):
                 dispatcher.utter_message(
                     text=f"{i}. suggestion: {val}")
-                if i == 4:
+                if i == 3:
                     break
         return True
     else:

@@ -11,4 +11,5 @@ class AskForSlotAction(Action):
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker,
             domain: Dict) -> List[EventType]:
+        """ DP1 is finished, the user can choose a different DP """
         return [SlotSet("s_dp1_end", "end_of_dp1_form"), SlotSet("s_get_dp_form", None), SlotSet("s_set_next_form", None), FollowupAction("get_dp_form")]

@@ -11,6 +11,7 @@ class AskForSlotAction(Action):
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker,
             domain: Dict) -> List[EventType]:
+        """ If the user want to change his goal, the user can choose a different goal. """
         if tracker.slots.get("s_dp3_g_q2") == "deny":
             dispatcher.utter_message(response="utter_ask_s_dp3_g_q1")
             return [SlotSet("s_dp3_g_q1", None), SlotSet("s_dp3_g_q2", None)]

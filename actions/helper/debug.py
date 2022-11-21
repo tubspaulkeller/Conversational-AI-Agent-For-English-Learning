@@ -4,6 +4,7 @@ from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import UserUtteranceReverted, FollowupAction, AllSlotsReset, Restarted, SlotSet, EventType
 
 def debug(action, tracker=None):
+    """ debug function for printing the current state of the tracker """
     output = '>>> Action: ' + action.name()
     output = '=' * min(100, len(output)) + '\n' + output
     if tracker:
