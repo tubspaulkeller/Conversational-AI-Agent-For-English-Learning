@@ -11,7 +11,7 @@ from rasa_sdk.events import UserUtteranceReverted, FollowupAction, AllSlotsReset
 class ValidateDP5Form(FormValidationAction):
 
     def name(self) -> Text:
-        # Unique identifier of the form"
+        # Unique identifier of the form
         return "validate_dp5_form"
 
     def validate_dp5(name_of_slot):

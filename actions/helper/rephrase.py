@@ -19,12 +19,13 @@ class ActionRephrase(Action):
         domain: Dict[Text, Any],
     ) -> List[Dict[Text, Any]]:
         print("debug: rephrase action", len(tracker.active_loop))
-        print(tracker.active_loop["name"])
-
-        if len(tracker.active_loop) > 0 and tracker.active_loop["name"] == "dp4_form":
-            dispatcher.utter_message(response="utter_rephrase/en")
-        else:
-            dispatcher.utter_message(response="utter_rephrase/de")
-
+       # print(tracker.active_loop["name"])
+        try:
+            if len(tracker.active_loop) > 0 and tracker.active_loop["name"] == "dp4_form":
+                dispatcher.utter_message(response="utter_rephrase/en")
+            else:
+                dispatcher.utter_message(response="utter_rephrase/de")
+        except:
+            print("ERROR")
         # Revert user message which led to fallback.
         return [UserUtteranceReverted()]

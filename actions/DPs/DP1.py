@@ -14,18 +14,12 @@ from actions.common.common import get_dp_inmemory_db, get_slots_for_dp
 ############################################################################################################
 
 class ValidateDP1Form(FormValidationAction):
-"""
-This function validates the slots corresponding to the users answer for question of DP1
-"""
     def name(self) -> Text:
         # Unique identifier of the form"
         return "validate_dp1_form"
 
     def validate_dp1(name_of_slot):
-        """
-        This function validates the slots 
-        corresponding to the users answer for question of DP1
-        """
+        """This function validates the slots corresponding to the users answer for question of DP1"""
         def validate_slot(
             self,
             value: Text,
@@ -33,6 +27,8 @@ This function validates the slots corresponding to the users answer for question
             tracker: Tracker,
             domain: Dict[Text, Any],
         ) -> Dict[Text, Any]:
+            for event in tracker.events:
+                print(event)
             dp_1 = get_dp_inmemory_db("DP1.json")
             solution = dp_1[name_of_slot]["solution"]
             slots = dict(tracker.slots)

@@ -79,6 +79,7 @@ actions:
   - action_rephrase
   - action_repeat_last_quest
   - validate_get_dp_form
+  - validate_set_next_form
   - action_ask_s_get_dp_form
   - action_ask_s_set_next_form
 

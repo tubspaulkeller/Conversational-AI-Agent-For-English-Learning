@@ -3,9 +3,6 @@ from rasa_sdk import Action, Tracker, FormValidationAction
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.types import DomainDict
 from rasa_sdk.events import UserUtteranceReverted, FollowupAction, AllSlotsReset, Restarted
-from fuzzywuzzy import process
-from datetime import datetime
-
 
 class ValidateGetDPForm(FormValidationAction):
     def name(self) -> Text:

@@ -1,0 +1,24 @@
+{
+    "sender_id": "someone",
+    "slots": {
+
+  },
+    "latest_message": {
+      "intent": {},
+      "entities": [],
+      "text": null,
+      "message_id": null,
+      "metadata": {}
+    },
+    "latest_event_time": 1607396994.449022,
+    "followup_action": null,
+    "paused": false,
+    "events": [
+    ],
+    "latest_input_channel": null,
+    "active_loop": {"name": "dp4_form"},
+    "latest_action": {
+      "action_name": "action_listen"
+    },
+    "latest_action_name": "action_listen"
+  }

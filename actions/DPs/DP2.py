@@ -21,7 +21,7 @@ from actions.common.common import get_dp_inmemory_db, get_slots_for_dp
 class ValidateDP2Form(FormValidationAction):
 
     def name(self) -> Text:
-        # Unique identifier of the form"
+        # Unique identifier of the form
         return "validate_dp2_form"
  
     async def required_slots(
@@ -69,9 +69,7 @@ class ValidateDP2Form(FormValidationAction):
         tracker: Tracker,
         domain: "DomainDict",
     ) -> Dict[Text, Any]:
-    """
-    validates the slot of the fourth question of DP2 
-    """
+    #validates the slot of the fourth question of DP2 
         value = slot_value
         if value == "yes":
             self.utter_affirm_more_learning_quests(dispatcher)
