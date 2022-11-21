@@ -14,7 +14,7 @@ from actions.helper.check_grammar_of_users_input import validate_grammar_for_use
 class ValidateDP4Form(FormValidationAction):
 
     def name(self) -> Text:
-        # Unique identifier of the form"
+        # Unique identifier of the form
         return "validate_dp4_form"
 
     def validate_dp4(name_of_slot):

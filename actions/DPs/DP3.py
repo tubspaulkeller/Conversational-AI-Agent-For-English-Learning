@@ -185,7 +185,7 @@ class ValidateDP3VOCForm(FormValidationAction):
 class ValidateDP3GRAMForm(FormValidationAction):
 
     def name(self) -> Text:
-        # Unique identifier of the form"
+        # Unique identifier of the form
         return "validate_dp3_form_gram"
 
     async def required_slots(

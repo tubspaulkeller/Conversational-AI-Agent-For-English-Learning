@@ -21,7 +21,7 @@ from actions.common.common import get_dp_inmemory_db, get_slots_for_dp
 class ValidateDP2Form(FormValidationAction):
 
     def name(self) -> Text:
-        # Unique identifier of the form"
+        # Unique identifier of the form
         return "validate_dp2_form"
  
     async def required_slots(

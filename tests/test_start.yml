@@ -8,7 +8,5 @@ stories:
       hi
     intent: greet
   - action: utter_greet
-  - action: action_ask_s_get_dp_form
-  - slot_was_set:
-    - s_get_dp_form: "dp1_form"
+
 

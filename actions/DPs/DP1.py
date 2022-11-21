@@ -27,6 +27,8 @@ class ValidateDP1Form(FormValidationAction):
             tracker: Tracker,
             domain: Dict[Text, Any],
         ) -> Dict[Text, Any]:
+            for event in tracker.events:
+                print(event)
             dp_1 = get_dp_inmemory_db("DP1.json")
             solution = dp_1[name_of_slot]["solution"]
             slots = dict(tracker.slots)
