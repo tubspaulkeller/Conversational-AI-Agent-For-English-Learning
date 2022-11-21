@@ -6,7 +6,7 @@ from rasa_sdk.events import UserUtteranceReverted, FollowupAction, AllSlotsReset
 
 class ValidateGetDPForm(FormValidationAction):
     def name(self) -> Text:
-        return "validate_get_dp_form"
+        return "validate_set_next_form"
 
     def validate_s_get_dp_form(
         self,
@@ -15,4 +15,4 @@ class ValidateGetDPForm(FormValidationAction):
         tracker: Tracker,
         domain: DomainDict,
     ) -> Dict[Text, Any]:
-        return {"s_get_dp_form": slot_value}
+        return {"s_set_next_form": slot_value}

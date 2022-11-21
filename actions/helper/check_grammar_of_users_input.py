@@ -70,7 +70,7 @@ def grammar_check(user_input):
 
 
 def translate_to_german(grammar_error):
-""" calls the translate api and translates the grammar error to german """
+# calls the translate api and translates the grammar error to german 
     url = "https://deep-translate1.p.rapidapi.com/language/translate/v2"
     payload = {"q": grammar_error, "source": "en", "target": "de"}
     headers = {

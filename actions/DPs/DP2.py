@@ -69,9 +69,7 @@ class ValidateDP2Form(FormValidationAction):
         tracker: Tracker,
         domain: "DomainDict",
     ) -> Dict[Text, Any]:
-    """
-    validates the slot of the fourth question of DP2 
-    """
+    #validates the slot of the fourth question of DP2 
         value = slot_value
         if value == "yes":
             self.utter_affirm_more_learning_quests(dispatcher)

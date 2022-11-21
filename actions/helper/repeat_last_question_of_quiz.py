@@ -4,7 +4,7 @@ from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import UserUtteranceReverted, FollowupAction, AllSlotsReset, Restarted, SlotSet, EventType
 from actions.helper.debug import debug
 
-not_repeat_bot_actions = ['utter_rephrase/de', 'utter_rephrase/en']
+not_repeat_bot_actions = ['utter_rephrase/de', 'utter_rephrase/en', 'utter_greet']
 
 
 class ActionRepeatLastQuest(Action):
@@ -20,12 +20,13 @@ class ActionRepeatLastQuest(Action):
                 bot_events.append(last_action)
 
         for bot_action in reversed(bot_events):
+           # print("bot actions", bot_action)
             if bot_action not in not_repeat_bot_actions:
                 #debug(self, tracker)
                 print('debug: repeat last action', bot_action)
                 # TODO
                 # mit action einbauen
-               #  dispatcher.utter_message(response=bot_action)
+                dispatcher.utter_message(response=bot_action)
                 break
 
         return []
