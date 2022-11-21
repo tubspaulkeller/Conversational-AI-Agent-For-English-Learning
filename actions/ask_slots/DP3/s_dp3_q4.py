@@ -11,7 +11,7 @@ class AskForSlotAction(Action):
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker,
             domain: Dict) -> List[EventType]:
-
+        """ calls the next form depending on the user input """
         if tracker.slots.get("s_dp3_q3") == "vocabels":
 
             return [FollowupAction("dp3_form_voc"), SlotSet("s_dp3_q4", "vocabel_form")]

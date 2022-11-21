@@ -3,6 +3,7 @@ from rasa_sdk import Action, Tracker, FormValidationAction
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import UserUtteranceReverted, FollowupAction, AllSlotsReset, Restarted
 
+# imports from different files
 from actions.helper.check_grammar_of_users_input import validate_grammar_for_user_answer
 
 ############################################################################################################
@@ -17,7 +18,7 @@ class ValidateDP4Form(FormValidationAction):
         return "validate_dp4_form"
 
     def validate_dp4(name_of_slot):
-
+ 
         def validate_slot(
             self,
             value: Text,
@@ -25,6 +26,8 @@ class ValidateDP4Form(FormValidationAction):
             tracker: Tracker,
             domain: Dict[Text, Any],
         ) -> Dict[Text, Any]:
+            """ The slots corresponding to the users answer for question of DP4 are validated here. 
+            The user input is checked for grammar errors. Therefore a function is called from the helper folder"""
 
             return validate_grammar_for_user_answer(value, "DP4.json", name_of_slot, dispatcher, tracker)
 

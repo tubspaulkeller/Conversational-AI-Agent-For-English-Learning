@@ -11,20 +11,20 @@ class AskForSlotAction(Action):
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker,
             domain: Dict) -> List[EventType]:
-
+        """ The next form get called depending on the user input. If the user choosed before vocabluary, the form grammar is called. If the user choosed before grammar, the form grammar is called. """
         if tracker.slots.get("s_dp3_v_q6") == "deny":
             dispatcher.utter_message(response="utter_ask_s_dp3_v_q5")
             return [SlotSet("s_dp3_v_q5", None), SlotSet("s_dp3_v_q6", None)]
 
         if (tracker.slots.get("s_dp3_v_q5") == "deny") or (tracker.slots.get("s_dp3_v_q6") == "affirm"):
 
-            # nur eine Form wurde abgeschlossen
+            #  the vocabulary form is done
             if tracker.slots.get("s_dp3_q4") == "vocabel_form":
                 dispatcher.utter_message(
                     text="Super, dann können wir uns auf die Grammatik Lektion konzentrieren.")
                 return [FollowupAction("dp3_form_gram"), SlotSet("s_dp3_v_end", "grammar_form")]
 
-            # beide From wurde abgeschlossen
+            # both forms are done
             elif tracker.slots.get("s_dp3_q4") == "grammar_form":
                 dispatcher.utter_message(text="Ok super!")
                 return [SlotSet("s_dp3_v_end", "vocabel_form"), SlotSet("s_get_dp_form", None), SlotSet("s_set_next_form", None), FollowupAction("get_dp_form")]

@@ -4,8 +4,11 @@ from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import UserUtteranceReverted, FollowupAction, AllSlotsReset, Restarted
 import json
 from .handle_user_scoring import user_score, set_points, increase_tries, resetTries, reset_user_score, get_tries
-##### methods for evaluating users answer during quest #####
+
+""" this file contains methods for evaluating the scoring of the user during the quiz """
+
 def evaluate_users_answer(solution, dp_n, name_of_slot, value, dispatcher, slots):
+    """ users input is evaluated and the correct response is given to the user """
 
     if solution.lower() == value.lower():
         evaluate_scoring(dp_n, name_of_slot, dispatcher, slots)
@@ -27,6 +30,8 @@ def evaluate_users_answer(solution, dp_n, name_of_slot, value, dispatcher, slots
 
 
 def evaluate_scoring(dp_n, name_of_slot, dispatcher, slots):
+    """ evaluate the scoring of the user, which is based on the number of tries"""
+    
     # user got first question correct
     if dp_n[name_of_slot]["question"] == 1 and user_score["tries"] == 0:
         utter_first_quest_correct(dispatcher)
@@ -69,6 +74,7 @@ def evaluate_scoring(dp_n, name_of_slot, dispatcher, slots):
 
 
 def evaluate_tries_of_user(name_of_slot, dispatcher):
+    """ users tries are evaluated and the correct response is given to the user """
     user_score["not_first_attempt"] = 1
     increase_tries()
     utter_wrong_answer(dispatcher)
@@ -77,6 +83,7 @@ def evaluate_tries_of_user(name_of_slot, dispatcher):
 
 
 def give_solution(dp_n, name_of_slot, dispatcher, solution):
+    """ the user could not answer the question correctly at second attempt and the solution is given to the user """
     user_score["last_question_correct"] = 0
     utter_solution(dispatcher, solution)
     if dp_n[name_of_slot]["question"] == dp_n["total_questions"]:
@@ -88,6 +95,7 @@ def give_solution(dp_n, name_of_slot, dispatcher, solution):
 
 
 def finish_quiz(dispatcher, dp_n):
+    """ the user finished the quiz and the score is given to the user """
     if (user_score["points"] == 0):
         utter_finished_quiz_no_points(dispatcher)
     else:
@@ -96,9 +104,10 @@ def finish_quiz(dispatcher, dp_n):
             utter_all_quest_correct_at_first_attempt(dp_n, dispatcher)
     reset_user_score()
 
- ##### Utter messages funtions #####
 
-
+##### Utter messages funtions #####
+""" the following functions are used to give the user the correct response based on the number of tries and the question number. 
+ If the user has answered the question correctly at first attempt, the user gets a different response than if the user has answered the question correctly at second attempt."""
 def utter_solution(dispatcher, solution):
     dispatcher.utter_message(
         text='Schade, leider ist die Lösung: %s' % solution)

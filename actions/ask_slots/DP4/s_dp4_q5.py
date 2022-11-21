@@ -11,6 +11,7 @@ class AskForSlotAction(Action):
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker,
             domain: Dict) -> List[EventType]:
+        """ sending a image for the next question """
 
         dispatcher.utter_message(
             image="https://res.cloudinary.com/dmnkxrxes/image/upload/v1667902166/Ben_Bot/story_three_k50xli.png"
