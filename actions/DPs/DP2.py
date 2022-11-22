@@ -9,7 +9,8 @@ import json
 from fuzzywuzzy import process
 import os
 
-# imports from different files 
+
+# imports from different files
 from actions.helper.check_grammar_of_users_input import validate_grammar_for_user_answer
 from actions.gamification.evaluate_user_scoring import evaluate_users_answer
 from actions.common.common import get_dp_inmemory_db, get_slots_for_dp
@@ -18,12 +19,13 @@ from actions.common.common import get_dp_inmemory_db, get_slots_for_dp
 ##### DP2 #####
 ############################################################################################################
 
+
 class ValidateDP2Form(FormValidationAction):
 
     def name(self) -> Text:
         # Unique identifier of the form
         return "validate_dp2_form"
- 
+
     async def required_slots(
         self,
         domain_slots: List[Text],
@@ -69,7 +71,7 @@ class ValidateDP2Form(FormValidationAction):
         tracker: Tracker,
         domain: "DomainDict",
     ) -> Dict[Text, Any]:
-    #validates the slot of the fourth question of DP2 
+        # validates the slot of the fourth question of DP2
         value = slot_value
         if value == "yes":
             self.utter_affirm_more_learning_quests(dispatcher)

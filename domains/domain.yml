@@ -12,6 +12,16 @@ entities:
   - e_get_dp
 
 slots: 
+  user_id:
+    type: text
+    mappings:
+    - type: custom 
+
+  first_name:
+    type: text
+    mappings:
+    - type: custom 
+    
   s_get_dp_form:
     type: text
     mappings:
@@ -25,7 +35,11 @@ slots:
 
 responses:
   utter_greet:
-  - text: "Hi! "
+  - text: "Hi {first_name}! 😊 "
+
+  utter_greet/no_username:
+  - text: Hey Buddy! 😊
+
   utter_goodbye:
   - text: "Tschüss!"
 
@@ -82,6 +96,7 @@ actions:
   - validate_set_next_form
   - action_ask_s_get_dp_form
   - action_ask_s_set_next_form
+  - action_get_user_credentials
 
 forms: 
   get_dp_form:
