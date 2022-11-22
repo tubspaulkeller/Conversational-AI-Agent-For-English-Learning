@@ -5,7 +5,7 @@ stories:
 - story: Start Conversation
   steps:
   - intent: i_greet
-  - action: utter_greet
+  - action: action_get_user_credentials
   - action: get_dp_form
   - active_loop: get_dp_form
   - active_loop: null

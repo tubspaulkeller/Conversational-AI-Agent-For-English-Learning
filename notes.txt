@@ -7,12 +7,14 @@
 -> settings: python interpreter
 -> choose conda rasa 
 
-
+#slack setup
+App home 
+accept user sends message (toggle click)
 #slack 
 rasa run --port 5002 --connector slack
 ngrok http 5002
 /webhooks/slack/webhook
-https://029c-2001-638-602-d025-1c4c-fb2e-8a5f-5b1d.eu.ngrok.io/webhooks/slack/webhook
+https://9cfa-2a02-3102-40b6-5-68fe-3b16-f1ef-294a.eu.ngrok.io/webhooks/slack/webhook
 
 # telegram 
 ngrok http 5005
