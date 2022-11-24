@@ -7,7 +7,7 @@ import logging
 import re
 import time
 from typing import Any, Awaitable, Callable, Dict, List, Optional, Text
-from rasa.core.channels.slack import SlackBot
+
 from rasa.core.channels.channel import InputChannel, OutputChannel, UserMessage
 from rasa.shared.constants import DOCS_URL_CONNECTORS_SLACK
 from rasa.shared.exceptions import InvalidConfigException
@@ -20,12 +20,12 @@ from slack_sdk.web.async_client import AsyncWebClient
 logger = logging.getLogger(__name__)
 
 
-class CustomSlackInput(InputChannel):
+class MyIO(InputChannel):
     """Slack input channel implementation. Based on the HTTPInputChannel."""
 
     @classmethod
     def name(cls) -> Text:
-        return "custom_slack"
+        return "MyIO"
 
     @classmethod
     def from_credentials(cls, credentials: Optional[Dict[Text, Any]]) -> InputChannel:
@@ -33,40 +33,34 @@ class CustomSlackInput(InputChannel):
             cls.raise_missing_credentials_exception()
 
         return cls(
-            "xoxb-4393955305015-4421152854193-OIi3OXCUr3LteogsqMScLiB5",
-            "C04C29SEDPV",
-            "ebbc49915f9b55e64d321c259baa9ae2"
-            # credentials.get("slack_token"),
-            # credentials.get("slack_channel"),
-            # credentials.get("proxy"),
-            # credentials.get("slack_retry_reason_header",
-            #                 "x-slack-retry-reason"),
-            # credentials.get("slack_retry_number_header", "x-slack-retry-num"),
-            # credentials.get("errors_ignore_retry", None),
-            # credentials.get("use_threads", False),
-            # credentials.get("slack_signing_secret", ""),
-            # credentials.get("conversation_granularity", "sender"),
+            credentials.get("slack_token"),
+            credentials.get("slack_channel"),
+            credentials.get("proxy"),
+            credentials.get("slack_retry_reason_header",
+                            "x-slack-retry-reason"),
+            credentials.get("slack_retry_number_header", "x-slack-retry-num"),
+            credentials.get("errors_ignore_retry", None),
+            credentials.get("use_threads", False),
+            credentials.get("slack_signing_secret", ""),
+            credentials.get("conversation_granularity", "sender"),
         )
 
     def __init__(
         self,
         slack_token: Text,
         slack_channel: Optional[Text] = None,
-        # proxy: Optional[Text] = None,
-        # slack_retry_reason_header: Optional[Text] = None,
-        # slack_retry_number_header: Optional[Text] = None,
-        # errors_ignore_retry: Optional[List[Text]] = None,
-        # use_threads: Optional[bool] = False,
+        proxy: Optional[Text] = None,
+        slack_retry_reason_header: Optional[Text] = None,
+        slack_retry_number_header: Optional[Text] = None,
+        errors_ignore_retry: Optional[List[Text]] = None,
+        use_threads: Optional[bool] = False,
         slack_signing_secret: Text = "",
-        #conversation_granularity: Optional[Text] = "sender",
+        conversation_granularity: Optional[Text] = "sender",
     ) -> None:
         """Create a Slack input channel.
-
         Needs a couple of settings to properly authenticate and validate
         messages. Details to setup:
-
         https://github.com/slackapi/python-slackclient
-
         Args:
             slack_token: Your Slack Authentication token. You can create a
                 Slack app and get your Bot User OAuth Access Token
@@ -97,14 +91,13 @@ class CustomSlackInput(InputChannel):
         """
         self.slack_token = slack_token
         self.slack_channel = slack_channel
-        # self.proxy = proxy
-        # self.errors_ignore_retry = errors_ignore_retry or ("http_timeout",)
-        # self.retry_reason_header = slack_retry_reason_header
-        # self.retry_num_header = slack_retry_number_header
-        # self.use_threads = use_threads
+        self.proxy = proxy
+        self.errors_ignore_retry = errors_ignore_retry or ("http_timeout",)
+        self.retry_reason_header = slack_retry_reason_header
+        self.retry_num_header = slack_retry_number_header
+        self.use_threads = use_threads
         self.slack_signing_secret = slack_signing_secret
-        #self.conversation_granularity = conversation_granularity
-        print("MY CUSTOM CONNECTOR GOT CALLED")
+        self.conversation_granularity = conversation_granularity
 
         self._validate_credentials()
 
@@ -150,16 +143,12 @@ class CustomSlackInput(InputChannel):
         text: Text, uids_to_remove: Optional[List[Text]]
     ) -> Text:
         """Remove superfluous/wrong/problematic tokens from a message.
-
         Probably a good starting point for pre-formatting of user-provided text
         to make NLU's life easier in case they go funky to the power of extreme
-
         In the current state will just drop self-mentions of bot itself
-
         Args:
             text: raw message as sent from slack
             uids_to_remove: a list of user ids to remove from the content
-
         Returns:
             str: parsed and cleaned version of the input text
         """
@@ -295,12 +284,9 @@ class CustomSlackInput(InputChannel):
 
     def get_metadata(self, request: Request) -> Dict[Text, Any]:
         """Extracts the metadata from a slack API event.
-
         Slack Documentation: https://api.slack.com/types/event
-
         Args:
             request: A `Request` object that contains a slack API event in the body.
-
         Returns:
             Metadata extracted from the sent event payload. This includes the output
                 channel for the response, and users that have installed the bot.
@@ -352,13 +338,10 @@ class CustomSlackInput(InputChannel):
 
     def is_request_from_slack_authentic(self, request: Request) -> bool:
         """Validate a request from Slack for its authenticity.
-
         Checks if the signature matches the one we expect from Slack. Ensures
         we don't process request from a third-party disguising as slack.
-
         Args:
             request: incoming request to be checked
-
         Returns:
             `True` if the request came from Slack.
         """
@@ -419,8 +402,7 @@ class CustomSlackInput(InputChannel):
                 output = request.json
                 event = output.get("event", {})
                 user_message = event.get("text", "")
-                # event.get("user", "")
-                sender_id = metadata.get("out_channel")
+                sender_id = "C04C29SEDPV"
                 metadata = self.get_metadata(request)
                 channel_id = metadata.get("out_channel")
                 thread_id = metadata.get("thread_id")
@@ -459,7 +441,7 @@ class CustomSlackInput(InputChannel):
                 payload = json.loads(output["payload"][0])
 
                 if self._is_interactive_message(payload):
-                    sender_id = payload["user"]["id"]
+                    sender_id = "C04C29SEDPV"
                     text = self._get_interactive_response(
                         payload["actions"][0])
                     if text is not None:
