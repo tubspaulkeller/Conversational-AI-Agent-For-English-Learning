@@ -20,6 +20,7 @@ class AskForSlotAction(Action):
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker,
             domain: Dict) -> List[EventType]:
         """ User can choose his first or different DP. Each DP has a different form. Is the user finished with one DP, this DP is removed from the list of available DPs. """
+        print("tr id 2 ", tracker.sender_id)
         none_slots_for_form = get_none_slots_for_form(tracker.slots)
         #debug(self, tracker)
         buttons = []
@@ -40,7 +41,7 @@ def get_none_slots_for_form(slots):
 
 
 def get_remaining_slots(none_slots_for_form):
-    """" returns the remaining forms  """ 
+    """" returns the remaining forms  """
     d1_keys = set(buttons_forms_to_fill.keys())
     d2_keys = set(none_slots_for_form.keys())
     return d1_keys.intersection(d2_keys)
