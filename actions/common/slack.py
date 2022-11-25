@@ -2,35 +2,37 @@ from slack import WebClient
 from slack_sdk.web.async_client import AsyncWebClient
 from dotenv import load_dotenv
 import os
+import json
 load_dotenv()
+
+filter_slackbot_id = 'USLACKBOT'
+filter_is_admin = False
+filter_is_bot = False
 
 client = AsyncWebClient(
     token=os.getenv('SLACK_TOKEN'))
 
 
-async def slackitems(tracker):
-    # get person from slack
-   # get_channel()
-    user_id = tracker.sender_id
+async def get_group_member():
+    users = await client.users_list()
+    group_members = []
     try:
-        user_cred = await client.users_info(user=user_id)
-        # aprint(user_cred)
+        for member in users['members']:
+            if member['id'] != filter_slackbot_id and member['is_admin'] == filter_is_admin and member['is_bot'] == filter_is_bot:
+                group_members.append(member['profile']['first_name'])
+                print("DEBUG: MEMBER, ", member['profile']['first_name'])
+    except Exception as e:
+        print("ERROR: GETING GROUP MEMBERS ", e)
 
-        u_id = user_cred['user']['id']
-        f_name = user_cred['user']['profile']['first_name']
+    return group_members
+
+
+async def get_user(id):
+    try:
+        user_cred = await client.users_info(user=id)
+        return user_cred['user']['profile']['first_name']
         # l_name = user_cred['user']['profile']['last_name']
         # email = user_cred['user']['profile']['email']
-
     except Exception as e:
-        print("Error while get user : {0}".format(e))
-        # a_user = User(u_id='00000000000', f_name='User',
-        #               l_name='', email='', level=0)
-        return user_id, None, None
-
-    return u_id, f_name, await get_channel()
-
-
-async def get_channel():
-    channel = await client.users_conversations()
-    for channel in channel['channels']:
-        return channel['id']
+        print("ERROR: GETING USER ", e)
+        return None, None

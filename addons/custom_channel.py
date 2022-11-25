@@ -7,7 +7,7 @@ import logging
 import re
 import time
 from typing import Any, Awaitable, Callable, Dict, List, Optional, Text
-
+from rasa.core.channels.slack import SlackBot
 from rasa.core.channels.channel import InputChannel, OutputChannel, UserMessage
 from rasa.shared.constants import DOCS_URL_CONNECTORS_SLACK
 from rasa.shared.exceptions import InvalidConfigException
@@ -25,7 +25,7 @@ class MyIO(InputChannel):
 
     @classmethod
     def name(cls) -> Text:
-        return "MyIO"
+        return "slack"
 
     @classmethod
     def from_credentials(cls, credentials: Optional[Dict[Text, Any]]) -> InputChannel:
@@ -57,6 +57,7 @@ class MyIO(InputChannel):
         slack_signing_secret: Text = "",
         conversation_granularity: Optional[Text] = "sender",
     ) -> None:
+        print("CUSTOM CHANNEL GOT CALLED")
         """Create a Slack input channel.
         Needs a couple of settings to properly authenticate and validate
         messages. Details to setup:
@@ -402,7 +403,7 @@ class MyIO(InputChannel):
                 output = request.json
                 event = output.get("event", {})
                 user_message = event.get("text", "")
-                sender_id = "C04C29SEDPV"
+                sender_id = self.get_metadata(request).get("out_channel")
                 metadata = self.get_metadata(request)
                 channel_id = metadata.get("out_channel")
                 thread_id = metadata.get("thread_id")
