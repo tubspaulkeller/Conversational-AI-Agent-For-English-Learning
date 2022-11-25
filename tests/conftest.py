@@ -10,7 +10,8 @@ from rasa_sdk import Tracker
 
 here = Path(__file__).parent.resolve()
 
-EMPTY_TRACKER = Tracker.from_dict(json.load(open(here / "./data/empty_tracker.json")))
+EMPTY_TRACKER = Tracker.from_dict(
+    json.load(open(here / "./data/empty_tracker.json")))
 
 DP2 = Tracker.from_dict(
     json.load(open(here / "./data/dp2.json"))
@@ -29,6 +30,7 @@ def dispatcher():
 @pytest.fixture
 def domain():
     return dict()
+
 
 @pytest.fixture
 def tracker():

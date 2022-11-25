@@ -1,10 +1,8 @@
-from typing import Any, Text, Dict, List
-from rasa_sdk import Action, Tracker, FormValidationAction
-from rasa_sdk.executor import CollectingDispatcher
-from rasa_sdk.events import UserUtteranceReverted, FollowupAction, AllSlotsReset, Restarted, SlotSet, EventType
-#from rasa_core.trackers import DialogueStateTracker
-#from rasa_core.domain import Domain
-from actions.common.slack import slackitems
+from actions.common.slack import get_group_member, get_user
+from typing import (Text)
+from rasa_sdk import Action
+from rasa_sdk.events import SlotSet
+
 ##########################################################################################
 # Get user credentials
 ##########################################################################################
@@ -16,18 +14,20 @@ class ActionGetUserCredentials(Action):
 
     async def run(self, dispatcher, tracker, domain):
         """ get user credentials """
-        user_id, first_name, channel_id = await slackitems(tracker)
-        print(channel_id)
-        print(tracker.current_state())
-        #tracker.sender_id = channel_id
-
-        #t1 = DialogueStateTracker(sender_id, domain.slots)
-
+        # if no channel
+        first_name = await get_user(tracker.sender_id)
+        #first_name = None
+        # if group channel
+        # group_members = ', '.join(await get_group_member())
+        # if group_members != None:
+        #     dispatcher.utter_message(f"Hey {group_members}! 😊")
+        #     # return [SlotSet("first_name", first_name)]
+        #     return []
         if first_name != None:
             # TODO replace with utter_greet
             dispatcher.utter_message(f"Hey {first_name}! 😊")
-            return [SlotSet("user_id", user_id), SlotSet("first_name", first_name)]
-        else:
-            # TODO replace with utter_greet/no_username
-            dispatcher.utter_message(f"Hey Buddy! 😊")
-            return [SlotSet("user_id", user_id), SlotSet("first_name", "Buddy")]
+            return [SlotSet("first_name", first_name)]
+        # else:
+        #     # TODO replace with utter_greet/no_username
+        #     dispatcher.utter_message(f"Hey Buddy! 😊")
+        #     return [SlotSet("first_name", "Buddy")]

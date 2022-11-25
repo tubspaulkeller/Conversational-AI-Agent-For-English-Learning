@@ -10,11 +10,32 @@
 #slack setup
 App home 
 accept user sends message (toggle click)
+
 #slack 
-rasa run --port 5002 --connector slack
-ngrok http 5002
-/webhooks/slack/webhook
-https://9cfa-2a02-3102-40b6-5-68fe-3b16-f1ef-294a.eu.ngrok.io/webhooks/slack/webhook
+check token in credentials.yml (change it)
+rasa run --port 5002 --connector slack (wait until it is running then start ngrok)
+ngrok http 5002 (start when rasa is running)
+
+/webhooks/myio/webhook
+https://ad80-2a02-3102-40b6-5-504-4dd3-b812-2592.eu.ngrok.io/webhooks/slack/webhook
+
+
+
+
 
 # telegram 
 ngrok http 5005
+
+
+# custom connector 
+
+1. rasa run --credentials credentials
+2. ngrok http 5005 
+/webhooks/myio/webhook
+/webhooks/myio/webhook
+
+https://5846-2a02-3102-40b6-5-504-4dd3-b812-2592.eu.ngrok.io/webhooks/slack/webhook
+
+
+https://5846-2a02-3102-40b6-5-504-4dd3-b812-2592.eu.ngrok.io/webhooks/addons.custom_channel.MyIO/webhook
+
