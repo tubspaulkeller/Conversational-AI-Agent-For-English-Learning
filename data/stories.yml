@@ -43,7 +43,7 @@ stories:
 - story: Finishing Flow
   steps:
   - checkpoint: flow_finishing
-  #- action: action_quest_end_give_user_score
+  - action: action_quest_end_give_user_score
   - intent: i_goodbye
   - action: utter_goodbye
 
