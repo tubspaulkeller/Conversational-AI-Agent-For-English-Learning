@@ -80,7 +80,7 @@ responses:
 
     - payload: /i_dp1_q3{{"e_dp1_q3":"Drove"}}
       title: Drove
-    text: Welches der folgenden Wörter ist KEIN Simple Past-Form? 🤔
+    text: Welches der folgenden Wörter ist KEINE Simple Past-Form? 🤔
 
 actions: 
   - validate_dp1_form

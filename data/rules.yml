@@ -17,4 +17,27 @@ rules:
   - intent: i_ask_last_question
   - action: action_repeat_last_quest
 
+- rule: start DP-Form
+  steps:
+  - action: action_get_user_credentials
+  - action: get_dp_form
+  - active_loop: get_dp_form
+  - active_loop: null
 
+# Points of user
+- rule: give user his score
+  steps:
+  - intent: i_ask_score
+  - action: action_give_user_score
+
+# Batches of user
+- rule: give user his batches
+  steps:
+  - intent: i_ask_badge
+  - action: action_give_user_badges
+
+# Skills of Ben
+- rule: give user Bens Skills
+  steps:
+  - intent: i_ask_skills
+  - action: action_give_skills

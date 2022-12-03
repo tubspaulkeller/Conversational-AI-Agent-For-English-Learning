@@ -73,7 +73,46 @@ nlu:
     - Entschuldigung, wie lautete die Frage?
     - Wie lautete die Frage?
 
+- intent: i_ask_score
+  examples: |
+    - Ben, wieiviele Punkte habe ich?
+    - wieviele Punke habe ich?
+    - wie viele Punkte habe ich?
+    - Ben, wie viele Punkte habe ich?
+    - Ben, sag mal meine Gesamtpunktzahl
+    - Gesamtpunktzahl
+    - Gib mir mal meinen Punktestand
+    - Punktestand
+    - Zeig mir meine Punkte
+    - Gib mir mal meine Punkte
+    - Wie viele Punkte habe ich erzielt?
 
+- intent: i_ask_badge
+  examples: |
+    - Ben, wieiviele Abzeichen habe ich?
+    - wieviele Abzeichen habe ich?
+    - wie viele Abzeichen habe ich?
+    - Ben, wie viele Abzeichen habe ich?
+    - Ben, zeig mal meine Abzeichen
+    - Abzeichen
+    - Gib mir mal meine Abzeichen
+    - Zeig mir meine Abzeichen
+    - Gib mir mal meine Abzeichen
+    - Wie viele Abzeichen habe ich erzielt?
+    - Wie viele Badges habe ich erzielt?
+    - Zeig mir meine Badges
+
+- intent: i_ask_skills
+  examples: |
+    - Ben, was kannst du?
+    - was hast du für Skills?
+    - was hast du für Fähigkeiten?
+    - wozu bist du da?
+    - Ben, zeig mir deine Skills
+    - Skills
+    - was hast du für Aufgaben, Ben?
+    - was hast du für Aufgaben?
+    - wozu bist du da?
 
 - intent: i_dp4_q1
   examples: |
