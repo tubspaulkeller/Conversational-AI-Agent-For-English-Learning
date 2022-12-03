@@ -13,7 +13,8 @@
         "question": 2
     },
     "s_dp2_q5": { 
-        "entities": ["She", "lived", "since","brunswick", "Braunschweig"],
+        "present_perfect": ["has lived"],
+        "entities": ["She", "she", "has lived", "since","brunswick", "Braunschweig", "braunschweig", "Brunswick", "BS"],
         "quantity": 4
     }
 }

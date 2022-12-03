@@ -65,7 +65,12 @@ slots:
 
 responses:
   utter_grammar_error:
-  - text: "That was quite good, let's have another look at your answer. I give you a hint: "
+  - custom:
+      blocks:
+      - type: section 
+        text:
+          type: mrkdwn
+          text: "That was quite good, let's have another look at your answer. *I give you a hint:* "
 
   utter_grammar_success:
   - text: "Well done!"
@@ -75,7 +80,7 @@ responses:
   - text: "Quest1a: Erkläre dem Taxifahrer auf Englisch, dass ihr zum Kolosseum (eng. Coliseum) wollt." 
   
   utter_ask_s_dp4_q2:
-  - text: "Quest1b: Wie teuer ist die Taxifahrt?"
+  - text: "Quest1b: Bitte frage nun, wie teuer die Taxifahrt ist?"
 
   utter_s_dp4_q3:
   - text: "Quest2a: Kaufe für dich und deinen Freund zwei Eintrittskarten."

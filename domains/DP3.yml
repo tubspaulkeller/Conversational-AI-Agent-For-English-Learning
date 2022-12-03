@@ -161,14 +161,14 @@ responses:
       title: Auslandssemester
     - payload: /i_dp3_q1{{"e_dp3_q1":"grades"}}
       title: Bessere Noten
-    text: "Welches der obigen aufgeführten Themen motivieren dich am meisten für diesen Kurs? 🤔"
+    text: "Welches der aufgeführten Themen motivieren dich am meisten für diesen Kurs? 🤔"
 
   utter_ask_s_dp3_q2:
   - buttons:
     - payload: /i_dp3_q2{{"e_dp3_q2":"affirm"}}
       title: Festlegen
     - payload: /i_dp3_q2{{"e_dp3_q2":"deny"}}
-      title: Neu festlegen
+      title: Neu bestimmen
     text: "Soll ich das uns als übergeordnetes Lernziel für diesen Kurs festlegen? Oder möchtest du ein anderes Thema als Lernziel wählen?"
 
   utter_affirm_learn_goal:
@@ -189,15 +189,15 @@ responses:
       title: Thema1
     - payload: /i_dp3_v_q1{{"e_dp3_v_q1":"thema2"}}
       title: Thema2
-    text: "Bevor wir anfangen, lass uns noch ein Lernziel für diese Grundlagen-Lektion festlegen, damit wir zusammen auf etwas hinarbeitne können 😊 Welches der aufgeführten Ziele motiviert dich am meisten? 🤔"
+    text: "Bevor wir anfangen, lass uns noch ein Lernziel für diese Grundlagen-Lektion festlegen, damit wir zusammen auf etwas hinarbeiten können 😊 Welches der aufgeführten Ziele motiviert dich am meisten? 🤔"
 
   utter_ask_s_dp3_v_q2:
   - buttons:
     - payload: /i_dp3_v_q2{{"e_dp3_v_q2":"affirm"}}
       title: Festlegen
     - payload: /i_dp3_v_q2{{"e_dp3_v_q2":"deny"}}
-      title: Neu festlegen
-    text: ""
+      title: Neu bestimmen
+    text: " "
   
   utter_ask_s_dp3_v_q3:
   - buttons:
@@ -258,8 +258,9 @@ responses:
     - payload: /i_dp3_g_q2{{"e_dp3_g_q2":"affirm"}}
       title: Festlegen
     - payload: /i_dp3_g_q2{{"e_dp3_g_q2":"deny"}}
-      title: Neu festlegen
-    text: ""
+      title: Neu bestimmen
+    text: " "
+    # HERE WURDE FEHLER GEWORFEN
   utter_ask_s_dp3_g_q3:
   - buttons:
     - payload: /i_dp3_g_q3{{"e_dp3_g_q3":"play"}}

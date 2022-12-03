@@ -8,7 +8,6 @@ buttons_forms_to_fill = {
     "s_dp2_end": {'title': 'DP2', 'payload': '/i_get_dp{\"e_get_dp\":\"dp2_form\"}'},
     "s_dp3_g_end": {'title': 'DP3', 'payload': '/i_get_dp{\"e_get_dp\":\"dp3_form\"}'},
     "s_dp4_end": {'title': 'DP4', 'payload': '/i_get_dp{\"e_get_dp\":\"dp4_form\"}'},
-    "s_dp5_end": {'title': 'DP5', 'payload': '/i_get_dp{\"e_get_dp\":\"dp5_form\"}'},
 }
 
 
@@ -27,7 +26,7 @@ class AskForSlotAction(Action):
         for key in remaining_slots:
             buttons.append(buttons_forms_to_fill[key])
 
-        if len(buttons) == 0:  # TODO set to 4, just for testing
+        if len(buttons) == 0:
             dispatcher.utter_message(text="You have filled all forms")
             return [SlotSet("s_get_dp_form", "done")]
         dispatcher.utter_message(text="Wähle ein DP!", buttons=buttons)

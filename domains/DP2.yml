@@ -121,7 +121,12 @@ responses:
     text: "Die Klausuren der letzten Jahre bestanden zu einem Großteil aus Anwendungsaufgaben. Wollen wir zusammen so eine Anwendungsaufgabe üben, damit du gut vorbereitet bist?"
 
   utter_ask_s_dp2_q5:
-  - text: "Versuche bitte aus den folgenden Wörtern #(Braunschweig, She, since, live) einen Satz im Present Perfect zu formulieren:"
+  - custom:
+      blocks:
+      - type: section 
+        text:
+          type: mrkdwn
+          text:  "Versuche bitte aus den folgenden Wörtern:\n *Braunschweig, She, since, live*\n einen Satz im *Present Perfect* zu formulieren:"
 
   
 actions:

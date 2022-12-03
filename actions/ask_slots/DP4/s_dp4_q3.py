@@ -14,7 +14,7 @@ class AskForSlotAction(Action):
         """ sending a image for the next question """
 
         dispatcher.utter_message(
-            image="https://res.cloudinary.com/dmnkxrxes/image/upload/v1667902166/Ben_Bot/story_two_enq3mz.png"
+            image="https://res.cloudinary.com/dmnkxrxes/image/upload/c_scale,w_259/v1667902166/Ben_Bot/story_two_enq3mz.png"
         )
         dispatcher.utter_message(response="utter_s_dp4_q3")
 

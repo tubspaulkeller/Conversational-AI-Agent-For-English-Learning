@@ -40,14 +40,6 @@ stories:
   - active_loop: null
   - checkpoint: flow_finishing
 
-- story: DP5
-  steps:
-  - action: dp5_form
-  - active_loop: dp5_form
-  - active_loop: null
-  - checkpoint: flow_finishing
-
-
 - story: Finishing Flow
   steps:
   - checkpoint: flow_finishing

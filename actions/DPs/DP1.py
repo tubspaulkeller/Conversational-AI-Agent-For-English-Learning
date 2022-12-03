@@ -8,7 +8,6 @@ from rasa_sdk.events import UserUtteranceReverted, FollowupAction, AllSlotsReset
 # imports from different files
 from actions.gamification.evaluate_user_scoring import evaluate_users_answer
 from actions.common.common import get_dp_inmemory_db, get_slots_for_dp
-from actions.common.slack import get_group_member, get_user
 
 ############################################################################################################
 ##### DP1 #####
@@ -30,19 +29,6 @@ class ValidateDP1Form(FormValidationAction):
             tracker: Tracker,
             domain: Dict[Text, Any],
         ) -> Dict[Text, Any]:
-            # # GROUP CHANNEL
-            # u_id = ""
-            # name = ""
-            # for event in tracker.events:
-            #     if event['event'] == 'user':
-            #         user_ids = event['metadata'].get('users')
-
-            # for id in reversed(user_ids):
-            #     print('DEBUG: user id', id)
-            #     u_id, name = await get_user(id)
-            #     break
-            # print("USER ID", u_id)
-            # print("NAME", name)
             dp_1 = get_dp_inmemory_db("DP1.json")
             solution = dp_1[name_of_slot]["solution"]
             slots = dict(tracker.slots)

@@ -1,3 +1,4 @@
+from actions.helper.check_entities import exist_present_perfect, exist_all_parts_of_question
 from actions.common.common import get_dp_inmemory_db
 from cgitb import text
 from lib2to3.pgen2 import grammar
@@ -7,11 +8,9 @@ from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import UserUtteranceReverted, FollowupAction, AllSlotsReset, Restarted
 import requests
 import json
-from fuzzywuzzy import process
 import os
 from dotenv import load_dotenv
 load_dotenv()
-
 # import functions from other files
 
 ############################################################################################################
@@ -29,7 +28,14 @@ def validate_grammar_for_user_answer(value, json_file, name_of_slot, dispatcher,
 
     # check entities
     entities_list = get_dp_inmemory_db(json_file)
-    if check_entities(number_of_entities, entities_list, name_of_slot, entities, dispatcher):
+
+    # Prüfung auf Simple Present bei DP4 nur Q5
+    if (name_of_slot[4] != '4' or name_of_slot == 's_dp4_q5'):
+        print("Debug", name_of_slot[4])
+        if not exist_present_perfect(name_of_slot, entities, entities_list, dispatcher):
+            return {name_of_slot: None}
+
+    if not exist_all_parts_of_question(number_of_entities, name_of_slot, entities, entities_list, dispatcher):
         return {name_of_slot: None}
 
     # get Userinput
@@ -66,7 +72,7 @@ def grammar_check(user_input):
                                 url,
                                 data=payload,
                                 headers=headers)
-    json_formatter(response.json())
+    # json_formatter(response.json())
     return response.json()
 
 
@@ -99,35 +105,14 @@ def grammar_validation(grammar_response):
             if len(grammar_response['matches'][0]['replacements']) > 0:
                 for i, val in enumerate(grammar_response['matches'][0]
                                         ['replacements']):
-                    print(i, ". suggestion: ", val['value'])
+                 #   print(i, ". suggestion: ", val['value'])
                     suggestions.append(val['value'])
 
-        print(matches)
+       # print(matches)
         return matches, suggestions
 
     print("No grammar errors found")
     return None, None
-
-
-def check_missing_entities(name_of_slot, entities, entities_list):
-    """ check if the user input contains all entities which are asked by the question of the quiz. The bot will ask the user to repeat the question if the user input is missing an entity """
-    for entity in entities:
-        # allow typos for entities till a certain threshold (80%)
-        fuzzy_entity = process.extractOne(
-            entity, entities_list[name_of_slot]["entities"])
-        if not fuzzy_entity[1] > 80:
-            return True
-    return False
-
-
-def check_entities(number_of_entities, entities_list, name_of_slot, entities, dispatcher):
-    """ checks user input if the number of entities is correct and if the entities are correct """
-    if number_of_entities != entities_list[name_of_slot]["quantity"] | check_missing_entities(name_of_slot, entities, entities_list):
-        dispatcher.utter_message(
-            text="You didn't answer all parts of the question, unfortunately. Try to make your answer more detailed and pay attention to use the right tense. Try again. :)")
-        return True
-    else:
-        return False
 
 
 def valid_grammar(usertext, dispatcher):
@@ -148,8 +133,8 @@ def check_grammar_error(grammar_error, dispatcher, grammar_suggestion):
         if grammar_suggestion:
             for i, val in enumerate(grammar_suggestion):
                 dispatcher.utter_message(
-                    text=f"{i}. suggestion: {val}")
-                if i == 3:
+                    text=f"- suggestion: {val}")
+                if i == 1:
                     break
         return True
     else:

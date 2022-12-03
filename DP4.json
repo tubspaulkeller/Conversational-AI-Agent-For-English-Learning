@@ -1,10 +1,10 @@
 {
     "s_dp4_q1": { 
-        "entities": ["We", "Coliseum"],
+        "entities": ["We", "Coliseum", "we", "coliseum"],
         "quantity": 2
     },  
     "s_dp4_q2": { 
-        "entities": ["How", "costs", "What", "Price"],
+        "entities": ["How", "costs", "What", "price", "how", "what", "much", "cost"],
         "quantity": 2
     },
     "s_dp4_q3": { 
@@ -12,11 +12,12 @@
         "quantity": 2
     },
     "s_dp4_q4": { 
-        "entities": ["student", "discount"],
+        "entities": ["student", "discount", "tickets"],
         "quantity": 2
     },
     "s_dp4_q5": { 
-        "entities": ["mate", "friend", "brunswick", "Braunschweig", "buddy"],
-        "quantity": 2
+        "present_perfect": ["have lived"],
+        "entities": ["mate", "friend", "have lived", "brunswick", "Braunschweig", "We", "buddy", "BS"],
+        "quantity": 3
     }
 }

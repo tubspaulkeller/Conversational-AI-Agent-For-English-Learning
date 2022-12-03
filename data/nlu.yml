@@ -85,11 +85,13 @@ nlu:
   
 - intent: i_dp4_q2
   examples: |
-    - [How](e_dp4_q2) much does it [costs](e_dp4_q2)?
-    - [How](e_dp4_q2) much would it [costs](e_dp4_q2)?
-    - [How](e_dp4_q2) much would it [cost](e_dp4_q2) us to get there?
+    - [How](e_dp4_q2) [much](e_dp4_q2) does it [costs](e_dp4_q2)?
+    - [How](e_dp4_q2) [much](e_dp4_q2) would it [costs](e_dp4_q2)?
+    - [How](e_dp4_q2) [much](e_dp4_q2) would it [cost](e_dp4_q2) us to get there?
     - [What](e_dp4_q2) is the [price](e_dp4_q2) for us to get there?
     - [What](e_dp4_q2) is the [price](e_dp4_q2) for us?
+    - [How](e_dp4_q2) [much](e_dp4_q2) is it?
+    
 
 - intent: i_dp4_q3
   examples: |
@@ -108,28 +110,44 @@ nlu:
     - Do you have a [student](e_dp4_q4) [discount](e_dp4_q4)?
     - Do you offer a [student](e_dp4_q4) [discount](e_dp4_q4)?
     - Is there a [student](e_dp4_q4) [discount](e_dp4_q4) also possible?
+    - Do you have [student](e_dp4_q4) [tickets](e_dp4_q4)?
+    - Do you offer [student](e_dp4_q4) [tickets](e_dp4_q4)?
+    - Do you sell [student](e_dp4_q4) [tickets](e_dp4_q4)?
+
 
 - intent: i_dp4_q5
   examples: |
-    - My [friend](e_dp4_q5) and me have lived in [Brunswick](e_dp4_q5) since 2017.
-    - [We](e_dp4_q5) have lived in [Braunschweig](e_dp4_q5) since 2017.
-    - My [friend](e_dp4_q5) and me are living in [Brunswick](e_dp4_q5) since 2017.
-    - My [buddy](e_dp4_q5) and me are living in [Brunswick](e_dp4_q5) since 2017.
-    - My [mate](e_dp4_q5) and me are living in [Brunswick](e_dp4_q5) since 2017.
-    - [We](e_dp4_q5) are living in [Brunswick](e_dp4_q5) since 2017.
-    - My [buddy](e_dp4_q5) and me live in [Brunswick](e_dp4_q5) since 2017.
-    - My [mate](e_dp4_q5) and me live  in [Brunswick](e_dp4_q5) since 2017.
-    - [We](e_dp4_q5) live in [Brunswick](e_dp4_q5) since 2017.
-    - [We](e_dp4_q5) live in [Braunschweig](e_dp4_q5) since 2017.
-    - My [friend](e_dp4_q5) and me have lived in [Braunschweig](e_dp4_q5) since 2017.
-    - [We](e_dp4_q5) have lived in [Braunschweig](e_dp4_q5) since 2017.
-    - My [friend](e_dp4_q5) and me are living in [Braunschweig](e_dp4_q5) since 2017.
-    - My [buddy](e_dp4_q5) and me are living in [Braunschweig](e_dp4_q5) since 2017.
-    - My [mate](e_dp4_q5) and me are living in [Braunschweig](e_dp4_q5) since 2017.
-    - [We](e_dp4_q5) are living in [Braunschweig](e_dp4_q5) since 2017.
-    - My [buddy](e_dp4_q5) and me live in [Braunschweig](e_dp4_q5) since 2017.
-    - My [mate](e_dp4_q5) and me live  in [Braunschweig](e_dp4_q5) since 2017.
-
+    - My [friend](e_dp4_q5) and me [have lived](e_dp4_q5) in [Brunswick](e_dp4_q5) since 2017.
+    - [We](e_dp4_q5) [have lived](e_dp4_q5) in [Braunschweig](e_dp4_q5) since 2017.
+    - My [friend](e_dp4_q5) and me [have lived](e_dp4_q5) in [Brunswick](e_dp4_q5) since 2017.
+    - My [buddy](e_dp4_q5) and me [have lived](e_dp4_q5) in [Brunswick](e_dp4_q5) since 2017.
+    - My [mate](e_dp4_q5) and me [have lived](e_dp4_q5) in [Brunswick](e_dp4_q5) since 2017.
+    - [We](e_dp4_q5) [have lived](e_dp4_q5) in [Brunswick](e_dp4_q5) since 2017.
+    - My [buddy](e_dp4_q5) and me [have lived](e_dp4_q5) in [Brunswick](e_dp4_q5) since 2017.
+    - My [mate](e_dp4_q5) and me [have lived](e_dp4_q5) in [Brunswick](e_dp4_q5) since 2017.
+    - [We](e_dp4_q5) [have lived](e_dp4_q5) in [Brunswick](e_dp4_q5) since 2017.
+    - [We](e_dp4_q5) [have lived](e_dp4_q5) in [Braunschweig](e_dp4_q5) since 2017.
+    - My [friend](e_dp4_q5) and me [have lived](e_dp4_q5) in [Braunschweig](e_dp4_q5) since 2017.
+    - [We](e_dp4_q5) [have lived](e_dp4_q5) in [Braunschweig](e_dp4_q5) since 2017.
+    - My [friend](e_dp4_q5) and me [have lived](e_dp4_q5) in [Braunschweig](e_dp4_q5) since 2017.
+    - My [buddy](e_dp4_q5) and me [have lived](e_dp4_q5) in [Braunschweig](e_dp4_q5) since 2017.
+    - My [mate](e_dp4_q5) and me [have lived](e_dp4_q5) in [Braunschweig](e_dp4_q5) since 2017.
+    - [We](e_dp4_q5) [have lived](e_dp4_q5)  in [Braunschweig](e_dp4_q5) since 2017.
+    - My [buddy](e_dp4_q5) and me [have lived](e_dp4_q5) in [Braunschweig](e_dp4_q5) since 2017.
+    - My [mate](e_dp4_q5) and me [have lived](e_dp4_q5) in [Braunschweig](e_dp4_q5) since 2017.
+    - My [friend](e_dp4_q5) and me [has lived](e_dp4_q5) in [Braunschweig](e_dp4_q5) since 2017.
+    - My [buddy](e_dp4_q5) and me [has lived](e_dp4_q5) in [Braunschweig](e_dp4_q5) since 2017.
+    - My [mate](e_dp4_q5) and me [has lived](e_dp4_q5) in [Braunschweig](e_dp4_q5) since 2017.
+    - [We](e_dp4_q5) [has lived](e_dp4_q5)  in [Braunschweig](e_dp4_q5) since 2017.
+    - My [buddy](e_dp4_q5) and me [has lived](e_dp4_q5) in [Braunschweig](e_dp4_q5) since 2017.
+    - My [mate](e_dp4_q5) and me [has lived](e_dp4_q5) in [Braunschweig](e_dp4_q5) since 2017.
+    - My [mate](e_dp4_q5) and me [have lived](e_dp4_q5) in [BS](e_dp4_q5) since 2017.
+    - My [friend](e_dp4_q5) and me [has lived](e_dp4_q5) in [BS](e_dp4_q5) since 2017.
+    - My [buddy](e_dp4_q5) and me [has lived](e_dp4_q5) in [BS](e_dp4_q5) since 2017.
+    - My [mate](e_dp4_q5) and me [has lived](e_dp4_q5) in [BS](e_dp4_q5) since 2017.
+    - [We](e_dp4_q5) [has lived](e_dp4_q5)  in [BS](e_dp4_q5) since 2017.
+    - My [buddy](e_dp4_q5) and me [has lived](e_dp4_q5) in [BS](e_dp4_q5) since 2017.
+    - My [mate](e_dp4_q5) and me [has lived](e_dp4_q5) in [BS](e_dp4_q5) since 2017.
 
 - intent: i_dp2_q5
   examples: |
@@ -145,3 +163,5 @@ nlu:
     - [She](e_dp2_q5) [has lived](e_dp2_q5) in [Braunschweig](e_dp2_q5) [since](e_dp2_q5) 2020.
     - [She](e_dp2_q5) [has lived](e_dp2_q5) in [Braunschweig](e_dp2_q5) [since](e_dp2_q5) 2022.
     - [She](e_dp2_q5) [has lived](e_dp2_q5) in [Braunschweig](e_dp2_q5) [since](e_dp2_q5) 2018.
+    - [She](e_dp2_q5) [have lived](e_dp2_q5) in [Braunschweig](e_dp2_q5) [since](e_dp2_q5) 2022.
+    - [She](e_dp2_q5) [have lived](e_dp2_q5) in [BS](e_dp2_q5) [since](e_dp2_q5) 2018.
