@@ -17,7 +17,7 @@ def exist_present_perfect(name_of_slot, entities, entities_list, dispatcher):
 
 
 def exist_all_parts_of_question(number_of_entities, name_of_slot, entities, entities_list, dispatcher):
-    if number_of_entities != entities_list[name_of_slot]["quantity"] or _check_wrong_entities(name_of_slot, entities, entities_list):
+    if number_of_entities < entities_list[name_of_slot]["quantity"] or _check_wrong_entities(name_of_slot, entities, entities_list):
         message = NO_ALL_PARTS_OF_QUEST_EN if name_of_slot[4] == '4' else NO_ALL_PARTS_OF_QUEST_DE_DP2
         dispatcher.utter_message(text=message)
         return False

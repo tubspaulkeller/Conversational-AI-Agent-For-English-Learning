@@ -6,10 +6,7 @@ stories:
   steps:
   - intent: i_greet
   - action: action_get_user_credentials
-  - action: get_dp_form
-  - active_loop: get_dp_form
-  - active_loop: null
-
+  - action: action_set_reminder_set_dp
 
 - story: DP1
   steps:

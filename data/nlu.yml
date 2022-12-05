@@ -114,6 +114,23 @@ nlu:
     - was hast du für Aufgaben?
     - wozu bist du da?
 
+
+- intent: i_ask_stars
+  examples: |
+    - Ben, wieiviele Sterne habe ich?
+    - wieviele Sterne habe ich?
+    - wie viele Sterne habe ich?
+    - Ben, wie viele Sterne habe ich?
+    - Ben, zeig mal meine Sterne
+    - Sterne
+    - Gib mir mal meine Sterne
+    - Zeig mir meine Sterne
+    - Gib mir mal meine Sterne
+    - Wie viele Sterne habe ich erzielt?
+    - Wie viele Sterne habe ich erzielt?
+    - Zeig mir meine Sternenstand
+    
+
 - intent: i_dp4_q1
   examples: |
     - [We](e_dp4_q1) want to the [Coliseum](e_dp4_q1)
@@ -188,19 +205,19 @@ nlu:
     - My [buddy](e_dp4_q5) and me [has lived](e_dp4_q5) in [BS](e_dp4_q5) since 2017.
     - My [mate](e_dp4_q5) and me [has lived](e_dp4_q5) in [BS](e_dp4_q5) since 2017.
 
-- intent: i_dp2_q5
+- intent: i_dp2_at_q2
   examples: |
-    - [She](e_dp2_q5) [has lived](e_dp2_q5) in [Braunschweig](e_dp2_q5) [since](e_dp2_q5) 2017.
-    - [She](e_dp2_q5) [has lived](e_dp2_q5) in [Braunschweig](e_dp2_q5) [since](e_dp2_q5) 2019.
-    - [She](e_dp2_q5) [has lived](e_dp2_q5) in [Braunschweig](e_dp2_q5) [since](e_dp2_q5) 2010.
-    - [She](e_dp2_q5) [has lived](e_dp2_q5) in [Braunschweig](e_dp2_q5) [since](e_dp2_q5) 1998.
-    - [She](e_dp2_q5) [has lived](e_dp2_q5) in [Braunschweig](e_dp2_q5) [since](e_dp2_q5) 1990.
-    - [She](e_dp2_q5) [has lived](e_dp2_q5) in [Braunschweig](e_dp2_q5) [since](e_dp2_q5) 1940.
-    - [She](e_dp2_q5) [has lived](e_dp2_q5) in [Braunschweig](e_dp2_q5) [since](e_dp2_q5) 1980.
-    - [She](e_dp2_q5) [has lived](e_dp2_q5) in [Braunschweig](e_dp2_q5) [since](e_dp2_q5) 2006.
-    - [She](e_dp2_q5) [has lived](e_dp2_q5) in [Braunschweig](e_dp2_q5) [since](e_dp2_q5) 2009.
-    - [She](e_dp2_q5) [has lived](e_dp2_q5) in [Braunschweig](e_dp2_q5) [since](e_dp2_q5) 2020.
-    - [She](e_dp2_q5) [has lived](e_dp2_q5) in [Braunschweig](e_dp2_q5) [since](e_dp2_q5) 2022.
-    - [She](e_dp2_q5) [has lived](e_dp2_q5) in [Braunschweig](e_dp2_q5) [since](e_dp2_q5) 2018.
-    - [She](e_dp2_q5) [have lived](e_dp2_q5) in [Braunschweig](e_dp2_q5) [since](e_dp2_q5) 2022.
-    - [She](e_dp2_q5) [have lived](e_dp2_q5) in [BS](e_dp2_q5) [since](e_dp2_q5) 2018.
+    - [She](e_dp2_at_q2) [has lived](e_dp2_at_q2) in [Braunschweig](e_dp2_at_q2) [since](e_dp2_at_q2) 2017.
+    - [She](e_dp2_at_q2) [has lived](e_dp2_at_q2) in [Braunschweig](e_dp2_at_q2) [since](e_dp2_at_q2) 2019.
+    - [She](e_dp2_at_q2) [has lived](e_dp2_at_q2) in [Braunschweig](e_dp2_at_q2) [since](e_dp2_at_q2) 2010.
+    - [She](e_dp2_at_q2) [has lived](e_dp2_at_q2) in [Braunschweig](e_dp2_at_q2) [since](e_dp2_at_q2) 1998.
+    - [She](e_dp2_at_q2) [has lived](e_dp2_at_q2) in [Braunschweig](e_dp2_at_q2) [since](e_dp2_at_q2) 1990.
+    - [She](e_dp2_at_q2) [has lived](e_dp2_at_q2) in [Braunschweig](e_dp2_at_q2) [since](e_dp2_at_q2) 1940.
+    - [She](e_dp2_at_q2) [has lived](e_dp2_at_q2) in [Braunschweig](e_dp2_at_q2) [since](e_dp2_at_q2) 1980.
+    - [She](e_dp2_at_q2) [has lived](e_dp2_at_q2) in [Braunschweig](e_dp2_at_q2) [since](e_dp2_at_q2) 2006.
+    - [She](e_dp2_at_q2) [has lived](e_dp2_at_q2) in [Braunschweig](e_dp2_at_q2) [since](e_dp2_at_q2) 2009.
+    - [She](e_dp2_at_q2) [has lived](e_dp2_at_q2) in [Braunschweig](e_dp2_at_q2) [since](e_dp2_at_q2) 2020.
+    - [She](e_dp2_at_q2) [has lived](e_dp2_at_q2) in [Braunschweig](e_dp2_at_q2) [since](e_dp2_at_q2) 2022.
+    - [She](e_dp2_at_q2) [has lived](e_dp2_at_q2) in [Braunschweig](e_dp2_at_q2) [since](e_dp2_at_q2) 2018.
+    - [She](e_dp2_at_q2) [have lived](e_dp2_at_q2) in [Braunschweig](e_dp2_at_q2) [since](e_dp2_at_q2) 2022.
+    - [She](e_dp2_at_q2) [have lived](e_dp2_at_q2) in [BS](e_dp2_at_q2) [since](e_dp2_at_q2) 2018.

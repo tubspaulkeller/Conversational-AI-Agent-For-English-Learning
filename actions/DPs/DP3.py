@@ -17,6 +17,7 @@ from actions.common.common import get_dp_inmemory_db, get_slots_for_dp
 ##### DP3 #####
 ############################################################################################################
 
+
 class ValidateDP3Form(FormValidationAction):
 
     def name(self) -> Text:
@@ -39,6 +40,7 @@ class ValidateDP3Form(FormValidationAction):
 
     def validate_dp3(name_of_slot):
         """validates the following questions of DP3. The answers has not be checked at all bcs they are checked at different actions. """
+
         def validate_slot(
             self,
             value: Text,
@@ -58,8 +60,19 @@ class ValidateDP3Form(FormValidationAction):
 
     @staticmethod
     def utter_learn_goal(dispatcher, dp_n, value):
+        learn_goal = {
+            "blocks": [
+                {
+                    "type": "section",
+                    "text": {
+                        "text": "Das klingt interessant! Ich würde daraus folgendes Lernziel forumlieren:\n *%s*" % dp_n["s_dp3_q1"]["goal"][value],
+                        "type": "mrkdwn"
+                    }
+                }
+            ]
+        }
         dispatcher.utter_message(
-            text="Das klingt interessant! Ich würde daraus folgendes Lernziel forumlieren: %s" % dp_n["s_dp3_q1"]["goal"][value])
+            json_message=learn_goal)
 
     validate_s_dp3_q3 = validate_dp3(name_of_slot="s_dp3_q3")
     validate_s_dp3_q4 = validate_dp3(name_of_slot="s_dp3_q4")
@@ -110,7 +123,18 @@ class ValidateDP3VOCForm(FormValidationAction):
         domain: Dict[Text, Any],
     ) -> Dict[Text, Any]:
         """ validates the second question of DP3. It does not need to be validated bcs it is checked at the action """
+        dispatcher.utter_message(
+            text="Perfekt! Dann können wir ja jetzt mit den Vokabeln starten!\nÜbrigens: Sobald du die Grammatik Lektion startest, können wir auch dafür ein separates Ziel anlegen. 😁")
         return {"s_dp3_v_q2": value}
+
+    def validate_s_dp3_v_evaluation(
+        self,
+        value: Text,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> Dict[Text, Any]:
+        return {"s_dp3_v_evaluation": value}
 
     def validate_s_dp3_v_q4(self,
                             value: Text,
@@ -220,7 +244,18 @@ class ValidateDP3GRAMForm(FormValidationAction):
         domain: Dict[Text, Any],
     ) -> Dict[Text, Any]:
         """ does not need to be validated bcs it is checked at different action """
+        dispatcher.utter_message(
+            text="Perfekt! Dann können wir ja jetzt mit der Grammatik starten!\nÜbrigens: Sobald du die Vokabel Lektion startest, können wir auch dafür ein separates Ziel anlegen. 😁")
         return {"s_dp3_g_q2": value}
+
+    def validate_s_dp3_g_evaluation(
+        self,
+        value: Text,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> Dict[Text, Any]:
+        return {"s_dp3_g_evaluation": value}
 
     def validate_s_dp3_g_q4(self,
                             value: Text,
@@ -296,8 +331,18 @@ class ValidateDP3GRAMForm(FormValidationAction):
 ############################################################################################################
 def define_learn_goal(slot_value, value, dispatcher):
     dp3 = get_dp_inmemory_db("DP3.json")
-    dispatcher.utter_message(
-        text="Ich würde daraus folgendes Lernziel forumlieren: %s" % dp3[slot_value][value])
+    learn_goal = {
+        "blocks": [
+            {
+                "type": "section",
+                "text": {
+                    "text": "Gerne! %s" % dp3[slot_value][value],
+                    "type": "mrkdwn"
+                }
+            }
+        ]
+    }
+    dispatcher.utter_message(json_message=learn_goal)
 
 
 def utter_problem_of_learn_process(dispatcher):

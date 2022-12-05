@@ -2,6 +2,9 @@ from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker, FormValidationAction
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import UserUtteranceReverted, FollowupAction, AllSlotsReset, Restarted, SlotSet, EventType
+import time
+import asyncio
+from actions.helper.non_cancellable_shield import non_cancellable_shield
 
 
 class AskForSlotAction(Action):
@@ -9,10 +12,14 @@ class AskForSlotAction(Action):
     def name(self) -> Text:
         return "action_ask_s_dp4_end"
 
-    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker,
-            domain: Dict) -> List[EventType]:
-        """ DP4 is finished, the user can choose a different DP """ 
-        return [SlotSet("s_dp4_end", "end_of_dp4_form"), SlotSet("s_get_dp_form", None), SlotSet("s_set_next_form", None), FollowupAction("get_dp_form")]
+    async def run(self, dispatcher: CollectingDispatcher, tracker: Tracker,
+                  domain: Dict) -> List[EventType]:
+        """ DP4 is finished, the user can choose a different DP """
+
+       # await non_cancellable_shield(asyncio.sleep(2))
+        dispatcher.utter_message(response="utter_dp4_finish")
+        return [SlotSet("s_dp4_end", "end_of_dp4_form"),  FollowupAction("action_set_reminder_set_dp")]
+
 
 # We want to get to the coliseum
 # How much does it cost

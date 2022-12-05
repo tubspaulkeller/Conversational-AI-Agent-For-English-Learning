@@ -2,18 +2,18 @@
 
     "s_dp3_q1": { 
         "goal": {
-            "abroad": "Das ist interessant! Ich würde daraus folgendes Lernziel formulieren: 'Ich möchte bis Ende des Jahres diese Level abgeschlossen haben, um gut vorbereitet in mein Auslandsssemester zu gehen.'",
-            "grades": "Das ist interessant! Ich würde daraus folgendes Lernziel formulieren: 'Ich möchte bis Ende des Jahres diese Level abgeschlossen haben, um gute Noten zu bekommen.'"
+            "abroad": "'Ich möchte bis Ende des Jahres diese Level abgeschlossen haben, um gut vorbereitet in mein Auslandsssemester zu gehen.'",
+            "grades": "'Ich möchte bis Ende des Jahres diese Level abgeschlossen haben, um gute Noten zu bekommen.'"
         }
     },
     "s_dp3_v_q1": {
-        "thema1": "Das folgende Ziel basiert auf erfolgreich erreichten Lernzielen von Kommilitonen und ist nach dem bewährten SMART-Konzept formuliert: 'Ich möchte meinen Englisch-Wortschatz bis Ende des Jahres um 2000 Wörter erweitern.'",
-        "thema2": "Das folgende Ziel basiert auf erfolgreich erreichten Lernzielen von Kommilitonen und ist nach dem bewährten SMART-Konzept formuliert: 'Ich möchte meine Englisch-Konversation bis Ende des Jahres um 20 Minuten pro Woche verbessern.'"
+        "thema1": "Das folgende Ziel basiert auf erfolgreich erreichten Lernzielen von Kommilitonen und ist nach dem bewährten _SMART-Konzept_ formuliert:\n*'Ich möchte meinen Englisch-Wortschatz bis Ende des Jahres um 2000 Wörter erweitern.'*",
+        "thema2": "Das folgende Ziel basiert auf erfolgreich erreichten Lernzielen von Kommilitonen und ist nach dem bewährten _SMART-Konzept_ formuliert:\n*'Ich möchte meine Englisch-Konversation bis Ende des Jahres um 20 Minuten pro Woche verbessern.'*"
 
     },
     "s_dp3_g_q1": {
-        "thema1": "Das folgende Ziel basiert auf erfolgreich erreichten Lernzielen von Kommilitonen und ist nach dem bewährten SMART-Konzept formuliert: 'Ich möchte meine Englisch-Grammatik bis Ende des Jahres um 2 Zeitformen erweitern.'",
-        "thema2": "Das folgende Ziel basiert auf erfolgreich erreichten Lernzielen von Kommilitonen und ist nach dem bewährten SMART-Konzept formuliert: 'Ich möchte meine Englisch-Grammatik bis Ende des Jahres um 2 Zeitformen erweitern.'"
+        "thema1": "Das folgende Ziel basiert auf erfolgreich erreichten Lernzielen von Kommilitonen und ist nach dem bewährten _SMART-Konzept_ formuliert:\n*'Ich möchte meine Englisch-Grammatik bis Ende des Jahres um 2 Zeitformen erweitern.'*",
+        "thema2": "Das folgende Ziel basiert auf erfolgreich erreichten Lernzielen von Kommilitonen und ist nach dem bewährten _SMART-Konzept_ formuliert:\n*'Ich möchte meine Englisch-Grammatik bis Ende des Jahres um 2 Zeitformen erweitern.'*"
 
     },
     "total_questions": 1,

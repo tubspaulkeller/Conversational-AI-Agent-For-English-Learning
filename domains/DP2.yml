@@ -1,29 +1,50 @@
 version: "3.0"
 intents: 
+  - i_dp2_q0:
+     use_entities: e_dp2_q0
   - i_dp2_q1:
      use_entities: e_dp2_q1
+  - i_dp2_q1_2:
+     use_entities: e_dp2_q1_2
   - i_dp2_q2:
      use_entities: e_dp2_q2
   - i_dp2_q3:
      use_entities: e_dp2_q3
-  - i_dp2_q4:
-     use_entities: e_dp2_q4
-  - i_dp2_q5:
-     use_entities: e_dp2_q5
+  - i_dp2_at_q1:
+     use_entities: e_dp2_at_q1
+  - i_dp2_at_q2:
+     use_entities: e_dp2_at_q2
+  - i_dp2_evaluation:
+     use_entities: e_dp2_evaluation
 
 entities:
+- e_dp2_q0
 - e_dp2_q1
+- e_dp2_q1_2
 - e_dp2_q2
 - e_dp2_q3
-- e_dp2_q4
-- e_dp2_q5
+- e_dp2_evaluation
+- e_dp2_at_q1
+- e_dp2_at_q2
 
 slots:
+  s_dp2_q0:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp2_q0
+
   s_dp2_q1:
     type: text
     mappings:
     - type: from_entity
       entity: e_dp2_q1
+    
+  s_dp2_q1_2:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp2_q1_2
 
   s_dp2_q2:
     type: text
@@ -37,27 +58,45 @@ slots:
     - type: from_entity
       entity: e_dp2_q3
 
-  s_dp2_q4:
+  s_dp2_evaluation:
     type: text
     mappings:
     - type: from_entity
-      entity: e_dp2_q4
+      entity: e_dp2_evaluation
 
-  s_dp2_q5:
+  s_dp2_part_one_end:
+    type: text
+    mappings:
+    - type: custom
+
+  s_dp2_at_q1:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp2_at_q1
+
+  s_dp2_at_q2:
     type: list
     mappings:
     - type: from_entity
-      entity: e_dp2_q5
-      intent: i_dp2_q5
-      not_intent: i_dp4_q5
+      entity: e_dp2_at_q2
+      intent: i_dp2_at_q2
+      not_intent: i_dp2_at_q1
   
-  s_dp2_end:
+  s_dp2_part_two_end:
     type: text
     mappings:
     - type: custom
     
 responses:
-  utter_ask_s_dp2_q1:
+
+  utter_ask_s_dp2_q0:
+  - buttons:
+    - payload: /i_dp2_q0{{"e_dp2_q0":"AFFIRM"}}
+      title: Alles klar, das klingt gut! 😊
+    text: Wie du weißt, habe ich den gleichen Studiengang wie du belegt. Ich bin allerdings schon im 4. Semester und wenn du magst, dann kann ich dir als dein Lern-Companion Tipps zu diesem Kurs geben und gemeinsam mit dir üben! 😁  
+
+  utter_s_dp2_q1:
   - buttons:
     - payload: /i_dp2_q1{{"e_dp2_q1":"Zusammenfassung"}}
       title: Zusammenfassung
@@ -66,21 +105,28 @@ responses:
       title: Quiz
     text: Soll ich dir eine kurze Zusammenfassung zum Present Perfect geben oder möchtest du direkt das Quiz beginnen?
 
-  utter_correct_answer_q1:
-  - text: Richtig! Weiter geht´s! 😊
+  utter_ask_s_dp2_q1_2:
+  - buttons:
+    - payload: /i_dp2_q1_2{{"e_dp2_q1_2":"START_QUIZ"}}
+      title: Quiz  🎮
+    text: "Starte das: "
+
   utter_correct_answer_qn:
   - text: Korrekt! 😊
-  utter_another_correct_answer:
-  - text: Cool, das war erneut Korrekt! 😊
+  - text: Richtig! 🎉
+
   utter_wrong_answer:
   - text: Das war leider nicht richtig. Versuche dir die Bildung durch 'have/has' + 'dritte From des Verbs' vor Auge zu führen. Damit sollte es die erfahrungsgemäß am einfachsten gelingen, das Present Perfect zu erkennen 👌
-  utter_zusammenfassung_part1:
-  - text: Gerne doch! 😊
-  utter_zusammenfassung_part2:
-  - text: "Bildung: 'have/has' + dritte Form des Verbs"
-  utter_zusammenfassung_part3:
-  - text: "Verwendung: \n - Etwas hat in der Vergangenheit begonnen und dauert bis in die Gegenwart an \n - Etwas wurde in der Vergangenheit abgeschlossen, aber die Folgen reichen bis in die Gegenwart"
-  utter_ask_s_dp2_q2:
+  
+  utter_zusammenfassung:
+  - custom:
+      blocks:
+      - type: section 
+        text:
+          type: mrkdwn
+          text: " Gerne doch! 😊\n*Bildung:* 'have/has' + dritte Form des Verbs\n*Verwendung:*\n - Etwas hat in der Vergangenheit begonnen und dauert bis in die Gegenwart an\n - Etwas wurde in der Vergangenheit abgeschlossen, aber die Folgen reichen bis in die Gegenwart"
+  
+  utter_s_dp2_q2:
   - buttons:
     - payload: /i_dp2_q2{{"e_dp2_q2":"have played"}}
       title: have played
@@ -96,7 +142,7 @@ responses:
     text: "(Frage 1 von 2): Bei welchem der folgenden Wörter handelt es sich um eine Present Perfect-Form? 🤔"
 
   
-  utter_ask_s_dp2_q3:
+  utter_s_dp2_q3:
   - buttons:
     - payload: /i_dp2_q3{{"e_dp2_q3":"stole"}}
       title: stole
@@ -110,17 +156,22 @@ responses:
     - payload: /i_dp2_q3{{"e_dp2_q3":"have bought"}}
       title: have bought
     text: "(Frage 2 von 2): Welches der folgenden Wörter ist eine Present Perfect-Form? 🤔"
-  
-  utter_ask_s_dp2_q4:
-  - buttons:
-    - payload: /i_dp2_q4{{"e_dp2_q4":"yes"}}
-      title: Ja
 
-    - payload: /i_dp2_q4{{"e_dp2_q4":"no"}}
+  utter_ask_s_dp2_evaluation:
+  - buttons:
+    - payload: /i_dp2_evaluation{{"e_dp2_evaluation":"EVALUATION"}}
+      title: Quiz evaluation 📊
+    text: " "
+  
+  utter_s_dp2_at_q1:
+  - buttons:
+    - payload: /i_dp2_at_q1{{"e_dp2_at_q1":"yes"}}
+      title: Ja
+    - payload: /i_dp2_at_q1{{"e_dp2_at_q1":"no"}}
       title: Nein
     text: "Die Klausuren der letzten Jahre bestanden zu einem Großteil aus Anwendungsaufgaben. Wollen wir zusammen so eine Anwendungsaufgabe üben, damit du gut vorbereitet bist?"
 
-  utter_ask_s_dp2_q5:
+  utter_s_dp2_at_q2:
   - custom:
       blocks:
       - type: section 
@@ -130,16 +181,33 @@ responses:
 
   
 actions:
+  - validate_dp2_application_tasks_form
   - validate_dp2_form
-  - action_ask_s_dp2_end
+  - action_ask_s_dp2_q1
+  - action_ask_s_dp2_q2
+  - action_ask_s_dp2_q3
+  - action_ask_s_dp2_at_q1
+  - action_ask_s_dp2_at_q2
+  - action_ask_s_dp2_part_two_end
+  - action_ask_s_dp2_part_one_end
+
+
 
 forms:
   dp2_form:
     required_slots:
+    - s_dp2_q0
     - s_dp2_q1
+    - s_dp2_q1_2
     - s_dp2_q2
     - s_dp2_q3
-    - s_dp2_q4
-    - s_dp2_q5
-    - s_dp2_end
+    - s_dp2_evaluation
+    - s_dp2_part_one_end 
+
+  dp2_application_tasks_form:
+    required_slots:
+    - s_dp2_at_q1 
+    - s_dp2_at_q2 
+    - s_dp2_part_two_end 
+
 

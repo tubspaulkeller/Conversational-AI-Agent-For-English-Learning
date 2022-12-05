@@ -12,6 +12,8 @@ intents:
       use_entities: e_dp3_v_q2
   - i_dp3_v_q3:
       use_entities: e_dp3_v_q3
+  - i_dp3_v_evaluation:
+      use_entities: e_dp3_v_evaluation
   - i_dp3_v_q4:
       use_entities: e_dp3_v_q4
   - i_dp3_v_q5:
@@ -24,6 +26,8 @@ intents:
       use_entities: e_dp3_g_q2
   - i_dp3_g_q3:
       use_entities: e_dp3_g_q3
+  - i_dp3_g_evaluation:
+      use_entities: e_dp3_g_evaluation
   - i_dp3_g_q4:
       use_entities: e_dp3_g_q4
   - i_dp3_g_q5:
@@ -38,12 +42,14 @@ entities:
 - e_dp3_v_q1
 - e_dp3_v_q2
 - e_dp3_v_q3
+- e_dp3_v_evaluation
 - e_dp3_v_q4
 - e_dp3_v_q5
 - e_dp3_v_q6
 - e_dp3_g_q1
 - e_dp3_g_q2
 - e_dp3_g_q3
+- e_dp3_g_evaluation
 - e_dp3_g_q4
 - e_dp3_g_q5
 - e_dp3_g_q6
@@ -90,6 +96,12 @@ slots:
     - type: from_entity
       entity: e_dp3_v_q3
 
+  s_dp3_v_evaluation:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: e_dp3_v_evaluation
+
   s_dp3_v_q4:
     type: text
     mappings:
@@ -131,6 +143,12 @@ slots:
     - type: from_entity
       entity: e_dp3_g_q3 
 
+  s_dp3_g_evaluation:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: e_dp3_g_evaluation
+
   s_dp3_g_q4:
     type: text
     mappings:
@@ -155,13 +173,16 @@ slots:
     - type: custom
 
 responses:
-  utter_ask_s_dp3_q1:
-  - buttons:
+  utter_intro:
+  - text: "Du hast soeben den Englisch Kurs auf dem Level B2 gestartet. 😁 Ich freue mich darauf, die Inhalte mit dir zusammen durchzugehen!\nLass uns zu Beginn gemeinsam ein Lernziel aufstellen, damit wir uns im Laufe des Kurses daran orientieren können!"
+
+  utter_s_dp3_q1:
+  - text: "Hast du schon eine Idee, welche Kenntnisse und Fähigkeiten du nach Abschluss dieses Kurses erworben haben möchtest? Und somit eins der aufgeführten Themen dich am meisten für diesen Kurs motiviert? 🤔"
+    buttons:
     - payload: /i_dp3_q1{{"e_dp3_q1":"abroad"}}
       title: Auslandssemester
     - payload: /i_dp3_q1{{"e_dp3_q1":"grades"}}
       title: Bessere Noten
-    text: "Welches der aufgeführten Themen motivieren dich am meisten für diesen Kurs? 🤔"
 
   utter_ask_s_dp3_q2:
   - buttons:
@@ -169,7 +190,7 @@ responses:
       title: Festlegen
     - payload: /i_dp3_q2{{"e_dp3_q2":"deny"}}
       title: Neu bestimmen
-    text: "Soll ich das uns als übergeordnetes Lernziel für diesen Kurs festlegen? Oder möchtest du ein anderes Thema als Lernziel wählen?"
+    text: "Soll ich das uns als übergeordnetes Lernziel für diesen Kurs festlegen? Oder möchtest du ein anderes Thema als Lernziel wählen? 🤔"
 
   utter_affirm_learn_goal:
   - text: Perfekt, damit hätten wir das übergeordnete Lernziel für diesen Kurs festgelegt! 😁 
@@ -189,7 +210,7 @@ responses:
       title: Thema1
     - payload: /i_dp3_v_q1{{"e_dp3_v_q1":"thema2"}}
       title: Thema2
-    text: "Bevor wir anfangen, lass uns noch ein Lernziel für diese Grundlagen-Lektion festlegen, damit wir zusammen auf etwas hinarbeiten können 😊 Welches der aufgeführten Ziele motiviert dich am meisten? 🤔"
+    text: "Bevor wir mit der Vokabel-Lektion anfangen, lass uns noch ein Lernziel für diese Grundlagen-Lektion festlegen, damit wir zusammen auf etwas hinarbeiten können 😊 Welches der aufgeführten Ziele motiviert dich am meisten? 🤔"
 
   utter_ask_s_dp3_v_q2:
   - buttons:
@@ -214,8 +235,14 @@ responses:
       title: Drink
     text: Welches der folgenden Wörter ist eine Simple Past-Form?
 
-  
-  utter_ask_s_dp3_v_q4:
+ #TODO EVALUATION BUTTON
+  utter_ask_s_dp3_v_evaluation:
+  - buttons:
+    - payload: /i_dp3_v_evaluation{{"e_dp3_v_evaluation":"EVALUATION"}}
+      title: Quiz evaluation 📊
+    text: " "
+
+  utter_s_dp3_v_q4:
   - buttons:
     - payload: /i_dp3_v_q4{{"e_dp3_v_q4":"affirm"}}
       title: Ja
@@ -251,7 +278,7 @@ responses:
       title: Thema1
     - payload: /i_dp3_g_q1{{"e_dp3_g_q1":"thema2"}}
       title: Thema2
-    text: "Bevor wir anfangen, lass uns noch ein Lernziel für diese Grundlagen-Lektion festlegen, damit wir zusammen auf etwas hinarbeiten können 😊 Welches der aufgeführten Ziele motiviert dich am meisten? 🤔"
+    text: "Bevor wir mit der Grammatik-Lektion anfangen, lass uns noch ein Lernziel für diese Grundlagen-Lektion festlegen, damit wir zusammen auf etwas hinarbeiten können 😊 Welches der aufgeführten Ziele motiviert dich am meisten? 🤔"
 
   utter_ask_s_dp3_g_q2:
   - buttons:
@@ -260,7 +287,7 @@ responses:
     - payload: /i_dp3_g_q2{{"e_dp3_g_q2":"deny"}}
       title: Neu bestimmen
     text: " "
-    # HERE WURDE FEHLER GEWORFEN
+
   utter_ask_s_dp3_g_q3:
   - buttons:
     - payload: /i_dp3_g_q3{{"e_dp3_g_q3":"play"}}
@@ -276,8 +303,13 @@ responses:
       title: Drink
     text: Welches der folgenden Wörter ist eine Simple Past-Form?
 
-  
-  utter_ask_s_dp3_g_q4:
+  utter_ask_s_dp3_g_evaluation:
+  - buttons:
+    - payload: /i_dp3_g_evaluation{{"e_dp3_g_evaluation":"EVALUATION"}}
+      title: Quiz evaluation 📊
+    text: " "
+
+  utter_s_dp3_g_q4:
   - buttons:
     - payload: /i_dp3_g_q4{{"e_dp3_g_q4":"affirm"}}
       title: Ja
@@ -308,13 +340,16 @@ responses:
 
 actions:
   - validate_dp3_form
+  - action_ask_s_dp3_q1
   - action_ask_s_dp3_q3
   - action_ask_s_dp3_q4
   - validate_dp3_form_voc
   - action_ask_s_dp3_v_q3
+  - action_ask_s_dp3_v_q4
   - action_ask_s_dp3_v_end
   - validate_dp3_form_gram
   - action_ask_s_dp3_g_q3
+  - action_ask_s_dp3_g_q4
   - action_ask_s_dp3_g_end
 
 
@@ -332,6 +367,7 @@ forms:
     - s_dp3_v_q1
     - s_dp3_v_q2
     - s_dp3_v_q3
+    - s_dp3_v_evaluation
     - s_dp3_v_q4
     - s_dp3_v_q5
     - s_dp3_v_q6
@@ -342,6 +378,7 @@ forms:
     - s_dp3_g_q1
     - s_dp3_g_q2
     - s_dp3_g_q3
+    - s_dp3_g_evaluation
     - s_dp3_g_q4
     - s_dp3_g_q5
     - s_dp3_g_q6

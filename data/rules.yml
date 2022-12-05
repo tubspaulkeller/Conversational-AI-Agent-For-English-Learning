@@ -2,6 +2,12 @@ version: "3.0"
 
 rules:
 
+- rule: start conversation
+  conversation_start: true
+  steps:
+  - action: action_get_user_credentials
+  - action: action_set_reminder_set_dp
+
 - rule: restart the conversation 
   steps: 
   - intent: i_restart_conversation
@@ -17,13 +23,6 @@ rules:
   - intent: i_ask_last_question
   - action: action_repeat_last_quest
 
-- rule: start DP-Form
-  steps:
-  - action: action_get_user_credentials
-  - action: get_dp_form
-  - active_loop: get_dp_form
-  - active_loop: null
-
 # Points of user
 - rule: give user his score
   steps:
@@ -36,8 +35,22 @@ rules:
   - intent: i_ask_badge
   - action: action_give_user_badges
 
+# Stars of user
+- rule: give user his stars
+  steps:
+  - intent: i_ask_stars
+  - action: action_give_stars
+
+
 # Skills of Ben
 - rule: give user Bens Skills
   steps:
   - intent: i_ask_skills
   - action: action_give_skills
+
+# delay for form set dp 
+- rule: time delay for choice of dp
+  steps:
+  - intent: EXTERNAL_reminder_set_dp
+  - action: action_react_to_reminder_set_dp
+

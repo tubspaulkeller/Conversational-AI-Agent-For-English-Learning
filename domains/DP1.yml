@@ -1,19 +1,32 @@
 version: "3.0"
 
 intents:
+
+  - i_dp1_q0:
+      use_entities: e_dp1_q0
   - i_dp1_q1:
       use_entities: e_dp1_q1
   - i_dp1_q2:
       use_entities: e_dp1_q2
   - i_dp1_q3:
       use_entities: e_dp1_q3
+  - i_dp1_evaluation:
+      use_entities: e_dp1_evaluation
 
 entities:
+  - e_dp1_q0
   - e_dp1_q1
   - e_dp1_q2 
   - e_dp1_q3
+  - e_dp1_evaluation
 
 slots:
+  s_dp1_q0:  
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp1_q0
+
   s_dp1_q1:
     type: text
     mappings:
@@ -31,12 +44,23 @@ slots:
     mappings:
     - type: from_entity
       entity: e_dp1_q3
-    
+
+  s_dp1_evaluation:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp1_evaluation
   s_dp1_end:
     type: text
     mappings:
     - type: custom
 responses:
+  utter_ask_s_dp1_q0:
+  - buttons:
+    - payload: /i_dp1_q0{{"e_dp1_q0":"PLAY"}}
+      title: Legen wir los! 🎮
+    text: Lass uns ein kurzes Quiz starten, damit wir dein neues Wissen festigen 😁
+
   utter_ask_s_dp1_q1:
   - buttons:
     - payload: /i_dp1_q1{{"e_dp1_q1":"Went"}}
@@ -82,14 +106,22 @@ responses:
       title: Drove
     text: Welches der folgenden Wörter ist KEINE Simple Past-Form? 🤔
 
+
+  utter_ask_s_dp1_evaluation:
+  - buttons:
+    - payload: /i_dp1_evaluation{{"e_dp1_evaluation":"EVALUATION"}}
+      title: Quiz evaluation 📊
+    text: " "
+
 actions: 
   - validate_dp1_form
   - action_ask_s_dp1_end
-
 forms:
   dp1_form:
     required_slots:
+    - s_dp1_q0
     - s_dp1_q1
     - s_dp1_q2
     - s_dp1_q3
+    - s_dp1_evaluation
     - s_dp1_end

@@ -28,4 +28,4 @@ class AskForSlotAction(Action):
             elif tracker.slots.get("s_dp3_q4") == "vocabel_form":
                 dispatcher.utter_message(text="Ok super!")
                 # the user can choose a different DP
-                return [SlotSet("s_dp3_g_end", "grammar_form"), SlotSet("s_get_dp_form", None), SlotSet("s_set_next_form", None), FollowupAction("get_dp_form")]
+                return [SlotSet("s_dp3_g_end", "grammar_form"), FollowupAction("action_set_reminder_set_dp")]

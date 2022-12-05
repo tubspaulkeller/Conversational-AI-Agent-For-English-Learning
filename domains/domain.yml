@@ -1,6 +1,7 @@
 version: "3.0"
 
 intents:
+  - EXTERNAL_reminder_set_dp
   - i_goodbye
   - i_greet
   - i_restart_conversation
@@ -8,6 +9,7 @@ intents:
   - i_ask_score
   - i_ask_badge
   - i_ask_skills
+  - i_ask_stars
   - i_get_dp:
       use_entities: e_get_dp
       
@@ -92,6 +94,8 @@ responses:
   utter_quest_wrong:
   - text: "Das war leider nicht richtig. Versuche es nochmal. Du hast noch einen weiteren Versuch für diese Frage übrig."
 actions: 
+  - action_set_reminder_set_dp
+  - action_react_to_reminder_set_dp
   - action_restart
   - action_rephrase
   - action_repeat_last_quest
@@ -104,6 +108,7 @@ actions:
   - action_give_user_badges
   - action_quest_end_give_user_score
   - action_give_skills
+  - action_give_stars
 
 forms: 
   get_dp_form:

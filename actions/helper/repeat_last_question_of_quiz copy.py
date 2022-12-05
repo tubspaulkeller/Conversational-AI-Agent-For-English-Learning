@@ -4,7 +4,8 @@ from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import UserUtteranceReverted, FollowupAction, AllSlotsReset, Restarted, SlotSet, EventType
 from actions.helper.debug import debug
 
-not_repeat_bot_actions = ['utter_rephrase/de', 'utter_rephrase/en', 'utter_greet']
+not_repeat_bot_actions = ['utter_rephrase/de',
+                          'utter_rephrase/en', 'utter_greet']
 
 
 class ActionRepeatLastQuest(Action):
@@ -30,4 +31,3 @@ class ActionRepeatLastQuest(Action):
                 break
 
         return []
-
