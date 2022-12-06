@@ -219,7 +219,7 @@ responses:
   utter_affirm_learn_goal:
   - text: Perfekt, damit hätten wir das übergeordnete Lernziel für diesen Kurs festgelegt! 😁 
 
-  utter_ask_s_dp3_q3:
+  utter_s_dp3_q3:
   - buttons:
     - payload: /i_dp3_q3{{"e_dp3_q3":"vocabels"}}
       title: Vokabeln - Basic
@@ -397,7 +397,7 @@ responses:
 actions:
   - validate_dp3_form
   - action_ask_s_dp3_q1
-  - action_ask_s_dp3_q3å
+  - action_ask_s_dp3_q3
   - action_ask_s_dp3_q4
   - validate_dp3_form_voc
   - action_ask_s_dp3_v_q3

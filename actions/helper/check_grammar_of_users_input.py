@@ -1,5 +1,6 @@
 from actions.helper.check_entities import exist_present_perfect, exist_all_parts_of_question
 from actions.common.common import get_dp_inmemory_db
+from actions.gamification.handle_user_scoring import get_tries, resetTries, increase_tries
 from cgitb import text
 from lib2to3.pgen2 import grammar
 from typing import Any, Text, Dict, List
@@ -32,9 +33,11 @@ def validate_grammar_for_user_answer(value, json_file, name_of_slot, dispatcher,
     # Prüfung auf Simple Present bei DP4 nur Q5
     if (name_of_slot[4] != '4' or name_of_slot == 's_dp4_q5'):
         if not exist_present_perfect(name_of_slot, entities, entities_list, dispatcher):
+            increase_tries()
             return {name_of_slot: None}
 
     if not exist_all_parts_of_question(number_of_entities, name_of_slot, entities, entities_list, dispatcher):
+        increase_tries()
         return {name_of_slot: None}
 
     # get Userinput
@@ -43,9 +46,11 @@ def validate_grammar_for_user_answer(value, json_file, name_of_slot, dispatcher,
     usertext = usertext[0].upper() + usertext[1:]
 
     if not valid_grammar(usertext, dispatcher):
+        increase_tries()
         return {name_of_slot: None}
     else:
         dispatcher.utter_message(response="utter_correct_answer_qn")
+        resetTries()
         return {name_of_slot: True}
 
 

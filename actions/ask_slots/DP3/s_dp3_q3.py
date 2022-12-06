@@ -16,5 +16,6 @@ class AskForSlotAction(Action):
             dispatcher.utter_message(response="utter_s_dp3_q1/repeat")
             return [SlotSet("s_dp3_q1", None), SlotSet("s_dp3_q2", None)]
         else:
-            dispatcher.utter_message(response="utter_ask_s_dp3_q3")
+
+            dispatcher.utter_message(response="utter_s_dp3_q3")
         return []
