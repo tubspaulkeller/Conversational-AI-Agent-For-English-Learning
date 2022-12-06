@@ -7,13 +7,13 @@
         }
     },
     "s_dp3_v_q1": {
-        "thema1": "Das folgende Ziel basiert auf erfolgreich erreichten Lernzielen von Kommilitonen und ist nach dem bewährten _SMART-Konzept_ formuliert:\n*'Ich möchte meinen Englisch-Wortschatz bis Ende des Jahres um 2000 Wörter erweitern.'*",
-        "thema2": "Das folgende Ziel basiert auf erfolgreich erreichten Lernzielen von Kommilitonen und ist nach dem bewährten _SMART-Konzept_ formuliert:\n*'Ich möchte meine Englisch-Konversation bis Ende des Jahres um 20 Minuten pro Woche verbessern.'*"
+        "Englisch-Wortschatz": "Das folgende Ziel basiert auf erfolgreich erreichten Lernzielen von Kommilitonen und ist nach dem bewährten _SMART-Konzept_ formuliert:\n*'Ich möchte meinen Englisch-Wortschatz bis Ende des Jahres um 2000 Wörter erweitern.'*",
+        "Englisch-Konversation": "Das folgende Ziel basiert auf erfolgreich erreichten Lernzielen von Kommilitonen und ist nach dem bewährten _SMART-Konzept_ formuliert:\n*'Ich möchte meine Englisch-Konversation bis Ende des Jahres um 20 Minuten pro Woche verbessern.'*"
 
     },
     "s_dp3_g_q1": {
-        "thema1": "Das folgende Ziel basiert auf erfolgreich erreichten Lernzielen von Kommilitonen und ist nach dem bewährten _SMART-Konzept_ formuliert:\n*'Ich möchte meine Englisch-Grammatik bis Ende des Jahres um 2 Zeitformen erweitern.'*",
-        "thema2": "Das folgende Ziel basiert auf erfolgreich erreichten Lernzielen von Kommilitonen und ist nach dem bewährten _SMART-Konzept_ formuliert:\n*'Ich möchte meine Englisch-Grammatik bis Ende des Jahres um 2 Zeitformen erweitern.'*"
+        "Zeitformen_verbessern": "Das folgende Ziel basiert auf erfolgreich erreichten Lernzielen von Kommilitonen und ist nach dem bewährten _SMART-Konzept_ formuliert:\n*'Ich möchte meine Englisch-Grammatik bis Ende des Jahres um eine Zeitform vertiefen.'*",
+        "Zeitformen_erweitern": "Das folgende Ziel basiert auf erfolgreich erreichten Lernzielen von Kommilitonen und ist nach dem bewährten _SMART-Konzept_ formuliert:\n*'Ich möchte meine Englisch-Grammatik bis Ende des Jahres um zwei Zeitformen erweitern.'*"
 
     },
     "total_questions": 1,
@@ -24,9 +24,17 @@
         "points": 5,
         "question": 1
     },
+    "s_dp3_v_end": {
+        "shorter_learntime": "ab sofort wird dein Vokabel-Quiz nur noch aus 35 Fragen bestehen 😁",
+        "longer_learntime": "ab sofort wird dein Vokabel-Quiz nur aus 60 Fragen bestehen 😁"
+    },
     "s_dp3_g_q3": {
         "solution": "wrote",
         "points": 5,
         "question": 1
+    },
+    "s_dp3_g_end": {
+        "shorter_learntime": "ab sofort wird dein Vokabel-Quiz nur noch aus 35 Fragen bestehen 😁",
+        "longer_learntime": "ab sofort wird dein Vokabel-Quiz nur aus 60 Fragen bestehen 😁"
     }
 }

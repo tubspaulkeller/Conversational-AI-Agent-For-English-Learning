@@ -34,7 +34,10 @@ intents:
       use_entities: e_dp3_g_q5
   - i_dp3_g_q6:
       use_entities: e_dp3_g_q6
-
+  - i_activate_form_grammatik:
+      use_entities: e_activate_form_grammatik
+  - i_activate_form_vokabeln:
+      use_entities: e_activate_form_vokabeln
 entities:
 - e_dp3_q1
 - e_dp3_q2
@@ -53,6 +56,8 @@ entities:
 - e_dp3_g_q4
 - e_dp3_g_q5
 - e_dp3_g_q6
+- e_activate_form_vokabeln
+- e_activate_form_grammatik
 
 slots:
   s_dp3_q1:
@@ -123,7 +128,8 @@ slots:
   s_dp3_v_end:
     type: text
     mappings:
-    - type: custom
+    - type: from_entity
+      entity: e_activate_form_grammatik
 
   s_dp3_g_q1:
     type: text
@@ -170,19 +176,37 @@ slots:
   s_dp3_g_end:
     type: text
     mappings:
+      - type: from_entity
+        entity: e_activate_form_vokabeln
+
+  s_dp3_activate_form:
+    type: text
+    mappings:
     - type: custom
+
+
 
 responses:
   utter_intro:
   - text: "Du hast soeben den Englisch Kurs auf dem Level B2 gestartet. 😁 Ich freue mich darauf, die Inhalte mit dir zusammen durchzugehen!\nLass uns zu Beginn gemeinsam ein Lernziel aufstellen, damit wir uns im Laufe des Kurses daran orientieren können!"
 
   utter_s_dp3_q1:
-  - text: "Hast du schon eine Idee, welche Kenntnisse und Fähigkeiten du nach Abschluss dieses Kurses erworben haben möchtest? Und somit eins der aufgeführten Themen dich am meisten für diesen Kurs motiviert? 🤔"
-    buttons:
+  - buttons:
     - payload: /i_dp3_q1{{"e_dp3_q1":"abroad"}}
       title: Auslandssemester
     - payload: /i_dp3_q1{{"e_dp3_q1":"grades"}}
       title: Bessere Noten
+    text: "Hast du schon eine Idee, welche Kenntnisse und Fähigkeiten du nach Abschluss dieses Kurses erworben haben möchtest? Und somit eins der aufgeführten Themen dich am meisten für diesen Kurs motiviert? 🤔"
+
+
+  utter_s_dp3_q1/repeat:
+  - buttons:
+    - payload: /i_dp3_q1{{"e_dp3_q1":"abroad"}}
+      title: Auslandssemester
+    - payload: /i_dp3_q1{{"e_dp3_q1":"grades"}}
+      title: Bessere Noten
+    text: " "
+  
 
   utter_ask_s_dp3_q2:
   - buttons:
@@ -206,11 +230,19 @@ responses:
 
   utter_ask_s_dp3_v_q1:
   - buttons:
-    - payload: /i_dp3_v_q1{{"e_dp3_v_q1":"thema1"}}
-      title: Thema1
-    - payload: /i_dp3_v_q1{{"e_dp3_v_q1":"thema2"}}
-      title: Thema2
+    - payload: /i_dp3_v_q1{{"e_dp3_v_q1":"Englisch-Wortschatz"}}
+      title: Meinen Wortschatz erweitern
+    - payload: /i_dp3_v_q1{{"e_dp3_v_q1":"Englisch-Konversation"}}
+      title: Meine Konversation verbessern
     text: "Bevor wir mit der Vokabel-Lektion anfangen, lass uns noch ein Lernziel für diese Grundlagen-Lektion festlegen, damit wir zusammen auf etwas hinarbeiten können 😊 Welches der aufgeführten Ziele motiviert dich am meisten? 🤔"
+
+  utter_ask_s_dp3_v_q1/repeat:
+  - buttons:
+    - payload: /i_dp3_v_q1{{"e_dp3_v_q1":"Englisch-Wortschatz"}}
+      title: Meinen Wortschatz erweitern
+    - payload: /i_dp3_v_q1{{"e_dp3_v_q1":"Englisch-Konversation"}}
+      title: Meine Konversation verbessern
+    text: " "
 
   utter_ask_s_dp3_v_q2:
   - buttons:
@@ -219,7 +251,9 @@ responses:
     - payload: /i_dp3_v_q2{{"e_dp3_v_q2":"deny"}}
       title: Neu bestimmen
     text: " "
-  
+
+
+
   utter_ask_s_dp3_v_q3:
   - buttons:
     - payload: /i_dp3_v_q3{{"e_dp3_v_q3":"play"}}
@@ -235,17 +269,17 @@ responses:
       title: Drink
     text: Welches der folgenden Wörter ist eine Simple Past-Form?
 
- #TODO EVALUATION BUTTON
+
   utter_ask_s_dp3_v_evaluation:
   - buttons:
     - payload: /i_dp3_v_evaluation{{"e_dp3_v_evaluation":"EVALUATION"}}
-      title: Quiz evaluation 📊
+      title: Quiz Auswertung 📊
     text: " "
 
   utter_s_dp3_v_q4:
   - buttons:
     - payload: /i_dp3_v_q4{{"e_dp3_v_q4":"affirm"}}
-      title: Ja
+      title: Ja 🔥
 
     - payload: /i_dp3_v_q4{{"e_dp3_v_q4":"deny"}}
       title: Nein
@@ -274,11 +308,21 @@ responses:
 
   utter_ask_s_dp3_g_q1:
   - buttons:
-    - payload: /i_dp3_g_q1{{"e_dp3_g_q1":"thema1"}}
-      title: Thema1
-    - payload: /i_dp3_g_q1{{"e_dp3_g_q1":"thema2"}}
-      title: Thema2
+    - payload: /i_dp3_g_q1{{"e_dp3_g_q1":"Zeitformen_verbessern"}}
+      title: Zeitformen verbessern
+    - payload: /i_dp3_g_q1{{"e_dp3_g_q1":"Zeitformen_erweitern"}}
+      title: Zeitformen erweitern
     text: "Bevor wir mit der Grammatik-Lektion anfangen, lass uns noch ein Lernziel für diese Grundlagen-Lektion festlegen, damit wir zusammen auf etwas hinarbeiten können 😊 Welches der aufgeführten Ziele motiviert dich am meisten? 🤔"
+
+
+  utter_ask_s_dp3_g_q1/repeat:
+  - buttons:
+    - payload: /i_dp3_g_q1{{"e_dp3_g_q1":"Zeitformen_verbessern"}}
+      title: Zeitformen verbessern
+    - payload: /i_dp3_g_q1{{"e_dp3_g_q1":"Zeitformen_erweitern"}}
+      title: Zeitformen erweitern
+    text: " "
+
 
   utter_ask_s_dp3_g_q2:
   - buttons:
@@ -306,13 +350,13 @@ responses:
   utter_ask_s_dp3_g_evaluation:
   - buttons:
     - payload: /i_dp3_g_evaluation{{"e_dp3_g_evaluation":"EVALUATION"}}
-      title: Quiz evaluation 📊
+      title: Quiz Auswertung 📊
     text: " "
 
   utter_s_dp3_g_q4:
   - buttons:
     - payload: /i_dp3_g_q4{{"e_dp3_g_q4":"affirm"}}
-      title: Ja
+      title: Ja 🔥
 
     - payload: /i_dp3_g_q4{{"e_dp3_g_q4":"deny"}}
       title: Nein
@@ -338,10 +382,22 @@ responses:
       title: Nein
     text: Bist du damit einverstanden? 
 
+  utter_activate_form_via_button/v:
+    - buttons:
+      - payload: /i_activate_form_grammatik {{"e_activate_form_grammatik":"GRAMMATIK"}}
+        title: Grammatik - Basic
+      text: "Die nächste Lektion starten: "
+
+  utter_activate_form_via_button/g:
+  - buttons:
+    - payload: /i_activate_form_vokabeln {{"e_activate_form_vokabeln":"VOKABELN"}}
+      title: Vokabeln - Basic
+    text: "Die nächste Lektion starten: "
+
 actions:
   - validate_dp3_form
   - action_ask_s_dp3_q1
-  - action_ask_s_dp3_q3
+  - action_ask_s_dp3_q3å
   - action_ask_s_dp3_q4
   - validate_dp3_form_voc
   - action_ask_s_dp3_v_q3
@@ -351,6 +407,8 @@ actions:
   - action_ask_s_dp3_g_q3
   - action_ask_s_dp3_g_q4
   - action_ask_s_dp3_g_end
+  - action_ask_s_dp3_display_form_button
+  - action_ask_s_dp3_activate_form
 
 
 
@@ -372,6 +430,7 @@ forms:
     - s_dp3_v_q5
     - s_dp3_v_q6
     - s_dp3_v_end
+    - s_dp3_activate_form
 
   dp3_form_gram:
     required_slots:
@@ -383,5 +442,6 @@ forms:
     - s_dp3_g_q5
     - s_dp3_g_q6
     - s_dp3_g_end
+    - s_dp3_activate_form
 
 

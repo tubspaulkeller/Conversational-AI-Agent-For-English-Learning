@@ -29,8 +29,7 @@ class AskForSlotAction(Action):
             buttons.append(buttons_forms_to_fill[key])
 
         if len(buttons) == 0:
-            dispatcher.utter_message(text="You have filled all forms")
-            return [SlotSet("s_get_dp_form", "done")]
+            return [SlotSet("s_get_dp_form", "DONE"), SlotSet("s_set_next_form", "DONE"), FollowupAction("action_quest_end_give_user_score")]
         dispatcher.utter_message(text="Wähle ein DP!", buttons=buttons)
         return []
 

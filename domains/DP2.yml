@@ -114,6 +114,7 @@ responses:
   utter_correct_answer_qn:
   - text: Korrekt! 😊
   - text: Richtig! 🎉
+  - text: Super, richitg! 🙌
 
   utter_wrong_answer:
   - text: Das war leider nicht richtig. Versuche dir die Bildung durch 'have/has' + 'dritte From des Verbs' vor Auge zu führen. Damit sollte es die erfahrungsgemäß am einfachsten gelingen, das Present Perfect zu erkennen 👌
@@ -160,7 +161,7 @@ responses:
   utter_ask_s_dp2_evaluation:
   - buttons:
     - payload: /i_dp2_evaluation{{"e_dp2_evaluation":"EVALUATION"}}
-      title: Quiz evaluation 📊
+      title: Quiz Auswertung 📊
     text: " "
   
   utter_s_dp2_at_q1:

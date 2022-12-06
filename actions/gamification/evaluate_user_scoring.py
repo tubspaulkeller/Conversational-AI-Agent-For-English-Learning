@@ -105,16 +105,18 @@ def give_solution(dp_n, name_of_slot, dispatcher, solution):
 def finish_quiz(dispatcher, name_of_slot, dp_n):
     """ the user finished the quiz and the score is given to the user """
     if (user_score['DP'+name_of_slot[4:7]+'_points'] == 0):
-        print("DEBUG", name_of_slot[4:7])
         utter_finished_quiz_no_points(dispatcher)
-    else:
+    elif name_of_slot[4] == "1":
+        # just for DP1
         user_score['stars'] = user_score['stars'] + 1
-        print("DEBUG", name_of_slot[4:7])
         utter_finished_quiz_with_points(dispatcher, name_of_slot[4:7], dp_n)
 
-        if user_score["not_first_attempt"] == 0:
+        if user_score["not_first_attempt"] == 0 and name_of_slot[4] == "1":
             utter_all_quest_correct_at_first_attempt(dp_n, dispatcher)
+    else:
 
+        dispatcher.utter_message(
+            text="Damit hast du dieses Quiz mit insgesamt %s von %s Punkten abgeschlossen. 🎉" % (user_score['DP'+name_of_slot[4:7]+'_points'], dp_n["total_points"]))
     resetTries()
 
 

@@ -15,4 +15,4 @@ class AskForSlotAction(Action):
             domain: Dict) -> List[EventType]:
         dp_2 = get_dp_inmemory_db("DP2.json")
         finish_quiz(dispatcher, "s_dp2_q", dp_2)
-        return [SlotSet("s_dp2_part_one_end", "end_part_one_of_dp2_form"), FollowupAction("dp2_form_application_tasks_form")]
+        return [SlotSet("s_dp2_part_one_end", "end_part_one_of_dp2_form"), FollowupAction("dp2_application_tasks_form")]

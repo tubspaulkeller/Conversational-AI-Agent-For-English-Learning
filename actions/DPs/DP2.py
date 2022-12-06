@@ -74,14 +74,14 @@ class ValidateDP2Form(FormValidationAction):
         else:
             return {"s_dp2_q1": None}
 
-    def validate_s_dp2_q1_1(
+    def validate_s_dp2_q1_2(
         self,
         slot_value: Any,
         dispatcher: CollectingDispatcher,
         tracker: Tracker,
         domain: "DomainDict",
     ) -> Dict[Text, Any]:
-        return {"s_dp2_q1_1": slot_value}
+        return {"s_dp2_q1_2": slot_value}
 
     def validate_dp2(name_of_slot):
         def validate_slot(
@@ -123,9 +123,7 @@ class ValidateDP2ApplicationTasksForm(FormValidationAction):
         updates the order of the slots that should be requested
         """
         updated_slots = domain_slots.copy()
-        print("got required slots", tracker.slots.get("s_dp2_at_q1"))
         if tracker.slots.get("s_dp2_at_q1") == 'no':
-            print("got here")
             # there we will skip next slot
             updated_slots.remove("s_dp2_at_q2")
         return updated_slots
@@ -139,7 +137,6 @@ class ValidateDP2ApplicationTasksForm(FormValidationAction):
     ) -> Dict[Text, Any]:
         # validates the slot of the fourth question of DP2
         value = slot_value
-        print("EVALUATE DP2 AT Q1")
         if value == "yes":
             self.utter_affirm_more_learning_quests(dispatcher)
             return {"s_dp2_at_q1": value}

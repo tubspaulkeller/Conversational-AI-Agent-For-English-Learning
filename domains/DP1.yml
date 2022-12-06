@@ -110,7 +110,7 @@ responses:
   utter_ask_s_dp1_evaluation:
   - buttons:
     - payload: /i_dp1_evaluation{{"e_dp1_evaluation":"EVALUATION"}}
-      title: Quiz evaluation 📊
+      title: Quiz Auswertung 📊
     text: " "
 
 actions: 

@@ -6,7 +6,7 @@ from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import UserUtteranceReverted, FollowupAction, AllSlotsReset, Restarted
 import requests
 import json
-from fuzzywuzzy import process
+
 
 # imports from different files
 from actions.gamification.evaluate_user_scoring import evaluate_users_answer
@@ -123,8 +123,9 @@ class ValidateDP3VOCForm(FormValidationAction):
         domain: Dict[Text, Any],
     ) -> Dict[Text, Any]:
         """ validates the second question of DP3. It does not need to be validated bcs it is checked at the action """
-        dispatcher.utter_message(
-            text="Perfekt! Dann können wir ja jetzt mit den Vokabeln starten!\nÜbrigens: Sobald du die Grammatik Lektion startest, können wir auch dafür ein separates Ziel anlegen. 😁")
+        if value == "affirm":
+            dispatcher.utter_message(
+                text="Perfekt! Dann können wir ja jetzt mit den Vokabeln starten!\nÜbrigens: Sobald du die Grammatik Lektion startest, können wir auch dafür ein separates Ziel anlegen. 😁")
         return {"s_dp3_v_q2": value}
 
     def validate_s_dp3_v_evaluation(
@@ -180,8 +181,25 @@ class ValidateDP3VOCForm(FormValidationAction):
         tracker: Tracker,
         domain: Dict[Text, Any],
     ) -> Dict[Text, Any]:
-        """ slot does not need to be validated bcs it is checked at the action """
         return {"s_dp3_v_end": value}
+
+    def validate_s_dp3_activate_form(
+        self,
+        value: Text,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> Dict[Text, Any]:
+        return {"s_dp3_activate_form": value}
+
+    def validate_s_dp3_display_form_button(
+        self,
+        value: Text,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> Dict[Text, Any]:
+        return {"s_dp3_display_form_button": "DISPLAYED"}
 
     def validate_dp3voc(name_of_slot):
         def validate_slot(
@@ -244,8 +262,9 @@ class ValidateDP3GRAMForm(FormValidationAction):
         domain: Dict[Text, Any],
     ) -> Dict[Text, Any]:
         """ does not need to be validated bcs it is checked at different action """
-        dispatcher.utter_message(
-            text="Perfekt! Dann können wir ja jetzt mit der Grammatik starten!\nÜbrigens: Sobald du die Vokabel Lektion startest, können wir auch dafür ein separates Ziel anlegen. 😁")
+        if value == "affirm":
+            dispatcher.utter_message(
+                text="Perfekt! Dann können wir ja jetzt mit der Grammatik starten!\nÜbrigens: Sobald du die Vokabel Lektion startest, können wir auch dafür ein separates Ziel anlegen. 😁")
         return {"s_dp3_g_q2": value}
 
     def validate_s_dp3_g_evaluation(
@@ -295,6 +314,15 @@ class ValidateDP3GRAMForm(FormValidationAction):
         """ does not need to be validated bcs it is checked at different action """
         return {"s_dp3_g_q6": value}
 
+    def validate_s_dp3_display_form_button(
+        self,
+        value: Text,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> Dict[Text, Any]:
+        return {"s_dp3_display_form_button": "DISPLAYED"}
+
     def validate_s_dp3_g_end(
         self,
         value: Text,
@@ -302,8 +330,16 @@ class ValidateDP3GRAMForm(FormValidationAction):
         tracker: Tracker,
         domain: Dict[Text, Any],
     ) -> Dict[Text, Any]:
-        """ does not need to be validated bcs it is checked at different action """
-        return {"s_dp3_g_end": value}
+        return {"s_dp3_g_end": "END"}
+
+    def validate_s_dp3_activate_form(
+        self,
+        value: Text,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> Dict[Text, Any]:
+        return {"s_dp3_activate_form": value}
 
     def validate_dp3gram(name_of_slot):
 
@@ -336,7 +372,7 @@ def define_learn_goal(slot_value, value, dispatcher):
             {
                 "type": "section",
                 "text": {
-                    "text": "Gerne! %s" % dp3[slot_value][value],
+                    "text": "%s" % dp3[slot_value][value],
                     "type": "mrkdwn"
                 }
             }
