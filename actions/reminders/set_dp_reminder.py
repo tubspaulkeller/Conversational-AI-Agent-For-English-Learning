@@ -19,7 +19,7 @@ class ActionSetReminderSetDP(Action):
         domain: Dict[Text, Any],
     ) -> List[Dict[Text, Any]]:
         date = datetime.datetime.now() + datetime.timedelta(seconds=3)
-        print("setReminder SET DP got called")
+        print("SET REMINDER - DP-FORM")
         reminder = ReminderScheduled(
             "EXTERNAL_reminder_set_dp",
             trigger_date_time=date,
@@ -42,5 +42,5 @@ class ActionReactToReminderSetDP(Action):
         tracker: Tracker,
         domain: Dict[Text, Any],
     ) -> List[Dict[Text, Any]]:
-
+        print("REACT TO REMINDER: DP-FORM")
         return [FollowupAction("get_dp_form"), ReminderCancelled()]
