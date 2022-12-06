@@ -1,6 +1,8 @@
 version: "3.0"
 
 intents: 
+  - i_dp4_q0:
+      use_entities: e_dp4_q0
   - i_dp4_q1:
       use_entities: e_dp4_q1
   - i_dp4_q2:
@@ -13,12 +15,24 @@ intents:
       use_entities: e_dp4_q5
 
 entities:
+  - e_dp4_q0
   - e_dp4_q1
   - e_dp4_q2
   - e_dp4_q3
   - e_dp4_q4
   - e_dp4_q5
 slots:
+  s_dp4_q0:  
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp4_q0
+
+  s_dp4_intro:  
+    type: text
+    mappings:
+    - type: custom
+
   s_dp4_q1:
     type: list
     mappings:
@@ -75,32 +89,71 @@ responses:
   utter_grammar_success:
   - text: "Well done!"
   - text: "Perfect, you have solved this well"
- 
-  utter_ask_s_dp4_q1:
-  - text: "Quest1a: Erkläre dem Taxifahrer auf Englisch, dass ihr zum Kolosseum (eng. Coliseum) wollt." 
+  
+
+  utter_ask_s_dp4_q0:
+  - buttons:
+    - payload: /i_dp4_q0{{"e_dp4_q0":"AFFIRM"}}
+      title: Das klingt gut!
+    text: "Da wir das Grundlagen-Kapitel erfolgreich beendet haben, lass uns dein neues Wissen bei einer Lern-Story anwenden!\nIch werde nicht Teil der Geschichte sein, damit du diese eigenständig bewältigen kannst. Aber ich werde dich mit Feedback und Tipps zu deinen Antworten unterstützen!"
+
+  utter_s_dp4_intro:
+  - text: Stell dir vor, dass du zusammen mit deinem besten Freund nach Rom gereist bist...
+
+  utter_s_dp4_q1:
+  - custom:
+      blocks:
+      - type: section 
+        text:
+          type: mrkdwn
+          text: "*Quest1A:* Erkläre dem Taxifahrer auf Englisch, dass ihr zum Kolosseum (_eng. Coliseum_) wollt." 
+  
   
   utter_ask_s_dp4_q2:
-  - text: "Quest1b: Bitte frage nun, wie teuer die Taxifahrt ist?"
+  - custom:
+      blocks:
+      - type: section 
+        text:
+          type: mrkdwn
+          text: "*Quest1B:* Bitte frage nun, wie teuer die Taxifahrt ist?" 
+
 
   utter_s_dp4_q3:
-  - text: "Quest2a: Kaufe für dich und deinen Freund zwei Eintrittskarten."
+  - custom:
+      blocks:
+      - type: section 
+        text:
+          type: mrkdwn
+          text: "*Quest2A:* Kaufe für dich und deinen Freund zwei Eintrittskarten."
 
   utter_ask_s_dp4_q4:
-  - text: "Quest2b: Wie könntest du nach einer Vergünstigtigung für Studenten fragen?"
-
+   - custom:
+      blocks:
+      - type: section 
+        text:
+          type: mrkdwn
+          text: "*Quest2B:* Wie könntest du nach einer Vergünstigtigung für Studenten fragen?"
+  
   utter_s_dp4_q5:
-  - text: "Quest3: Erkläre den Touristen, dass dein Freund und du aus Braunschweig kommt und seit wann ihr dort wohnt."
+  - custom:
+      blocks:
+      - type: section 
+        text:
+          type: mrkdwn
+          text: "*Quest3:* Erkläre den Touristen, dass dein Freund und du aus Braunschweig kommt und seit wann ihr dort wohnt."
 
   utter_dp4_finish:
-  - text: "Klasse, damit hast du alle Quests abgeschlossen sowie die Lern-Story 'Das römische Kolosseum' erfolgreich beendet."
+  - text: "Klasse, damit hast du alle Quests abgeschlossen sowie die Lern-Story 'Das römische Kolosseum' erfolgreich beendet.\nLern-Stories können dir helfen, dich auf reale Problemsituationen vorzubereiten. Ich werde dir helfen, indem ich dir im Lauf der Zeit weitere Lern-Stories zeige."
 actions:
   - validate_dp4_form
+  - action_ask_s_dp4_q1
   - action_ask_s_dp4_q3
   - action_ask_s_dp4_q5
   - action_ask_s_dp4_end
 forms:
   dp4_form:
     required_slots:
+    - s_dp4_q0
     - s_dp4_q1
     - s_dp4_q2
     - s_dp4_q3

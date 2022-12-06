@@ -1,7 +1,7 @@
 from actions.common.slack import get_user
 from typing import (Text)
 from rasa_sdk import Action
-from rasa_sdk.events import SlotSet
+from rasa_sdk.events import SlotSet, FollowupAction
 
 ##########################################################################################
 # Get user credentials
@@ -16,10 +16,10 @@ class ActionGetUserCredentials(Action):
         """ get user credentials """
         first_name = await get_user(tracker.sender_id, tracker)
         if first_name != None:
-            # TODO replace with utter_greet
-            dispatcher.utter_message(f"Hey {first_name}! 😊")
-            return [SlotSet("first_name", first_name)]
+            dispatcher.utter_message(
+                f"Hey {first_name}! 😊 Mein Name ist Ben und ich bin dein persönlicher Assistent. Ich helfe dir dabei, deine Englisch-Fähigkeiten  zu verbessern. 🤖")
+            return [SlotSet("first_name", first_name), FollowupAction("action_set_reminder_set_dp")]
         else:
-            #     # TODO replace with utter_greet/no_username
-            dispatcher.utter_message(f"Hey Buddy! 😊")
-            return [SlotSet("first_name", "Buddy")]
+            dispatcher.utter_message(
+                f"Hey Buddy! 😊 Mein Name ist Ben und ich bin dein persönlicher Assistent. Ich helfe dir dabei, deine Englisch-Fähigkeiten  zu verbessern. 🤖")
+            return [SlotSet("first_name", "Buddy"), FollowupAction("action_set_reminder_set_dp")]

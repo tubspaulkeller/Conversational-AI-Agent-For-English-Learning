@@ -12,12 +12,12 @@
         "quantity": 2
     },
     "s_dp4_q4": { 
-        "entities": ["student", "discount", "tickets"],
+        "entities": ["student", "discount", "tickets", "studi", "sales discount"],
         "quantity": 2
     },
     "s_dp4_q5": { 
         "present_perfect": ["have lived"],
-        "entities": ["mate", "friend", "have lived", "brunswick", "Braunschweig", "We", "buddy", "BS"],
+        "entities": ["mate", "friend", "have lived", "brunswick", "Braunschweig", "We", "buddy", "BS", "we"],
         "quantity": 3
     }
 }

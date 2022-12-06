@@ -19,6 +19,18 @@ class ValidateDP1Form(FormValidationAction):
         # Unique identifier of the form"
         return "validate_dp1_form"
 
+    def validate_s_dp1_q0(
+        self,
+        slot_value: Any,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: "DomainDict",
+    ) -> Dict[Text, Any]:
+        return {"s_dp1_q0": slot_value}
+
+    def validate_s_dp1_evaluation(self, slot_value: Any, dispatcher: CollectingDispatcher, tracker: Tracker, domain: "DomainDict",) -> Dict[Text, Any]:
+        return {"s_dp1_evaluation": slot_value}
+
     def validate_dp1(name_of_slot):
         """This function validates the slots corresponding to the users answer for question of DP1"""
 

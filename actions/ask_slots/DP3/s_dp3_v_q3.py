@@ -11,9 +11,9 @@ class AskForSlotAction(Action):
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker,
             domain: Dict) -> List[EventType]:
-           #user can change his goal
+        # user can change his goal
         if tracker.slots.get("s_dp3_v_q2") == "deny":
-            dispatcher.utter_message(response="utter_ask_s_dp3_v_q1")
+            dispatcher.utter_message(response="utter_ask_s_dp3_v_q1/repeat")
             return [SlotSet("s_dp3_v_q1", None), SlotSet("s_dp3_v_q2", None)]
         elif tracker.slots.get("s_dp3_v_q2") == "affirm":
             dispatcher.utter_message(response="utter_ask_s_dp3_v_q3")

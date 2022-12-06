@@ -17,8 +17,17 @@ class ValidateDP4Form(FormValidationAction):
         # Unique identifier of the form
         return "validate_dp4_form"
 
+    def validate_s_dp4_q0(
+        self,
+        slot_value: Any,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: "DomainDict",
+    ) -> Dict[Text, Any]:
+        return {"s_dp4_q0": slot_value}
+
     def validate_dp4(name_of_slot):
- 
+
         def validate_slot(
             self,
             value: Text,

@@ -13,7 +13,7 @@ class AskForSlotAction(Action):
             domain: Dict) -> List[EventType]:
         """ user can change his goal """
         if tracker.slots.get("s_dp3_q2") == "deny":
-            dispatcher.utter_message(response="utter_ask_s_dp3_q1")
+            dispatcher.utter_message(response="utter_s_dp3_q1/repeat")
             return [SlotSet("s_dp3_q1", None), SlotSet("s_dp3_q2", None)]
         else:
             dispatcher.utter_message(response="utter_ask_s_dp3_q3")

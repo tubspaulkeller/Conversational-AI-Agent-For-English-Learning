@@ -31,7 +31,6 @@ def validate_grammar_for_user_answer(value, json_file, name_of_slot, dispatcher,
 
     # Prüfung auf Simple Present bei DP4 nur Q5
     if (name_of_slot[4] != '4' or name_of_slot == 's_dp4_q5'):
-        print("Debug", name_of_slot[4])
         if not exist_present_perfect(name_of_slot, entities, entities_list, dispatcher):
             return {name_of_slot: None}
 

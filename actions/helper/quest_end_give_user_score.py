@@ -13,6 +13,6 @@ class ActionRepeatLastQuest(Action):
     def run(self, dispatcher: "CollectingDispatcher", tracker: "Tracker", domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         """ total points are given to the user """
         dispatcher.utter_message(
-            text="Du hast insgesamt: {} Punkte erreicht. 🎉\nBis bald! :-)".format(user_score["total_points"]))
+            text="Du hast insgesamt: {} Punkte erreicht. 🎉\nBis bald {}! 😊".format(user_score["total_points"], tracker.get_slot("first_name")))
 
         return []

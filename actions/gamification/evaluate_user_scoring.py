@@ -22,10 +22,10 @@ def evaluate_users_answer(solution, dp_n, name_of_slot, value, dispatcher, slots
             set_points(dp_n[name_of_slot]["points"] - 3, name_of_slot[4:7])
 
         # check letzte Frage und gibt Gesamtpunkte aus
-        if dp_n[name_of_slot]["question"] == dp_n["total_questions"]:
-            finish_quiz(dispatcher, name_of_slot, dp_n)
-        else:
-            resetTries()
+       # if dp_n[name_of_slot]["question"] == dp_n["total_questions"]:
+        #    finish_quiz(dispatcher, name_of_slot, dp_n)
+        # else:
+        resetTries()
         return {name_of_slot: value}
     # Users answer is wrong
     elif get_tries() < 1:  # User hat einen weiteren Versuch
@@ -94,10 +94,10 @@ def give_solution(dp_n, name_of_slot, dispatcher, solution):
     """ the user could not answer the question correctly at second attempt and the solution is given to the user """
     user_score["last_question_correct"] = 0
     utter_solution(dispatcher, solution)
-    if dp_n[name_of_slot]["question"] == dp_n["total_questions"]:
-        finish_quiz(dispatcher, name_of_slot, dp_n)
-    else:
-        resetTries()
+   # if dp_n[name_of_slot]["question"] == dp_n["total_questions"]:
+    # finish_quiz(dispatcher, name_of_slot, dp_n)
+    # else:
+    resetTries()
 
     return {name_of_slot: "wrong_answer"}
 
@@ -106,11 +106,17 @@ def finish_quiz(dispatcher, name_of_slot, dp_n):
     """ the user finished the quiz and the score is given to the user """
     if (user_score['DP'+name_of_slot[4:7]+'_points'] == 0):
         utter_finished_quiz_no_points(dispatcher)
-    else:
+    elif name_of_slot[4] == "1":
+        # just for DP1
+        user_score['stars'] = user_score['stars'] + 1
         utter_finished_quiz_with_points(dispatcher, name_of_slot[4:7], dp_n)
-        if user_score["not_first_attempt"] == 0:
-            utter_all_quest_correct_at_first_attempt(dp_n, dispatcher)
 
+        if user_score["not_first_attempt"] == 0 and name_of_slot[4] == "1":
+            utter_all_quest_correct_at_first_attempt(dp_n, dispatcher)
+    else:
+
+        dispatcher.utter_message(
+            text="Damit hast du dieses Quiz mit insgesamt %s von %s Punkten abgeschlossen. 🎉" % (user_score['DP'+name_of_slot[4:7]+'_points'], dp_n["total_points"]))
     resetTries()
 
 
@@ -176,10 +182,10 @@ def utter_finished_quiz_no_points(dispatcher):
 
 def utter_finished_quiz_with_points(dispatcher, dp, dp_n):
     dispatcher.utter_message(
-        text="Damit hast du dieses Quiz mit insgesamt %s von %s Punkten abgeschlossen. 🎉" % (user_score['DP'+dp+'_points'], dp_n["total_points"]))
+        text="Damit hast du dieses Quiz mit insgesamt %s von %s Punkten abgeschlossen. 🎉\nFür die erfolgreiche Beendigung des Quiz hast du dir 1 ⭐️ verdient!" % (user_score['DP'+dp+'_points'], dp_n["total_points"]))
 
 
 def utter_all_quest_correct_at_first_attempt(dp_n, dispatcher):
     dispatcher.utter_message(
-        text="Du hast alle Fragen im ersten Versuch richtig beantwortet. 🏆")
+        text="Da du das Quiz direkt beim ersten Versuch fehlerfrei beendet hast, erhälst du außerdem ein neues Abzeichen. 🏆")
     dispatcher.utter_message(image=dp_n["badge_naturtalent"])
