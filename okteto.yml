@@ -1,7 +1,7 @@
 
-name: companion_ben
+name: okteto-companion-ben
 autocreate: true
-image: okteto.dev/rasa-bot:latest
+image: okteto.dev/rasa-server-okteto:latest
 command: bash
 volumes:
   - /root/.cache/pip
