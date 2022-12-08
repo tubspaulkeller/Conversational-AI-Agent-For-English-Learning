@@ -21,12 +21,8 @@ class ActionRepeatLastQuest(Action):
                 bot_events.append(last_action)
 
         for bot_action in reversed(bot_events):
-           # print("bot actions", bot_action)
-            if bot_action not in not_repeat_bot_actions:
-                #debug(self, tracker)
+            if bot_action not in not_repeat_bot_actions and bot_action is not None:
                 print('debug: repeat last action', bot_action)
-                # TODO
-                # mit action einbauen
                 dispatcher.utter_message(response=bot_action)
                 break
 

@@ -143,7 +143,7 @@ responses:
           text: "*Quest3:* Erkläre den Touristen, dass dein Freund und du aus Braunschweig kommt und seit wann ihr dort wohnt."
 
   utter_dp4_finish:
-  - text: "Klasse, damit hast du alle Quests abgeschlossen sowie die Lern-Story 'Das römische Kolosseum' erfolgreich beendet.\nLern-Stories können dir helfen, dich auf reale Problemsituationen vorzubereiten. Ich werde dir helfen, indem ich dir im Lauf der Zeit weitere Lern-Stories zeige."
+  - text: "Klasse, damit hast du alle Quests abgeschlossen sowie die Lern-Story 'Das römische Kolosseum' erfolgreich mit {total_points} von 25 Punkten beendet.\nLern-Stories können dir helfen, dich auf reale Problemsituationen vorzubereiten. Ich werde dir helfen, indem ich dir im Lauf der Zeit weitere Lern-Stories zeige."
 actions:
   - validate_dp4_form
   - action_ask_s_dp4_q1

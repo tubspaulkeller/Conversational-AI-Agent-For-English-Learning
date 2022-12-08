@@ -6,13 +6,13 @@ from actions.helper.debug import debug
 from actions.gamification.handle_user_scoring import user_score
 
 
-class ActionRepeatLastQuest(Action):
+class ActionEndDPs(Action):
     def name(self) -> Text:
         return "action_quest_end_give_user_score"
 
     def run(self, dispatcher: "CollectingDispatcher", tracker: "Tracker", domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         """ total points are given to the user """
         dispatcher.utter_message(
-            text="Du hast insgesamt: {} Punkte erreicht. 🎉\nBis bald {}! 😊".format(user_score["total_points"], tracker.get_slot("first_name")))
+            text="Du hast insgesamt: {} Punkte erreicht. 🎉\nAls nächstes werden wir eine gemeinsame Lern-Session durchführen, da dies eine gute Möglichkeit ist, dein neu erlerntes Englisch-Wissen mit anderen Kommilitonen auszuprobieren!\nDafür wirst du einem Team mit Lern-Partnern, die auf dem gleichen Lern-Level sind wie du, zugeteilt.\nAllerdings, müssen wir dafür in einen Gruppenchat wechseln. Wir sehen uns gleich im anderen Channel {}! 😊".format(user_score["total_points"], tracker.get_slot("first_name")))
 
         return []

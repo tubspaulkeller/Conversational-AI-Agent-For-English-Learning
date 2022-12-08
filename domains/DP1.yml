@@ -12,6 +12,8 @@ intents:
       use_entities: e_dp1_q3
   - i_dp1_evaluation:
       use_entities: e_dp1_evaluation
+  - i_dp1_long_term_scenario:
+      use_entities: e_dp1_long_term_scenario
 
 entities:
   - e_dp1_q0
@@ -19,6 +21,7 @@ entities:
   - e_dp1_q2 
   - e_dp1_q3
   - e_dp1_evaluation
+  - e_dp1_long_term_scenario
 
 slots:
   s_dp1_q0:  
@@ -50,10 +53,24 @@ slots:
     mappings:
     - type: from_entity
       entity: e_dp1_evaluation
+
   s_dp1_end:
     type: text
     mappings:
     - type: custom
+
+  s_dp1_long_term_scenario:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp1_long_term_scenario
+
+  s_dp1_call_next_dp:
+    type: text
+    mappings:
+    - type: custom
+
+    
 responses:
   utter_ask_s_dp1_q0:
   - buttons:
@@ -61,7 +78,15 @@ responses:
       title: Legen wir los! 🎮
     text: Lass uns ein kurzes Quiz starten, damit wir dein neues Wissen festigen 😁
 
-  utter_ask_s_dp1_q1:
+  utter_s_dp1_q1/msg: 
+  - custom:
+      blocks:
+      - type: section 
+        text:
+          text: "Bei welchem der folgenden Wörter handelt es sich *nicht* um eine Simple-Past-Form?"
+          type: mrkdwn
+
+  utter_s_dp1_q1/button:
   - buttons:
     - payload: /i_dp1_q1{{"e_dp1_q1":"Went"}}
       title: Went
@@ -74,7 +99,7 @@ responses:
 
     - payload: /i_dp1_q1{{"e_dp1_q1":"Bought"}}
       title: Bought
-    text: Bei welchem der folgenden Wörter handelt es sich NICHT um eine Simple-Past-Form?
+    text: " "
 
   utter_ask_s_dp1_q2:
   - buttons:
@@ -90,8 +115,16 @@ responses:
     - payload: /i_dp1_q2{{"e_dp1_q2":"Wash"}}
       title: Wash
     text: Welches der folgenden Wörter ist eine Simple Past-Form?
+  
+  utter_s_dp1_q3/msg: 
+  - custom:
+      blocks:
+      - type: section 
+        text:
+          text: "Welches der folgenden Wörter ist *keine* Simple Past-Form? 🤔"
+          type: mrkdwn
 
-  utter_ask_s_dp1_q3:
+  utter_s_dp1_q3/button:
   - buttons:
     - payload: /i_dp1_q3{{"e_dp1_q3":"Visited"}}
       title: Visited
@@ -104,7 +137,7 @@ responses:
 
     - payload: /i_dp1_q3{{"e_dp1_q3":"Drove"}}
       title: Drove
-    text: Welches der folgenden Wörter ist KEINE Simple Past-Form? 🤔
+    text: " "
 
 
   utter_ask_s_dp1_evaluation:
@@ -113,9 +146,17 @@ responses:
       title: Quiz Auswertung 📊
     text: " "
 
+  utter_s_dp1_long_term_scenario:
+  - buttons:
+    - payload: /i_dp1_long_term_scenario{{"e_dp1_long_term_scenario":"LONG_TERM_SCENARIO"}}
+      title: Langzeit Szenario erleben
+    text: "Stell dir vor, du hast zwei Monate gelernt.."
 actions: 
   - validate_dp1_form
+  - action_ask_s_dp1_q1
+  - action_ask_s_dp1_q3
   - action_ask_s_dp1_end
+  - action_ask_s_dp1_call_next_dp
 forms:
   dp1_form:
     required_slots:
@@ -125,3 +166,5 @@ forms:
     - s_dp1_q3
     - s_dp1_evaluation
     - s_dp1_end
+    - s_dp1_long_term_scenario
+    - s_dp1_call_next_dp

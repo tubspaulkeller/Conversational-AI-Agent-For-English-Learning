@@ -2,6 +2,7 @@ from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker, FormValidationAction
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import UserUtteranceReverted, FollowupAction, AllSlotsReset, Restarted, SlotSet, EventType
+from actions.gamification.handle_user_scoring import increase_badges
 
 
 class AskForSlotAction(Action):
@@ -13,6 +14,7 @@ class AskForSlotAction(Action):
             domain: Dict) -> List[EventType]:
         """ DP2 is finished, the user can choose a different DP """
         if tracker.get_slot("s_dp2_at_q1") == 'yes':
+            increase_badges()
             dispatcher.utter_message(
                 text="Damit hast du deine erste Anwendungsaufgabe in dieser Lektion gemeistert und dir ein Abzeichen verdient!")
             dispatcher.utter_message(

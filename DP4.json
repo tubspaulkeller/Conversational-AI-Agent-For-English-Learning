@@ -1,23 +1,28 @@
-{
+{   "total_points": 25,
     "s_dp4_q1": { 
         "entities": ["We", "Coliseum", "we", "coliseum"],
-        "quantity": 2
+        "quantity": 2,
+        "question": 1
     },  
     "s_dp4_q2": { 
         "entities": ["How", "costs", "What", "price", "how", "what", "much", "cost"],
-        "quantity": 2
+        "quantity": 2,
+        "question": 2
     },
     "s_dp4_q3": { 
         "entities": ["ticket", "two", "tickets", "2"],
-        "quantity": 2
+        "quantity": 2,
+        "question": 3
     },
     "s_dp4_q4": { 
         "entities": ["student", "discount", "tickets", "studi", "sales discount"],
-        "quantity": 2
+        "quantity": 2,
+        "question": 4
     },
     "s_dp4_q5": { 
         "present_perfect": ["have lived"],
         "entities": ["mate", "friend", "have lived", "brunswick", "Braunschweig", "We", "buddy", "BS", "we"],
-        "quantity": 3
+        "quantity": 3,
+        "question": 5
     }
 }

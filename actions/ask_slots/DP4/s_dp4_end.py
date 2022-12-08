@@ -2,8 +2,7 @@ from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker, FormValidationAction
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import UserUtteranceReverted, FollowupAction, AllSlotsReset, Restarted, SlotSet, EventType
-import time
-import asyncio
+from actions.gamification.handle_user_scoring import user_score
 from actions.helper.non_cancellable_shield import non_cancellable_shield
 
 
@@ -17,7 +16,8 @@ class AskForSlotAction(Action):
         """ DP4 is finished, the user can choose a different DP """
 
        # await non_cancellable_shield(asyncio.sleep(2))
-        dispatcher.utter_message(response="utter_dp4_finish")
+        dispatcher.utter_message(
+            response="utter_dp4_finish", total_points=user_score['DP4_q_points'])
         return [SlotSet("s_dp4_end", "end_of_dp4_form"),  FollowupAction("action_set_reminder_set_dp")]
 
 

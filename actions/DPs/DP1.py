@@ -31,6 +31,28 @@ class ValidateDP1Form(FormValidationAction):
     def validate_s_dp1_evaluation(self, slot_value: Any, dispatcher: CollectingDispatcher, tracker: Tracker, domain: "DomainDict",) -> Dict[Text, Any]:
         return {"s_dp1_evaluation": slot_value}
 
+    def validate_s_dp1_long_term_scenario(self, slot_value: Any, dispatcher: CollectingDispatcher, tracker: Tracker, domain: "DomainDict",) -> Dict[Text, Any]:
+        long_term_scenario = {
+            "blocks": [
+                {
+                    "type": "section",
+                    "text": {
+                        "text": "Glückwunsch, du hast in der *Grammatik-Lektion Level 7* erreicht und somit bereits 80 Prozent dieser Lektion gemeistert.",
+                        "type": "mrkdwn"
+                    }
+                }
+            ]
+        }
+        dispatcher.utter_message(
+            json_message=long_term_scenario)
+        dispatcher.utter_message(
+            image="https://res.cloudinary.com/dmnkxrxes/image/upload/c_scale,w_250/v1670505883/Ben_Bot/AUFSTIEG_LEVEL_7_idgskn.png")
+        dispatcher.utter_message(
+            image="https://res.cloudinary.com/dmnkxrxes/image/upload/c_scale,w_250/v1670506193/Ben_Bot/GRAMMATIK-BASICS_ifoiks.png")
+        dispatcher.utter_message(
+            text="Wenn du in diesem Tempo weiterlernst, dann können wir schon bald die letzte Lektion dieses Kurses beginnen, bei der es um Anwendungsaufgaben gehen wird! 😁")
+        return {"s_dp1_long_term_scenario": slot_value}
+
     def validate_dp1(name_of_slot):
         """This function validates the slots corresponding to the users answer for question of DP1"""
 
