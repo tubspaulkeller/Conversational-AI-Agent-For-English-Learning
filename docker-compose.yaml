@@ -1,7 +1,7 @@
 version: "3.4"
 services:
   rasa-server:
-    image: rasa-bot:3.0.4
+    image: rasa-bot:latest
     working_dir: /app
     build: "./"
     restart: always
@@ -15,7 +15,7 @@ services:
       - all
 
   rasa-actions-server:
-    image: rasa-bot:3.0.2
+    image: rasa-bot:latest
     working_dir: /app
     build: "./"
     restart: always

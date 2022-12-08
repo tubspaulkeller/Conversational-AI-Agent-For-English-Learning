@@ -1,4 +1,4 @@
-FROM python:3.7.13 AS BASE
+FROM python:3.8.12 AS BASE
 
 
 WORKDIR /app
