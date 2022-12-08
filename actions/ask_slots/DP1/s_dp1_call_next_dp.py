@@ -9,11 +9,10 @@ from actions.common.common import get_dp_inmemory_db
 class AskForSlotAction(Action):
 
     def name(self) -> Text:
-        return "action_ask_s_dp1_end"
+        return "action_ask_s_dp1_call_next_dp"
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker,
             domain: Dict) -> List[EventType]:
-        dp_1 = get_dp_inmemory_db("DP1.json")
-        finish_quiz(dispatcher, "s_dp1_q", dp_1)
-        dispatcher.utter_message(response="utter_s_dp1_long_term_scenario")
-        return [SlotSet("s_dp1_end", "end_of_dp1_form")]
+        """ DP1 is finished, the user can choose a different DP """
+
+        return [SlotSet("s_dp1_call_next_dp", "CALL_NEXT_DP"), FollowupAction("action_set_reminder_set_dp")]

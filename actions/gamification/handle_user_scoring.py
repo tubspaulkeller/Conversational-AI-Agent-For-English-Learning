@@ -13,8 +13,11 @@ user_score = {
     "not_first_attempt": 0,
     "DP1_q_points": 0,
     "DP2_q_points": 0,
+    "DP2_a_points": 0,
     "DP3_g_points": 0,
     "DP3_v_points": 0,
+    "DP4_q_points": 0,
+
 }
 
 
@@ -33,6 +36,14 @@ def set_points(points, dp):
 def increase_tries():
     """ increases the number of tries the user has done """
     user_score["tries"] += 1
+
+
+def increase_badges():
+    user_score["total_badges"] += 1
+
+
+def increase_stars():
+    user_score["stars"] += 1
 
 
 def resetTries():

@@ -1,6 +1,6 @@
 from actions.helper.check_entities import exist_present_perfect, exist_all_parts_of_question
 from actions.common.common import get_dp_inmemory_db
-from actions.gamification.handle_user_scoring import get_tries, resetTries, increase_tries
+from actions.gamification.handle_user_scoring import get_tries, resetTries, increase_tries, set_points
 from cgitb import text
 from lib2to3.pgen2 import grammar
 from typing import Any, Text, Dict, List
@@ -49,8 +49,22 @@ def validate_grammar_for_user_answer(value, json_file, name_of_slot, dispatcher,
         increase_tries()
         return {name_of_slot: None}
     else:
-        dispatcher.utter_message(response="utter_correct_answer_qn")
+        points = 0
+        if get_tries() == 0:
+            set_points(5, name_of_slot[4:7])
+            points = 5
+        elif get_tries() == 1:
+            set_points(4, name_of_slot[4:7])
+            points = 4
+        elif get_tries() == 2:
+            set_points(3, name_of_slot[4:7])
+            points = 3
+        elif get_tries() > 2:
+            set_points(2, name_of_slot[4:7])
+            points = 2
         resetTries()
+        dispatcher.utter_message(
+            response="utter_correct_answer_qn", points=points)
         return {name_of_slot: True}
 
 

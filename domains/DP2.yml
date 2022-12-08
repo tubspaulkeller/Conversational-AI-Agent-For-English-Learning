@@ -112,9 +112,10 @@ responses:
     text: "Starte das: "
 
   utter_correct_answer_qn:
-  - text: Korrekt! 😊
-  - text: Richtig! 🎉
-  - text: Super, richitg! 🙌
+  - text: Korrekt! 😊 Damit hast du dir {points} von 5 Punkten verdient!
+  - text: Richtig! 🎉 Du hast {points} von 5 Punkten erzielt.
+  - text: Super, richitg! 🙌 {points} von 5 Punkten gehen auf dein Konto.
+  - text: Gut gemacht! Du hast {points} von 5 Punkten erzielt. 🎉
 
   utter_wrong_answer:
   - text: Das war leider nicht richtig. Versuche dir die Bildung durch 'have/has' + 'dritte From des Verbs' vor Auge zu führen. Damit sollte es die erfahrungsgemäß am einfachsten gelingen, das Present Perfect zu erkennen 👌
