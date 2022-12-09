@@ -12,6 +12,8 @@ services:
       - "5006:5006"
     networks:
       - all
+    env_file:
+      - .env
 
   rasa-actions:
     image: rasa-server-okteto:latest
@@ -24,6 +26,8 @@ services:
       - "5055:5055"
     networks:
       - all
+    env_file:
+      - .env
 
 networks:
   all:

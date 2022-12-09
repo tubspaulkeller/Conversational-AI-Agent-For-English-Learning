@@ -19,7 +19,8 @@ ngrok http 5002 (start when rasa is running)
 /webhooks/slack/webhook
 
 
-
+#okteto
+https://rasa-paulkeller94.cloud.okteto.net/webhooks/slack/webhook
 
 
 # telegram 
