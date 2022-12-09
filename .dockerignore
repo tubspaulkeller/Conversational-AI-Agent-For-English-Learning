@@ -2,4 +2,4 @@ tests/*
 models/*
 **/*.md
 .git/
-# .env
+.env
