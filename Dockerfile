@@ -5,7 +5,7 @@ WORKDIR /app
 
 COPY requirements.txt .
 
-USER root
+#USER root
 
 
 RUN pip install -r requirements.txt
@@ -24,4 +24,4 @@ ADD credentials.yml credentials.yaml
 ADD endpoints.yml endpoints.yaml
 
 # By best practices, don't run the code with root user
-USER 1001
+#USER 1001
