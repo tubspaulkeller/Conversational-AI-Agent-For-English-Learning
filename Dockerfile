@@ -10,7 +10,7 @@ USER root
 
 RUN pip install -r requirements.txt
 RUN pip install --no-cache-dir --upgrade pip
-RUN pip install rasa==3.0.4
+RUN pip install rasa==3.3.0
 
 COPY . .
 
