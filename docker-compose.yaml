@@ -15,9 +15,10 @@ services:
     env_file:
       - .env
     environment:
-      GRAMMAR_TOOL_KEY: ${GRAMMAR_TOOL_KEY}
-      TRANSLATE_KEY: ${TRANSLATE_KEY}
       SLACK_TOKEN: ${SLACK_TOKEN}
+      SLACK_CHANNEL: ${SLACK_CHANNEL}
+      SLACK_SIGNING_SECRET: ${SLACK_SIGNING_SECRET}
+      RASA_URL: ${RASA_URL}
 
   rasa-actions:
     image: rasa-server-okteto:latest
