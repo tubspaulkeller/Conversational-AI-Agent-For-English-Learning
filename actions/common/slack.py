@@ -6,7 +6,7 @@ import json
 load_dotenv()
 
 client = AsyncWebClient(
-    token=os.getenv('xoxb-4393955305015-4421152854193-OIi3OXCUr3LteogsqMScLiB5'))
+    token=os.getenv('SLACK_TOKEN'))
 
 
 async def get_user(id, tracker):
