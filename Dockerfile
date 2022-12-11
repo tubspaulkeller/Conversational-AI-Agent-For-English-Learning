@@ -19,7 +19,7 @@ CMD ["./bot.py"]
 
 
 ADD config.yml config.yaml
-ADD domain-deployment.yml domain.yaml
+ADD domain.yml domain.yaml
 ADD credentials-deployment.yml credentials.yaml
 ADD endpoints.yml endpoints.yaml
 
