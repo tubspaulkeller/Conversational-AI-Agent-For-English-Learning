@@ -22,7 +22,7 @@ ngrok http 5002 (start when rasa is running)
 #okteto
 https://rasa-ben-dp1-dp4-paulkeller94.cloud.okteto.net/webhooks/slack/webhook
 # change version to 3.1 in nlu, rule, stories
-# change credentials.yml file to credentials_local file
+# change credentials.yml file to credentials-dev file
 
 
 # telegram 
