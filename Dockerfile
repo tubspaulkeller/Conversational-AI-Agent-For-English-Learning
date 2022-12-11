@@ -19,8 +19,8 @@ CMD ["./bot.py"]
 
 
 ADD config.yml config.yaml
-ADD domain.yml domain.yaml
-ADD credentials.yml credentials.yaml
+ADD domain-deployment.yml domain.yaml
+ADD credentials-deployment.yml credentials.yaml
 ADD endpoints.yml endpoints.yaml
 
 # By best practices, don't run the code with root user
