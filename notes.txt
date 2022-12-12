@@ -4,38 +4,34 @@
 
 
 # select python interpreter
--> settings: python interpreter
--> choose conda rasa 
+    -> settings: python interpreter
+    -> choose conda rasa 
 
 #slack setup
-App home 
-accept user sends message (toggle click)
+    App home 
+    accept user sends message (toggle click)
 
 #slack 
-check token in credentials.yml (change it)
-rasa run --port 5002 --connector slack (wait until it is running then start ngrok)
-ngrok http 5002 (start when rasa is running)
-
-/webhooks/slack/webhook
-
-
-#okteto
-https://rasa-ben-dp1-dp4-paulkeller94.cloud.okteto.net/webhooks/slack/webhook
-# change version to 3.1 in nlu, rule, stories
+    check token in credentials.yml (change it)
+    rasa run --port 5002 --connector slack (wait until it is running then start ngrok)
+    ngrok http 5002 (start when rasa is running)
+    /webhooks/slack/webhook
 
 # telegram 
-ngrok http 5005
+    ngrok http 5005
 
+#okteto
+    https://rasa-ben-dp1-dp4-paulkeller94.cloud.okteto.net/webhooks/slack/webhook
+    change version to 3.1 in nlu, rule, stories
 
-# custom connector 
+#local dev 
+    rasa run --connector slack --credentials credentials-dev.yml --endpoints endpoints-dev.yml
+    change version to 3.0 in nlu, rule, stories
 
-1. rasa run --credentials credentials
-2. ngrok http 5005 
-/webhooks/myio/webhook
-/webhooks/myio/webhook
+#custom connector 
+    1. rasa run --credentials credentials
+    2. ngrok http 5005 
+    /webhooks/myio/webhook
+    /webhooks/myio/webhook
 
-https://5846-2a02-3102-40b6-5-504-4dd3-b812-2592.eu.ngrok.io/webhooks/slack/webhook
-
-
-https://5846-2a02-3102-40b6-5-504-4dd3-b812-2592.eu.ngrok.io/webhooks/addons.custom_channel.MyIO/webhook
 

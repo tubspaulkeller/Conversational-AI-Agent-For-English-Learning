@@ -20,8 +20,8 @@ CMD ["./bot.py"]
 
 ADD config.yml config.yml
 ADD domainDeployment.yml domain.yml
-ADD credentialsDeployment.yml credentials.yml
-ADD endpointsDeployment.yml endpoints.yml
+ADD credentials.yml credentials.yml
+ADD endpoints.yml endpoints.yml
 
 # By best practices, don't run the code with root user
 #USER 1001
