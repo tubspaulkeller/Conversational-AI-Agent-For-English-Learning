@@ -15,7 +15,7 @@ class AskForSlotAction(Action):
         """ sending a image for the next question """
         if get_tries() == 0:
             dispatcher.utter_message(
-                image="https://res.cloudinary.com/dmnkxrxes/image/upload/c_scale,w_259/v1667902166/Ben_Bot/story_two_enq3mz.png"
+                image="https://res.cloudinary.com/dmnkxrxes/image/upload/v1670966055/Ben_Bot/Story_Card_3_po0u7x.jpg"
             )
         dispatcher.utter_message(response="utter_s_dp4_q3")
 
