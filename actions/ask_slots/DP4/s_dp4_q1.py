@@ -16,7 +16,7 @@ class AskForSlotAction(Action):
         if tracker.get_slot("s_dp4_intro") is None:
             dispatcher.utter_message(response="utter_s_dp4_intro")
             dispatcher.utter_message(
-                image="https://res.cloudinary.com/dmnkxrxes/image/upload/c_scale,w_250/v1667902166/Ben_Bot/story_one_fmhkes.png"
+                image="https://res.cloudinary.com/dmnkxrxes/image/upload/v1670965838/Ben_Bot/Story_Card_2_ndwafo.jpg"
             )
             dispatcher.utter_message(response="utter_s_dp4_q1")
             return [SlotSet("s_dp4_intro", "INTRO_GIVEN")]
