@@ -1,11 +1,11 @@
 {   "total_points": 25,
     "s_dp4_q1": { 
-        "entities": ["We", "Coliseum", "we", "coliseum"],
+        "entities": ["We", "Coliseum", "we", "coliseum", "buddy", "friend", "amigo", "mate", "us"],
         "quantity": 2,
         "question": 1
     },  
     "s_dp4_q2": { 
-        "entities": ["How", "costs", "What", "price", "how", "what", "much", "cost"],
+        "entities": ["How", "costs", "What", "price", "how", "what", "much", "cost", "expensive", "costly", "expensively", "dearly"],
         "quantity": 2,
         "question": 2
     },
@@ -15,14 +15,14 @@
         "question": 3
     },
     "s_dp4_q4": { 
-        "entities": ["student", "discount", "tickets", "studi", "sales discount"],
+        "entities": ["student", "discount", "tickets", "studi", "sales discount", "benefit", "rebate", "advantage"],
         "quantity": 2,
         "question": 4
     },
     "s_dp4_q5": { 
         "present_perfect": ["have lived"],
         "entities": ["mate", "friend", "have lived", "brunswick", "Braunschweig", "We", "buddy", "BS", "we"],
-        "quantity": 3,
+        "quantity": 2,
         "question": 5
     }
 }

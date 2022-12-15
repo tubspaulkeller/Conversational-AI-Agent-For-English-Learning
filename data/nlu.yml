@@ -138,7 +138,16 @@ nlu:
     - [We](e_dp4_q1) would like to go to the [Coliseum](e_dp4_q1) 
     - [We](e_dp4_q1) would like to visit [Coliseum](e_dp4_q1) 
     - [We](e_dp4_q1) would love to go to the [Coliseum](e_dp4_q1) 
-  
+    - [My friend](e_dp4_q1) and I would like to go to the [Coliseum](e_dp4_q1) 
+    - [My buddy](e_dp4_q1) and I would like to go to the [Coliseum](e_dp4_q1) 
+    - [My mate](e_dp4_q1) and I would like to go to the [Coliseum](e_dp4_q1) 
+    - [My girlfriend](e_dp4_q1) and I would like to go to the [Coliseum](e_dp4_q1) 
+    - [My boyfriend](e_dp4_q1) and I would like to go to the [Coliseum](e_dp4_q1) 
+    - [My amigo](e_dp4_q1) and I would like to go to the [Coliseum](e_dp4_q1) 
+    - Can you bring [us](e_dp4_q1) please to the [Coliseum](e_dp4_q1) 
+    - Can you drive [us](e_dp4_q1) please to the [Coliseum](e_dp4_q1) 
+    - Can you deliver [us](e_dp4_q1) please to the [Coliseum](e_dp4_q1) 
+ 
 - intent: i_dp4_q2
   examples: |
     - [How](e_dp4_q2) [much](e_dp4_q2) does it [costs](e_dp4_q2)?
@@ -147,28 +156,45 @@ nlu:
     - [What](e_dp4_q2) is the [price](e_dp4_q2) for us to get there?
     - [What](e_dp4_q2) is the [price](e_dp4_q2) for us?
     - [How](e_dp4_q2) [much](e_dp4_q2) is it?
-    
+    - [How](e_dp4_q2) [expensive](e_dp4_q2) is it?
+    - [How](e_dp4_q2) [expensive](e_dp4_q2) is the ride?
+    - [How](e_dp4_q2) [costly](e_dp4_q2) is the ride?
+    - [How](e_dp4_q2) [expensive](e_dp4_q2) is the trip?
+    - [How](e_dp4_q2) [costly](e_dp4_q2) is the trip?
+    - [How](e_dp4_q2) [expensively](e_dp4_q2) is the journey?
+    - [How](e_dp4_q2) [dearly](e_dp4_q2) is the ride?
 
 - intent: i_dp4_q3
   examples: |
     - I would like to buy [two](e_dp4_q3) [tickets](e_dp4_q3) for the attraction, please?
-    - I would like to buy [2](e_dp4_q3) [tickets](e_dp4_q3), please?
+    - I would like to buy [2](e_dp4_q3) [tickets](e_dp4_q3) please?
     - Can I get [two](e_dp4_q3) [tickets](e_dp4_q3), please?
-    - Could you give me two](e_dp4_q3) [tickets](e_dp4_q3), please?
+    - Could you give me two](e_dp4_q3) [tickets](e_dp4_q3) please?
     - Can I get [2](e_dp4_q3) [tickets](e_dp4_q3)?
     - Could you give me [2](e_dp4_q3) [tickets](e_dp4_q3)?
+    - Could you give me [two](e_dp4_q3) [tickets](e_dp4_q3)?
+    - Could you give me [two](e_dp4_q3) [tickets](e_dp4_q3) for us?
+    - I would like to buy [two](e_dp4_q3) [tickets](e_dp4_q3) for me and my friend
+    - I would like to order [two](e_dp4_q3) [tickets](e_dp4_q3) for me and my friend
+
 
 - intent: i_dp4_q4
   examples: |
     - Excuse me, but are you also offering [student](e_dp4_q4) [discount](e_dp4_q4)? My firend and I are both sutdents.
     - Excuse me, but are you also offering a [discount](e_dp4_q4) for [students](e_dp4_q4)? My firend and I are both sutdents.
     - We are both [students](e_dp4_q4). Do you have a [discount](e_dp4_q4)?
+    - We are both [students](e_dp4_q4). Do you have a [benefit](e_dp4_q4)?
     - Do you have a [student](e_dp4_q4) [discount](e_dp4_q4)?
     - Do you offer a [student](e_dp4_q4) [discount](e_dp4_q4)?
     - Is there a [student](e_dp4_q4) [discount](e_dp4_q4) also possible?
+    - Is there a [student](e_dp4_q4) [benefit](e_dp4_q4) also possible?
     - Do you have [student](e_dp4_q4) [tickets](e_dp4_q4)?
+    - Do you have [student](e_dp4_q4) [benefit](e_dp4_q4)?
     - Do you offer [student](e_dp4_q4) [tickets](e_dp4_q4)?
     - Do you sell [student](e_dp4_q4) [tickets](e_dp4_q4)?
+    - Do you have [student](e_dp4_q4) [rebate](e_dp4_q4)?
+    - Do you have [student](e_dp4_q4) [advantage](e_dp4_q4)?
+    - How much does it cost for [students](e_dp4_q4)?
 
 
 - intent: i_dp4_q5

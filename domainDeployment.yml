@@ -1,4 +1,4 @@
-version: '3.1'
+version: '3.0'
 intents:
 - i_dp1_q0:
     use_entities: e_dp1_q0
@@ -66,6 +66,17 @@ intents:
     use_entities: e_dp2_at_q2
 - i_dp2_evaluation:
     use_entities: e_dp2_evaluation
+- EXTERNAL_reminder_set_dp
+- i_goodbye
+- i_greet
+- i_restart_conversation
+- i_ask_last_question
+- i_ask_score
+- i_ask_badge
+- i_ask_skills
+- i_ask_stars
+- i_get_dp:
+    use_entities: e_get_dp
 - i_dp4_q0:
     use_entities: e_dp4_q0
 - i_dp4_q1:
@@ -78,17 +89,6 @@ intents:
     use_entities: e_dp4_q4
 - i_dp4_q5:
     use_entities: e_dp4_q5
-- EXTERNAL_reminder_set_dp
-- i_goodbye
-- i_greet
-- i_restart_conversation
-- i_ask_last_question
-- i_ask_score
-- i_ask_badge
-- i_ask_skills
-- i_ask_stars
-- i_get_dp:
-    use_entities: e_get_dp
 entities:
 - e_dp1_q0
 - e_dp1_q1
@@ -123,13 +123,13 @@ entities:
 - e_dp2_evaluation
 - e_dp2_at_q1
 - e_dp2_at_q2
+- e_get_dp
 - e_dp4_q0
 - e_dp4_q1
 - e_dp4_q2
 - e_dp4_q3
 - e_dp4_q4
 - e_dp4_q5
-- e_get_dp
 slots:
   s_dp1_q0:
     type: text
@@ -322,6 +322,23 @@ slots:
     type: text
     mappings:
     - type: custom
+  user_id:
+    type: text
+    mappings:
+    - type: custom
+  first_name:
+    type: text
+    mappings:
+    - type: custom
+  s_get_dp_form:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_get_dp
+  s_set_next_form:
+    type: text
+    mappings:
+    - type: custom
   s_dp4_q0:
     type: text
     mappings:
@@ -337,52 +354,56 @@ slots:
     - type: from_entity
       entity: e_dp4_q1
       intent: i_dp4_q1
-      not_intent: i_dp4_q3
+      not_intent:
+      - i_dp4_q2
+      - i_dp4_q3
+      - i_dp4_q4
+      - i_dp4_q5
   s_dp4_q2:
     type: list
     mappings:
     - type: from_entity
       entity: e_dp4_q2
       intent: i_dp4_q2
+      not_intent:
+      - i_dp4_q1
+      - i_dp4_q3
+      - i_dp4_q4
+      - i_dp4_q5
   s_dp4_q3:
     type: list
     mappings:
     - type: from_entity
       entity: e_dp4_q3
       intent: i_dp4_q3
-      not_intent: i_dp4_q1
+      not_intent:
+      - i_dp4_q1
+      - i_dp4_q2
+      - i_dp4_q4
+      - i_dp4_q5
   s_dp4_q4:
     type: list
     mappings:
     - type: from_entity
       entity: e_dp4_q4
       intent: i_dp4_q4
-      not_intent: i_dp4_q3
+      not_intent:
+      - i_dp4_q1
+      - i_dp4_q2
+      - i_dp4_q3
+      - i_dp4_q5
   s_dp4_q5:
     type: list
     mappings:
     - type: from_entity
       entity: e_dp4_q5
       intent: i_dp4_q5
-      not_intent: i_dp2_q5
+      not_intent:
+      - i_dp4_q1
+      - i_dp4_q2
+      - i_dp4_q3
+      - i_dp4_q4
   s_dp4_end:
-    type: text
-    mappings:
-    - type: custom
-  user_id:
-    type: text
-    mappings:
-    - type: custom
-  first_name:
-    type: text
-    mappings:
-    - type: custom
-  s_get_dp_form:
-    type: text
-    mappings:
-    - type: from_entity
-      entity: e_get_dp
-  s_set_next_form:
     type: text
     mappings:
     - type: custom
@@ -713,6 +734,61 @@ responses:
           type: mrkdwn
           text: "Versuche bitte aus den folgenden W\xF6rtern:\n *Braunschweig, She,\
             \ since, live*\n einen Satz im *Present Perfect* zu formulieren:"
+  utter_greet:
+  - text: "Hi {first_name}! \U0001F60A "
+  utter_greet/no_username:
+  - text: "Hey Buddy! \U0001F60A"
+  utter_goodbye:
+  - text: "Tsch\xFCss!"
+  utter_rephrase/de:
+  - text: "Tut mir leid, ich habe dich nicht richtig verstanden. Kannst du das bitte\
+      \ wiederholen? \U0001F60A"
+  utter_rephrase/en:
+  - text: "I'm sorry, I didn't understand you correctly. Can you please repeat that?\
+      \ \U0001F60A"
+  utter_first_quest_correct:
+  - text: "Super, das war richtig! \U0001F64C  Damit hast du 5 Punkte gesammelt. Lass\
+      \ uns gleich weitermachen."
+  - text: "Klasse, das war richtig! \U0001F60A Du hast dir 5 Punkte verdient. Lass\
+      \ uns gleich weitermachen."
+  utter_last_and_previous_correct:
+  - text: "Super, das war ebenfalls richtig! \U0001F64C  Damit hast du 5 weitere Punkte\
+      \ gesammelt."
+  - text: "Klasse, das war ebenfalls richtig! \U0001F60A Du hast dir weitere 5 Punkte\
+      \ verdient."
+  utter_nth_and_previuos_correct:
+  - text: "Super, das war ebenfalls richtig! \U0001F64C  Damit hast du 5 weitere Punkte\
+      \ gesammelt. Mach weiter so!"
+  - text: "Klasse, das war ebenfalls richtig! \U0001F60A Du hast dir weitere 5 Punkte\
+      \ verdient. Weiter geht es!"
+  utter_last_question_users_first_time_correct_but_first_attempt:
+  - text: "Super, das war richtig! \U0001F64C  Damit hast du 5 Punkte gesammelt."
+  - text: "Klasse, das war richtig! \U0001F60A Du hast dir 5 Punkte verdient."
+  utter_last_previous_correct_not_first_attempt:
+  - text: "Super, jetzt ist es richtig! \U0001F60A Damit hast du 2 weitere Punkte\
+      \ gesammelt."
+  - text: "Klasse, jetzt ist es richtig! \U0001F64C Du hast dir 2 weitere Punkte verdient."
+  utter_nth_previous_correct_not_first_attempt:
+  - text: "Super, jetzt ist es richtig! \U0001F64C  Damit hast du 2 weitere Punkte\
+      \ gesammelt. Mach weiter so!"
+  - text: "Klasse, jetzt ist es richtig! \U0001F60A Du hast dir weitere 2 Punkte verdient.\
+      \ Weiter geht es!"
+  utter_last_quest_users_first_correct_not_first_attempt:
+  - text: "Super, jetzt ist es richtig! \U0001F60A Damit hast du 2 Punkte gesammelt."
+  - text: "Klasse, jetzt ist es richtig! \U0001F64C  Du hast dir 2 Punkte verdient."
+  utter_nth_quest_user_first_correct_not_first_attempt:
+  - text: "Super, jetzt ist es richtig! \U0001F60A Damit hast du 2 Punkte gesammelt.\
+      \ Mach weiter so!"
+  - text: "Klasse, jetzt ist es richtig! \U0001F64C   Du hast dir 2 Punkte verdient.\
+      \ Weiter geht es!"
+  utter_users_first_time_correct_but_first_attempt:
+  - text: "Super, das war richtig! \U0001F60A Damit hast du 5 Punkte gesammelt. Mach\
+      \ weiter so!\""
+  - text: "Klasse, das war richtig! \U0001F64C Du hast dir 5 Punkte verdient. Weiter\
+      \ geht es!\""
+  utter_quest_wrong:
+  - text: "Das war leider nicht richtig. Versuche es nochmal. Du hast noch einen weiteren\
+      \ Versuch f\xFCr diese Frage \xFCbrig."
   utter_grammar_error:
   - custom:
       blocks:
@@ -779,61 +855,6 @@ responses:
       Lern-Stories k\xF6nnen dir helfen, dich auf reale Problemsituationen vorzubereiten.\
       \ Ich werde dir helfen, indem ich dir im Lauf der Zeit weitere Lern-Stories\
       \ zeige."
-  utter_greet:
-  - text: "Hi {first_name}! \U0001F60A "
-  utter_greet/no_username:
-  - text: "Hey Buddy! \U0001F60A"
-  utter_goodbye:
-  - text: "Tsch\xFCss!"
-  utter_rephrase/de:
-  - text: "Tut mir leid, ich habe dich nicht richtig verstanden. Kannst du das bitte\
-      \ wiederholen? \U0001F60A"
-  utter_rephrase/en:
-  - text: "I'm sorry, I didn't understand you correctly. Can you please repeat that?\
-      \ \U0001F60A"
-  utter_first_quest_correct:
-  - text: "Super, das war richtig! \U0001F64C  Damit hast du 5 Punkte gesammelt. Lass\
-      \ uns gleich weitermachen."
-  - text: "Klasse, das war richtig! \U0001F60A Du hast dir 5 Punkte verdient. Lass\
-      \ uns gleich weitermachen."
-  utter_last_and_previous_correct:
-  - text: "Super, das war ebenfalls richtig! \U0001F64C  Damit hast du 5 weitere Punkte\
-      \ gesammelt."
-  - text: "Klasse, das war ebenfalls richtig! \U0001F60A Du hast dir weitere 5 Punkte\
-      \ verdient."
-  utter_nth_and_previuos_correct:
-  - text: "Super, das war ebenfalls richtig! \U0001F64C  Damit hast du 5 weitere Punkte\
-      \ gesammelt. Mach weiter so!"
-  - text: "Klasse, das war ebenfalls richtig! \U0001F60A Du hast dir weitere 5 Punkte\
-      \ verdient. Weiter geht es!"
-  utter_last_question_users_first_time_correct_but_first_attempt:
-  - text: "Super, das war richtig! \U0001F64C  Damit hast du 5 Punkte gesammelt."
-  - text: "Klasse, das war richtig! \U0001F60A Du hast dir 5 Punkte verdient."
-  utter_last_previous_correct_not_first_attempt:
-  - text: "Super, jetzt ist es richtig! \U0001F60A Damit hast du 2 weitere Punkte\
-      \ gesammelt."
-  - text: "Klasse, jetzt ist es richtig! \U0001F64C Du hast dir 2 weitere Punkte verdient."
-  utter_nth_previous_correct_not_first_attempt:
-  - text: "Super, jetzt ist es richtig! \U0001F64C  Damit hast du 2 weitere Punkte\
-      \ gesammelt. Mach weiter so!"
-  - text: "Klasse, jetzt ist es richtig! \U0001F60A Du hast dir weitere 2 Punkte verdient.\
-      \ Weiter geht es!"
-  utter_last_quest_users_first_correct_not_first_attempt:
-  - text: "Super, jetzt ist es richtig! \U0001F60A Damit hast du 2 Punkte gesammelt."
-  - text: "Klasse, jetzt ist es richtig! \U0001F64C  Du hast dir 2 Punkte verdient."
-  utter_nth_quest_user_first_correct_not_first_attempt:
-  - text: "Super, jetzt ist es richtig! \U0001F60A Damit hast du 2 Punkte gesammelt.\
-      \ Mach weiter so!"
-  - text: "Klasse, jetzt ist es richtig! \U0001F64C   Du hast dir 2 Punkte verdient.\
-      \ Weiter geht es!"
-  utter_users_first_time_correct_but_first_attempt:
-  - text: "Super, das war richtig! \U0001F60A Damit hast du 5 Punkte gesammelt. Mach\
-      \ weiter so!\""
-  - text: "Klasse, das war richtig! \U0001F64C Du hast dir 5 Punkte verdient. Weiter\
-      \ geht es!\""
-  utter_quest_wrong:
-  - text: "Das war leider nicht richtig. Versuche es nochmal. Du hast noch einen weiteren\
-      \ Versuch f\xFCr diese Frage \xFCbrig."
 actions:
 - validate_dp1_form
 - action_ask_s_dp1_q1
@@ -863,11 +884,6 @@ actions:
 - action_ask_s_dp2_at_q2
 - action_ask_s_dp2_part_two_end
 - action_ask_s_dp2_part_one_end
-- validate_dp4_form
-- action_ask_s_dp4_q1
-- action_ask_s_dp4_q3
-- action_ask_s_dp4_q5
-- action_ask_s_dp4_end
 - action_set_reminder_set_dp
 - action_react_to_reminder_set_dp
 - action_restart
@@ -883,6 +899,11 @@ actions:
 - action_quest_end_give_user_score
 - action_give_skills
 - action_give_stars
+- validate_dp4_form
+- action_ask_s_dp4_q1
+- action_ask_s_dp4_q3
+- action_ask_s_dp4_q5
+- action_ask_s_dp4_end
 forms:
   dp1_form:
     required_slots:
@@ -936,6 +957,10 @@ forms:
     - s_dp2_at_q1
     - s_dp2_at_q2
     - s_dp2_part_two_end
+  get_dp_form:
+    required_slots:
+    - s_get_dp_form
+    - s_set_next_form
   dp4_form:
     required_slots:
     - s_dp4_q0
@@ -945,10 +970,6 @@ forms:
     - s_dp4_q4
     - s_dp4_q5
     - s_dp4_end
-  get_dp_form:
-    required_slots:
-    - s_get_dp_form
-    - s_set_next_form
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
