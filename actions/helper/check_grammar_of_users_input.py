@@ -27,7 +27,7 @@ def validate_grammar_for_user_answer(value, json_file, name_of_slot, dispatcher,
     if not check_if_question_is_already_answered(name_of_slot, dispatcher):
         entities = value
         number_of_entities = len(entities)
-        print("Debug", name_of_slot, entities, number_of_entities + "\n")
+        print("Debug", name_of_slot, entities, number_of_entities, "\n")
 
         # check entities
         entities_list = get_dp_inmemory_db(json_file)
