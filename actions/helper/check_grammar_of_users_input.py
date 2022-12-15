@@ -1,6 +1,6 @@
 from actions.helper.check_entities import exist_present_perfect, exist_all_parts_of_question
 from actions.common.common import get_dp_inmemory_db
-from actions.gamification.handle_user_scoring import get_tries, resetTries, increase_tries, set_points
+from actions.gamification.handle_user_scoring import get_tries, resetTries, increase_tries, set_points, user_score
 from cgitb import text
 from lib2to3.pgen2 import grammar
 from typing import Any, Text, Dict, List
@@ -23,49 +23,61 @@ load_dotenv()
 
 def validate_grammar_for_user_answer(value, json_file, name_of_slot, dispatcher, tracker):
     """ validate the grammar of the user input """
-    entities = value
-    number_of_entities = len(entities)
-    print("Debug", entities, number_of_entities)
 
-    # check entities
-    entities_list = get_dp_inmemory_db(json_file)
+    if not check_if_question_is_already_answered(name_of_slot, dispatcher):
+        entities = value
+        number_of_entities = len(entities)
+        print("Debug", name_of_slot, entities, number_of_entities + "\n")
 
-    # Prüfung auf Simple Present bei DP4 nur Q5
-    if (name_of_slot[4] != '4' or name_of_slot == 's_dp4_q5'):
-        if not exist_present_perfect(name_of_slot, entities, entities_list, dispatcher):
+        # check entities
+        entities_list = get_dp_inmemory_db(json_file)
+
+        # Prüfung auf Simple Present bei DP4 nur Q5
+        if (name_of_slot[4] != '4' or name_of_slot == 's_dp4_q5'):
+            if not exist_present_perfect(name_of_slot, entities, entities_list, dispatcher):
+                increase_tries()
+                return {name_of_slot: None}
+
+        if not exist_all_parts_of_question(number_of_entities, name_of_slot, entities, entities_list, dispatcher):
             increase_tries()
             return {name_of_slot: None}
 
-    if not exist_all_parts_of_question(number_of_entities, name_of_slot, entities, entities_list, dispatcher):
-        increase_tries()
-        return {name_of_slot: None}
+        # get Userinput
+        usertext = tracker.latest_message['text']
+        # first letter of the word is capitalized
+        usertext = usertext[0].upper() + usertext[1:]
 
-    # get Userinput
-    usertext = tracker.latest_message['text']
-    # first letter of the word is capitalized
-    usertext = usertext[0].upper() + usertext[1:]
-
-    if not valid_grammar(usertext, dispatcher):
-        increase_tries()
-        return {name_of_slot: None}
-    else:
-        points = 0
-        if get_tries() == 0:
-            set_points(5, name_of_slot[4:7])
-            points = 5
-        elif get_tries() == 1:
-            set_points(4, name_of_slot[4:7])
-            points = 4
-        elif get_tries() == 2:
-            set_points(3, name_of_slot[4:7])
-            points = 3
-        elif get_tries() > 2:
-            set_points(2, name_of_slot[4:7])
-            points = 2
-        resetTries()
-        dispatcher.utter_message(
-            response="utter_correct_answer_qn", points=points)
+        if not valid_grammar(usertext, dispatcher):
+            increase_tries()
+            return {name_of_slot: None}
+        else:
+            points = 0
+            if get_tries() == 0:
+                set_points(5, name_of_slot[4:7])
+                points = 5
+            elif get_tries() == 1:
+                set_points(4, name_of_slot[4:7])
+                points = 4
+            elif get_tries() == 2:
+                set_points(3, name_of_slot[4:7])
+                points = 3
+            elif get_tries() > 2:
+                set_points(2, name_of_slot[4:7])
+                points = 2
+            resetTries()
+            dispatcher.utter_message(
+                response="utter_correct_answer_qn", points=points)
+            user_score[name_of_slot] = 1
         return {name_of_slot: True}
+    return {name_of_slot: True}
+
+
+def check_if_question_is_already_answered(name_of_slot, dispatcher):
+    if user_score[name_of_slot] == 1:
+        dispatcher.utter_message(
+            text="You might have already answered this question. Please answer the next question.")
+        return True
+    return False
 
 
 def json_formatter(json_response):
@@ -116,6 +128,7 @@ def translate_to_german(grammar_error):
 def grammar_validation(grammar_response):
     """ checks if the grammar is correct. If not it returns the error and the suggestion  """
     suggestions = []
+    print("Grammar Response: ", grammar_response)
     if (len(grammar_response['matches']) > 0):
         if grammar_response['matches'][0]['message']:
             matches = grammar_response['matches'][0]['message']
@@ -126,7 +139,7 @@ def grammar_validation(grammar_response):
                  #   print(i, ". suggestion: ", val['value'])
                     suggestions.append(val['value'])
 
-       # print(matches)
+        print(matches)
         return matches, suggestions
 
     print("No grammar errors found")

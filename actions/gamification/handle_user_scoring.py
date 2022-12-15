@@ -17,7 +17,12 @@ user_score = {
     "DP3_g_points": 0,
     "DP3_v_points": 0,
     "DP4_q_points": 0,
-
+    "s_dp4_q1": 0,
+    "s_dp4_q2": 0,
+    "s_dp4_q3": 0,
+    "s_dp4_q4": 0,
+    "s_dp4_q5": 0,
+    "s_dp2_at_q2": 0,
 }
 
 

@@ -39,14 +39,23 @@ slots:
     - type: from_entity
       entity: e_dp4_q1
       intent: i_dp4_q1
-      not_intent: i_dp4_q3
-  
+      not_intent: 
+      - i_dp4_q2
+      - i_dp4_q3
+      - i_dp4_q4
+      - i_dp4_q5
+   
   s_dp4_q2:
     type: list
     mappings:
     - type: from_entity
       entity: e_dp4_q2
       intent: i_dp4_q2
+      not_intent: 
+      - i_dp4_q1
+      - i_dp4_q3
+      - i_dp4_q4
+      - i_dp4_q5
   
   s_dp4_q3:
     type: list
@@ -54,15 +63,24 @@ slots:
     - type: from_entity
       entity: e_dp4_q3
       intent: i_dp4_q3
-      not_intent: i_dp4_q1
-  
+      not_intent: 
+      - i_dp4_q1
+      - i_dp4_q2
+      - i_dp4_q4
+      - i_dp4_q5
+
+
   s_dp4_q4:
     type: list
     mappings:
     - type: from_entity
       entity: e_dp4_q4
       intent: i_dp4_q4
-      not_intent: i_dp4_q3
+      not_intent: 
+      - i_dp4_q1
+      - i_dp4_q2
+      - i_dp4_q3
+      - i_dp4_q5
   
   s_dp4_q5:
     type: list
@@ -70,7 +88,11 @@ slots:
     - type: from_entity
       entity: e_dp4_q5
       intent: i_dp4_q5
-      not_intent: i_dp2_q5
+      not_intent: 
+      - i_dp4_q1
+      - i_dp4_q2
+      - i_dp4_q3
+      - i_dp4_q4
     
   s_dp4_end:
     type: text
