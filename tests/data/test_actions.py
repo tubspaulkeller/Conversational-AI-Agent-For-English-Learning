@@ -21,24 +21,23 @@ from pathlib import Path
 #     input = "How much does it costs?"
 #     grammar_response = grammar_check(input)
 #     grammar_error, grammar_suggestion = gramvalidate_grammar_for_user_answer()
-#     #to get print output: pytest -s 
+#     #to get print output: pytest -s
 #     print(grammar_error)
 #     assert grammar_error !=  None
 
 
-
-
 @pytest.mark.asyncio
 def test_run_validate_grammar_for_user_answer():
-    input = "[We](e_dp4_q1) want to the [Coliseum](e_dp4_q1)"
+    input = "[We](e_dp4_q1A) want to the [Coliseum](e_dp4_q1A)"
 
-    validate_grammar_for_user_answer(input,  "DP4.json", name_of_slot = "s_dp4_q1", dispatcher= CollectingDispatcher, tracker=Tracker)
+    validate_grammar_for_user_answer(
+        input,  "DP4.json", name_of_slot="s_dp4_q1A", dispatcher=CollectingDispatcher, tracker=Tracker)
     print(dispatcher.messages)
-   
-      #events = action.validate_slot("s_dp1_q1",dispatcher, tracker, domain)(
-    #expected_events = [
-     #   SlotSet("s_dp1_q1", "Fought"),
-    #]
-       #assert events == expected_events
+
+    # events = action.validate_slot("s_dp1_q1",dispatcher, tracker, domain)(
+    # expected_events = [
+    #   SlotSet("s_dp1_q1", "Fought"),
+    # ]
+    #assert events == expected_events
     #assert dispatcher.messages[0]["template"] == "utter_first_quest_correct"
-    #print(dispatcher.messages)
+    # print(dispatcher.messages)

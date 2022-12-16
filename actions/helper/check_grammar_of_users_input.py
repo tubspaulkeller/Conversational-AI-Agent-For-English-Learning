@@ -23,17 +23,17 @@ load_dotenv()
 
 def validate_grammar_for_user_answer(value, json_file, name_of_slot, dispatcher, tracker):
     """ validate the grammar of the user input """
-
     if not check_if_question_is_already_answered(name_of_slot, dispatcher):
+        if not check_if_user_answered_current_question(tracker, name_of_slot, dispatcher):
+            return {name_of_slot: None}
         entities = value
         number_of_entities = len(entities)
-        print("Debug", name_of_slot, entities, number_of_entities, "\n")
 
         # check entities
         entities_list = get_dp_inmemory_db(json_file)
 
         # Prüfung auf Simple Present bei DP4 nur Q5
-        if (name_of_slot[4] != '4' or name_of_slot == 's_dp4_q5'):
+        if (name_of_slot[4] != '4' or name_of_slot == 's_dp4_q03'):
             if not exist_present_perfect(name_of_slot, entities, entities_list, dispatcher):
                 increase_tries()
                 return {name_of_slot: None}
@@ -53,31 +53,45 @@ def validate_grammar_for_user_answer(value, json_file, name_of_slot, dispatcher,
         else:
             points = 0
             if get_tries() == 0:
-                set_points(5, name_of_slot[4:7])
+                set_points(5, name_of_slot[4: 7])
                 points = 5
             elif get_tries() == 1:
-                set_points(4, name_of_slot[4:7])
+                set_points(4, name_of_slot[4: 7])
                 points = 4
             elif get_tries() == 2:
-                set_points(3, name_of_slot[4:7])
+                set_points(3, name_of_slot[4: 7])
                 points = 3
             elif get_tries() > 2:
-                set_points(2, name_of_slot[4:7])
+                set_points(2, name_of_slot[4: 7])
                 points = 2
             resetTries()
             dispatcher.utter_message(
                 response="utter_correct_answer_qn", points=points)
             user_score[name_of_slot] = 1
+            return {name_of_slot: True}
+    else:
         return {name_of_slot: True}
-    return {name_of_slot: True}
+
+
+def check_if_user_answered_current_question(tracker, name_of_slot, dispatcher):
+    for event in reversed(tracker.events):
+        if event['event'] == 'slot':
+            if event['name'] == 'requested_slot':
+                if event['value'] == name_of_slot:
+                    return True
+                else:
+                    dispatcher.utter_message(
+                        text="Du antwortest nicht auf die momentan gestellte Frage. Bitte beantworte die aktuelle Frage.")
+                    return False
 
 
 def check_if_question_is_already_answered(name_of_slot, dispatcher):
     if user_score[name_of_slot] == 1:
         dispatcher.utter_message(
-            text="You might have already answered this question. Please answer the next question.")
+            text="Die Frage %s hast du schon vorher beantwortet. Bitte antworte auf die aktuelle Frage." % name_of_slot[len(name_of_slot)-2:])
         return True
-    return False
+    else:
+        return False
 
 
 def json_formatter(json_response):
@@ -142,7 +156,7 @@ def grammar_validation(grammar_response):
         print(matches)
         return matches, suggestions
 
-    print("No grammar errors found")
+    print("No grammar errors found\n")
     return None, None
 
 

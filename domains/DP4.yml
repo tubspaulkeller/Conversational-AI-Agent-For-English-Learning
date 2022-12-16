@@ -3,24 +3,24 @@ version: "3.0"
 intents: 
   - i_dp4_q0:
       use_entities: e_dp4_q0
-  - i_dp4_q1:
-      use_entities: e_dp4_q1
-  - i_dp4_q2:
-      use_entities: e_dp4_q2
-  - i_dp4_q3:
-      use_entities: e_dp4_q3
-  - i_dp4_q4:
-      use_entities: e_dp4_q4
-  - i_dp4_q5:
-      use_entities: e_dp4_q5
+  - i_dp4_q1A:
+      use_entities: e_dp4_q1A
+  - i_dp4_q1B:
+      use_entities: e_dp4_q1B
+  - i_dp4_q2A:
+      use_entities: e_dp4_q2A
+  - i_dp4_q2B:
+      use_entities: e_dp4_q2B
+  - i_dp4_q03:
+      use_entities: e_dp4_q03
 
 entities:
   - e_dp4_q0
-  - e_dp4_q1
-  - e_dp4_q2
-  - e_dp4_q3
-  - e_dp4_q4
-  - e_dp4_q5
+  - e_dp4_q1A
+  - e_dp4_q1B
+  - e_dp4_q2A
+  - e_dp4_q2B
+  - e_dp4_q03
 slots:
   s_dp4_q0:  
     type: text
@@ -33,66 +33,49 @@ slots:
     mappings:
     - type: custom
 
-  s_dp4_q1:
+  s_dp4_q1A:
     type: list
     mappings:
     - type: from_entity
-      entity: e_dp4_q1
-      intent: i_dp4_q1
-      not_intent: 
-      - i_dp4_q2
-      - i_dp4_q3
-      - i_dp4_q4
-      - i_dp4_q5
+      entity: e_dp4_q1A
+      intent: i_dp4_q1A
+      not_intent: [i_dp4_q1B, i_dp4_q2A, i_dp4_q2B, i_dp4_q03]
+
    
-  s_dp4_q2:
+  s_dp4_q1B:
     type: list
     mappings:
     - type: from_entity
-      entity: e_dp4_q2
-      intent: i_dp4_q2
-      not_intent: 
-      - i_dp4_q1
-      - i_dp4_q3
-      - i_dp4_q4
-      - i_dp4_q5
+      entity: e_dp4_q1B
+      intent: i_dp4_q1B
+      not_intent: [i_dp4_q1A, i_dp4_q2A, i_dp4_q2B, i_dp4_q03]
+
   
-  s_dp4_q3:
+  s_dp4_q2A:
     type: list
     mappings:
     - type: from_entity
-      entity: e_dp4_q3
-      intent: i_dp4_q3
-      not_intent: 
-      - i_dp4_q1
-      - i_dp4_q2
-      - i_dp4_q4
-      - i_dp4_q5
+      entity: e_dp4_q2A
+      intent: i_dp4_q2A
+      not_intent: [i_dp4_q1A, i_dp4_q1B, i_dp4_q2B, i_dp4_q03]
 
 
-  s_dp4_q4:
+
+  s_dp4_q2B:
     type: list
     mappings:
     - type: from_entity
-      entity: e_dp4_q4
-      intent: i_dp4_q4
-      not_intent: 
-      - i_dp4_q1
-      - i_dp4_q2
-      - i_dp4_q3
-      - i_dp4_q5
-  
-  s_dp4_q5:
+      entity: e_dp4_q2B
+      intent: i_dp4_q2B
+      not_intent: [i_dp4_q1A, i_dp4_q1B, i_dp4_q2A, i_dp4_q03]
+
+  s_dp4_q03:
     type: list
     mappings:
     - type: from_entity
-      entity: e_dp4_q5
-      intent: i_dp4_q5
-      not_intent: 
-      - i_dp4_q1
-      - i_dp4_q2
-      - i_dp4_q3
-      - i_dp4_q4
+      entity: e_dp4_q03
+      intent: i_dp4_q03
+      not_intent: [i_dp4_q1A, i_dp4_q1B, i_dp4_q2A, i_dp4_q2B]
     
   s_dp4_end:
     type: text
@@ -122,7 +105,7 @@ responses:
   utter_s_dp4_intro:
   - text: Stell dir vor, dass du zusammen mit deinem besten Freund nach Rom gereist bist...
 
-  utter_s_dp4_q1:
+  utter_s_dp4_q1A:
   - custom:
       blocks:
       - type: section 
@@ -131,7 +114,7 @@ responses:
           text: "*Quest1A:* Erkläre dem Taxifahrer auf Englisch, dass ihr zum Kolosseum (_eng. Coliseum_) wollt." 
   
   
-  utter_ask_s_dp4_q2:
+  utter_ask_s_dp4_q1B:
   - custom:
       blocks:
       - type: section 
@@ -140,7 +123,7 @@ responses:
           text: "*Quest1B:* Bitte frage nun, wie teuer die Taxifahrt ist?" 
 
 
-  utter_s_dp4_q3:
+  utter_s_dp4_q2A:
   - custom:
       blocks:
       - type: section 
@@ -148,7 +131,7 @@ responses:
           type: mrkdwn
           text: "*Quest2A:* Kaufe für dich und deinen Freund zwei Eintrittskarten."
 
-  utter_ask_s_dp4_q4:
+  utter_ask_s_dp4_q2B:
    - custom:
       blocks:
       - type: section 
@@ -156,7 +139,7 @@ responses:
           type: mrkdwn
           text: "*Quest2B:* Wie könntest du nach einer Vergünstigtigung für Studenten fragen?"
   
-  utter_s_dp4_q5:
+  utter_s_dp4_q03:
   - custom:
       blocks:
       - type: section 
@@ -168,17 +151,17 @@ responses:
   - text: "Klasse, damit hast du alle Quests abgeschlossen sowie die Lern-Story 'Das römische Kolosseum' erfolgreich mit {total_points} von 25 Punkten beendet.\nLern-Stories können dir helfen, dich auf reale Problemsituationen vorzubereiten. Ich werde dir helfen, indem ich dir im Lauf der Zeit weitere Lern-Stories zeige."
 actions:
   - validate_dp4_form
-  - action_ask_s_dp4_q1
-  - action_ask_s_dp4_q3
-  - action_ask_s_dp4_q5
+  - action_ask_s_dp4_q1A
+  - action_ask_s_dp4_q2A
+  - action_ask_s_dp4_q03
   - action_ask_s_dp4_end
 forms:
   dp4_form:
     required_slots:
     - s_dp4_q0
-    - s_dp4_q1
-    - s_dp4_q2
-    - s_dp4_q3
-    - s_dp4_q4
-    - s_dp4_q5
+    - s_dp4_q1A
+    - s_dp4_q1B
+    - s_dp4_q2A
+    - s_dp4_q2B
+    - s_dp4_q03
     - s_dp4_end

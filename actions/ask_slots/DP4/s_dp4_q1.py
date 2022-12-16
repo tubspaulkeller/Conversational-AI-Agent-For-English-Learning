@@ -7,7 +7,7 @@ from rasa_sdk.events import UserUtteranceReverted, FollowupAction, AllSlotsReset
 class AskForSlotAction(Action):
 
     def name(self) -> Text:
-        return "action_ask_s_dp4_q1"
+        return "action_ask_s_dp4_q1A"
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker,
             domain: Dict) -> List[EventType]:
@@ -18,8 +18,8 @@ class AskForSlotAction(Action):
             dispatcher.utter_message(
                 image="https://res.cloudinary.com/dmnkxrxes/image/upload/v1670965838/Ben_Bot/Story_Card_2_ndwafo.jpg"
             )
-            dispatcher.utter_message(response="utter_s_dp4_q1")
+            dispatcher.utter_message(response="utter_s_dp4_q1A")
             return [SlotSet("s_dp4_intro", "INTRO_GIVEN")]
         else:
-            dispatcher.utter_message(response="utter_s_dp4_q1")
+            dispatcher.utter_message(response="utter_s_dp4_q1A")
             return []

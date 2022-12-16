@@ -8,7 +8,7 @@ from actions.gamification.handle_user_scoring import get_tries
 class AskForSlotAction(Action):
 
     def name(self) -> Text:
-        return "action_ask_s_dp4_q5"
+        return "action_ask_s_dp4_q03"
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker,
             domain: Dict) -> List[EventType]:
@@ -17,6 +17,6 @@ class AskForSlotAction(Action):
             dispatcher.utter_message(
                 image="https://res.cloudinary.com/dmnkxrxes/image/upload/v1670966161/Ben_Bot/Story_Card_4_vl0y4d.jpg"
             )
-        dispatcher.utter_message(response="utter_s_dp4_q5")
+        dispatcher.utter_message(response="utter_s_dp4_q03")
 
         return []
