@@ -25,4 +25,6 @@ class ActionGetUserCredentials(Action):
                 return [SlotSet("first_name", "Buddy"), FollowupAction("action_set_reminder_set_dp")]
         else:
             print("DEBUG: USER CREDENTIALS ALREADY SET")
+            dispatcher.utter_message(
+                text="Wir haben bereits die Begrüßung durchgeführt. Frage mich einfach nach der letzen Frage, um fortzufahren.")
             return [UserUtteranceReverted()]
