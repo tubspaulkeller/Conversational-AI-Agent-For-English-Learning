@@ -15,14 +15,14 @@
         "question": 3
     },
     "s_dp4_q2B": { 
-        "entities": ["student", "discount", "tickets", "studi", "sales discount", "benefit", "rebate", "advantage"],
+        "entities": ["student", "discount", "tickets", "studi", "sales discount", "benefit", "rebate", "advantage", "price"],
         "quantity": 2,
         "question": 4
     },
     "s_dp4_q03": { 
         "present_perfect": ["have lived", "ve lived"],
         "entities": ["mate", "friend", "have lived", "brunswick", "Braunschweig", "We", "buddy", "BS", "we",  "since", "for", "in", "decade", "year", "years", "long"],
-        "quantity": 2,
+        "quantity": 3,
         "question": 5
     }
 }
