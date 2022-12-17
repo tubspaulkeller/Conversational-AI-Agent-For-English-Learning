@@ -196,7 +196,7 @@ nlu:
     - Do you have [student](e_dp4_q2B) [advantage](e_dp4_q2B)?
     - How much does it cost for [students](e_dp4_q2B)?
     - Is there a [student](e_dp4_q2B) [price](e_dp4_q2B) also possible?
-    - Do you have [student](e_dp4_q2B) [price](e_dp4_q2B)?
+    - Do you have a [student](e_dp4_q2B) [price](e_dp4_q2B)?
 
 
 - intent: i_dp4_q03
