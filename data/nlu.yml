@@ -199,37 +199,77 @@ nlu:
 
 - intent: i_dp4_q03
   examples: |
-    - My [friend](e_dp4_q03) and me [have lived](e_dp4_q03) in [Brunswick](e_dp4_q03) since 2017.
-    - [We](e_dp4_q03) [have lived](e_dp4_q03) in [Braunschweig](e_dp4_q03) since 2017.
-    - My [friend](e_dp4_q03) and me [have lived](e_dp4_q03) in [Brunswick](e_dp4_q03) since 2017.
-    - My [buddy](e_dp4_q03) and me [have lived](e_dp4_q03) in [Brunswick](e_dp4_q03) since 2017.
-    - My [mate](e_dp4_q03) and me [have lived](e_dp4_q03) in [Brunswick](e_dp4_q03) since 2017.
-    - [We](e_dp4_q03) [have lived](e_dp4_q03) in [Brunswick](e_dp4_q03) since 2017.
-    - My [buddy](e_dp4_q03) and me [have lived](e_dp4_q03) in [Brunswick](e_dp4_q03) since 2017.
-    - My [mate](e_dp4_q03) and me [have lived](e_dp4_q03) in [Brunswick](e_dp4_q03) since 2017.
-    - [We](e_dp4_q03) [have lived](e_dp4_q03) in [Brunswick](e_dp4_q03) since 2017.
-    - [We](e_dp4_q03) [have lived](e_dp4_q03) in [Braunschweig](e_dp4_q03) since 2017.
-    - My [friend](e_dp4_q03) and me [have lived](e_dp4_q03) in [Braunschweig](e_dp4_q03) since 2017.
-    - [We](e_dp4_q03) [have lived](e_dp4_q03) in [Braunschweig](e_dp4_q03) since 2017.
-    - My [friend](e_dp4_q03) and me [have lived](e_dp4_q03) in [Braunschweig](e_dp4_q03) since 2017.
-    - My [buddy](e_dp4_q03) and me [have lived](e_dp4_q03) in [Braunschweig](e_dp4_q03) since 2017.
-    - My [mate](e_dp4_q03) and me [have lived](e_dp4_q03) in [Braunschweig](e_dp4_q03) since 2017.
-    - [We](e_dp4_q03) [have lived](e_dp4_q03)  in [Braunschweig](e_dp4_q03) since 2017.
-    - My [buddy](e_dp4_q03) and me [have lived](e_dp4_q03) in [Braunschweig](e_dp4_q03) since 2017.
-    - My [mate](e_dp4_q03) and me [have lived](e_dp4_q03) in [Braunschweig](e_dp4_q03) since 2017.
-    - My [friend](e_dp4_q03) and me [has lived](e_dp4_q03) in [Braunschweig](e_dp4_q03) since 2017.
-    - My [buddy](e_dp4_q03) and me [has lived](e_dp4_q03) in [Braunschweig](e_dp4_q03) since 2017.
-    - My [mate](e_dp4_q03) and me [has lived](e_dp4_q03) in [Braunschweig](e_dp4_q03) since 2017.
-    - [We](e_dp4_q03) [has lived](e_dp4_q03)  in [Braunschweig](e_dp4_q03) since 2017.
-    - My [buddy](e_dp4_q03) and me [has lived](e_dp4_q03) in [Braunschweig](e_dp4_q03) since 2017.
-    - My [mate](e_dp4_q03) and me [has lived](e_dp4_q03) in [Braunschweig](e_dp4_q03) since 2017.
-    - My [mate](e_dp4_q03) and me [have lived](e_dp4_q03) in [BS](e_dp4_q03) since 2017.
-    - My [friend](e_dp4_q03) and me [has lived](e_dp4_q03) in [BS](e_dp4_q03) since 2017.
-    - My [buddy](e_dp4_q03) and me [has lived](e_dp4_q03) in [BS](e_dp4_q03) since 2017.
-    - My [mate](e_dp4_q03) and me [has lived](e_dp4_q03) in [BS](e_dp4_q03) since 2017.
-    - [We](e_dp4_q03) [has lived](e_dp4_q03)  in [BS](e_dp4_q03) since 2017.
-    - My [buddy](e_dp4_q03) and me [has lived](e_dp4_q03) in [BS](e_dp4_q03) since 2017.
-    - My [mate](e_dp4_q03) and me [has lived](e_dp4_q03) in [BS](e_dp4_q03) since 2017.
+    - My [friend](e_dp4_q03) and me [have lived](e_dp4_q03) in [Brunswick](e_dp4_q03) [since](e_dp4_q03) 2017.
+    - [We](e_dp4_q03) [have lived](e_dp4_q03) in [Braunschweig](e_dp4_q03) [since](e_dp4_q03) 2017.
+    - My [friend](e_dp4_q03) and me [have lived](e_dp4_q03) in [Brunswick](e_dp4_q03) [since](e_dp4_q03) 2017.
+    - My [buddy](e_dp4_q03) and me [have lived](e_dp4_q03) in [Brunswick](e_dp4_q03) [since](e_dp4_q03) 2017.
+    - My [mate](e_dp4_q03) and me [have lived](e_dp4_q03) in [Brunswick](e_dp4_q03) [since](e_dp4_q03) 2017.
+    - [We](e_dp4_q03) [have lived](e_dp4_q03) in [Brunswick](e_dp4_q03) [since](e_dp4_q03) 2017.
+    - My [buddy](e_dp4_q03) and me [have lived](e_dp4_q03) in [Brunswick](e_dp4_q03) [since](e_dp4_q03) 2017.
+    - My [mate](e_dp4_q03) and me [have lived](e_dp4_q03) in [Brunswick](e_dp4_q03) [since](e_dp4_q03) 2017.
+    - [We](e_dp4_q03) [have lived](e_dp4_q03) in [Brunswick](e_dp4_q03) [since](e_dp4_q03) 2017.
+    - [We](e_dp4_q03) [have lived](e_dp4_q03) in [Braunschweig](e_dp4_q03) [since](e_dp4_q03) 2017.
+    - My [friend](e_dp4_q03) and me [have lived](e_dp4_q03) in [Braunschweig](e_dp4_q03) [since](e_dp4_q03) 2017.
+    - [We](e_dp4_q03) [have lived](e_dp4_q03) in [Braunschweig](e_dp4_q03) [since](e_dp4_q03) 2017.
+    - My [friend](e_dp4_q03) and me [have lived](e_dp4_q03) in [Braunschweig](e_dp4_q03) [since](e_dp4_q03) 2017.
+    - My [buddy](e_dp4_q03) and me [have lived](e_dp4_q03) in [Braunschweig](e_dp4_q03) [since](e_dp4_q03) 2017.
+    - My [mate](e_dp4_q03) and me [have lived](e_dp4_q03) in [Braunschweig](e_dp4_q03) [since](e_dp4_q03) 2017.
+    - [We](e_dp4_q03) [have lived](e_dp4_q03)  in [Braunschweig](e_dp4_q03) [since](e_dp4_q03) 2017.
+    - My [buddy](e_dp4_q03) and me [have lived](e_dp4_q03) in [Braunschweig](e_dp4_q03) [since](e_dp4_q03) 2017.
+    - My [mate](e_dp4_q03) and me [have lived](e_dp4_q03) in [Braunschweig](e_dp4_q03) [since](e_dp4_q03) 2017.
+    - My [friend](e_dp4_q03) and me [has lived](e_dp4_q03) in [Braunschweig](e_dp4_q03) [since](e_dp4_q03) 2017.
+    - My [buddy](e_dp4_q03) and me [has lived](e_dp4_q03) in [Braunschweig](e_dp4_q03) [since](e_dp4_q03) 2017.
+    - My [mate](e_dp4_q03) and me [has lived](e_dp4_q03) in [Braunschweig](e_dp4_q03) [since](e_dp4_q03) 2017.
+    - [We](e_dp4_q03) [has lived](e_dp4_q03)  in [Braunschweig](e_dp4_q03) [since](e_dp4_q03) 2017.
+    - My [buddy](e_dp4_q03) and me [has lived](e_dp4_q03) in [Braunschweig](e_dp4_q03) [since](e_dp4_q03) 2017.
+    - My [mate](e_dp4_q03) and me [has lived](e_dp4_q03) in [Braunschweig](e_dp4_q03) [since](e_dp4_q03) 2017.
+    - My [mate](e_dp4_q03) and me [have lived](e_dp4_q03) in [BS](e_dp4_q03) [since](e_dp4_q03) 2017.
+    - My [friend](e_dp4_q03) and me [has lived](e_dp4_q03) in [BS](e_dp4_q03) [since](e_dp4_q03) 2017.
+    - My [buddy](e_dp4_q03) and me [has lived](e_dp4_q03) in [BS](e_dp4_q03) [since](e_dp4_q03) 2017.
+    - My [mate](e_dp4_q03) and me [has lived](e_dp4_q03) in [BS](e_dp4_q03) [since](e_dp4_q03) 2017.
+    - [We](e_dp4_q03) [has lived](e_dp4_q03)  in [BS](e_dp4_q03) [since](e_dp4_q03) 2017.
+    - My [buddy](e_dp4_q03) and me [has lived](e_dp4_q03) in [BS](e_dp4_q03) [since](e_dp4_q03) 2017.
+    - My [mate](e_dp4_q03) and me [has lived](e_dp4_q03) in [BS](e_dp4_q03) [since](e_dp4_q03) 2017.
+    - My [friend](e_dp4_q03) and me [have lived](e_dp4_q03) in [Brunswick](e_dp4_q03) [for](e_dp4_q03) ten years.
+    - [We](e_dp4_q03) [have lived](e_dp4_q03) in [Braunschweig](e_dp4_q03) [for](e_dp4_q03) two years
+    - My [friend](e_dp4_q03) and me [have lived](e_dp4_q03) in [Brunswick](e_dp4_q03) [for](e_dp4_q03) 3 years.
+    - My [buddy](e_dp4_q03) and me [have lived](e_dp4_q03) in [Brunswick](e_dp4_q03) [for](e_dp4_q03) one year
+    - My [mate](e_dp4_q03) and me [have lived](e_dp4_q03) in [Brunswick](e_dp4_q03) [for](e_dp4_q03) 2 years.
+    - [We](e_dp4_q03) [have lived](e_dp4_q03) in [Brunswick](e_dp4_q03) [for](e_dp4_q03) three years.
+    - My [buddy](e_dp4_q03) and me [have lived](e_dp4_q03) in [Brunswick](e_dp4_q03) [for](e_dp4_q03) five years.
+    - My [mate](e_dp4_q03) and me [have lived](e_dp4_q03) in [Brunswick](e_dp4_q03) a decade
+    - [We](e_dp4_q03) [have lived](e_dp4_q03) in [Brunswick](e_dp4_q03) [for](e_dp4_q03) eight years
+    - [We](e_dp4_q03) [have lived](e_dp4_q03) in [Braunschweig](e_dp4_q03) [for](e_dp4_q03) 8 years.
+    - My [friend](e_dp4_q03) and me [have lived](e_dp4_q03) in [Braunschweig](e_dp4_q03) [for](e_dp4_q03) 12 years.
+    - [We](e_dp4_q03) [have lived](e_dp4_q03) in [Braunschweig](e_dp4_q03) [for](e_dp4_q03) eleven years.
+    - My [friend](e_dp4_q03) and me [have lived](e_dp4_q03) in [Braunschweig](e_dp4_q03) [for](e_dp4_q03) twenty years.
+    - My [buddy](e_dp4_q03) and me [have lived](e_dp4_q03) in [Braunschweig](e_dp4_q03) [for](e_dp4_q03) five years.
+    - My [mate](e_dp4_q03) and me [have lived](e_dp4_q03) in [Braunschweig](e_dp4_q03) [for](e_dp4_q03) six years.
+    - My [buddy](e_dp4_q03) and me [live](e_dp4_q03) in [Braunschweig](e_dp4_q03) [since](e_dp4_q03) 2017.
+    - My [mate](e_dp4_q03) and me are [living](e_dp4_q03) in [Braunschweig](e_dp4_q03) [since](e_dp4_q03) 2017.
+    - My [mate](e_dp4_q03) and me are [living](e_dp4_q03) in [BS](e_dp4_q03) [since](e_dp4_q03) 2017.
+    - My [friend](e_dp4_q03) and me are [living](e_dp4_q03) in [BS](e_dp4_q03) [since](e_dp4_q03) 2017.
+    - My [buddy](e_dp4_q03) and me are [living](e_dp4_q03) in [BS](e_dp4_q03) [since](e_dp4_q03) 2017.
+    - My [mate](e_dp4_q03) and me are [living](e_dp4_q03) in [BS](e_dp4_q03) [since](e_dp4_q03) 2017.
+    - [We](e_dp4_q03) are [living](e_dp4_q03)  in [BS](e_dp4_q03) [since](e_dp4_q03) 2017.
+    - My [buddy](e_dp4_q03) and me [live](e_dp4_q03) in [BS](e_dp4_q03) [since](e_dp4_q03) 2017.
+    - My [mate](e_dp4_q03) and me [live](e_dp4_q03) in [BS](e_dp4_q03) [since](e_dp4_q03) 2017.
+    - My [friend](e_dp4_q03) and me [live](e_dp4_q03) in [Brunswick](e_dp4_q03) [for](e_dp4_q03) ten years.
+    - [We](e_dp4_q03) [live](e_dp4_q03) in [Braunschweig](e_dp4_q03) [for](e_dp4_q03) two years
+    - My [friend](e_dp4_q03) and me [live](e_dp4_q03) in [Brunswick](e_dp4_q03) [for](e_dp4_q03) 3 years.
+    - My [buddy](e_dp4_q03) and me [live](e_dp4_q03) in [Brunswick](e_dp4_q03) [for](e_dp4_q03) one year
+    - My [mate](e_dp4_q03) and me [live](e_dp4_q03) in [Brunswick](e_dp4_q03) [for](e_dp4_q03) 2 years.
+    - [We](e_dp4_q03) [live](e_dp4_q03) in [Brunswick](e_dp4_q03) [for](e_dp4_q03) three years.
+    - My [buddy](e_dp4_q03) and me [live](e_dp4_q03) in [Brunswick](e_dp4_q03) [for](e_dp4_q03) five years.
+    - My [mate](e_dp4_q03) and me [live](e_dp4_q03) in [Brunswick](e_dp4_q03) a decade
+    - [We](e_dp4_q03) are [living](e_dp4_q03) in [Brunswick](e_dp4_q03) [for](e_dp4_q03) eight years
+    - [We](e_dp4_q03) are [living](e_dp4_q03) in [Braunschweig](e_dp4_q03) [for](e_dp4_q03) 8 years.
+    - My [friend](e_dp4_q03) and me are [living](e_dp4_q03) in [Braunschweig](e_dp4_q03) [for](e_dp4_q03) 12 years.
+    - [We](e_dp4_q03) are [living](e_dp4_q03) in [Braunschweig](e_dp4_q03) [for](e_dp4_q03) eleven years.
+    - My [friend](e_dp4_q03) and me are [living](e_dp4_q03) in [Braunschweig](e_dp4_q03) [for](e_dp4_q03) twenty years.
+    - My [buddy](e_dp4_q03) and me are [living](e_dp4_q03) in [Braunschweig](e_dp4_q03) [for](e_dp4_q03) five years.
+    - My [mate](e_dp4_q03) and me are [living](e_dp4_q03) in [Braunschweig](e_dp4_q03) [for](e_dp4_q03) six years.
+   
 
 - intent: i_dp2_at_q2
   examples: |
