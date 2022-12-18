@@ -21,7 +21,8 @@ user_score = {
     "s_dp4_q1B": 0,
     "s_dp4_q2A": 0,
     "s_dp4_q2B": 0,
-    "s_dp4_q03": 0,
+    "s_dp4_q3A": 0,
+    "s_dp4_q3B": 0,
     "s_dp2_at_q2": 0,
 }
 

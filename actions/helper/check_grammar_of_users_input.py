@@ -32,8 +32,8 @@ def validate_grammar_for_user_answer(value, json_file, name_of_slot, dispatcher,
         # check entities
         entities_list = get_dp_inmemory_db(json_file)
 
-        # Prüfung auf Simple Present bei DP4 nur Q5
-        if (name_of_slot[4] != '4' or name_of_slot == 's_dp4_q03'):
+        # Prüfung auf Present Perfect bei DP4 nur Q5
+        if (name_of_slot[4] != '4' or name_of_slot == 's_dp4_q3A' or name_of_slot == 's_dp4_q3B'):
             if not exist_present_perfect(name_of_slot, entities, entities_list, dispatcher):
                 increase_tries()
                 return {name_of_slot: None}
@@ -74,9 +74,11 @@ def validate_grammar_for_user_answer(value, json_file, name_of_slot, dispatcher,
 
 
 def check_if_user_answered_current_question(tracker, name_of_slot, dispatcher):
+  #  print('name_of_slot: ', name_of_slot)
     for event in reversed(tracker.events):
         if event['event'] == 'slot':
             if event['name'] == 'requested_slot':
+                #print('event: ', event['value'])
                 if event['value'] == name_of_slot:
                     return True
                 else:

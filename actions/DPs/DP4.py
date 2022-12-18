@@ -46,4 +46,5 @@ class ValidateDP4Form(FormValidationAction):
     validate_s_dp4_q1B = validate_dp4(name_of_slot="s_dp4_q1B")
     validate_s_dp4_q2A = validate_dp4(name_of_slot="s_dp4_q2A")
     validate_s_dp4_q2B = validate_dp4(name_of_slot="s_dp4_q2B")
-    validate_s_dp4_q03 = validate_dp4(name_of_slot="s_dp4_q03")
+    validate_s_dp4_q3A = validate_dp4(name_of_slot="s_dp4_q3A")
+    validate_s_dp4_q3B = validate_dp4(name_of_slot="s_dp4_q3B")

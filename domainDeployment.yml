@@ -87,8 +87,10 @@ intents:
     use_entities: e_dp4_q2A
 - i_dp4_q2B:
     use_entities: e_dp4_q2B
-- i_dp4_q03:
-    use_entities: e_dp4_q03
+- i_dp4_q3A:
+    use_entities: e_dp4_q3A
+- i_dp4_q3B:
+    use_entities: e_dp4_q3B
 entities:
 - e_dp1_q0
 - e_dp1_q1
@@ -129,7 +131,8 @@ entities:
 - e_dp4_q1B
 - e_dp4_q2A
 - e_dp4_q2B
-- e_dp4_q03
+- e_dp4_q3A
+- e_dp4_q3B
 slots:
   s_dp1_q0:
     type: text
@@ -358,7 +361,8 @@ slots:
       - i_dp4_q1B
       - i_dp4_q2A
       - i_dp4_q2B
-      - i_dp4_q03
+      - i_dp4_q3A
+      - i_dp4_q3B
   s_dp4_q1B:
     type: list
     mappings:
@@ -369,7 +373,8 @@ slots:
       - i_dp4_q1A
       - i_dp4_q2A
       - i_dp4_q2B
-      - i_dp4_q03
+      - i_dp4_q3A
+      - i_dp4_q3B
   s_dp4_q2A:
     type: list
     mappings:
@@ -380,7 +385,8 @@ slots:
       - i_dp4_q1A
       - i_dp4_q1B
       - i_dp4_q2B
-      - i_dp4_q03
+      - i_dp4_q3A
+      - i_dp4_q3B
   s_dp4_q2B:
     type: list
     mappings:
@@ -391,18 +397,32 @@ slots:
       - i_dp4_q1A
       - i_dp4_q1B
       - i_dp4_q2A
-      - i_dp4_q03
-  s_dp4_q03:
+      - i_dp4_q3A
+      - i_dp4_q3B
+  s_dp4_q3A:
     type: list
     mappings:
     - type: from_entity
-      entity: e_dp4_q03
-      intent: i_dp4_q03
+      entity: e_dp4_q3A
+      intent: i_dp4_q3A
       not_intent:
       - i_dp4_q1A
       - i_dp4_q1B
       - i_dp4_q2A
       - i_dp4_q2B
+      - i_dp4_q3B
+  s_dp4_q3B:
+    type: list
+    mappings:
+    - type: from_entity
+      entity: e_dp4_q3B
+      intent: i_dp4_q3B
+      not_intent:
+      - i_dp4_q1A
+      - i_dp4_q1B
+      - i_dp4_q2A
+      - i_dp4_q2B
+      - i_dp4_q3A
   s_dp4_end:
     type: text
     mappings:
@@ -841,17 +861,25 @@ responses:
           type: mrkdwn
           text: "*Quest2B:* Wie k\xF6nntest du nach einer Verg\xFCnstigtigung f\xFC\
             r Studenten fragen?"
-  utter_s_dp4_q03:
+  utter_s_dp4_q3A:
   - custom:
       blocks:
       - type: section
         text:
           type: mrkdwn
-          text: "*Quest3:* Erkl\xE4re den Touristen, dass dein Freund und du aus Braunschweig\
-            \ kommt und seit wann ihr dort wohnt."
+          text: "*Quest3A:* Erkl\xE4re den Touristen, dass dein Freund aus Braunschweig\
+            \ kommt und seit wann er dort wohnt."
+  utter_ask_s_dp4_q3B:
+  - custom:
+      blocks:
+      - type: section
+        text:
+          type: mrkdwn
+          text: "*Quest3B:* Nun erz\xE4hle den Touristen, dass du aus Braunschweig\
+            \ kommst und seit wann du dort wohnst."
   utter_dp4_finish:
   - text: "Klasse, damit hast du alle Quests abgeschlossen sowie die Lern-Story 'Das\
-      \ r\xF6mische Kolosseum' erfolgreich mit {total_points} von 25 Punkten beendet.\n\
+      \ r\xF6mische Kolosseum' erfolgreich mit {total_points} von 30 Punkten beendet.\n\
       Lern-Stories k\xF6nnen dir helfen, dich auf reale Problemsituationen vorzubereiten.\
       \ Ich werde dir helfen, indem ich dir im Lauf der Zeit weitere Lern-Stories\
       \ zeige."
@@ -902,7 +930,7 @@ actions:
 - validate_dp4_form
 - action_ask_s_dp4_q1A
 - action_ask_s_dp4_q2A
-- action_ask_s_dp4_q03
+- action_ask_s_dp4_q3A
 - action_ask_s_dp4_end
 forms:
   dp1_form:
@@ -968,7 +996,8 @@ forms:
     - s_dp4_q1B
     - s_dp4_q2A
     - s_dp4_q2B
-    - s_dp4_q03
+    - s_dp4_q3A
+    - s_dp4_q3B
     - s_dp4_end
 session_config:
   session_expiration_time: 60

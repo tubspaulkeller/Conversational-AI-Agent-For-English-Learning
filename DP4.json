@@ -19,10 +19,17 @@
         "quantity": 2,
         "question": 4
     },
-    "s_dp4_q03": { 
-        "present_perfect": ["have lived", "ve lived"],
-        "entities": ["mate", "friend", "have lived", "brunswick", "Braunschweig", "We", "buddy", "BS", "we",  "since", "for", "in", "decade", "year", "years", "long"],
+    "s_dp4_q3A": { 
+        "present_perfect": ["has lived"],
+        "entities": ["mate", "friend", "has lived", "brunswick", "Braunschweig", "buddy", "BS",  "since", "for", "in", "decade", "year", "years", "long"],
         "quantity": 3,
         "question": 5
+    },
+    
+    "s_dp4_q3B": { 
+        "present_perfect": ["have lived", "ve lived"],
+        "entities": ["I", "have lived", "brunswick", "Braunschweig", "i", "buddy", "BS", "we",  "since", "for", "in", "decade", "year", "years", "long"],
+        "quantity": 3,
+        "question": 6
     }
 }
