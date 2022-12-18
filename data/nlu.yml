@@ -284,7 +284,13 @@ nlu:
     - [I](e_dp4_q3B)  [has lived](e_dp4_q3B) in [Braunschweig](e_dp4_q3B) [for](e_dp4_q3B) one [year](e_dp4_q3B)
     - [I](e_dp4_q3B)  [have lived](e_dp4_q3B) in [Braunschweig](e_dp4_q3B) a [long](e_dp4_q3B) time
     - [I](e_dp4_q3B)  [have lived](e_dp4_q3B) in [Braunschweig](e_dp4_q3B) a [decade](e_dp4_q3B) 
-    
+    - [I](e_dp4_q3B)  [ve lived](e_dp4_q3B) in [Braunschweig](e_dp4_q3B) [for](e_dp4_q3B) one [year](e_dp4_q3B)
+    - [I](e_dp4_q3B)  [ve lived](e_dp4_q3B) in [Braunschweig](e_dp4_q3B) [for](e_dp4_q3B) two [year](e_dp4_q3B)
+    - [I](e_dp4_q3B)  [ve lived](e_dp4_q3B) in [Braunschweig](e_dp4_q3B) [since](e_dp4_q3B) 2014
+    - [I](e_dp4_q3B)  [ve lived](e_dp4_q3B) in [Braunschweig](e_dp4_q3B) [since](e_dp4_q3B) 2012
+    - [I](e_dp4_q3B)  [ve lived](e_dp4_q3B) in [Braunschweig](e_dp4_q3B) [for](e_dp4_q3B) three [year](e_dp4_q3B)
+    - [I](e_dp4_q3B)  [ve lived](e_dp4_q3B) in [Braunschweig](e_dp4_q3B) [for](e_dp4_q3B) one [year](e_dp4_q3B)
+    - [I](e_dp4_q3B)  [ve lived](e_dp4_q3B) in [Braunschweig](e_dp4_q3B) [for](e_dp4_q3B) two [year](e_dp4_q3B)
 
 
 - intent: i_dp2_at_q2
