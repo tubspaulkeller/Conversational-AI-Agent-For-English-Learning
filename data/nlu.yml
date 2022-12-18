@@ -288,9 +288,16 @@ nlu:
     - [I](e_dp4_q3B)  [ve lived](e_dp4_q3B) in [Braunschweig](e_dp4_q3B) [for](e_dp4_q3B) two [year](e_dp4_q3B)
     - [I](e_dp4_q3B)  [ve lived](e_dp4_q3B) in [Braunschweig](e_dp4_q3B) [since](e_dp4_q3B) 2014
     - [I](e_dp4_q3B)  [ve lived](e_dp4_q3B) in [Braunschweig](e_dp4_q3B) [since](e_dp4_q3B) 2012
-    - [I](e_dp4_q3B)  [ve lived](e_dp4_q3B) in [Braunschweig](e_dp4_q3B) [for](e_dp4_q3B) three [year](e_dp4_q3B)
-    - [I](e_dp4_q3B)  [ve lived](e_dp4_q3B) in [Braunschweig](e_dp4_q3B) [for](e_dp4_q3B) one [year](e_dp4_q3B)
-    - [I](e_dp4_q3B)  [ve lived](e_dp4_q3B) in [Braunschweig](e_dp4_q3B) [for](e_dp4_q3B) two [year](e_dp4_q3B)
+    - [I](e_dp4_q3B)  [ve lived](e_dp4_q3B) in [Braunschweig](e_dp4_q3B) [for](e_dp4_q3B) four [year](e_dp4_q3B)
+    - [I](e_dp4_q3B)  [ve lived](e_dp4_q3B) in [Braunschweig](e_dp4_q3B) [for](e_dp4_q3B) six [year](e_dp4_q3B)
+    - [I](e_dp4_q3B)  [ve lived](e_dp4_q3B) in [Braunschweig](e_dp4_q3B) [for](e_dp4_q3B) fourteen [year](e_dp4_q3B)
+    - [I](e_dp4_q3B) [ve lived](e_dp4_q3B) in [Braunschweig](e_dp4_q3B) [for](e_dp4_q3B) eight [year](e_dp4_q3B)
+    - [I](e_dp4_q3B) [ve lived](e_dp4_q3B) in [Braunschweig](e_dp4_q3B) [for](e_dp4_q3B) seven [year](e_dp4_q3B)
+    - [I](e_dp4_q3B) [ve lived](e_dp4_q3B) in [Braunschweig](e_dp4_q3B) [since](e_dp4_q3B) 2003
+    - [I](e_dp4_q3B) [ve lived](e_dp4_q3B) in [Braunschweig](e_dp4_q3B) [since](e_dp4_q3B) 2021
+    - [I](e_dp4_q3B) [ve lived](e_dp4_q3B) in [Braunschweig](e_dp4_q3B) [for](e_dp4_q3B) eleven [year](e_dp4_q3B)
+    - [I](e_dp4_q3B) [ve lived](e_dp4_q3B) in [Braunschweig](e_dp4_q3B) [for](e_dp4_q3B) hundred [year](e_dp4_q3B)
+    - [I](e_dp4_q3B) [ve lived](e_dp4_q3B) in [Braunschweig](e_dp4_q3B) [for](e_dp4_q3B) fifteen [year](e_dp4_q3B)
 
 
 - intent: i_dp2_at_q2
