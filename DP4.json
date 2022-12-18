@@ -28,7 +28,7 @@
     
     "s_dp4_q3B": { 
         "present_perfect": ["have lived", "ve lived"],
-        "entities": ["I", "have lived", "brunswick", "Braunschweig", "i", "buddy", "BS", "we",  "since", "for", "in", "decade", "year", "years", "long"],
+        "entities": ["I","ve lived","have lived", "brunswick", "Braunschweig", "i", "buddy", "BS", "we",  "since", "for", "in", "decade", "year", "years", "long"],
         "quantity": 3,
         "question": 6
     }
