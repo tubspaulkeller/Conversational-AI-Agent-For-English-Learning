@@ -6,6 +6,8 @@ from rasa_sdk.events import SlotSet, FollowupAction, UserUtteranceReverted
 # Get user credentials
 ##########################################################################################
 
+greeting = ["hi", "hallo", "moin", "hey", "guten tag", "na", "good day"]
+
 
 class ActionGetUserCredentials(Action):
     def name(self) -> Text:
@@ -24,7 +26,13 @@ class ActionGetUserCredentials(Action):
                     f"Hey Buddy! 😊\nMein Name ist Ben und ich bin dein persönlicher Assistent. Ich helfe dir dabei, deine Englisch-Fähigkeiten zu verbessern. 🤖\nFrage mich gerne jeder Zeit zu deinen:\n- erzielten Punkte 🎯\n- gesammelten Sterne 🌟\n- verdienten Abzeichen 🎖\n\n Mit 'Was war die letzte Frage' o.ä. kehren wir anschließend zur Quiz-Frage zurück.\nUm mich neuzustarten, tippe bitte 'restart' o.ä. ein. 😎")
                 return [SlotSet("first_name", "Buddy"), FollowupAction("action_set_reminder_set_dp")]
         else:
-            print("DEBUG: USER CREDENTIALS ALREADY SET")
-            dispatcher.utter_message(
-                text="Wir haben bereits die Begrüßung durchgeführt. Frage mich einfach nach der letzen Frage, um fortzufahren.")
-            return [UserUtteranceReverted()]
+            print("DEBUG: USER CREDENTIALS ALREADY SET",
+                  tracker.latest_message['text'].lower())
+
+            if tracker.latest_message['text'].lower() in greeting:
+                dispatcher.utter_message(
+                    text="Wir haben bereits die Begrüßung durchgeführt. Frage mich einfach nach der letzen Frage, um fortzufahren.")
+                return [UserUtteranceReverted()]
+            else:
+                print("HERE")
+                return [FollowupAction("action_repeat_last_quest")]
