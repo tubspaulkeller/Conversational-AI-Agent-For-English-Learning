@@ -25,14 +25,14 @@ class ActionRephrase(Action):
 
             for event in reversed(tracker.events):
                 if event['event'] == 'bot':
-                    #print("tEST", event)
-
                     last_action = event['metadata'].get('utter_action')
                     print("REMINDER DEBUG: ", last_action)
                     if last_action == 'utter_quest_end_give_user_score':
                         dispatcher.utter_message(
                             text="Wir haben alle Quizfragen beantwortet. Du kannst jetzt mit der gemeinsamen Lern-Session beginnen. Bis gleich. 😁")
                         return []
+                    else:
+                        break
 
             if tracker.active_loop.get('name') == 'dp1_form' or tracker.active_loop.get('name') == 'dp3_form' or tracker.active_loop.get('name') == 'dp3_form_voc' or tracker.active_loop.get('name') == 'dp3_form_gram' or tracker.active_loop.get('name') == 'dp2_form' or tracker.active_loop.get('name') == 'get_dp_form':
                 return [FollowupAction("action_repeat_last_quest")]

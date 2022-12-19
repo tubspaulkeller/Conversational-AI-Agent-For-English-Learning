@@ -54,3 +54,9 @@ rules:
   - intent: EXTERNAL_reminder_set_dp
   - action: action_react_to_reminder_set_dp
 
+
+- rule: say only goodbye when it is finished
+  steps:
+  - action: action_quest_end_give_user_score
+  - intent: i_goodbye
+  - action: utter_goodbye
