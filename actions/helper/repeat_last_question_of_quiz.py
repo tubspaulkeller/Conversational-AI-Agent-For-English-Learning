@@ -20,6 +20,10 @@ class ActionRepeatLastQuest(Action):
 
                 if last_action not in not_repeat_bot_actions and last_action is not None:
                     print('debug: repeat last action', last_action)
+                    if last_action == 'utter_quest_end_give_user_score':
+                        dispatcher.utter_message(
+                            text="Wir haben alle Quizfragen beantwortet. Du kannst jetzt mit der gemeinsamen Lern-Session beginnen. Bis gleich. 😁")
+                        return [UserUtteranceReverted()]
                     if last_action.find('/button') != -1:
                         dispatcher.utter_message(
                             response=last_action.replace('button', 'msg'))
