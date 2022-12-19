@@ -22,7 +22,11 @@ class ActionRephrase(Action):
         print("REPHRASE", tracker.sender_id)
        # print(tracker.active_loop["name"])
         try:
-            if tracker.active_loop.get('name') != 'dp4_form' or tracker.active_loop.get('name') != 'dp2_application_tasks_form':
+            if tracker.active_loop.get('name') == 'dp1_form' or tracker.active_loop.get('name') == 'dp3_form' or tracker.active_loop.get('name') == 'dp3_form_voc' or tracker.active_loop.get('name') == 'dp3_form_gram' or tracker.active_loop.get('name') == 'dp2_form' or tracker.active_loop.get('name') == 'get_dp_form':
+                return [FollowupAction("action_repeat_last_quest")]
+
+            # dp2_application_tasks_form or dp4_form
+            if tracker.active_loop.get('name') != 'dp4_form':
                 return [FollowupAction("action_repeat_last_quest")]
 
             if len(tracker.active_loop) > 0 and tracker.active_loop["name"] == "dp4_form":
