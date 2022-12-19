@@ -90,7 +90,8 @@ responses:
   - text: Super, das war richtig! 😊 Damit hast du 5 Punkte gesammelt. Mach weiter so!"
   - text: Klasse, das war richtig! 🙌 Du hast dir 5 Punkte verdient. Weiter geht es!" 
 
-
+  utter_quest_end_give_user_score:
+  - text: "Du hast insgesamt: {total_points__end_game}  Punkte erreicht. 🎉\nAls nächstes werden wir eine gemeinsame Lern-Session durchführen, da dies eine gute Möglichkeit ist, dein neu erlerntes Englisch-Wissen mit anderen Kommilitonen auszuprobieren!\nDafür wirst du einem Team mit Lern-Partnern, die auf dem gleichen Lern-Level sind wie du, zugeteilt.\nAllerdings, müssen wir dafür in einen Gruppenchat wechseln. Wir sehen uns gleich im anderen Channel {name}! 😊"
   utter_quest_wrong:
   - text: "Das war leider nicht richtig. Versuche es nochmal. Du hast noch einen weiteren Versuch für diese Frage übrig."
 actions: 
