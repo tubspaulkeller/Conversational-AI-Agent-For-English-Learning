@@ -72,6 +72,9 @@ nlu:
     - Könntest du die Frage wiederholen?
     - Entschuldigung, wie lautete die Frage?
     - Wie lautete die Frage?
+    - Gib mir die Buttons
+    - Wo sind die Buttons
+    - Ich brauche die Buttons
 
 - intent: i_ask_score
   examples: |
