@@ -197,11 +197,13 @@ nlu:
     - Do you sell [student](e_dp4_q2B) [tickets](e_dp4_q2B)?
     - Do you have [student](e_dp4_q2B) [rebate](e_dp4_q2B)?
     - Do you have [student](e_dp4_q2B) [advantage](e_dp4_q2B)?
-    - How much does it cost for [students](e_dp4_q2B)?
+    - How much does it [cost](e_dp4_q2B) for [students](e_dp4_q2B)?
     - Is there a [student](e_dp4_q2B) [price](e_dp4_q2B) also possible?
     - Do you have a [student](e_dp4_q2B) [price](e_dp4_q2B)?
     - Do you have a [student](e_dp4_q2B) [prices](e_dp4_q2B)?
     - Are [student](e_dp4_q2B) [prices](e_dp4_q2B)?
+    - How [much](e_dp4_q2B) is it for [students](e_dp4_q2B)?
+    
 
 
 - intent: i_dp4_q3A

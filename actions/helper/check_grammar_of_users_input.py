@@ -28,7 +28,7 @@ def validate_grammar_for_user_answer(value, json_file, name_of_slot, dispatcher,
             return {name_of_slot: None}
         entities = value
         number_of_entities = len(entities)
-
+        print(entities)
         # check entities
         entities_list = get_dp_inmemory_db(json_file)
 
@@ -113,11 +113,14 @@ def grammar_check(user_input):
         "X-RapidAPI-Host": "dnaber-languagetool.p.rapidapi.com",
         "motherTongue": "de"
     }
+    try:
+        response = requests.request("POST",
+                                    url,
+                                    data=payload,
+                                    headers=headers)
+    except:
+        print('error in calling the grammar check api')
 
-    response = requests.request("POST",
-                                url,
-                                data=payload,
-                                headers=headers)
     # json_formatter(response.json())
     return response.json()
 

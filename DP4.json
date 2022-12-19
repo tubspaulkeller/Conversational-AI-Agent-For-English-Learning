@@ -15,7 +15,7 @@
         "question": 3
     },
     "s_dp4_q2B": { 
-        "entities": ["student", "discount", "tickets", "studi", "sales discount", "benefit", "rebate", "advantage", "price", "prices"],
+        "entities": ["student","students", "studis", "much", "discount", "tickets", "studi", "sales discount", "benefit", "rebate", "advantage", "price", "prices"],
         "quantity": 2,
         "question": 4
     },

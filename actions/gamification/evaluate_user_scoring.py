@@ -126,8 +126,19 @@ def finish_quiz(dispatcher, name_of_slot, dp_n):
 
 
 def utter_solution(dispatcher, solution):
+    solution_msg = {
+        "blocks": [
+            {
+                "type": "section",
+                "text": {
+                        "text": "Schade, leider ist die Lösung: *%s*" % solution,
+                        "type": "mrkdwn"
+                }
+            }
+        ]
+    }
     dispatcher.utter_message(
-        text='Schade, leider ist die Lösung: %s' % solution)
+        json_message=solution_msg)
 
 
 def utter_wrong_answer(dispatcher):
