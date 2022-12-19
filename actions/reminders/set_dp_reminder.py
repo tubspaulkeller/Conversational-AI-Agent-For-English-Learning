@@ -26,16 +26,6 @@ class ActionSetReminderSetDP(Action):
             name="set_dp_reminder",
             kill_on_user_message=False,
         )
-
-        # check if the user has already finished the quest
-        for event in reversed(tracker.events):
-            if event['event'] == 'bot':
-                last_action = event['metadata'].get('utter_action')
-                if last_action == 'utter_quest_end_give_user_score':
-                    dispatcher.utter_message(
-                        text="Wir haben alle Quizfragen beantwortet. Du kannst jetzt mit der gemeinsamen Lern-Session beginnen. Bis gleich. 😁")
-                    return []
-
         return [reminder, SlotSet("s_get_dp_form", None), SlotSet("s_set_next_form", None)]
 
 
