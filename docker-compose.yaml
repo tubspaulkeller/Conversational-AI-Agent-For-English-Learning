@@ -6,7 +6,7 @@ services:
     volumes:
       - ./actions:/app/actions
       - ./data:/app/data
-    command: bash -c "rm -rf .rasa/* && rasa train && rasa run --enable-api --cors \"*\" --debug -p 5006"
+    command: bash -c "rm -rf .rasa/* && rasa train && MAX_NUMBER_OF_PREDICTIONS=30 rasa run --enable-api --cors \"*\" --debug -p 5006"
     working_dir: /app
     ports:
       - "5006:5006"
