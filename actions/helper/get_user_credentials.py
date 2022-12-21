@@ -34,5 +34,6 @@ class ActionGetUserCredentials(Action):
                     text="Wir haben bereits die Begrüßung durchgeführt. Frage mich einfach nach der letzen Frage, um fortzufahren.")
                 return [UserUtteranceReverted()]
             else:
-                print("HERE")
-                return [FollowupAction("action_repeat_last_quest")]
+                print("IN USER CREDENTIALS")
+               # return [FollowupAction("action_repeat_last_quest")]
+                return []

@@ -22,11 +22,10 @@ class ActionRephrase(Action):
         print("REPHRASE", tracker.sender_id)
        # print(tracker.active_loop["name"])
         try:
-
+            # if quiz ist finished, do not repeat last question
             for event in reversed(tracker.events):
                 if event['event'] == 'bot':
                     last_action = event['metadata'].get('utter_action')
-                    print("REMINDER DEBUG: ", last_action)
                     if last_action == 'utter_quest_end_give_user_score':
                         dispatcher.utter_message(
                             text="Wir haben alle Quizfragen beantwortet. Du kannst jetzt mit der gemeinsamen Lern-Session beginnen. Bis gleich. 😁")
