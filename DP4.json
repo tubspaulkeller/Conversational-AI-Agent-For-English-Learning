@@ -10,7 +10,7 @@
         "question": 2
     },
     "s_dp4_q2A": { 
-        "entities": ["ticket", "two", "tickets", "2"],
+        "entities": ["ticket", "two", "tickets", "Two", "Tickets","2"],
         "quantity": 2,
         "question": 3
     },

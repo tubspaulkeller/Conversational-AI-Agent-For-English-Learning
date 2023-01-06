@@ -32,8 +32,7 @@ nlu:
     - restart 
     - /Restart
     - restart bitte 
-    - starte neu
-    - neustart
+
 
 - intent: i_ask_last_question
   examples: |
@@ -96,14 +95,8 @@ nlu:
     - wieviele Abzeichen habe ich?
     - wie viele Abzeichen habe ich?
     - Ben, wie viele Abzeichen habe ich?
-    - Ben, zeig mal meine Abzeichen
-    - Abzeichen
-    - Gib mir mal meine Abzeichen
-    - Zeig mir meine Abzeichen
-    - Gib mir mal meine Abzeichen
     - Wie viele Abzeichen habe ich erzielt?
     - Wie viele Badges habe ich erzielt?
-    - Zeig mir meine Badges
 
 - intent: i_ask_skills
   examples: |
@@ -132,7 +125,65 @@ nlu:
     - Wie viele Sterne habe ich erzielt?
     - Wie viele Sterne habe ich erzielt?
     - Zeig mir meine Sternenstand
+
+- intent: i_out_of_scope
+  examples: |
+    - keine Ahnung
+    - kein plan
+    - ich weiß nicht weiter
+    - ich weiß nicht
+    - puuhh was weiß ich 
+
+- intent: i_badges_images
+  examples: |
+    - welche Abzeichen habe ich
+    - welche Abzeichen habe ich gesammelt
+    - Ben, zeig mal meine Abzeichen
+    - Gib mir mal meine badges
+    - Zeig mir meine Abzeichen
+    - Gib mir mal meine Abzeichen
+    - Zeig mir meine Badges
+
+- intent: i_ask_why_points_badges_stars
+  examples: |
+    - wofür erhalte ich [Punkte](e_why_points_badges_stars)?
+    - warum erhalte ich [Punkte](e_why_points_badges_stars)?
+    - wofür erhalte ich [Abzeichen](e_why_points_badges_stars)?
+    - warum erhalte ich [Abzeichen](e_why_points_badges_stars)?
+    - wofür erhalte ich [badges](e_why_points_badges_stars)?
+    - warum erhalte ich [badges](e_why_points_badges_stars)?
+    - wofür erhalte ich [stars](e_why_points_badges_stars)?
+    - warum erhalte ich [stars](e_why_points_badges_stars)?
+    - wofür erhalte ich [Sterne](e_why_points_badges_stars)?
+    - warum erhalte ich [Sterne](e_why_points_badges_stars)?
+    - warum erhalte ich [Sterne](e_why_points_badges_stars) und [Punkte](e_why_points_badges_stars)?
+    - warum erhalte ich [Punkte](e_why_points_badges_stars) und [Sterne](e_why_points_badges_stars)?
+    - wofür erhalte ich [Sterne](e_why_points_badges_stars) und [Punkte](e_why_points_badges_stars)?
+    - wofür erhalte ich [Punkte](e_why_points_badges_stars) und [Sterne](e_why_points_badges_stars)?
+
+- intent: i_ask_why_x_points
+  examples: |
+    - Warum erhalte ich [5](e_why_x_points) Punkte?
+    - Wofür erhalte ich [5](e_why_x_points) Punkte?
+    - Wieso [5](e_why_x_points) Punkte?
+    - Warum erhalte ich [4](e_why_x_points) Punkte?
+    - Wofür erhalte ich [4](e_why_x_points) Punkte?
+    - Wieso [4](e_why_x_points) Punkte?
+    - Warum erhalte ich [3](e_why_x_points) Punkte?
+    - Wofür erhalte ich [3](e_why_x_points) Punkte?
+    - Wieso [3](e_why_x_points) Punkte?
+    - Warum erhalte ich nur [2](e_why_x_points) Punkte?
+    - Wofür erhalte ich [2](e_why_x_points) Punkte?
+    - Wieso [2](e_why_x_points) Punkte?
     
+- intent: i_call_anwendungsaufgabe
+  examples: |
+    - Anwendungsaufgabe
+    - Ich möchte noch ein paar Anwendungsaufgaben machen
+    - Ich will Anwendungsaufgaben machen
+    - Lass uns doch Anwendungsaufgaben machen
+    - Können wir Anwendungsaufgaben üben
+
 
 - intent: i_dp4_q1A
   examples: |

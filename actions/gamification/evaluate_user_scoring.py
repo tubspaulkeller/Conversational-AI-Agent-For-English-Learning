@@ -4,7 +4,7 @@ from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import UserUtteranceReverted, FollowupAction, AllSlotsReset, Restarted
 import json
 import time
-from .handle_user_scoring import user_score, set_points, increase_tries, resetTries, get_tries
+from .handle_user_scoring import user_score, set_points, increase_tries, resetTries, get_tries, increase_badges
 
 """ this file contains methods for evaluating the scoring of the user during the quiz """
 
@@ -197,7 +197,7 @@ def utter_finished_quiz_with_points(dispatcher, dp, dp_n):
 
 
 def utter_all_quest_correct_at_first_attempt(dp_n, dispatcher):
-    user_score['total_badges'] = user_score['total_badges'] + 1
+    increase_badges("badge_naturtalent")
     dispatcher.utter_message(
         text="Da du das Quiz direkt beim ersten Versuch fehlerfrei beendet hast, erhälst du außerdem ein neues Abzeichen. 🏆")
     dispatcher.utter_message(image=dp_n["badge_naturtalent"])
