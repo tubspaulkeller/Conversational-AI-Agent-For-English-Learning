@@ -1,4 +1,4 @@
-version: '3.1'
+version: '3.0'
 intents:
 - i_dp1_q0:
     use_entities: e_dp1_q0
@@ -75,6 +75,13 @@ intents:
 - i_ask_badge
 - i_ask_skills
 - i_ask_stars
+- i_out_of_scope
+- i_badges_images
+- i_call_anwendungsaufgabe
+- i_ask_why_points_badges_stars:
+    use_entites: e_why_points_badges_stars
+- i_ask_why_x_points:
+    use_entities: e_why_x_points
 - i_get_dp:
     use_entities: e_get_dp
 - i_dp4_q0:
@@ -126,6 +133,8 @@ entities:
 - e_dp2_at_q1
 - e_dp2_at_q2
 - e_get_dp
+- e_why_x_points
+- e_why_points_badges_stars
 - e_dp4_q0
 - e_dp4_q1A
 - e_dp4_q1B
@@ -808,12 +817,12 @@ responses:
       \ geht es!\""
   utter_quest_end_give_user_score:
   - text: "Du hast insgesamt: {total_points__end_game}  Punkte erreicht. \U0001F389\
-      \nAls n\xE4chstes werden wir eine gemeinsame Lern-Session durchf\xFChren, da\
+      \nAls N\xE4chstes werden wir eine gemeinsame Lern-Session durchf\xFChren, da\
       \ dies eine gute M\xF6glichkeit ist, dein neu erlerntes Englisch-Wissen mit\
       \ anderen Kommilitonen auszuprobieren!\nDaf\xFCr wirst du einem Team mit Lern-Partnern,\
       \ die auf dem gleichen Lern-Level sind wie du, zugeteilt.\nAllerdings, m\xFC\
       ssen wir daf\xFCr in einen Gruppenchat wechseln. Wir sehen uns gleich im anderen\
-      \ Channel {name}! \U0001F60A"
+      \ Channel, {name}! \U0001F60A"
   utter_quest_wrong:
   - text: "Das war leider nicht richtig. Versuche es nochmal. Du hast noch einen weiteren\
       \ Versuch f\xFCr diese Frage \xFCbrig."
@@ -835,7 +844,9 @@ responses:
     text: "Da wir das Grundlagen-Kapitel erfolgreich beendet haben, lass uns dein\
       \ neues Wissen bei einer Lern-Story anwenden!\nIch werde nicht Teil der Geschichte\
       \ sein, damit du diese eigenst\xE4ndig bew\xE4ltigen kannst. Aber ich werde\
-      \ dich mit Feedback und Tipps zu deinen Antworten unterst\xFCtzen!"
+      \ dich mit Feedback und Tipps zu deinen Antworten unterst\xFCtzen!\n*Spielregel*:\
+      \ Bei jeder Frage kannst du max. 5 Punkte und min. 3 Punkte holen. Allerdings\
+      \ werden pro Fehler 1 Punkt von den 5 Punkten abgezogen."
   utter_s_dp4_intro:
   - text: Stell dir vor, dass du zusammen mit deinem besten Freund nach Rom gereist
       bist...
@@ -876,7 +887,7 @@ responses:
         text:
           type: mrkdwn
           text: "*Quest3A:* Erkl\xE4re den Touristen, dass dein Freund aus Braunschweig\
-            \ kommt und seit wann er dort wohnt."
+            \ kommt und seit wann er dort wohnt. Bitte benutze das *Present Perfect*."
   utter_ask_s_dp4_q3B:
   - custom:
       blocks:
@@ -935,6 +946,11 @@ actions:
 - action_quest_end_give_user_score
 - action_give_skills
 - action_give_stars
+- action_out_of_scope
+- action_badges_images
+- action_why_points_badges_stars
+- action_why_x_points
+- action_call_anwendungsaufgabe
 - validate_dp4_form
 - action_ask_s_dp4_q1A
 - action_ask_s_dp4_q2A

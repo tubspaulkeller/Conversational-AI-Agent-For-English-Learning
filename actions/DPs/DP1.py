@@ -6,7 +6,7 @@ from rasa_sdk.events import UserUtteranceReverted, FollowupAction, AllSlotsReset
 # imports from different files
 from actions.gamification.evaluate_user_scoring import evaluate_users_answer
 from actions.common.common import get_dp_inmemory_db, get_slots_for_dp
-
+from actions.gamification.handle_user_scoring import increase_badges
 ############################################################################################################
 ##### DP1 #####
 ############################################################################################################
@@ -41,6 +41,8 @@ class ValidateDP1Form(FormValidationAction):
                 }
             ]
         }
+        increase_badges("badge_aufstieg_level_7")
+        increase_badges("badge_grammatik_basics")
         dispatcher.utter_message(
             json_message=long_term_scenario)
         dispatcher.utter_message(

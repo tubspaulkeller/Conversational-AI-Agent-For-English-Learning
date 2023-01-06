@@ -48,6 +48,36 @@ rules:
   - intent: i_ask_skills
   - action: action_give_skills
 
+# out_of_scope
+- rule: out of scope
+  steps:
+  - intent: i_out_of_scope
+  - action: action_out_of_scope
+
+# badges images
+- rule: badges images
+  steps:
+  - intent: i_badges_images
+  - action: action_badges_images
+
+# why_points_badges_stars
+- rule: why points badges stars
+  steps:
+  - intent: i_ask_why_points_badges_stars
+  - action: action_why_points_badges_stars
+
+# why_x_points
+- rule: why x points
+  steps:
+  - intent: i_ask_why_x_points
+  - action: action_why_x_points
+
+# call_anwendungsaufgabe
+- rule: call anwendungsaufgabe
+  steps:
+  - intent: i_call_anwendungsaufgabe
+  - action: action_call_anwendungsaufgabe
+
 # delay for form set dp 
 - rule: time delay for choice of dp
   steps:

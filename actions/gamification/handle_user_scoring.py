@@ -8,6 +8,12 @@ user_score = {
     "total_points": 0,
     "stars": 0,
     "total_badges": 0,
+
+    "badge_naturtalent": 0,
+    "badge_anwendungsaufgabe": 0,
+    "badge_aufstieg_level_7": 0,
+    "badge_grammatik_basics": 0,
+
     "tries": 0,  # nach jedem DP auf null setzen
     "last_question_correct": 0,
     "not_first_attempt": 0,
@@ -23,6 +29,7 @@ user_score = {
     "s_dp4_q2B": 0,
     "s_dp4_q3A": 0,
     "s_dp4_q3B": 0,
+    "call_anwendungsaufgabe": 0,
     "s_dp2_at_q2": 0,
 }
 
@@ -44,8 +51,9 @@ def increase_tries():
     user_score["tries"] += 1
 
 
-def increase_badges():
+def increase_badges(badge):
     user_score["total_badges"] += 1
+    user_score[badge] += 1
 
 
 def increase_stars():
