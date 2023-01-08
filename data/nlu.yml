@@ -138,6 +138,8 @@ nlu:
   examples: |
     - welche Abzeichen habe ich
     - welche Abzeichen habe ich gesammelt
+    - was für Abzeichen habe ich
+    - was für Abzeichen habe ich gesammelt
     - Ben, zeig mal meine Abzeichen
     - Gib mir mal meine badges
     - Zeig mir meine Abzeichen

@@ -19,11 +19,11 @@ class ActionGetUserCredentials(Action):
             first_name = await get_user(tracker.sender_id, tracker)
             if first_name != None:
                 dispatcher.utter_message(
-                    f"Hey {first_name}! 😊\nMein Name ist Ben und ich bin dein persönlicher Assistent. Ich helfe dir dabei, deine Englisch-Fähigkeiten zu verbessern. 🤖\nFrage mich gerne jeder Zeit zu deinen:\n- erzielten Punkten 🎯\n- gesammelten Sterne 🌟\n- verdienten Abzeichen 🎖\n\n Mit 'Was war die letzte Frage' o.ä. kehren wir anschließend zur Quiz-Frage zurück.\nUm mich neuzustarten, tippe bitte 'restart' ein. 😎")
+                    f"Hey {first_name}! 😊\nMein Name ist Ben und ich bin dein persönlicher Assistent. Ich helfe dir dabei, deine Englisch-Fähigkeiten zu verbessern. 🤖\nFrage mich gerne jeder Zeit zu deinen:\n- erzielten Punkten 🎯\n- gesammelten Sternen 🌟\n- verdienten Abzeichen 🎖\nGerne erkläre ich dir auch, wofür du Punkte, Sterne oder Abzeichen erhälst.\n\n Mit 'Was war die letzte Frage' o.ä. kehren wir anschließend zur Quiz-Frage zurück.\nUm mich neuzustarten, tippe bitte 'restart' ein. 😎")
                 return [SlotSet("first_name", first_name), FollowupAction("action_set_reminder_set_dp")]
             else:
                 dispatcher.utter_message(
-                    f"Hey Buddy! 😊\nMein Name ist Ben und ich bin dein persönlicher Assistent. Ich helfe dir dabei, deine Englisch-Fähigkeiten zu verbessern. 🤖\nFrage mich gerne jeder Zeit zu deinen:\n- erzielten Punkte 🎯\n- gesammelten Sterne 🌟\n- verdienten Abzeichen 🎖\n\n Mit 'Was war die letzte Frage' o.ä. kehren wir anschließend zur Quiz-Frage zurück.\nUm mich neuzustarten, tippe bitte 'restart' ein. 😎")
+                    f"Hey Buddy! 😊\nMein Name ist Ben und ich bin dein persönlicher Assistent. Ich helfe dir dabei, deine Englisch-Fähigkeiten zu verbessern. 🤖\nFrage mich gerne jeder Zeit zu deinen:\n- erzielten Punkten 🎯\n- gesammelten Sternen 🌟\n- verdienten Abzeichen 🎖\nGerne erkläre ich dir auch, wofür du Punkte, Sterne oder Abzeichen erhälst.\n\n Mit 'Was war die letzte Frage' o.ä. kehren wir anschließend zur Quiz-Frage zurück.\nUm mich neuzustarten, tippe bitte 'restart' ein. 😎")
                 return [SlotSet("first_name", "Buddy"), FollowupAction("action_set_reminder_set_dp")]
         else:
             print("DEBUG: USER CREDENTIALS ALREADY SET",
