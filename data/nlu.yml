@@ -146,24 +146,24 @@ nlu:
     - Gib mir mal meine Abzeichen
     - Zeig mir meine Badges
 
-# - intent: i_present_progressive
-#   examples: |
-#     - wie wird das present progressive gebildet?
-#     - Ben, erklär mir mal das Present progressive
-#     - was ist das present progressive
-#     - present progressive?
-#     - wie geht das present progressive?
-#     - was macht das present progressive?
-#     - wie wird das Present-Progressiv gebildet?
-#     - Ben, erklär mir mal das Present-Progressiv
-#     - was ist das Present-Progressiv
-#     - present progressive?
-#     - Present-Progressiv?
-#     - wie geht das Present-Progressiv?
-#     - was macht das Present-Progressiv?
-#     - wie geht die Present-Progressiv-Form?
-#     - was macht die Present-Progressiv-Form?
-#     - wie wird das Present-Progressiv-Form gebildet?
+- intent: i_present_progressive
+  examples: |
+    - wie wird das present progressive gebildet?
+    - Ben, erklär mir mal das Present progressive
+    - was ist das present progressive
+    - present progressive?
+    - wie geht das present progressive?
+    - was macht das present progressive?
+    - wie wird das Present-Progressiv gebildet?
+    - Ben, erklär mir mal das Present-Progressiv
+    - was ist das Present-Progressiv
+    - present progressive?
+    - Present-Progressiv?
+    - wie geht das Present-Progressiv?
+    - was macht das Present-Progressiv?
+    - wie geht die Present-Progressiv-Form?
+    - was macht die Present-Progressiv-Form?
+    - wie wird das Present-Progressiv-Form gebildet?
 
 
 - intent: i_ask_why_points_badges_stars
