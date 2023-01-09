@@ -10,6 +10,28 @@ intents:
       use_entities: e_dp1_q2
   - i_dp1_q3:
       use_entities: e_dp1_q3
+  - i_dp1_q4:
+      use_entities: e_dp1_q4
+  - i_dp1_q5:
+      use_entities: e_dp1_q5
+  - i_dp1_q6:
+      use_entities: e_dp1_q6
+  - i_dp1_q7:
+      use_entities: e_dp1_q7
+  - i_dp1_q8:
+      use_entities: e_dp1_q8
+  - i_dp1_q9:
+      use_entities: e_dp1_q9
+  - i_dp1_q10:
+      use_entities: e_dp1_q10
+  - i_dp1_q11:
+      use_entities: e_dp1_q11
+  - i_dp1_q12:
+      use_entities: e_dp1_q12
+  
+    
+
+
   - i_dp1_evaluation:
       use_entities: e_dp1_evaluation
   - i_dp1_long_term_scenario:
@@ -20,6 +42,15 @@ entities:
   - e_dp1_q1
   - e_dp1_q2 
   - e_dp1_q3
+  - e_dp1_q4
+  - e_dp1_q5 
+  - e_dp1_q6
+  - e_dp1_q7
+  - e_dp1_q8 
+  - e_dp1_q9
+  - e_dp1_q10
+  - e_dp1_q11
+  - e_dp1_q12
   - e_dp1_evaluation
   - e_dp1_long_term_scenario
 
@@ -47,6 +78,60 @@ slots:
     mappings:
     - type: from_entity
       entity: e_dp1_q3
+      
+  s_dp1_q4:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp1_q4
+  
+  s_dp1_q5:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp1_q5
+
+  s_dp1_q6:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp1_q6
+  
+  s_dp1_q7:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp1_q7
+    
+  s_dp1_q8:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp1_q8
+      
+  s_dp1_q9:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp1_q9
+  
+  s_dp1_q10:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp1_q10
+
+  s_dp1_q11:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp1_q11
+  
+  s_dp1_q12:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp1_q12
 
   s_dp1_evaluation:
     type: text
@@ -89,56 +174,222 @@ responses:
   utter_s_dp1_q1/button:
   - buttons:
     - payload: /i_dp1_q1{{"e_dp1_q1":"Went"}}
-      title: Went
+      title: went
 
     - payload: /i_dp1_q1{{"e_dp1_q1":"Drank"}}
-      title: Drank
+      title: drank
 
     - payload: /i_dp1_q1{{"e_dp1_q1":"Sleep"}}
-      title: Sleep
+      title: sleep
 
     - payload: /i_dp1_q1{{"e_dp1_q1":"Bought"}}
-      title: Bought
+      title: bought
     text: " "
 
   utter_ask_s_dp1_q2:
   - buttons:
     - payload: /i_dp1_q2{{"e_dp1_q2":"Sell"}}
-      title: Sell
+      title: sell
 
     - payload: /i_dp1_q2{{"e_dp1_q2":"Fought"}}
-      title: Fought
+      title: fought
 
     - payload: /i_dp1_q2{{"e_dp1_q2":"Run"}}
-      title: Run
+      title: run
 
     - payload: /i_dp1_q2{{"e_dp1_q2":"Wash"}}
-      title: Wash
-    text: Welches der folgenden Wörter ist eine Simple Past-Form?
+      title: wash
+    text: "\nWelches der folgenden Wörter ist eine Simple Past-Form?"
   
   utter_s_dp1_q3/msg: 
   - custom:
       blocks:
       - type: section 
         text:
-          text: "Welches der folgenden Wörter ist *keine* Simple Past-Form? 🤔"
+          text: "\nWelches der folgenden Wörter ist *keine* Simple Past-Form? 🤔"
           type: mrkdwn
 
   utter_s_dp1_q3/button:
   - buttons:
     - payload: /i_dp1_q3{{"e_dp1_q3":"Visited"}}
-      title: Visited
+      title: visited
 
     - payload: /i_dp1_q3{{"e_dp1_q3":"Take"}}
-      title: Take
+      title: take
 
     - payload: /i_dp1_q3{{"e_dp1_q3":"Ate"}}
-      title: Ate
+      title: ate
 
     - payload: /i_dp1_q3{{"e_dp1_q3":"Drove"}}
-      title: Drove
+      title: drove
     text: " "
 
+  utter_ask_s_dp1_q4:
+  - buttons:
+    - payload: /i_dp1_q4{{"e_dp1_q4":"am calling"}}
+      title: am calling
+
+    - payload: /i_dp1_q4{{"e_dp1_q4":"called"}}
+      title: called
+
+    - payload: /i_dp1_q4{{"e_dp1_q4":"sleep"}}
+      title: sleep
+
+    - payload: /i_dp1_q4{{"e_dp1_q4":"built"}}
+      title: built
+    text: "\nBei welchem der folgenden Wörter handelt es sich um eine Present-Progressiv-Form?"
+
+  utter_s_dp1_q5/msg: 
+  - custom:
+      blocks:
+      - type: section 
+        text:
+          text: "\nBei welchem der folgenden Wörter handelt es sich *nicht* um eine Present-Progressiv-Form? 🤔"
+          type: mrkdwn
+
+  utter_s_dp1_q5/button:
+  - buttons:
+    - payload: /i_dp1_q5{{"e_dp1_q5":"are jumping"}}
+      title: are jumping
+
+    - payload: /i_dp1_q5{{"e_dp1_q5":"am speaking"}}
+      title: am speaking
+
+    - payload: /i_dp1_q5{{"e_dp1_q5":"flew"}}
+      title: flew
+
+    - payload: /i_dp1_q5{{"e_dp1_q5":"is growing"}}
+      title: is growing
+    text: " "
+
+  utter_s_dp1_q6/msg: 
+  - custom:
+      blocks:
+      - type: section 
+        text:
+          text: "\nWelches der folgenden Wörter ist *keine* Simple Past-Form? 🤔"
+          type: mrkdwn
+
+  utter_s_dp1_q6/button:
+  - buttons:
+    - payload: /i_dp1_q6{{"e_dp1_q6":"beated"}}
+      title: beated
+
+    - payload: /i_dp1_q6{{"e_dp1_q6":"carried"}}
+      title: carried
+
+    - payload: /i_dp1_q6{{"e_dp1_q6":"raised"}}
+      title: raised
+
+    - payload: /i_dp1_q6{{"e_dp1_q6":"brought"}}
+      title: brought
+    text: " "
+
+  utter_ask_s_dp1_q7:
+  - buttons:
+    - payload: /i_dp1_q7{{"e_dp1_q7":"study"}}
+      title: study
+
+    - payload: /i_dp1_q7{{"e_dp1_q7":"seen"}}
+      title: seen
+
+    - payload: /i_dp1_q7{{"e_dp1_q7":"looked"}}
+      title: looked
+
+    - payload: /i_dp1_q7{{"e_dp1_q7":"walk"}}
+      title: walk
+    text: "\nWelches der folgenden Wörter ist eine Simple Past-Form?"
+
+  utter_ask_s_dp1_q8:
+  - buttons:
+    - payload: /i_dp1_q8{{"e_dp1_q8":"have gone"}}
+      title: have gone
+
+    - payload: /i_dp1_q8{{"e_dp1_q8":"catch"}}
+      title: catch
+
+    - payload: /i_dp1_q8{{"e_dp1_q8":"are playing"}}
+      title: are playing
+
+    - payload: /i_dp1_q8{{"e_dp1_q8":"played"}}
+      title: played
+    text: "\nBei welchem der folgenden Wörter handelt es sich um eine Present-Progressiv-Form?"
+
+  utter_s_dp1_q9/msg: 
+  - custom:
+      blocks:
+      - type: section 
+        text:
+          text: "\nBei welchem der folgenden Wörter handelt es sich *nicht* um eine Present-Progressiv-Form? 🤔"
+          type: mrkdwn
+
+  utter_s_dp1_q9/button:
+  - buttons:
+    - payload: /i_dp1_q9{{"e_dp1_q9":"is going"}}
+      title: is going
+
+    - payload: /i_dp1_q9{{"e_dp1_q9":"written"}}
+      title: written
+
+    - payload: /i_dp1_q9{{"e_dp1_q9":"is lying"}}
+      title: is lying
+
+    - payload: /i_dp1_q9{{"e_dp1_q9":"is happening"}}
+      title: is happening
+    text: " "
+ 
+  utter_s_dp1_q10/msg: 
+    - custom:
+        blocks:
+        - type: section 
+          text:
+            text: "\nWelches der folgenden Wörter ist *keine* Simple Past-Form? 🤔"
+            type: mrkdwn
+
+  utter_s_dp1_q10/button:
+  - buttons:
+    - payload: /i_dp1_q10{{"e_dp1_q10":"mixed"}}
+      title: mixed
+
+    - payload: /i_dp1_q10{{"e_dp1_q10":"bit"}}
+      title: bit
+
+    - payload: /i_dp1_q10{{"e_dp1_q10":"travelled"}}
+      title: travelled
+
+    - payload: /i_dp1_q10{{"e_dp1_q10":"is bursting"}}
+      title: is bursting
+    text: " "
+
+  utter_ask_s_dp1_q11:
+  - buttons:
+    - payload: /i_dp1_q11{{"e_dp1_q11":"ridden"}}
+      title: ridden
+
+    - payload: /i_dp1_q11{{"e_dp1_q11":"jump"}}
+      title: jump
+
+    - payload: /i_dp1_q11{{"e_dp1_q11":"have cleaned"}}
+      title: have cleaned
+
+    - payload: /i_dp1_q11{{"e_dp1_q11":"cooked"}}
+      title: cooked
+    text: "\nWelches der folgenden Wörter ist eine Simple Past-Form?"
+   
+  utter_ask_s_dp1_q12:
+  - buttons:
+    - payload: /i_dp1_q12{{"e_dp1_q12":"drink"}}
+      title: drink
+
+    - payload: /i_dp1_q12{{"e_dp1_q12":"is looking"}}
+      title: is looking
+
+    - payload: /i_dp1_q12{{"e_dp1_q12":"feel"}}
+      title: feel
+
+    - payload: /i_dp1_q12{{"e_dp1_q12":"done"}}
+      title: done
+    text: "\nBei welchem der folgenden Wörter handelt es sich um eine Present-Progressiv-Form?"
 
   utter_ask_s_dp1_evaluation:
   - buttons:
@@ -155,6 +406,10 @@ actions:
   - validate_dp1_form
   - action_ask_s_dp1_q1
   - action_ask_s_dp1_q3
+  - action_ask_s_dp1_q5
+  - action_ask_s_dp1_q6
+  - action_ask_s_dp1_q9
+  - action_ask_s_dp1_q10
   - action_ask_s_dp1_end
   - action_ask_s_dp1_call_next_dp
 forms:
@@ -164,6 +419,15 @@ forms:
     - s_dp1_q1
     - s_dp1_q2
     - s_dp1_q3
+    - s_dp1_q4
+    - s_dp1_q5
+    - s_dp1_q6
+    - s_dp1_q7
+    - s_dp1_q8
+    - s_dp1_q9
+    - s_dp1_q10
+    - s_dp1_q11
+    - s_dp1_q12
     - s_dp1_evaluation
     - s_dp1_end
     - s_dp1_long_term_scenario

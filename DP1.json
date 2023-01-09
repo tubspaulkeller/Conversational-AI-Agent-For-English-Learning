@@ -1,6 +1,6 @@
 {
-    "total_questions": 3,
-    "total_points": 15,
+    "total_questions": 12,
+    "total_points": 60,
     "badge_naturtalent": "https://res.cloudinary.com/dmnkxrxes/image/upload/v1667925124/Ben_Bot/Abzeichen_Naturtalent_evz2oo.png",
     "s_dp1_q1": { 
         "solution": "Sleep",
@@ -16,5 +16,50 @@
         "solution": "Take",
         "points": 5,
         "question": 3
+    },
+    "s_dp1_q4": { 
+        "solution": "am calling",
+        "points": 5,
+        "question": 4
+    },
+    "s_dp1_q5": { 
+        "solution": "flew",
+        "points": 5,
+        "question": 5
+    },
+    "s_dp1_q6": { 
+        "solution": "beated",
+        "points": 5,
+        "question": 6
+    },
+    "s_dp1_q7": { 
+        "solution": "looked",
+        "points": 5,
+        "question": 7
+    },
+    "s_dp1_q8": { 
+        "solution": "are playing",
+        "points": 5,
+        "question": 8
+    },
+    "s_dp1_q9": { 
+        "solution": "written",
+        "points": 5,
+        "question": 9
+    },
+    "s_dp1_q10": { 
+        "solution": "is bursting",
+        "points": 5,
+        "question": 10
+    },
+    "s_dp1_q11": { 
+        "solution": "cooked",
+        "points": 5,
+        "question": 11
+    },
+    "s_dp1_q12": { 
+        "solution": "is looking",
+        "points": 5,
+        "question": 12
     }
 }
