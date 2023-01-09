@@ -96,7 +96,6 @@ intents:
 - i_out_of_scope
 - i_badges_images
 - i_call_anwendungsaufgabe
-- i_present_progressive
 - i_ask_why_points_badges_stars:
     use_entites: e_why_points_badges_stars
 - i_ask_why_x_points:
@@ -1157,7 +1156,6 @@ actions:
 - action_why_points_badges_stars
 - action_why_x_points
 - action_call_anwendungsaufgabe
-- action_ask_present_progressive
 - validate_dp4_form
 - action_ask_s_dp4_q1A
 - action_ask_s_dp4_q2A
