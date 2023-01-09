@@ -13,6 +13,10 @@ nlu:
     - hey buddy 
     - guten Tag
     - Guten Abend 
+    - Moinsen
+    - Bounjour
+    - Hey kumpel
+    - Grüß Gott
 
 - intent: i_goodbye
   examples: |
