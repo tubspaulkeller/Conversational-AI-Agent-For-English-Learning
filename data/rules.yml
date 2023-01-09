@@ -78,11 +78,11 @@ rules:
   - intent: i_call_anwendungsaufgabe
   - action: action_call_anwendungsaufgabe
 
-# ask_present_progressive
-# - rule: ask present progressive
-#   steps:
-#   - intent: i_present_progressive
-#   - action: action_ask_present_progressive
+#ask_present_progressive
+- rule: ask present progressive
+  steps:
+  - intent: i_present_progressive
+  - action: action_ask_present_progressive
 
 # delay for form set dp 
 - rule: time delay for choice of dp
