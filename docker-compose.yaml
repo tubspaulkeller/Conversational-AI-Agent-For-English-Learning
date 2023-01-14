@@ -19,6 +19,10 @@ services:
       SLACK_CHANNEL: ${SLACK_CHANNEL}
       SLACK_SIGNING_SECRET: ${SLACK_SIGNING_SECRET}
       RASA_URL: ${RASA_URL}
+      MONGO_DB_URL: ${MONGO_DB_URL}
+      DB_NAME: ${DB_NAME}
+      USERNAME: ${USERNAME}
+      PSWD: ${PSWD}
 
   rasa-actions:
     image: rasa-server-okteto:latest
