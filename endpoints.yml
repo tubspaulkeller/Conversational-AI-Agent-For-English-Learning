@@ -21,6 +21,6 @@ action_endpoint:
 #    username: ${USERNAME}
 #    password: ${PSWD}
 
-tracker_store:
+#tracker_store:
  # type: myTracker.MyCustomTracker
   #url: ${MONGO_DB_URL}
