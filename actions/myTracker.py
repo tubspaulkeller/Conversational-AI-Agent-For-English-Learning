@@ -1,14 +1,28 @@
-import itertools
-import json
-import logging
-from dotenv import load_dotenv
-from actions.common.common import get_credentials
-import os
-
-load_dotenv()
-# from rasa.core.tracker_store import TrackerStore
-
-from time import sleep
+import sqlalchemy as sa
+from rasa.utils.endpoints import EndpointConfig
+from rasa.shared.exceptions import ConnectionException, RasaException
+from rasa.shared.core.trackers import (
+    ActionExecuted,
+    DialogueStateTracker,
+    EventVerbosity,
+)
+from rasa.shared.core.events import SessionStarted
+from rasa.shared.core.domain import Domain
+from rasa.shared.core.conversation import Dialogue
+from rasa.core.constants import (
+    POSTGRESQL_SCHEMA,
+    POSTGRESQL_MAX_OVERFLOW,
+    POSTGRESQL_POOL_SIZE,
+)
+from rasa.core.brokers.broker import EventBroker
+from rasa.shared.core.constants import ACTION_LISTEN_NAME
+import rasa.shared.utils.io
+import rasa.shared.utils.common
+import rasa.shared.utils.cli
+from rasa.shared.core.events import SessionStarted, Event
+import rasa.core.utils as core_utils
+from pymongo.collection import Collection
+from boto3.dynamodb.conditions import Key
 from typing import (
     Any,
     Dict,
@@ -19,32 +33,16 @@ from typing import (
     Text,
     Union,
 )
+from time import sleep
+import itertools
+import json
+import logging
+from dotenv import load_dotenv
+from actions.common.common import get_credentials
+import os
 
-from boto3.dynamodb.conditions import Key
-from pymongo.collection import Collection
-
-import rasa.core.utils as core_utils
-import rasa.shared.utils.cli
-import rasa.shared.utils.common
-import rasa.shared.utils.io
-from rasa.shared.core.constants import ACTION_LISTEN_NAME
-from rasa.core.brokers.broker import EventBroker
-from rasa.core.constants import (
-    POSTGRESQL_SCHEMA,
-    POSTGRESQL_MAX_OVERFLOW,
-    POSTGRESQL_POOL_SIZE,
-)
-from rasa.shared.core.conversation import Dialogue
-from rasa.shared.core.domain import Domain
-from rasa.shared.core.events import SessionStarted
-from rasa.shared.core.trackers import (
-    ActionExecuted,
-    DialogueStateTracker,
-    EventVerbosity,
-)
-from rasa.shared.exceptions import ConnectionException, RasaException
-from rasa.utils.endpoints import EndpointConfig
-import sqlalchemy as sa
+load_dotenv()
+# from rasa.core.tracker_store import TrackerStore
 
 
 logger = logging.getLogger(__name__)
@@ -281,7 +279,8 @@ class InMemoryTrackerStore(TrackerStore):
             logger.debug(f"Recreating tracker for id '{sender_id}'")
             return self.deserialise_tracker(sender_id, self.store[sender_id])
 
-        logger.debug(f"Could not find tracker for conversation ID '{sender_id}'.")
+        logger.debug(
+            f"Could not find tracker for conversation ID '{sender_id}'.")
 
         return None
 
@@ -435,7 +434,8 @@ class MyCustomTracker(TrackerStore):
 
         """
 
-        stored = self.conversations.find_one({"sender_id": tracker.sender_id}) or {}
+        stored = self.conversations.find_one(
+            {"sender_id": tracker.sender_id}) or {}
         all_events = self._events_from_serialized_tracker(stored)
 
         number_events_since_last_session = len(
@@ -443,7 +443,8 @@ class MyCustomTracker(TrackerStore):
         )
 
         return itertools.islice(
-            tracker.events, number_events_since_last_session, len(tracker.events)
+            tracker.events, number_events_since_last_session, len(
+                tracker.events)
         )
 
     @staticmethod
@@ -499,7 +500,8 @@ class MyCustomTracker(TrackerStore):
 
     def retrieve(self, sender_id: Text) -> Optional[DialogueStateTracker]:
         """Retrieves tracker for the latest conversation session."""
-        events = self._retrieve(sender_id, fetch_events_from_all_sessions=False)
+        events = self._retrieve(
+            sender_id, fetch_events_from_all_sessions=False)
 
         if not events:
             return None
@@ -510,7 +512,8 @@ class MyCustomTracker(TrackerStore):
         self, conversation_id: Text
     ) -> Optional[DialogueStateTracker]:
         """Fetching all tracker events across conversation sessions."""
-        events = self._retrieve(conversation_id, fetch_events_from_all_sessions=True)
+        events = self._retrieve(
+            conversation_id, fetch_events_from_all_sessions=True)
 
         if not events:
             return None
@@ -523,3 +526,63 @@ class MyCustomTracker(TrackerStore):
         """Returns sender_ids of the Mongo Tracker Store."""
         return [c["sender_id"] for c in self.conversations.find()]
 
+    async def stream_events(self, tracker: DialogueStateTracker) -> None:
+        """Streams events to a message broker."""
+        if self.event_broker is None:
+            return None
+
+        offset = await self.number_of_existing_events(tracker.sender_id)
+        events = tracker.events
+        new_events = list(itertools.islice(events, offset, len(events)))
+
+        await self._stream_new_events(self.event_broker, new_events, tracker.sender_id)
+
+    async def _stream_new_events(
+        self,
+        event_broker: EventBroker,
+        new_events: List[Event],
+        sender_id: Text,
+    ) -> None:
+        """Publishes new tracker events to a message broker."""
+        for event in new_events:
+            body = {"sender_id": sender_id}
+            body.update(event.as_dict())
+            event_broker.publish(body)
+
+    async def number_of_existing_events(self, sender_id: Text) -> int:
+        """Return number of stored events for a given sender id."""
+        old_tracker = await self.retrieve(sender_id)
+
+        return len(old_tracker.events) if old_tracker else 0
+
+    async def keys(self) -> Iterable[Text]:
+        """Returns the set of values for the tracker store's primary key."""
+        raise NotImplementedError()
+
+    def deserialise_tracker(
+        self, sender_id: Text, serialised_tracker: Union[Text, bytes]
+    ) -> Optional[DialogueStateTracker]:
+        """Deserializes the tracker and returns it."""
+        tracker = self.init_tracker(sender_id)
+
+        try:
+            dialogue = Dialogue.from_parameters(json.loads(serialised_tracker))
+        except UnicodeDecodeError as e:
+            raise TrackerDeserialisationException(
+                "Tracker cannot be deserialised. "
+                "Trackers must be serialised as json. "
+                "Support for deserialising pickled trackers has been removed."
+            ) from e
+
+        tracker.recreate_from_dialogue(dialogue)
+
+        return tracker
+
+    @property
+    def domain(self) -> Domain:
+        """Returns the domain of the tracker store."""
+        return self._domain
+
+    @domain.setter
+    def domain(self, domain: Optional[Domain]) -> None:
+        self._domain = domain or Domain.empty()

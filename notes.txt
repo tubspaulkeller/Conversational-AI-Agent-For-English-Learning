@@ -35,3 +35,5 @@
     /webhooks/myio/webhook
 
 
+# AttributeError: 'MyCustomTracker' object has no attribute '_stream_new_events'
+
