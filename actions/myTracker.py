@@ -180,7 +180,7 @@ class TrackerStore:
         """
         return self.retrieve(conversation_id) is not None
 
-    def retrieve(self, sender_id: Text) -> Optional[DialogueStateTracker]:
+    async def retrieve(self, sender_id: Text) -> Optional[DialogueStateTracker]:
         """Retrieves tracker for the latest conversation session.
 
         This method will be overridden by the specific tracker store.
@@ -405,7 +405,7 @@ class MyCustomTracker(TrackerStore):
 
         return state
 
-    def save(self, tracker: DialogueStateTracker) -> None:
+    async def save(self, tracker: DialogueStateTracker) -> None:
         """Saves the current conversation state."""
         if self.event_broker:
             self.stream_events(tracker)
@@ -472,7 +472,7 @@ class MyCustomTracker(TrackerStore):
 
         return list(reversed(events_after_session_start))
 
-    def _retrieve(
+    async def _retrieve(
         self, sender_id: Text, fetch_events_from_all_sessions: bool
     ) -> Optional[List[Dict[Text, Any]]]:
         stored = self.conversations.find_one({"sender_id": sender_id})
@@ -498,7 +498,7 @@ class MyCustomTracker(TrackerStore):
 
         return events
 
-    def retrieve(self, sender_id: Text) -> Optional[DialogueStateTracker]:
+    async def retrieve(self, sender_id: Text) -> Optional[DialogueStateTracker]:
         """Retrieves tracker for the latest conversation session."""
         events = self._retrieve(
             sender_id, fetch_events_from_all_sessions=False)
@@ -522,7 +522,7 @@ class MyCustomTracker(TrackerStore):
             conversation_id, events, self.domain.slots
         )
 
-    def keys(self) -> Iterable[Text]:
+    async def keys(self) -> Iterable[Text]:
         """Returns sender_ids of the Mongo Tracker Store."""
         return [c["sender_id"] for c in self.conversations.find()]
 
