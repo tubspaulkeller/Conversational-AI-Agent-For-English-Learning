@@ -35,5 +35,8 @@
     /webhooks/myio/webhook
 
 
-# AttributeError: 'MyCustomTracker' object has no attribute '_stream_new_events'
-
+/usr/local/lib/python3.8/site-packages/rasa/core/tracker_store.py:167: 
+FutureWarning: Tracker store implementation MyCustomTracker is not asynchronous. 
+Non-asynchronous tracker stores are currently deprecated and will be removed in 4.0. 
+Please make the following methods async: 
+['_stream_new_events', 'create_tracker', 'exists', 'get_or_create_tracker', 'keys', 'number_of_existing_events', 'retrieve', 'retrieve_full_tracker', 'save', 'stream_events'] (will be removed in 4.0.0)

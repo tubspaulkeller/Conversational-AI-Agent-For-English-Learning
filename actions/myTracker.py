@@ -107,7 +107,7 @@ class TrackerStore:
                 "Cannot connect to tracker store." + str(error)
             ) from error
 
-    def get_or_create_tracker(
+    async def get_or_create_tracker(
         self,
         sender_id: Text,
         max_event_history: Optional[int] = None,
@@ -139,7 +139,7 @@ class TrackerStore:
             max_event_history=self.max_event_history,
         )
 
-    def create_tracker(
+    async def create_tracker(
         self, sender_id: Text, append_action_listen: bool = True
     ) -> DialogueStateTracker:
         """Creates a new tracker for `sender_id`.
@@ -162,11 +162,11 @@ class TrackerStore:
 
         return tracker
 
-    def save(self, tracker: DialogueStateTracker) -> None:
+    async def save(self, tracker: DialogueStateTracker) -> None:
         """Save method that will be overridden by specific tracker."""
         raise NotImplementedError()
 
-    def exists(self, conversation_id: Text) -> bool:
+    async def exists(self, conversation_id: Text) -> bool:
         """Checks if tracker exists for the specified ID.
 
         This method may be overridden by the specific tracker store for
@@ -209,7 +209,7 @@ class TrackerStore:
         """
         return self.retrieve(conversation_id)
 
-    def stream_events(self, tracker: DialogueStateTracker) -> None:
+    async def stream_events(self, tracker: DialogueStateTracker) -> None:
         """Streams events to a message broker"""
         offset = self.number_of_existing_events(tracker.sender_id)
         events = tracker.events
@@ -224,7 +224,7 @@ class TrackerStore:
 
         return len(old_tracker.events) if old_tracker else 0
 
-    def keys(self) -> Iterable[Text]:
+    async def keys(self) -> Iterable[Text]:
         """Returns the set of values for the tracker store's primary key"""
         raise NotImplementedError()
 
@@ -274,7 +274,7 @@ class InMemoryTrackerStore(TrackerStore):
         serialised = InMemoryTrackerStore.serialise_tracker(tracker)
         self.store[tracker.sender_id] = serialised
 
-    def retrieve(self, sender_id: Text) -> Optional[DialogueStateTracker]:
+    async def retrieve(self, sender_id: Text) -> Optional[DialogueStateTracker]:
         if sender_id in self.store:
             logger.debug(f"Recreating tracker for id '{sender_id}'")
             return self.deserialise_tracker(sender_id, self.store[sender_id])
@@ -508,7 +508,7 @@ class MyCustomTracker(TrackerStore):
 
         return DialogueStateTracker.from_dict(sender_id, events, self.domain.slots)
 
-    def retrieve_full_tracker(
+    async def retrieve_full_tracker(
         self, conversation_id: Text
     ) -> Optional[DialogueStateTracker]:
         """Fetching all tracker events across conversation sessions."""
