@@ -218,7 +218,7 @@ class TrackerStore:
             body.update(event.as_dict())
             self.event_broker.publish(body)
 
-    def number_of_existing_events(self, sender_id: Text) -> int:
+    async def number_of_existing_events(self, sender_id: Text) -> int:
         """Return number of stored events for a given sender id."""
         old_tracker = self.retrieve(sender_id)
 
