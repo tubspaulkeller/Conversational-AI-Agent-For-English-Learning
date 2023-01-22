@@ -102,6 +102,11 @@ class ValidateDP2Form(FormValidationAction):
 
     validate_s_dp2_q2 = validate_dp2(name_of_slot="s_dp2_q2")
     validate_s_dp2_q3 = validate_dp2(name_of_slot="s_dp2_q3")
+    validate_s_dp2_q4 = validate_dp2(name_of_slot="s_dp2_q4")
+    validate_s_dp2_q5 = validate_dp2(name_of_slot="s_dp2_q5")
+    validate_s_dp2_q6 = validate_dp2(name_of_slot="s_dp2_q6")
+    validate_s_dp2_q7 = validate_dp2(name_of_slot="s_dp2_q7")
+    validate_s_dp2_q8 = validate_dp2(name_of_slot="s_dp2_q8")
 
 
 class ValidateDP2ApplicationTasksForm(FormValidationAction):
@@ -162,9 +167,15 @@ class ValidateDP2ApplicationTasksForm(FormValidationAction):
             tracker: Tracker,
             domain: Dict[Text, Any],
         ) -> Dict[Text, Any]:
-            return validate_grammar_for_user_answer(value, "DP2.json", "s_dp2_at_q2", dispatcher, tracker)
+            print("Start validation of slot: ", name_of_slot)
+            return validate_grammar_for_user_answer(value, "DP2.json", name_of_slot, dispatcher, tracker)
 
         return validate_slot
 
     validate_s_dp2_at_q2 = validate_dp2_application_tasks_form(
         name_of_slot="s_dp2_at_q2")
+    validate_s_dp2_at_q3 = validate_dp2_application_tasks_form(
+        name_of_slot="s_dp2_at_q3")
+
+    validate_s_dp2_at_q4 = validate_dp2_application_tasks_form(
+        name_of_slot="s_dp2_at_q4")

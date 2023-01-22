@@ -10,10 +10,26 @@ intents:
      use_entities: e_dp2_q2
   - i_dp2_q3:
      use_entities: e_dp2_q3
+  - i_dp2_q4:
+     use_entities: e_dp2_q4
+  - i_dp2_q5:
+     use_entities: e_dp2_q5
+  - i_dp2_q6:
+     use_entities: e_dp2_q6
+  - i_dp2_q7:
+     use_entities: e_dp2_q7
+  - i_dp2_q8:
+     use_entities: e_dp2_q8
+
   - i_dp2_at_q1:
      use_entities: e_dp2_at_q1
   - i_dp2_at_q2:
      use_entities: e_dp2_at_q2
+  - i_dp2_at_q3:
+      use_entities: e_dp2_at_q3
+  - i_dp2_at_q4:
+      use_entities: e_dp2_at_q4
+  
   - i_dp2_evaluation:
      use_entities: e_dp2_evaluation
 
@@ -23,9 +39,17 @@ entities:
 - e_dp2_q1_2
 - e_dp2_q2
 - e_dp2_q3
+- e_dp2_q4
+- e_dp2_q5
+- e_dp2_q6
+- e_dp2_q7
+- e_dp2_q8
 - e_dp2_evaluation
 - e_dp2_at_q1
 - e_dp2_at_q2
+- e_dp2_at_q3
+- e_dp2_at_q4
+
 
 slots:
   s_dp2_q0:
@@ -57,6 +81,40 @@ slots:
     mappings:
     - type: from_entity
       entity: e_dp2_q3
+  
+  s_dp2_q4:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp2_q4
+
+  s_dp2_q5:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp2_q5
+
+  
+  s_dp2_q6:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp2_q6
+
+  s_dp2_q7:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp2_q7
+
+  s_dp2_q8:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp2_q8
+
+
+
 
   s_dp2_evaluation:
     type: text
@@ -81,8 +139,32 @@ slots:
     - type: from_entity
       entity: e_dp2_at_q2
       intent: i_dp2_at_q2
-      not_intent: i_dp2_at_q1
+      not_intent: 
+      - i_dp2_at_q3
+      - i_dp2_at_q4
   
+  s_dp2_at_q3:
+    type: list
+    mappings:
+    - type: from_entity
+      entity: e_dp2_at_q3
+      intent: i_dp2_at_q3
+      not_intent: 
+      - i_dp2_at_q2
+      - i_dp2_at_q4
+
+  s_dp2_at_q4:
+    type: list
+    mappings:
+    - type: from_entity
+      entity: e_dp2_at_q4
+      intent: i_dp2_at_q4
+      not_intent: 
+      - i_dp2_at_q2
+      - i_dp2_at_q3
+
+
+
   s_dp2_part_two_end:
     type: text
     mappings:
@@ -141,7 +223,7 @@ responses:
 
     - payload: /i_dp2_q2{{"e_dp2_q2":"return"}}
       title: return
-    text: "(Frage 1 von 2): Bei welchem der folgenden Wörter handelt es sich um eine Present Perfect-Form? 🤔"
+    text: "(Frage 1 von 7): Bei welchem der folgenden Wörter handelt es sich um eine Present Perfect-Form? 🤔"
 
   
   utter_s_dp2_q3:
@@ -157,7 +239,107 @@ responses:
 
     - payload: /i_dp2_q3{{"e_dp2_q3":"have bought"}}
       title: have bought
-    text: "(Frage 2 von 2): Welches der folgenden Wörter ist eine Present Perfect-Form? 🤔"
+    text: "(Frage 2 von 7): Welches der folgenden Wörter ist eine Present Perfect-Form? 🤔"
+
+  utter_s_dp2_q4/msg: 
+  - custom:
+      blocks:
+      - type: section 
+        text:
+          text: "(Frage 3 von 7): Bei welchem der folgenden Wörter handelt es sich *nicht* um eine Present Perfect-Form? 🤔"
+          type: mrkdwn
+  
+  utter_s_dp2_q4/button:
+  - buttons:
+    - payload: /i_dp2_q4{{"e_dp2_q4":"mean"}}
+      title: mean
+
+    - payload: /i_dp2_q4{{"e_dp2_q4":"have called"}}
+      title: have called
+
+    - payload: /i_dp2_q4{{"e_dp2_q4":"have talked"}}
+      title: have talked
+
+    - payload: /i_dp2_q4{{"e_dp2_q4":"have done"}}
+      title: have done
+    text: " "
+
+  utter_s_dp2_q5/msg: 
+  - custom:
+      blocks:
+      - type: section 
+        text:
+          text: "(Frage 4 von 7): Bei welchem der folgenden Wörter handelt es sich *nicht* um eine Present Perfect-Form? 🤔"
+          type: mrkdwn
+  
+  utter_s_dp2_q5/button:
+  - buttons:
+    - payload: /i_dp2_q5{{"e_dp2_q5":"have cleaned"}}
+      title: have cleaned
+
+    - payload: /i_dp2_q5{{"e_dp2_q5":"have buried"}}
+      title: have buried
+
+    - payload: /i_dp2_q5{{"e_dp2_q5":"meant"}}
+      title: meant
+
+    - payload: /i_dp2_q5{{"e_dp2_q5":"have cancelled"}}
+      title: have cancelled
+    text: " "
+
+  utter_ask_s_dp2_q6:
+  - buttons:
+    - payload: /i_dp2_q6{{"e_dp2_q6":"kept"}}
+      title: kept
+
+    - payload: /i_dp2_q6{{"e_dp2_q6":"have cried"}}
+      title: have cried
+
+    - payload: /i_dp2_q6{{"e_dp2_q6":"moved"}}
+      title: moved
+
+    - payload: /i_dp2_q6{{"e_dp2_q6":"is working"}}
+      title: is working
+    text: "(Frage 5 von 7): Welches der folgenden Wörter ist eine Present Perfect-Form? 🤔"
+
+  utter_ask_s_dp2_q7:
+  - buttons:
+    - payload: /i_dp2_q7{{"e_dp2_q7":"deny"}}
+      title: deny
+
+    - payload: /i_dp2_q7{{"e_dp2_q7":"used"}}
+      title: used
+
+    - payload: /i_dp2_q7{{"e_dp2_q7":"drove"}}
+      title: drove
+
+    - payload: /i_dp2_q7{{"e_dp2_q7":"have smiled"}}
+      title: have smiled
+    text: "(Frage 6 von 7): Welches der folgenden Wörter ist eine Present Perfect-Form? 🤔"
+
+  utter_s_dp2_q8/msg: 
+  - custom:
+      blocks:
+      - type: section 
+        text:
+          text: "(Frage 7 von 7): Bei welchem der folgenden Wörter handelt es sich *nicht* um eine Present Perfect-Form? 🤔"
+          type: mrkdwn
+  
+  utter_s_dp2_q8/button:
+  - buttons:
+    - payload: /i_dp2_q8{{"e_dp2_q8":"have travelled"}}
+      title: have travelled
+
+    - payload: /i_dp2_q8{{"e_dp2_q8":"is turning"}}
+      title: is turning
+
+    - payload: /i_dp2_q8{{"e_dp2_q8":"have watched"}}
+      title: have watched
+
+    - payload: /i_dp2_q8{{"e_dp2_q8":"have written"}}
+      title: have written
+    text: " "
+
 
   utter_ask_s_dp2_evaluation:
   - buttons:
@@ -181,6 +363,22 @@ responses:
           type: mrkdwn
           text:  "Versuche bitte aus den folgenden Wörtern:\n *Braunschweig, She, since, live*\n einen Satz im *Present Perfect* zu formulieren:"
 
+  utter_s_dp2_at_q3:
+  - custom:
+      blocks:
+      - type: section 
+        text:
+          type: mrkdwn
+          text:  "Versuche bitte aus den folgenden Wörtern:\n *break, leg, yesterday, he*\n einen Satz im *Present Perfect* zu formulieren:"
+
+
+  utter_s_dp2_at_q4:
+  - custom:
+      blocks:
+      - type: section 
+        text:
+          type: mrkdwn
+          text:  "Versuche bitte aus den folgenden Wörtern:\n *never, She, London, be*\n einen Satz im *Present Perfect* zu formulieren:"
   
 actions:
   - validate_dp2_application_tasks_form
@@ -188,8 +386,14 @@ actions:
   - action_ask_s_dp2_q1
   - action_ask_s_dp2_q2
   - action_ask_s_dp2_q3
+  - action_ask_s_dp2_q4
+  - action_ask_s_dp2_q5
+  - action_ask_s_dp2_q8
+
   - action_ask_s_dp2_at_q1
   - action_ask_s_dp2_at_q2
+  - action_ask_s_dp2_at_q3
+  - action_ask_s_dp2_at_q4
   - action_ask_s_dp2_part_two_end
   - action_ask_s_dp2_part_one_end
 
@@ -203,6 +407,11 @@ forms:
     - s_dp2_q1_2
     - s_dp2_q2
     - s_dp2_q3
+    - s_dp2_q4
+    - s_dp2_q5
+    - s_dp2_q6
+    - s_dp2_q7
+    - s_dp2_q8
     - s_dp2_evaluation
     - s_dp2_part_one_end 
 
@@ -210,6 +419,9 @@ forms:
     required_slots:
     - s_dp2_at_q1 
     - s_dp2_at_q2 
+    - s_dp2_at_q3
+    - s_dp2_at_q4
+
     - s_dp2_part_two_end 
 
 

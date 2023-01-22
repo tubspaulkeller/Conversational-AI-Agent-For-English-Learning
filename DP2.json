@@ -1,6 +1,6 @@
 {
-    "total_questions": 2,
-    "total_points": 10,
+    "total_questions": 7,
+    "total_points": 35,
     "badge_naturtalent": "https://res.cloudinary.com/dmnkxrxes/image/upload/v1667925124/Ben_Bot/Abzeichen_Naturtalent_evz2oo.png",
     "s_dp2_q2": { 
         "solution": "have played",
@@ -12,9 +12,51 @@
         "points": 5,
         "question": 2
     },
+    "s_dp2_q4": { 
+        "solution": "mean",
+        "points": 5,
+        "question": 3
+    },
+
+    "s_dp2_q5": { 
+        "solution": "meant",
+        "points": 5,
+        "question": 4
+    },
+    "s_dp2_q6": { 
+        "solution": "have cried",
+        "points": 5,
+        "question": 5
+    },
+    "s_dp2_q7": { 
+        "solution": "have smiled",
+        "points": 5,
+        "question": 6
+    },
+    "s_dp2_q8": { 
+        "solution": "is turning",
+        "points": 5,
+        "question": 7
+    },
+
+
+
+
+
+
     "s_dp2_at_q2": { 
         "present_perfect": ["has lived"],
         "entities": ["She", "she", "has lived", "since","brunswick", "Braunschweig", "braunschweig", "Brunswick", "BS"],
         "quantity": 4
+    },
+    "s_dp2_at_q3": { 
+        "present_perfect": ["has broken"],
+        "entities": ["He", "he", "has broken", "yesterday","leg", "his"],
+        "quantity": 4
+    },
+    "s_dp2_at_q4": { 
+        "present_perfect": ["has never been"],
+        "entities": ["She", "she", "has never been", "London","london"],
+        "quantity": 3
     }
 }
