@@ -1,0 +1,1419 @@
+version: '3.1'
+intents:
+- i_dp1_q0:
+    use_entities: e_dp1_q0
+- i_dp1_q1:
+    use_entities: e_dp1_q1
+- i_dp1_q2:
+    use_entities: e_dp1_q2
+- i_dp1_q3:
+    use_entities: e_dp1_q3
+- i_dp1_q4:
+    use_entities: e_dp1_q4
+- i_dp1_q5:
+    use_entities: e_dp1_q5
+- i_dp1_q6:
+    use_entities: e_dp1_q6
+- i_dp1_q7:
+    use_entities: e_dp1_q7
+- i_dp1_q8:
+    use_entities: e_dp1_q8
+- i_dp1_q9:
+    use_entities: e_dp1_q9
+- i_dp1_q10:
+    use_entities: e_dp1_q10
+- i_dp1_q11:
+    use_entities: e_dp1_q11
+- i_dp1_q12:
+    use_entities: e_dp1_q12
+- i_dp1_evaluation:
+    use_entities: e_dp1_evaluation
+- i_dp1_long_term_scenario:
+    use_entities: e_dp1_long_term_scenario
+- i_dp3_q1:
+    use_entities: e_dp3_q1
+- i_dp3_q2:
+    use_entities: e_dp3_q2
+- i_dp3_q3:
+    use_entities: e_dp3_q3
+- i_dp3_v_q1:
+    use_entities: e_dp3_v_q1
+- i_dp3_v_q2:
+    use_entities: e_dp3_v_q2
+- i_dp3_v_q3:
+    use_entities: e_dp3_v_q3
+- i_dp3_v_evaluation:
+    use_entities: e_dp3_v_evaluation
+- i_dp3_v_q4:
+    use_entities: e_dp3_v_q4
+- i_dp3_v_q5:
+    use_entities: e_dp3_v_q5
+- i_dp3_v_q6:
+    use_entities: e_dp3_v_q6
+- i_dp3_g_q1:
+    use_entities: e_dp3_g_q1
+- i_dp3_g_q2:
+    use_entities: e_dp3_g_q2
+- i_dp3_g_q3:
+    use_entities: e_dp3_g_q3
+- i_dp3_g_evaluation:
+    use_entities: e_dp3_g_evaluation
+- i_dp3_g_q4:
+    use_entities: e_dp3_g_q4
+- i_dp3_g_q5:
+    use_entities: e_dp3_g_q5
+- i_dp3_g_q6:
+    use_entities: e_dp3_g_q6
+- i_activate_form_grammatik:
+    use_entities: e_activate_form_grammatik
+- i_activate_form_vokabeln:
+    use_entities: e_activate_form_vokabeln
+- i_dp2_q0:
+    use_entities: e_dp2_q0
+- i_dp2_q1:
+    use_entities: e_dp2_q1
+- i_dp2_q1_2:
+    use_entities: e_dp2_q1_2
+- i_dp2_q2:
+    use_entities: e_dp2_q2
+- i_dp2_q3:
+    use_entities: e_dp2_q3
+- i_dp2_q4:
+    use_entities: e_dp2_q4
+- i_dp2_q5:
+    use_entities: e_dp2_q5
+- i_dp2_q6:
+    use_entities: e_dp2_q6
+- i_dp2_q7:
+    use_entities: e_dp2_q7
+- i_dp2_q8:
+    use_entities: e_dp2_q8
+- i_dp2_at_q1:
+    use_entities: e_dp2_at_q1
+- i_dp2_at_q2:
+    use_entities: e_dp2_at_q2
+- i_dp2_at_q3:
+    use_entities: e_dp2_at_q3
+- i_dp2_at_q4:
+    use_entities: e_dp2_at_q4
+- i_dp2_evaluation:
+    use_entities: e_dp2_evaluation
+- EXTERNAL_reminder_set_dp
+- i_goodbye
+- i_greet
+- i_restart_conversation
+- i_ask_last_question
+- i_ask_score
+- i_ask_badge
+- i_ask_skills
+- i_ask_stars
+- i_out_of_scope
+- i_badges_images
+- i_call_anwendungsaufgabe
+- i_present_progressive
+- i_ask_why_points_badges_stars:
+    use_entites: e_why_points_badges_stars
+- i_ask_why_x_points:
+    use_entities: e_why_x_points
+- i_get_dp:
+    use_entities: e_get_dp
+- i_dp4_q0:
+    use_entities: e_dp4_q0
+- i_dp4_q1A:
+    use_entities: e_dp4_q1A
+- i_dp4_q1B:
+    use_entities: e_dp4_q1B
+- i_dp4_q2A:
+    use_entities: e_dp4_q2A
+- i_dp4_q2B:
+    use_entities: e_dp4_q2B
+- i_dp4_q3A:
+    use_entities: e_dp4_q3A
+- i_dp4_q3B:
+    use_entities: e_dp4_q3B
+entities:
+- e_dp1_q0
+- e_dp1_q1
+- e_dp1_q2
+- e_dp1_q3
+- e_dp1_q4
+- e_dp1_q5
+- e_dp1_q6
+- e_dp1_q7
+- e_dp1_q8
+- e_dp1_q9
+- e_dp1_q10
+- e_dp1_q11
+- e_dp1_q12
+- e_dp1_evaluation
+- e_dp1_long_term_scenario
+- e_dp3_q1
+- e_dp3_q2
+- e_dp3_q3
+- e_dp3_v_q1
+- e_dp3_v_q2
+- e_dp3_v_q3
+- e_dp3_v_evaluation
+- e_dp3_v_q4
+- e_dp3_v_q5
+- e_dp3_v_q6
+- e_dp3_g_q1
+- e_dp3_g_q2
+- e_dp3_g_q3
+- e_dp3_g_evaluation
+- e_dp3_g_q4
+- e_dp3_g_q5
+- e_dp3_g_q6
+- e_activate_form_vokabeln
+- e_activate_form_grammatik
+- e_dp2_q0
+- e_dp2_q1
+- e_dp2_q1_2
+- e_dp2_q2
+- e_dp2_q3
+- e_dp2_q4
+- e_dp2_q5
+- e_dp2_q6
+- e_dp2_q7
+- e_dp2_q8
+- e_dp2_evaluation
+- e_dp2_at_q1
+- e_dp2_at_q2
+- e_dp2_at_q3
+- e_dp2_at_q4
+- e_get_dp
+- e_why_x_points
+- e_why_points_badges_stars
+- e_dp4_q0
+- e_dp4_q1A
+- e_dp4_q1B
+- e_dp4_q2A
+- e_dp4_q2B
+- e_dp4_q3A
+- e_dp4_q3B
+slots:
+  s_dp1_q0:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp1_q0
+  s_dp1_q1:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp1_q1
+  s_dp1_q2:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp1_q2
+  s_dp1_q3:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp1_q3
+  s_dp1_q4:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp1_q4
+  s_dp1_q5:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp1_q5
+  s_dp1_q6:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp1_q6
+  s_dp1_q7:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp1_q7
+  s_dp1_q8:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp1_q8
+  s_dp1_q9:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp1_q9
+  s_dp1_q10:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp1_q10
+  s_dp1_q11:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp1_q11
+  s_dp1_q12:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp1_q12
+  s_dp1_evaluation:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp1_evaluation
+  s_dp1_end:
+    type: text
+    mappings:
+    - type: custom
+  s_dp1_long_term_scenario:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp1_long_term_scenario
+  s_dp1_call_next_dp:
+    type: text
+    mappings:
+    - type: custom
+  s_dp3_q1:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp3_q1
+  s_dp3_q2:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp3_q2
+  s_dp3_q3:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp3_q3
+  s_dp3_q4:
+    type: text
+    mappings:
+    - type: custom
+  s_dp3_v_q1:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp3_v_q1
+  s_dp3_v_q2:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp3_v_q2
+  s_dp3_v_q3:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp3_v_q3
+  s_dp3_v_evaluation:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp3_v_evaluation
+  s_dp3_v_q4:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp3_v_q4
+  s_dp3_v_q5:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp3_v_q5
+  s_dp3_v_q6:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp3_v_q6
+  s_dp3_v_end:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_activate_form_grammatik
+  s_dp3_g_q1:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp3_g_q1
+  s_dp3_g_q2:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp3_g_q2
+  s_dp3_g_q3:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp3_g_q3
+  s_dp3_g_evaluation:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp3_g_evaluation
+  s_dp3_g_q4:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp3_g_q4
+  s_dp3_g_q5:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp3_g_q5
+  s_dp3_g_q6:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp3_g_q6
+  s_dp3_g_end:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_activate_form_vokabeln
+  s_dp3_activate_form:
+    type: text
+    mappings:
+    - type: custom
+  s_dp2_q0:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp2_q0
+  s_dp2_q1:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp2_q1
+  s_dp2_q1_2:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp2_q1_2
+  s_dp2_q2:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp2_q2
+  s_dp2_q3:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp2_q3
+  s_dp2_q4:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp2_q4
+  s_dp2_q5:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp2_q5
+  s_dp2_q6:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp2_q6
+  s_dp2_q7:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp2_q7
+  s_dp2_q8:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp2_q8
+  s_dp2_evaluation:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp2_evaluation
+  s_dp2_part_one_end:
+    type: text
+    mappings:
+    - type: custom
+  s_dp2_at_q1:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp2_at_q1
+  s_dp2_at_q2:
+    type: list
+    mappings:
+    - type: from_entity
+      entity: e_dp2_at_q2
+      intent: i_dp2_at_q2
+      not_intent:
+      - i_dp2_at_q3
+      - i_dp2_at_q4
+  s_dp2_at_q3:
+    type: list
+    mappings:
+    - type: from_entity
+      entity: e_dp2_at_q3
+      intent: i_dp2_at_q3
+      not_intent:
+      - i_dp2_at_q2
+      - i_dp2_at_q4
+  s_dp2_at_q4:
+    type: list
+    mappings:
+    - type: from_entity
+      entity: e_dp2_at_q4
+      intent: i_dp2_at_q4
+      not_intent:
+      - i_dp2_at_q2
+      - i_dp2_at_q3
+  s_dp2_part_two_end:
+    type: text
+    mappings:
+    - type: custom
+  user_id:
+    type: text
+    mappings:
+    - type: custom
+  first_name:
+    type: text
+    mappings:
+    - type: custom
+  s_get_dp_form:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_get_dp
+  s_set_next_form:
+    type: text
+    mappings:
+    - type: custom
+  s_dp4_q0:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp4_q0
+  s_dp4_intro:
+    type: text
+    mappings:
+    - type: custom
+  s_dp4_q1A:
+    type: list
+    mappings:
+    - type: from_entity
+      entity: e_dp4_q1A
+      intent: i_dp4_q1A
+      not_intent:
+      - i_dp4_q1B
+      - i_dp4_q2A
+      - i_dp4_q2B
+      - i_dp4_q3A
+      - i_dp4_q3B
+  s_dp4_q1B:
+    type: list
+    mappings:
+    - type: from_entity
+      entity: e_dp4_q1B
+      intent: i_dp4_q1B
+      not_intent:
+      - i_dp4_q1A
+      - i_dp4_q2A
+      - i_dp4_q2B
+      - i_dp4_q3A
+      - i_dp4_q3B
+  s_dp4_q2A:
+    type: list
+    mappings:
+    - type: from_entity
+      entity: e_dp4_q2A
+      intent: i_dp4_q2A
+      not_intent:
+      - i_dp4_q1A
+      - i_dp4_q1B
+      - i_dp4_q2B
+      - i_dp4_q3A
+      - i_dp4_q3B
+  s_dp4_q2B:
+    type: list
+    mappings:
+    - type: from_entity
+      entity: e_dp4_q2B
+      intent: i_dp4_q2B
+      not_intent:
+      - i_dp4_q1A
+      - i_dp4_q1B
+      - i_dp4_q2A
+      - i_dp4_q3A
+      - i_dp4_q3B
+  s_dp4_q3A:
+    type: list
+    mappings:
+    - type: from_entity
+      entity: e_dp4_q3A
+      intent: i_dp4_q3A
+      not_intent:
+      - i_dp4_q1A
+      - i_dp4_q1B
+      - i_dp4_q2A
+      - i_dp4_q2B
+      - i_dp4_q3B
+  s_dp4_q3B:
+    type: list
+    mappings:
+    - type: from_entity
+      entity: e_dp4_q3B
+      intent: i_dp4_q3B
+      not_intent:
+      - i_dp4_q1A
+      - i_dp4_q1B
+      - i_dp4_q2A
+      - i_dp4_q2B
+      - i_dp4_q3A
+  s_dp4_end:
+    type: text
+    mappings:
+    - type: custom
+responses:
+  utter_ask_s_dp1_q0:
+  - buttons:
+    - payload: /i_dp1_q0{{"e_dp1_q0":"PLAY"}}
+      title: "Legen wir los! \U0001F3AE"
+    text: "Lass uns ein kurzes Quiz starten, damit wir dein neues Wissen festigen\
+      \ \U0001F601"
+  utter_s_dp1_q1/msg:
+  - custom:
+      blocks:
+      - type: section
+        text:
+          text: "Bei welchem der folgenden W\xF6rter handelt es sich *nicht* um eine\
+            \ Simple-Past-Form?"
+          type: mrkdwn
+  utter_s_dp1_q1/button:
+  - buttons:
+    - payload: /i_dp1_q1{{"e_dp1_q1":"Went"}}
+      title: went
+    - payload: /i_dp1_q1{{"e_dp1_q1":"Drank"}}
+      title: drank
+    - payload: /i_dp1_q1{{"e_dp1_q1":"Sleep"}}
+      title: sleep
+    - payload: /i_dp1_q1{{"e_dp1_q1":"Bought"}}
+      title: bought
+    text: ' '
+  utter_ask_s_dp1_q2:
+  - buttons:
+    - payload: /i_dp1_q2{{"e_dp1_q2":"Sell"}}
+      title: sell
+    - payload: /i_dp1_q2{{"e_dp1_q2":"Fought"}}
+      title: fought
+    - payload: /i_dp1_q2{{"e_dp1_q2":"Run"}}
+      title: run
+    - payload: /i_dp1_q2{{"e_dp1_q2":"Wash"}}
+      title: wash
+    text: "\nWelches der folgenden W\xF6rter ist eine Simple Past-Form?"
+  utter_s_dp1_q3/msg:
+  - custom:
+      blocks:
+      - type: section
+        text:
+          text: "\nWelches der folgenden W\xF6rter ist *keine* Simple Past-Form? \U0001F914"
+          type: mrkdwn
+  utter_s_dp1_q3/button:
+  - buttons:
+    - payload: /i_dp1_q3{{"e_dp1_q3":"Visited"}}
+      title: visited
+    - payload: /i_dp1_q3{{"e_dp1_q3":"Take"}}
+      title: take
+    - payload: /i_dp1_q3{{"e_dp1_q3":"Ate"}}
+      title: ate
+    - payload: /i_dp1_q3{{"e_dp1_q3":"Drove"}}
+      title: drove
+    text: ' '
+  utter_ask_s_dp1_q4:
+  - buttons:
+    - payload: /i_dp1_q4{{"e_dp1_q4":"am calling"}}
+      title: am calling
+    - payload: /i_dp1_q4{{"e_dp1_q4":"called"}}
+      title: called
+    - payload: /i_dp1_q4{{"e_dp1_q4":"sleep"}}
+      title: sleep
+    - payload: /i_dp1_q4{{"e_dp1_q4":"built"}}
+      title: built
+    text: "\nBei welchem der folgenden W\xF6rter handelt es sich um eine Present-Progressiv-Form?"
+  utter_s_dp1_q5/msg:
+  - custom:
+      blocks:
+      - type: section
+        text:
+          text: "\nBei welchem der folgenden W\xF6rter handelt es sich *nicht* um\
+            \ eine Present-Progressiv-Form? \U0001F914"
+          type: mrkdwn
+  utter_s_dp1_q5/button:
+  - buttons:
+    - payload: /i_dp1_q5{{"e_dp1_q5":"are jumping"}}
+      title: are jumping
+    - payload: /i_dp1_q5{{"e_dp1_q5":"am speaking"}}
+      title: am speaking
+    - payload: /i_dp1_q5{{"e_dp1_q5":"flew"}}
+      title: flew
+    - payload: /i_dp1_q5{{"e_dp1_q5":"is growing"}}
+      title: is growing
+    text: ' '
+  utter_s_dp1_q6/msg:
+  - custom:
+      blocks:
+      - type: section
+        text:
+          text: "\nWelches der folgenden W\xF6rter ist *keine* Simple Past-Form? \U0001F914"
+          type: mrkdwn
+  utter_s_dp1_q6/button:
+  - buttons:
+    - payload: /i_dp1_q6{{"e_dp1_q6":"beated"}}
+      title: beated
+    - payload: /i_dp1_q6{{"e_dp1_q6":"carried"}}
+      title: carried
+    - payload: /i_dp1_q6{{"e_dp1_q6":"raised"}}
+      title: raised
+    - payload: /i_dp1_q6{{"e_dp1_q6":"brought"}}
+      title: brought
+    text: ' '
+  utter_ask_s_dp1_q7:
+  - buttons:
+    - payload: /i_dp1_q7{{"e_dp1_q7":"study"}}
+      title: study
+    - payload: /i_dp1_q7{{"e_dp1_q7":"seen"}}
+      title: seen
+    - payload: /i_dp1_q7{{"e_dp1_q7":"looked"}}
+      title: looked
+    - payload: /i_dp1_q7{{"e_dp1_q7":"walk"}}
+      title: walk
+    text: "\nWelches der folgenden W\xF6rter ist eine Simple Past-Form?"
+  utter_ask_s_dp1_q8:
+  - buttons:
+    - payload: /i_dp1_q8{{"e_dp1_q8":"have gone"}}
+      title: have gone
+    - payload: /i_dp1_q8{{"e_dp1_q8":"catch"}}
+      title: catch
+    - payload: /i_dp1_q8{{"e_dp1_q8":"are playing"}}
+      title: are playing
+    - payload: /i_dp1_q8{{"e_dp1_q8":"played"}}
+      title: played
+    text: "\nBei welchem der folgenden W\xF6rter handelt es sich um eine Present-Progressiv-Form?"
+  utter_s_dp1_q9/msg:
+  - custom:
+      blocks:
+      - type: section
+        text:
+          text: "\nBei welchem der folgenden W\xF6rter handelt es sich *nicht* um\
+            \ eine Present-Progressiv-Form? \U0001F914"
+          type: mrkdwn
+  utter_s_dp1_q9/button:
+  - buttons:
+    - payload: /i_dp1_q9{{"e_dp1_q9":"is going"}}
+      title: is going
+    - payload: /i_dp1_q9{{"e_dp1_q9":"written"}}
+      title: written
+    - payload: /i_dp1_q9{{"e_dp1_q9":"is lying"}}
+      title: is lying
+    - payload: /i_dp1_q9{{"e_dp1_q9":"is happening"}}
+      title: is happening
+    text: ' '
+  utter_s_dp1_q10/msg:
+  - custom:
+      blocks:
+      - type: section
+        text:
+          text: "\nWelches der folgenden W\xF6rter ist *keine* Simple Past-Form? \U0001F914"
+          type: mrkdwn
+  utter_s_dp1_q10/button:
+  - buttons:
+    - payload: /i_dp1_q10{{"e_dp1_q10":"mixed"}}
+      title: mixed
+    - payload: /i_dp1_q10{{"e_dp1_q10":"bit"}}
+      title: bit
+    - payload: /i_dp1_q10{{"e_dp1_q10":"travelled"}}
+      title: travelled
+    - payload: /i_dp1_q10{{"e_dp1_q10":"is bursting"}}
+      title: is bursting
+    text: ' '
+  utter_ask_s_dp1_q11:
+  - buttons:
+    - payload: /i_dp1_q11{{"e_dp1_q11":"ridden"}}
+      title: ridden
+    - payload: /i_dp1_q11{{"e_dp1_q11":"jump"}}
+      title: jump
+    - payload: /i_dp1_q11{{"e_dp1_q11":"have cleaned"}}
+      title: have cleaned
+    - payload: /i_dp1_q11{{"e_dp1_q11":"cooked"}}
+      title: cooked
+    text: "\nWelches der folgenden W\xF6rter ist eine Simple Past-Form?"
+  utter_ask_s_dp1_q12:
+  - buttons:
+    - payload: /i_dp1_q12{{"e_dp1_q12":"drink"}}
+      title: drink
+    - payload: /i_dp1_q12{{"e_dp1_q12":"is looking"}}
+      title: is looking
+    - payload: /i_dp1_q12{{"e_dp1_q12":"feel"}}
+      title: feel
+    - payload: /i_dp1_q12{{"e_dp1_q12":"done"}}
+      title: done
+    text: "\nBei welchem der folgenden W\xF6rter handelt es sich um eine Present-Progressiv-Form?"
+  utter_ask_s_dp1_evaluation:
+  - buttons:
+    - payload: /i_dp1_evaluation{{"e_dp1_evaluation":"EVALUATION"}}
+      title: "Quiz Auswertung \U0001F4CA"
+    text: ' '
+  utter_s_dp1_long_term_scenario:
+  - buttons:
+    - payload: /i_dp1_long_term_scenario{{"e_dp1_long_term_scenario":"LONG_TERM_SCENARIO"}}
+      title: Langzeit Szenario erleben
+    text: Stell dir vor, du hast zwei Monate gelernt..
+  utter_intro:
+  - text: "Du hast soeben den Englisch Kurs auf dem Level B2 gestartet. \U0001F601\
+      \ Ich freue mich darauf, die Inhalte mit dir zusammen durchzugehen!\nLass uns\
+      \ zu Beginn gemeinsam ein Lernziel aufstellen, damit wir uns im Laufe des Kurses\
+      \ daran orientieren k\xF6nnen!"
+  utter_s_dp3_q1:
+  - buttons:
+    - payload: /i_dp3_q1{{"e_dp3_q1":"abroad"}}
+      title: Auslandssemester
+    - payload: /i_dp3_q1{{"e_dp3_q1":"grades"}}
+      title: Bessere Noten
+    text: "Hast du schon eine Idee, welche Kenntnisse und F\xE4higkeiten du nach Abschluss\
+      \ dieses Kurses erworben haben m\xF6chtest? Und somit eins der aufgef\xFChrten\
+      \ Themen dich am meisten f\xFCr diesen Kurs motiviert? \U0001F914"
+  utter_s_dp3_q1/repeat:
+  - buttons:
+    - payload: /i_dp3_q1{{"e_dp3_q1":"abroad"}}
+      title: Auslandssemester
+    - payload: /i_dp3_q1{{"e_dp3_q1":"grades"}}
+      title: Bessere Noten
+    text: ' '
+  utter_ask_s_dp3_q2:
+  - buttons:
+    - payload: /i_dp3_q2{{"e_dp3_q2":"affirm"}}
+      title: Festlegen
+    - payload: /i_dp3_q2{{"e_dp3_q2":"deny"}}
+      title: Neu bestimmen
+    text: "Soll ich das uns als \xFCbergeordnetes Lernziel f\xFCr diesen Kurs festlegen?\
+      \ Oder m\xF6chtest du ein anderes Thema als Lernziel w\xE4hlen? \U0001F914"
+  utter_affirm_learn_goal:
+  - text: "Perfekt, damit h\xE4tten wir das \xFCbergeordnete Lernziel f\xFCr diesen\
+      \ Kurs festgelegt! \U0001F601"
+  utter_s_dp3_q3:
+  - buttons:
+    - payload: /i_dp3_q3{{"e_dp3_q3":"vocabels"}}
+      title: Vokabeln - Basic
+    - payload: /i_dp3_q3{{"e_dp3_q3":"grammar"}}
+      title: Grammatik - Basic
+    text: "Mit welcher Grundlagen-Lektion m\xF6chtest du starten?"
+  utter_ask_s_dp3_v_q1:
+  - buttons:
+    - payload: /i_dp3_v_q1{{"e_dp3_v_q1":"Englisch-Wortschatz"}}
+      title: Meinen Wortschatz erweitern
+    - payload: /i_dp3_v_q1{{"e_dp3_v_q1":"Englisch-Konversation"}}
+      title: Meine Konversation verbessern
+    text: "Bevor wir mit der Vokabel-Lektion anfangen, lass uns noch ein Lernziel\
+      \ f\xFCr diese Grundlagen-Lektion festlegen, damit wir zusammen auf etwas hinarbeiten\
+      \ k\xF6nnen \U0001F60A Welches der aufgef\xFChrten Ziele motiviert dich am meisten?\
+      \ \U0001F914"
+  utter_ask_s_dp3_v_q1/repeat:
+  - buttons:
+    - payload: /i_dp3_v_q1{{"e_dp3_v_q1":"Englisch-Wortschatz"}}
+      title: Meinen Wortschatz erweitern
+    - payload: /i_dp3_v_q1{{"e_dp3_v_q1":"Englisch-Konversation"}}
+      title: Meine Konversation verbessern
+    text: ' '
+  utter_ask_s_dp3_v_q2:
+  - buttons:
+    - payload: /i_dp3_v_q2{{"e_dp3_v_q2":"affirm"}}
+      title: Festlegen
+    - payload: /i_dp3_v_q2{{"e_dp3_v_q2":"deny"}}
+      title: Neu bestimmen
+    text: ' '
+  utter_ask_s_dp3_v_q3:
+  - buttons:
+    - payload: /i_dp3_v_q3{{"e_dp3_v_q3":"play"}}
+      title: Play
+    - payload: /i_dp3_v_q3{{"e_dp3_v_q3":"wrote"}}
+      title: Wrote
+    - payload: /i_dp3_v_q3{{"e_dp3_v_q3":"eat"}}
+      title: Eat
+    - payload: /i_dp3_v_q3{{"e_dp3_v_q3":"drink"}}
+      title: Drink
+    text: "Welches der folgenden W\xF6rter ist eine Simple Past-Form?"
+  utter_ask_s_dp3_v_evaluation:
+  - buttons:
+    - payload: /i_dp3_v_evaluation{{"e_dp3_v_evaluation":"EVALUATION"}}
+      title: "Quiz Auswertung \U0001F4CA"
+    text: ' '
+  utter_s_dp3_v_q4:
+  - buttons:
+    - payload: /i_dp3_v_q4{{"e_dp3_v_q4":"affirm"}}
+      title: "Ja \U0001F525"
+    - payload: /i_dp3_v_q4{{"e_dp3_v_q4":"deny"}}
+      title: Nein
+    text: Bist du zufrieden mit deiner bisherigen Leistung?
+  utter_ask_s_dp3_v_q5:
+  - buttons:
+    - payload: /i_dp3_v_q5{{"e_dp3_v_q5":"shorter_learntime"}}
+      title: "Lernzeit verk\xFCrzen"
+    - payload: /i_dp3_v_q5{{"e_dp3_v_q5":"longer_learntime"}}
+      title: "Lernzeit verl\xE4ngern"
+    - payload: /i_dp3_v_q5{{"e_dp3_v_q5":"deny"}}
+      title: Alles perfekt
+    text: "Gibt es etwas in deinem Lernprozess, was dich st\xF6rt oder was du anpassen\
+      \ m\xF6chtest?"
+  utter_ask_s_dp3_v_q6:
+  - buttons:
+    - payload: /i_dp3_v_q6{{"e_dp3_v_q6":"affirm"}}
+      title: Ja
+    - payload: /i_dp3_v_q6{{"e_dp3_v_q6":"deny"}}
+      title: Nein
+    text: Bist du damit einverstanden?
+  utter_ask_s_dp3_g_q1:
+  - buttons:
+    - payload: /i_dp3_g_q1{{"e_dp3_g_q1":"Zeitformen_verbessern"}}
+      title: Zeitformen verbessern
+    - payload: /i_dp3_g_q1{{"e_dp3_g_q1":"Zeitformen_erweitern"}}
+      title: Zeitformen erweitern
+    text: "Bevor wir mit der Grammatik-Lektion anfangen, lass uns noch ein Lernziel\
+      \ f\xFCr diese Grundlagen-Lektion festlegen, damit wir zusammen auf etwas hinarbeiten\
+      \ k\xF6nnen \U0001F60A Welches der aufgef\xFChrten Ziele motiviert dich am meisten?\
+      \ \U0001F914"
+  utter_ask_s_dp3_g_q1/repeat:
+  - buttons:
+    - payload: /i_dp3_g_q1{{"e_dp3_g_q1":"Zeitformen_verbessern"}}
+      title: Zeitformen verbessern
+    - payload: /i_dp3_g_q1{{"e_dp3_g_q1":"Zeitformen_erweitern"}}
+      title: Zeitformen erweitern
+    text: ' '
+  utter_ask_s_dp3_g_q2:
+  - buttons:
+    - payload: /i_dp3_g_q2{{"e_dp3_g_q2":"affirm"}}
+      title: Festlegen
+    - payload: /i_dp3_g_q2{{"e_dp3_g_q2":"deny"}}
+      title: Neu bestimmen
+    text: ' '
+  utter_ask_s_dp3_g_q3:
+  - buttons:
+    - payload: /i_dp3_g_q3{{"e_dp3_g_q3":"play"}}
+      title: Play
+    - payload: /i_dp3_g_q3{{"e_dp3_g_q3":"wrote"}}
+      title: Wrote
+    - payload: /i_dp3_g_q3{{"e_dp3_g_q3":"eat"}}
+      title: Eat
+    - payload: /i_dp3_g_q3{{"e_dp3_g_q3":"drink"}}
+      title: Drink
+    text: "Welches der folgenden W\xF6rter ist eine Simple Past-Form?"
+  utter_ask_s_dp3_g_evaluation:
+  - buttons:
+    - payload: /i_dp3_g_evaluation{{"e_dp3_g_evaluation":"EVALUATION"}}
+      title: "Quiz Auswertung \U0001F4CA"
+    text: ' '
+  utter_s_dp3_g_q4:
+  - buttons:
+    - payload: /i_dp3_g_q4{{"e_dp3_g_q4":"affirm"}}
+      title: "Ja \U0001F525"
+    - payload: /i_dp3_g_q4{{"e_dp3_g_q4":"deny"}}
+      title: Nein
+    text: Bist du zufrieden mit deiner bisherigen Leistung?
+  utter_ask_s_dp3_g_q5:
+  - buttons:
+    - payload: /i_dp3_g_q5{{"e_dp3_g_q5":"shorter_learntime"}}
+      title: "Lernzeit verk\xFCrzen"
+    - payload: /i_dp3_g_q5{{"e_dp3_g_q5":"longer_learntime"}}
+      title: "Lernzeit verl\xE4ngern"
+    - payload: /i_dp3_g_q5{{"e_dp3_g_q5":"deny"}}
+      title: Alles perfekt
+    text: "Gibt es etwas in deinem Lernprozess, was dich st\xF6rt oder was du anpassen\
+      \ m\xF6chtest?"
+  utter_ask_s_dp3_g_q6:
+  - buttons:
+    - payload: /i_dp3_g_q6{{"e_dp3_g_q6":"affirm"}}
+      title: Ja
+    - payload: /i_dp3_g_q6{{"e_dp3_g_q6":"deny"}}
+      title: Nein
+    text: Bist du damit einverstanden?
+  utter_activate_form_via_button/v:
+  - buttons:
+    - payload: /i_activate_form_grammatik {{"e_activate_form_grammatik":"GRAMMATIK"}}
+      title: Grammatik - Basic
+    text: "Die n\xE4chste Lektion starten: "
+  utter_activate_form_via_button/g:
+  - buttons:
+    - payload: /i_activate_form_vokabeln {{"e_activate_form_vokabeln":"VOKABELN"}}
+      title: Vokabeln - Basic
+    text: "Die n\xE4chste Lektion starten: "
+  utter_ask_s_dp2_q0:
+  - buttons:
+    - payload: /i_dp2_q0{{"e_dp2_q0":"AFFIRM"}}
+      title: "Alles klar, das klingt gut! \U0001F60A"
+    text: "Wie du wei\xDFt, habe ich den gleichen Studiengang wie du belegt. Ich bin\
+      \ allerdings schon im 4. Semester und wenn du magst, dann kann ich dir als dein\
+      \ Lern-Companion Tipps zu diesem Kurs geben und gemeinsam mit dir \xFCben! \U0001F601"
+  utter_s_dp2_q1:
+  - buttons:
+    - payload: /i_dp2_q1{{"e_dp2_q1":"Zusammenfassung"}}
+      title: Zusammenfassung
+    - payload: /i_dp2_q1{{"e_dp2_q1":"Quiz"}}
+      title: Quiz
+    text: "Soll ich dir eine kurze Zusammenfassung zum Present Perfect geben oder\
+      \ m\xF6chtest du direkt das Quiz beginnen?"
+  utter_ask_s_dp2_q1_2:
+  - buttons:
+    - payload: /i_dp2_q1_2{{"e_dp2_q1_2":"START_QUIZ"}}
+      title: "Quiz  \U0001F3AE"
+    text: 'Starte das: '
+  utter_correct_answer_qn:
+  - text: "Korrekt! \U0001F60A Damit hast du dir {points} von 5 Punkten verdient!"
+  - text: "Richtig! \U0001F389 Du hast {points} von 5 Punkten erzielt."
+  - text: "Super, richitg! \U0001F64C {points} von 5 Punkten gehen auf dein Konto."
+  - text: "Gut gemacht! Du hast {points} von 5 Punkten erzielt. \U0001F389"
+  utter_wrong_answer:
+  - text: "Das war leider nicht richtig. Versuche dir die Bildung durch 'have/has'\
+      \ + 'dritte From des Verbs' vor Auge zu f\xFChren. Damit sollte es die erfahrungsgem\xE4\
+      \xDF am einfachsten gelingen, das Present Perfect zu erkennen \U0001F44C"
+  utter_zusammenfassung:
+  - custom:
+      blocks:
+      - type: section
+        text:
+          type: mrkdwn
+          text: " Gerne doch! \U0001F60A\n*Bildung:* 'have/has' + dritte Form des\
+            \ Verbs\n*Verwendung:*\n - Etwas hat in der Vergangenheit begonnen und\
+            \ dauert bis in die Gegenwart an\n - Etwas wurde in der Vergangenheit\
+            \ abgeschlossen, aber die Folgen reichen bis in die Gegenwart"
+  utter_s_dp2_q2:
+  - buttons:
+    - payload: /i_dp2_q2{{"e_dp2_q2":"have played"}}
+      title: have played
+    - payload: /i_dp2_q2{{"e_dp2_q2":"jumped"}}
+      title: jumped
+    - payload: /i_dp2_q2{{"e_dp2_q2":"skip"}}
+      title: skip
+    - payload: /i_dp2_q2{{"e_dp2_q2":"return"}}
+      title: return
+    text: "(Frage 1 von 7): Bei welchem der folgenden W\xF6rter handelt es sich um\
+      \ eine Present Perfect-Form? \U0001F914"
+  utter_s_dp2_q3:
+  - buttons:
+    - payload: /i_dp2_q3{{"e_dp2_q3":"stole"}}
+      title: stole
+    - payload: /i_dp2_q3{{"e_dp2_q3":"swam"}}
+      title: swam
+    - payload: /i_dp2_q3{{"e_dp2_q3":"fought"}}
+      title: fought
+    - payload: /i_dp2_q3{{"e_dp2_q3":"have bought"}}
+      title: have bought
+    text: "(Frage 2 von 7): Welches der folgenden W\xF6rter ist eine Present Perfect-Form?\
+      \ \U0001F914"
+  utter_s_dp2_q4/msg:
+  - custom:
+      blocks:
+      - type: section
+        text:
+          text: "(Frage 3 von 7): Bei welchem der folgenden W\xF6rter handelt es sich\
+            \ *nicht* um eine Present Perfect-Form? \U0001F914"
+          type: mrkdwn
+  utter_s_dp2_q4/button:
+  - buttons:
+    - payload: /i_dp2_q4{{"e_dp2_q4":"mean"}}
+      title: mean
+    - payload: /i_dp2_q4{{"e_dp2_q4":"have called"}}
+      title: have called
+    - payload: /i_dp2_q4{{"e_dp2_q4":"have talked"}}
+      title: have talked
+    - payload: /i_dp2_q4{{"e_dp2_q4":"have done"}}
+      title: have done
+    text: ' '
+  utter_s_dp2_q5/msg:
+  - custom:
+      blocks:
+      - type: section
+        text:
+          text: "(Frage 4 von 7): Bei welchem der folgenden W\xF6rter handelt es sich\
+            \ *nicht* um eine Present Perfect-Form? \U0001F914"
+          type: mrkdwn
+  utter_s_dp2_q5/button:
+  - buttons:
+    - payload: /i_dp2_q5{{"e_dp2_q5":"have cleaned"}}
+      title: have cleaned
+    - payload: /i_dp2_q5{{"e_dp2_q5":"have buried"}}
+      title: have buried
+    - payload: /i_dp2_q5{{"e_dp2_q5":"meant"}}
+      title: meant
+    - payload: /i_dp2_q5{{"e_dp2_q5":"have cancelled"}}
+      title: have cancelled
+    text: ' '
+  utter_ask_s_dp2_q6:
+  - buttons:
+    - payload: /i_dp2_q6{{"e_dp2_q6":"kept"}}
+      title: kept
+    - payload: /i_dp2_q6{{"e_dp2_q6":"have cried"}}
+      title: have cried
+    - payload: /i_dp2_q6{{"e_dp2_q6":"moved"}}
+      title: moved
+    - payload: /i_dp2_q6{{"e_dp2_q6":"is working"}}
+      title: is working
+    text: "(Frage 5 von 7): Welches der folgenden W\xF6rter ist eine Present Perfect-Form?\
+      \ \U0001F914"
+  utter_ask_s_dp2_q7:
+  - buttons:
+    - payload: /i_dp2_q7{{"e_dp2_q7":"deny"}}
+      title: deny
+    - payload: /i_dp2_q7{{"e_dp2_q7":"used"}}
+      title: used
+    - payload: /i_dp2_q7{{"e_dp2_q7":"drove"}}
+      title: drove
+    - payload: /i_dp2_q7{{"e_dp2_q7":"have smiled"}}
+      title: have smiled
+    text: "(Frage 6 von 7): Welches der folgenden W\xF6rter ist eine Present Perfect-Form?\
+      \ \U0001F914"
+  utter_s_dp2_q8/msg:
+  - custom:
+      blocks:
+      - type: section
+        text:
+          text: "(Frage 7 von 7): Bei welchem der folgenden W\xF6rter handelt es sich\
+            \ *nicht* um eine Present Perfect-Form? \U0001F914"
+          type: mrkdwn
+  utter_s_dp2_q8/button:
+  - buttons:
+    - payload: /i_dp2_q8{{"e_dp2_q8":"have travelled"}}
+      title: have travelled
+    - payload: /i_dp2_q8{{"e_dp2_q8":"is turning"}}
+      title: is turning
+    - payload: /i_dp2_q8{{"e_dp2_q8":"have watched"}}
+      title: have watched
+    - payload: /i_dp2_q8{{"e_dp2_q8":"have written"}}
+      title: have written
+    text: ' '
+  utter_ask_s_dp2_evaluation:
+  - buttons:
+    - payload: /i_dp2_evaluation{{"e_dp2_evaluation":"EVALUATION"}}
+      title: "Quiz Auswertung \U0001F4CA"
+    text: ' '
+  utter_s_dp2_at_q1:
+  - buttons:
+    - payload: /i_dp2_at_q1{{"e_dp2_at_q1":"yes"}}
+      title: Ja
+    - payload: /i_dp2_at_q1{{"e_dp2_at_q1":"no"}}
+      title: Nein
+    text: "Die Klausuren der letzten Jahre bestanden zu einem Gro\xDFteil aus Anwendungsaufgaben.\
+      \ Wollen wir zusammen so eine Anwendungsaufgabe \xFCben, damit du gut vorbereitet\
+      \ bist?"
+  utter_s_dp2_at_q2:
+  - custom:
+      blocks:
+      - type: section
+        text:
+          type: mrkdwn
+          text: "Versuche bitte aus den folgenden W\xF6rtern:\n *Braunschweig, She,\
+            \ since, live*\n einen Satz im *Present Perfect* zu formulieren:"
+  utter_s_dp2_at_q3:
+  - custom:
+      blocks:
+      - type: section
+        text:
+          type: mrkdwn
+          text: "Versuche bitte aus den folgenden W\xF6rtern:\n *break, leg, yesterday,\
+            \ he*\n einen Satz im *Present Perfect* zu formulieren:"
+  utter_s_dp2_at_q4:
+  - custom:
+      blocks:
+      - type: section
+        text:
+          type: mrkdwn
+          text: "Versuche bitte aus den folgenden W\xF6rtern:\n *never, She, London,\
+            \ be*\n einen Satz im *Present Perfect* zu formulieren:"
+  utter_greet:
+  - text: "Hi {first_name}! \U0001F60A "
+  utter_greet/no_username:
+  - text: "Hey Buddy! \U0001F60A"
+  utter_goodbye:
+  - text: "Tsch\xFCss!"
+  utter_rephrase/de:
+  - text: "Tut mir leid, ich habe dich nicht richtig verstanden. Kannst du das bitte\
+      \ wiederholen? \U0001F60A"
+  utter_rephrase/en:
+  - text: "I'm sorry, I didn't understand you correctly. Can you please repeat that?\
+      \ \U0001F60A"
+  utter_first_quest_correct:
+  - text: "Super, das war richtig! \U0001F64C  Damit hast du 5 Punkte gesammelt. Lass\
+      \ uns gleich weitermachen."
+  - text: "Klasse, das war richtig! \U0001F60A Du hast dir 5 Punkte verdient. Lass\
+      \ uns gleich weitermachen."
+  utter_last_and_previous_correct:
+  - text: "Super, das war ebenfalls richtig! \U0001F64C  Damit hast du 5 weitere Punkte\
+      \ gesammelt."
+  - text: "Klasse, das war ebenfalls richtig! \U0001F60A Du hast dir weitere 5 Punkte\
+      \ verdient."
+  utter_nth_and_previuos_correct:
+  - text: "Super, das war ebenfalls richtig! \U0001F64C  Damit hast du 5 weitere Punkte\
+      \ gesammelt. Mach weiter so!"
+  - text: "Klasse, das war ebenfalls richtig! \U0001F60A Du hast dir weitere 5 Punkte\
+      \ verdient. Weiter geht es!"
+  utter_last_question_users_first_time_correct_but_first_attempt:
+  - text: "Super, das war richtig! \U0001F64C  Damit hast du 5 Punkte gesammelt."
+  - text: "Klasse, das war richtig! \U0001F60A Du hast dir 5 Punkte verdient."
+  utter_last_previous_correct_not_first_attempt:
+  - text: "Super, jetzt ist es richtig! \U0001F60A Damit hast du 2 weitere Punkte\
+      \ gesammelt."
+  - text: "Klasse, jetzt ist es richtig! \U0001F64C Du hast dir 2 weitere Punkte verdient."
+  utter_nth_previous_correct_not_first_attempt:
+  - text: "Super, jetzt ist es richtig! \U0001F64C  Damit hast du 2 weitere Punkte\
+      \ gesammelt. Mach weiter so!"
+  - text: "Klasse, jetzt ist es richtig! \U0001F60A Du hast dir weitere 2 Punkte verdient.\
+      \ Weiter geht es!"
+  utter_last_quest_users_first_correct_not_first_attempt:
+  - text: "Super, jetzt ist es richtig! \U0001F60A Damit hast du 2 Punkte gesammelt."
+  - text: "Klasse, jetzt ist es richtig! \U0001F64C  Du hast dir 2 Punkte verdient."
+  utter_nth_quest_user_first_correct_not_first_attempt:
+  - text: "Super, jetzt ist es richtig! \U0001F60A Damit hast du 2 Punkte gesammelt.\
+      \ Mach weiter so!"
+  - text: "Klasse, jetzt ist es richtig! \U0001F64C   Du hast dir 2 Punkte verdient.\
+      \ Weiter geht es!"
+  utter_users_first_time_correct_but_first_attempt:
+  - text: "Super, das war richtig! \U0001F60A Damit hast du 5 Punkte gesammelt. Mach\
+      \ weiter so!\""
+  - text: "Klasse, das war richtig! \U0001F64C Du hast dir 5 Punkte verdient. Weiter\
+      \ geht es!\""
+  utter_quest_end_give_user_score:
+  - text: "Du hast insgesamt: {total_points__end_game}  Punkte erreicht. \U0001F389\
+      \nAls N\xE4chstes werden wir eine gemeinsame Lern-Session durchf\xFChren, da\
+      \ dies eine gute M\xF6glichkeit ist, dein neu erlerntes Englisch-Wissen mit\
+      \ anderen Kommilitonen auszuprobieren!\nDaf\xFCr wirst du einem Team mit Lern-Partnern,\
+      \ die auf dem gleichen Lern-Level sind wie du, zugeteilt.\nAllerdings, m\xFC\
+      ssen wir daf\xFCr in einen Gruppenchat wechseln. Wir sehen uns gleich im anderen\
+      \ Channel, {name}! \U0001F60A"
+  utter_quest_wrong:
+  - text: "Das war leider nicht richtig. Versuche es nochmal. Du hast noch einen weiteren\
+      \ Versuch f\xFCr diese Frage \xFCbrig."
+  utter_grammar_error:
+  - custom:
+      blocks:
+      - type: section
+        text:
+          type: mrkdwn
+          text: 'That was quite good, let''s have another look at your answer. *I
+            give you a hint:* '
+  utter_grammar_success:
+  - text: Well done!
+  - text: Perfect, you have solved this well
+  utter_ask_s_dp4_q0:
+  - buttons:
+    - payload: /i_dp4_q0{{"e_dp4_q0":"AFFIRM"}}
+      title: Das klingt gut!
+    text: "Da wir das Grundlagen-Kapitel erfolgreich beendet haben, lass uns dein\
+      \ neues Wissen bei einer Lern-Story anwenden!\nIch werde nicht Teil der Geschichte\
+      \ sein, damit du diese eigenst\xE4ndig bew\xE4ltigen kannst. Aber ich werde\
+      \ dich mit Feedback und Tipps zu deinen Antworten unterst\xFCtzen!\n*Spielregel*:\
+      \ Bei jeder Frage kannst du max. 5 Punkte und min. 3 Punkte holen. Allerdings\
+      \ werden pro Fehler 1 Punkt von den 5 Punkten abgezogen."
+  utter_s_dp4_intro:
+  - text: Stell dir vor, dass du zusammen mit deinem besten Freund nach Rom gereist
+      bist...
+  utter_s_dp4_q1A:
+  - custom:
+      blocks:
+      - type: section
+        text:
+          type: mrkdwn
+          text: "*Quest1A:* Erkl\xE4re dem Taxifahrer auf Englisch, dass ihr zum Kolosseum\
+            \ (_eng. Coliseum_) wollt."
+  utter_ask_s_dp4_q1B:
+  - custom:
+      blocks:
+      - type: section
+        text:
+          type: mrkdwn
+          text: '*Quest1B:* Bitte frage nun, wie teuer die Taxifahrt ist?'
+  utter_s_dp4_q2A:
+  - custom:
+      blocks:
+      - type: section
+        text:
+          type: mrkdwn
+          text: "*Quest2A:* Kaufe f\xFCr dich und deinen Freund zwei Eintrittskarten."
+  utter_ask_s_dp4_q2B:
+  - custom:
+      blocks:
+      - type: section
+        text:
+          type: mrkdwn
+          text: "*Quest2B:* Wie k\xF6nntest du nach einer Verg\xFCnstigtigung f\xFC\
+            r Studenten fragen?"
+  utter_s_dp4_q3A:
+  - custom:
+      blocks:
+      - type: section
+        text:
+          type: mrkdwn
+          text: "*Quest3A:* Erkl\xE4re den Touristen, dass dein Freund aus Braunschweig\
+            \ kommt und seit wann er dort wohnt. Bitte benutze das *Present Perfect*."
+  utter_ask_s_dp4_q3B:
+  - custom:
+      blocks:
+      - type: section
+        text:
+          type: mrkdwn
+          text: "*Quest3B:* Nun erz\xE4hle den Touristen, dass du aus Braunschweig\
+            \ kommst und seit wann du dort wohnst."
+  utter_dp4_finish:
+  - text: "Klasse, damit hast du alle Quests abgeschlossen sowie die Lern-Story 'Das\
+      \ r\xF6mische Kolosseum' erfolgreich mit {total_points} von 30 Punkten beendet.\n\
+      Lern-Stories k\xF6nnen dir helfen, dich auf reale Problemsituationen vorzubereiten.\
+      \ Ich werde dir helfen, indem ich dir im Lauf der Zeit weitere Lern-Stories\
+      \ zeige."
+actions:
+- validate_dp1_form
+- action_ask_s_dp1_q1
+- action_ask_s_dp1_q3
+- action_ask_s_dp1_q5
+- action_ask_s_dp1_q6
+- action_ask_s_dp1_q9
+- action_ask_s_dp1_q10
+- action_ask_s_dp1_end
+- action_ask_s_dp1_call_next_dp
+- validate_dp3_form
+- action_ask_s_dp3_q1
+- action_ask_s_dp3_q3
+- action_ask_s_dp3_q4
+- validate_dp3_form_voc
+- action_ask_s_dp3_v_q3
+- action_ask_s_dp3_v_q4
+- action_ask_s_dp3_v_end
+- validate_dp3_form_gram
+- action_ask_s_dp3_g_q3
+- action_ask_s_dp3_g_q4
+- action_ask_s_dp3_g_end
+- action_ask_s_dp3_display_form_button
+- action_ask_s_dp3_activate_form
+- validate_dp2_application_tasks_form
+- validate_dp2_form
+- action_ask_s_dp2_q1
+- action_ask_s_dp2_q2
+- action_ask_s_dp2_q3
+- action_ask_s_dp2_q4
+- action_ask_s_dp2_q5
+- action_ask_s_dp2_q8
+- action_ask_s_dp2_at_q1
+- action_ask_s_dp2_at_q2
+- action_ask_s_dp2_at_q3
+- action_ask_s_dp2_at_q4
+- action_ask_s_dp2_part_two_end
+- action_ask_s_dp2_part_one_end
+- action_set_reminder_set_dp
+- action_react_to_reminder_set_dp
+- action_restart
+- action_rephrase
+- action_repeat_last_quest
+- validate_get_dp_form
+- validate_set_next_form
+- action_ask_s_get_dp_form
+- action_ask_s_set_next_form
+- action_get_user_credentials
+- action_give_user_score
+- action_give_user_badges
+- action_quest_end_give_user_score
+- action_give_skills
+- action_give_stars
+- action_out_of_scope
+- action_badges_images
+- action_why_points_badges_stars
+- action_why_x_points
+- action_call_anwendungsaufgabe
+- action_ask_present_progressive
+- validate_dp4_form
+- action_ask_s_dp4_q1A
+- action_ask_s_dp4_q2A
+- action_ask_s_dp4_q3A
+- action_ask_s_dp4_end
+forms:
+  dp1_form:
+    required_slots:
+    - s_dp1_q0
+    - s_dp1_q1
+    - s_dp1_q2
+    - s_dp1_q3
+    - s_dp1_q4
+    - s_dp1_q5
+    - s_dp1_q6
+    - s_dp1_q7
+    - s_dp1_q8
+    - s_dp1_q9
+    - s_dp1_q10
+    - s_dp1_q11
+    - s_dp1_q12
+    - s_dp1_evaluation
+    - s_dp1_end
+    - s_dp1_long_term_scenario
+    - s_dp1_call_next_dp
+  dp3_form:
+    required_slots:
+    - s_dp3_q1
+    - s_dp3_q2
+    - s_dp3_q3
+    - s_dp3_q4
+  dp3_form_voc:
+    required_slots:
+    - s_dp3_v_q1
+    - s_dp3_v_q2
+    - s_dp3_v_q3
+    - s_dp3_v_evaluation
+    - s_dp3_v_q4
+    - s_dp3_v_q5
+    - s_dp3_v_q6
+    - s_dp3_v_end
+    - s_dp3_activate_form
+  dp3_form_gram:
+    required_slots:
+    - s_dp3_g_q1
+    - s_dp3_g_q2
+    - s_dp3_g_q3
+    - s_dp3_g_evaluation
+    - s_dp3_g_q4
+    - s_dp3_g_q5
+    - s_dp3_g_q6
+    - s_dp3_g_end
+    - s_dp3_activate_form
+  dp2_form:
+    required_slots:
+    - s_dp2_q0
+    - s_dp2_q1
+    - s_dp2_q1_2
+    - s_dp2_q2
+    - s_dp2_q3
+    - s_dp2_q4
+    - s_dp2_q5
+    - s_dp2_q6
+    - s_dp2_q7
+    - s_dp2_q8
+    - s_dp2_evaluation
+    - s_dp2_part_one_end
+  dp2_application_tasks_form:
+    required_slots:
+    - s_dp2_at_q1
+    - s_dp2_at_q2
+    - s_dp2_at_q3
+    - s_dp2_at_q4
+    - s_dp2_part_two_end
+  get_dp_form:
+    required_slots:
+    - s_get_dp_form
+    - s_set_next_form
+  dp4_form:
+    required_slots:
+    - s_dp4_q0
+    - s_dp4_q1A
+    - s_dp4_q1B
+    - s_dp4_q2A
+    - s_dp4_q2B
+    - s_dp4_q3A
+    - s_dp4_q3B
+    - s_dp4_end
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
