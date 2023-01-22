@@ -74,11 +74,12 @@ def validate_grammar_for_user_answer(value, json_file, name_of_slot, dispatcher,
 
 
 def check_if_user_answered_current_question(tracker, name_of_slot, dispatcher):
-  #  print('name_of_slot: ', name_of_slot)
+    print('name_of_slot: ', name_of_slot)
     for event in reversed(tracker.events):
         if event['event'] == 'slot':
+            print('event: ', event)
             if event['name'] == 'requested_slot':
-                #print('event: ', event['value'])
+                print('event: ', event['value'])
                 if event['value'] == name_of_slot:
                     return True
                 else:
@@ -88,6 +89,7 @@ def check_if_user_answered_current_question(tracker, name_of_slot, dispatcher):
 
 
 def check_if_question_is_already_answered(name_of_slot, dispatcher):
+    print('name_of_slot: ', name_of_slot)
     if user_score[name_of_slot] == 1:
         dispatcher.utter_message(
             text="Die Frage %s hast du schon vorher beantwortet. Bitte antworte auf die aktuelle Frage." % name_of_slot[len(name_of_slot)-2:])

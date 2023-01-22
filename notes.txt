@@ -15,7 +15,7 @@
     check token in credentials.yml (change it)
     rasa run --port 5002 --connector slack (wait until it is running then start ngrok)
     ngrok http 5002 (start when rasa is running)
-    https://0d9e-2a02-3102-40b6-5-b8ca-b766-115e-558c.eu.ngrok.io/webhooks/slack/webhook
+    https://7846-2a02-3102-40b6-5-3dcc-702a-c6a2-f814.eu.ngrok.io /webhooks/slack/webhook
 
 # telegram 
     ngrok http 5005

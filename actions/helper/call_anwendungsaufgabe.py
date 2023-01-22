@@ -13,7 +13,7 @@ class ActionRepeatLastQuest(Action):
     def run(self, dispatcher: "CollectingDispatcher", tracker: "Tracker", domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
         dispatcher.utter_message(
-            text="Schö, dass du dich dafür entschieden hast! 😊")
+            text="Cool, dass du dich dafür entschieden hast! 😊")
         user_score['s_dp2_at_q2'] = 0
         user_score['call_anwendungsaufgabe'] = 1
         return [UserUtteranceReverted(), SlotSet("s_dp2_at_q1", None), SlotSet("s_dp2_at_q2", None), SlotSet("s_dp2_part_two_end", None), FollowupAction("dp2_application_tasks_form")]

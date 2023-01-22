@@ -394,3 +394,18 @@ nlu:
     - [She](e_dp2_at_q2) [has lived](e_dp2_at_q2) in [Braunschweig](e_dp2_at_q2) [since](e_dp2_at_q2) 2018.
     - [She](e_dp2_at_q2) [have lived](e_dp2_at_q2) in [Braunschweig](e_dp2_at_q2) [since](e_dp2_at_q2) 2022.
     - [She](e_dp2_at_q2) [have lived](e_dp2_at_q2) in [BS](e_dp2_at_q2) [since](e_dp2_at_q2) 2018.
+
+  
+- intent: i_dp2_at_q3
+  examples: |
+    - [He](e_dp2_at_q3) [has broken](e_dp2_at_q3)  [his](e_dp2_at_q3) [leg](e_dp2_at_q3) [yesterday](e_dp2_at_q3)
+    - [He](e_dp2_at_q3) has [broken](e_dp2_at_q3)  [his](e_dp2_at_q3) [leg](e_dp2_at_q3) [yesterday](e_dp2_at_q3)
+    - [he](e_dp2_at_q3) [has broken](e_dp2_at_q3)  his [leg](e_dp2_at_q3) [yesterday](e_dp2_at_q3)
+
+- intent: i_dp2_at_q4
+  examples: |
+    - [She](e_dp2_at_q4) [has never been](e_dp2_at_q4)  to [london](e_dp2_at_q4) 
+    - [she](e_dp2_at_q4) [has never been](e_dp2_at_q4)  to [London](e_dp2_at_q4) 
+    - [she](e_dp2_at_q4) has [never been](e_dp2_at_q4)  to [London](e_dp2_at_q4)  
+    - [she](e_dp2_at_q4) [has](e_dp2_at_q4) never been  to [London](e_dp2_at_q4)
+    - [she](e_dp2_at_q4) [has](e_dp2_at_q4) never been  to [london](e_dp2_at_q4)
