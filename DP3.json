@@ -2,8 +2,11 @@
 
     "s_dp3_q1": { 
         "goal": {
-            "abroad": "'Ich möchte bis Ende des Jahres diese Level abgeschlossen haben, um gut vorbereitet in mein Auslandsssemester zu gehen.'",
-            "grades": "'Ich möchte bis Ende des Jahres diese Level abgeschlossen haben, um gute Noten zu bekommen.'"
+            "berufliche_weiterentwicklung": "'Ich möchte bis %s dieses Level abgeschlossen haben, um meine beruflichen Ziele zu erreichen.'",
+            "toefl_test": "'Ich möchte bis %s dieses Level abgeschlossen haben, um für meinen TOEFL-Test gewappnet zu sein.'",
+            "reisen": "'Ich möchte bis %s dieses Level abgeschlossen haben, um gut vorbereitet für meine nächste große Reise zu sein.'",
+            "auslandssemester":"'Ich möchte bis %s dieses Level abgeschlossen haben, um gut vorbereitet in mein Auslandssemester zu gehen.'",
+            "noten": "'Ich möchte bis %s dieses Level abgeschlossen haben, um gute Noten zu bekommen.'"
         }
     },
     "s_dp3_v_q1": {

@@ -1,5 +1,5 @@
-#version: "3.0" #local dev
-version: "3.1" #okteto
+version: "3.0" #local dev
+#version: "3.1" #okteto
 stories:
 
 - story: Start Conversation

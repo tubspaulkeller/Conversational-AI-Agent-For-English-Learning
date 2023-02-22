@@ -1,10 +1,12 @@
+from slack_bolt.adapter.socket_mode import SocketModeHandler
+from slack_bolt import App
 from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker, FormValidationAction
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import UserUtteranceReverted, FollowupAction, AllSlotsReset, Restarted
 import requests
 import json
-
+from datetime import datetime, date
 
 # imports from different files
 from actions.gamification.evaluate_user_scoring import evaluate_users_answer
@@ -22,19 +24,77 @@ class ValidateDP3Form(FormValidationAction):
         # Unique identifier of the form"
         return "validate_dp3_form"
 
+    async def required_slots(
+        self,
+        domain_slots: List[Text],
+        dispatcher: "CollectingDispatcher",
+        tracker: "Tracker",
+        domain: "DomainDict",
+    ) -> List[Text]:
+        """
+        updates the order of the slots that should be requested
+        """
+        updated_slots = domain_slots.copy()
+        if tracker.slots.get("s_dp3_q2") == 'affirm':
+            # there we will skip next slot
+            updated_slots.remove("s_dp3_date")
+            updated_slots.remove("s_dp3_date_confirm")
+        return updated_slots
+
     def validate_s_dp3_q1(self, slot_value: Any, dispatcher: CollectingDispatcher, tracker: Tracker, domain: "DomainDict") -> Dict[Text, Any]:
         """ validates the first question of DP3. The user can choose his learning goal """
         dp3 = get_dp_inmemory_db("DP3.json")
-        self.utter_learn_goal(dispatcher, dp3, slot_value)
+        self.utter_learn_goal(dispatcher, dp3, slot_value,
+                              'Das klingt interessant! Ich würde daraus folgendes Lernziel forumlieren:', 'Ende des Jahres', " ")
         return {"s_dp3_q1": slot_value}
 
     def validate_s_dp3_q2(self, slot_value: Any, dispatcher: CollectingDispatcher, tracker: Tracker, domain: "DomainDict") -> Dict[Text, Any]:
         """ validates the second question of DP3. The user can affirm or deny his learning goal """
+
         if slot_value == "affirm":
             self.utter_affirm_learn_goal(dispatcher)
             return {"s_dp3_q2": "affirm"}
-        elif slot_value == "deny":
-            return {"s_dp3_q2": "deny"}
+        else:
+
+            dispatcher.utter_message(
+                response="utter_s_dp3_q2/%s" % slot_value)
+
+            return {"s_dp3_q2": slot_value}
+
+    def validate_s_dp3_date(self, slot_value: Any, dispatcher: CollectingDispatcher, tracker: Tracker, domain: "DomainDict") -> Dict[Text, Any]:
+        """ validates the date of the third question of DP3. The user can choose a date for his learning goal """
+        date_picker = None
+        dp3 = get_dp_inmemory_db("DP3.json")
+        goal = tracker.get_slot("s_dp3_q1")
+
+        for event in reversed(tracker.events):
+            if event['event'] == 'user' and event['parse_data']['intent']['name'] == 'i_date':
+                date_picker = event['parse_data']['text']
+                break
+        if date_picker == None:
+            dispatcher.utter_message(
+                text="Bitte wähle ein Datum in der Zukunft aus.")
+            return {"s_dp3_date": None}
+
+        today = date.today().strftime("%Y-%m-%d")
+        today_date = datetime.strptime(today, "%Y-%m-%d")
+        user_date = datetime.strptime(date_picker, "%Y-%m-%d")
+
+        # check if the user wants to learn longer than one year
+
+        if tracker.get_slot("s_dp3_q2") == 'need_longer' and user_date.year == today_date.year:
+            dispatcher.utter_message(
+                text="Bitte wähle ein Datum aus, welches später als 'Ende dieses Jahres ist', da du dich entschieden hast, dir länger Zeit für dein Ziel zu nehmen.")
+            return {"s_dp3_date": None}
+
+        if user_date <= today_date:
+            dispatcher.utter_message(
+                text="Bitte wähle ein Datum in der Zukunft aus.")
+            return {"s_dp3_date": None}
+
+        self.utter_learn_goal(dispatcher, dp3, goal, 'Ich habe dein Lernziel bezüglich des Datums angepasst:', 'zum %s' % datetime.strptime(
+            date_picker, '%Y-%m-%d').strftime('%d.%m.%Y'), '\nKlicke auf den Button, um fortzufahren.')
+        return {"s_dp3_date": date_picker}
 
     def validate_dp3(name_of_slot):
         """validates the following questions of DP3. The answers has not be checked at all bcs they are checked at different actions. """
@@ -46,6 +106,7 @@ class ValidateDP3Form(FormValidationAction):
             tracker: Tracker,
             domain: Dict[Text, Any],
         ) -> Dict[Text, Any]:
+            print("test", value)
             return {name_of_slot: value}
         return validate_slot
 ############################################################################################################
@@ -57,13 +118,14 @@ class ValidateDP3Form(FormValidationAction):
         dispatcher.utter_message(response="utter_affirm_learn_goal")
 
     @staticmethod
-    def utter_learn_goal(dispatcher, dp_n, value):
+    def utter_learn_goal(dispatcher, dp_n, value, pre_text, deadline, post_text):
+        text = dp_n['s_dp3_q1']["goal"][value] % deadline
         learn_goal = {
             "blocks": [
                 {
                     "type": "section",
                     "text": {
-                        "text": "Das klingt interessant! Ich würde daraus folgendes Lernziel forumlieren:\n *%s*" % dp_n["s_dp3_q1"]["goal"][value],
+                        "text": pre_text + "\n *%s*" % text + post_text,
                         "type": "mrkdwn"
                     }
                 }
@@ -72,6 +134,8 @@ class ValidateDP3Form(FormValidationAction):
         dispatcher.utter_message(
             json_message=learn_goal)
 
+    validate_s_dp3_date_confirm = validate_dp3(
+        name_of_slot="s_dp3_date_confirm")
     validate_s_dp3_q3 = validate_dp3(name_of_slot="s_dp3_q3")
     validate_s_dp3_q4 = validate_dp3(name_of_slot="s_dp3_q4")
 

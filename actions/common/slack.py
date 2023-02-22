@@ -17,6 +17,7 @@ async def get_user(id, tracker):
             return user_cred['user']['profile']['first_name']
             # l_name = user_cred['user']['profile']['last_name']
             # email = user_cred['user']['profile']['email']
+
         else:
             return tracker.get_slot("first_name")
     except Exception as e:
