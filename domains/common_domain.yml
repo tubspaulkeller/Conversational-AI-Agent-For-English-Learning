@@ -110,6 +110,8 @@ responses:
 actions: 
   - action_set_reminder_set_dp
   - action_react_to_reminder_set_dp
+  - action_get_skills
+  - action_set_slots_none
   - action_restart
   - action_rephrase
   - action_repeat_last_quest

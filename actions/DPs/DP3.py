@@ -12,6 +12,7 @@ from datetime import datetime, date
 from actions.gamification.evaluate_user_scoring import evaluate_users_answer
 from actions.helper.check_grammar_of_users_input import validate_grammar_for_user_answer
 from actions.common.common import get_dp_inmemory_db, get_slots_for_dp
+from actions.helper.learn_goal import generate_learn_goal, is_user_accepting_learn_goal, customize_learn_goal
 
 ############################################################################################################
 ##### DP3 #####
@@ -43,58 +44,16 @@ class ValidateDP3Form(FormValidationAction):
 
     def validate_s_dp3_q1(self, slot_value: Any, dispatcher: CollectingDispatcher, tracker: Tracker, domain: "DomainDict") -> Dict[Text, Any]:
         """ validates the first question of DP3. The user can choose his learning goal """
-        dp3 = get_dp_inmemory_db("DP3.json")
-        self.utter_learn_goal(dispatcher, dp3, slot_value,
-                              'Das klingt interessant! Ich würde daraus folgendes Lernziel forumlieren:', 'Ende des Jahres', " ")
-        return {"s_dp3_q1": slot_value}
+        return generate_learn_goal('s_dp3_q1', dispatcher, slot_value,
+                                   'Das klingt interessant! Ich würde daraus folgendes Lernziel forumlieren:', 'Ende des Jahres', " ")
 
     def validate_s_dp3_q2(self, slot_value: Any, dispatcher: CollectingDispatcher, tracker: Tracker, domain: "DomainDict") -> Dict[Text, Any]:
         """ validates the second question of DP3. The user can affirm or deny his learning goal """
-
-        if slot_value == "affirm":
-            self.utter_affirm_learn_goal(dispatcher)
-            return {"s_dp3_q2": "affirm"}
-        else:
-
-            dispatcher.utter_message(
-                response="utter_s_dp3_q2/%s" % slot_value)
-
-            return {"s_dp3_q2": slot_value}
+        return is_user_accepting_learn_goal('s_dp3_q2', slot_value, dispatcher)
 
     def validate_s_dp3_date(self, slot_value: Any, dispatcher: CollectingDispatcher, tracker: Tracker, domain: "DomainDict") -> Dict[Text, Any]:
         """ validates the date of the third question of DP3. The user can choose a date for his learning goal """
-        date_picker = None
-        dp3 = get_dp_inmemory_db("DP3.json")
-        goal = tracker.get_slot("s_dp3_q1")
-
-        for event in reversed(tracker.events):
-            if event['event'] == 'user' and event['parse_data']['intent']['name'] == 'i_date':
-                date_picker = event['parse_data']['text']
-                break
-        if date_picker == None:
-            dispatcher.utter_message(
-                text="Bitte wähle ein Datum in der Zukunft aus.")
-            return {"s_dp3_date": None}
-
-        today = date.today().strftime("%Y-%m-%d")
-        today_date = datetime.strptime(today, "%Y-%m-%d")
-        user_date = datetime.strptime(date_picker, "%Y-%m-%d")
-
-        # check if the user wants to learn longer than one year
-
-        if tracker.get_slot("s_dp3_q2") == 'need_longer' and user_date.year == today_date.year:
-            dispatcher.utter_message(
-                text="Bitte wähle ein Datum aus, welches später als 'Ende dieses Jahres ist', da du dich entschieden hast, dir länger Zeit für dein Ziel zu nehmen.")
-            return {"s_dp3_date": None}
-
-        if user_date <= today_date:
-            dispatcher.utter_message(
-                text="Bitte wähle ein Datum in der Zukunft aus.")
-            return {"s_dp3_date": None}
-
-        self.utter_learn_goal(dispatcher, dp3, goal, 'Ich habe dein Lernziel bezüglich des Datums angepasst:', 'zum %s' % datetime.strptime(
-            date_picker, '%Y-%m-%d').strftime('%d.%m.%Y'), '\nKlicke auf den Button, um fortzufahren.')
-        return {"s_dp3_date": date_picker}
+        return customize_learn_goal('s_dp3_date', 's_dp3_q1', 's_dp3_q2', dispatcher, tracker)
 
     def validate_dp3(name_of_slot):
         """validates the following questions of DP3. The answers has not be checked at all bcs they are checked at different actions. """
@@ -109,30 +68,8 @@ class ValidateDP3Form(FormValidationAction):
             print("test", value)
             return {name_of_slot: value}
         return validate_slot
-############################################################################################################
-        #### utter_messages for DP3 #####
-############################################################################################################
 
-    @staticmethod
-    def utter_affirm_learn_goal(dispatcher):
-        dispatcher.utter_message(response="utter_affirm_learn_goal")
-
-    @staticmethod
-    def utter_learn_goal(dispatcher, dp_n, value, pre_text, deadline, post_text):
-        text = dp_n['s_dp3_q1']["goal"][value] % deadline
-        learn_goal = {
-            "blocks": [
-                {
-                    "type": "section",
-                    "text": {
-                        "text": pre_text + "\n *%s*" % text + post_text,
-                        "type": "mrkdwn"
-                    }
-                }
-            ]
-        }
-        dispatcher.utter_message(
-            json_message=learn_goal)
+############################################################################################################
 
     validate_s_dp3_date_confirm = validate_dp3(
         name_of_slot="s_dp3_date_confirm")

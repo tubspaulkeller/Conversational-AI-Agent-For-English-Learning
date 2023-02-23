@@ -2,20 +2,20 @@ from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker, FormValidationAction
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import UserUtteranceReverted, FollowupAction, AllSlotsReset, Restarted, SlotSet, EventType
+import time
 
 
 class AskForSlotAction(Action):
 
     def name(self) -> Text:
-        return "action_ask_s_set_next_form"
+        return "action_ask_s_lg_0"
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker,
             domain: Dict) -> List[EventType]:
-        """ the next form is set, which got selected by the user """
+        # TODO überprüfen ob DP3 schon gemacht wurde
 
-        next_form = tracker.get_slot("s_get_dp_form")
+        # wenn DP3 gemacht wurde dann kann Ziel angepasst werden
 
-        if next_form == 'SKILLS':
-            return [FollowupAction("action_get_skills"), SlotSet("s_set_next_form", "SKILLS")]
+        dispatcher.utter_message(response="utter_s_lg_0")
 
-        return [FollowupAction(next_form), SlotSet("s_set_next_form", next_form)]
+        return []

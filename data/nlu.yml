@@ -34,6 +34,15 @@ nlu:
     - restart bitte 
 
 
+- intent: i_adjust_learn_goal
+  examples: |
+    - Lernziel anpassen
+    - ich will meine lernziele anpassen
+    - Lernziel 
+    - kann ich mein Lernziel anpassen
+    - Ben ich will mein Lernziel anpassen
+    - anpassen des Lernziels bitte 
+
 - intent: i_ask_last_question
   examples: |
     - /repeat

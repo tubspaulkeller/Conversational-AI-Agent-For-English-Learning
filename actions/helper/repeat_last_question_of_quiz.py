@@ -14,6 +14,7 @@ class ActionRepeatLastQuest(Action):
 
     def run(self, dispatcher: "CollectingDispatcher", tracker: "Tracker", domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         """ Repeats the last question of the quiz question which was asked by the bot """
+        print("DEBUG: repeat last question of quiz")
         for event in reversed(tracker.events):
             if event['event'] == 'bot':
                 last_action = event['metadata'].get('utter_action')

@@ -96,3 +96,13 @@ rules:
   - action: action_quest_end_give_user_score
   - intent: i_goodbye
   - action: utter_goodbye
+
+
+
+- rule: User can adjust his learn goal
+  steps:
+  - intent: i_adjust_learn_goal
+  - action: action_set_slots_none
+  - action: learngoals_form
+  - active_loop: learngoals_form
+  - active_loop: null

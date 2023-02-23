@@ -1,0 +1,127 @@
+version: "3.0"
+
+intents: 
+  - i_adjust_learn_goal
+  - i_lg_0:
+      use_entities: e_lg_0
+  - i_lg_1:
+      use_entities: e_lg_1
+  - i_lg_2:
+      use_entities: e_lg_2
+  - i_lg_3:
+      use_entities: e_lg_3
+  - i_lg_4:
+      use_entities: e_lg_4
+
+
+entities:
+  - e_lg_0
+  - e_lg_1
+  - e_lg_2
+  - e_lg_3
+  - e_lg_4
+
+slots:
+  s_lg_0:  
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_lg_0
+  
+  s_lg_1:  
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_lg_1
+
+  s_lg_2:  
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_lg_2
+  
+  s_lg_3:  
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_lg_3
+
+  s_lg_4:  
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_lg_4
+
+responses: 
+
+  utter_s_lg_0:
+  - buttons:
+    - payload: /i_lg_0{{"e_lg_0":"berufliche_weiterentwicklung"}}
+      title: Berufliche Weiterentwicklung
+    - payload: /i_lg_0{{"e_lg_0":"toefl_test"}}
+      title: TOEFL-Test
+    - payload: /i_lg_0{{"e_lg_0":"reisen"}}
+      title: Vorbereitet sein für's Reisen
+    - payload: /i_lg_0{{"e_lg_0":"auslandssemester"}}
+      title: Auslandssemester
+    - payload: /i_lg_0{{"e_lg_0":"noten"}}
+      title: Bessere Noten
+    text: "Du kannst dein Lernziel gerne anpassen. Welches dieser Themen motiviert dich denn am meisten für diesen Kurs?"
+
+  utter_s_lg_0/repeat:
+  - buttons:
+    - payload: /i_lg_0{{"e_lg_0":"berufliche_weiterentwicklung"}}
+      title: Berufliche Weiterentwicklung
+    - payload: /i_lg_0{{"e_lg_0":"toefl_test"}}
+      title: TOEFL-Test
+    - payload: /i_lg_0{{"e_lg_0":"reisen"}}
+      title: Vorbereitet sein für's Reisen
+    - payload: /i_lg_0{{"e_lg_0":"auslandssemester"}}
+      title: Auslandssemester
+    - payload: /i_lg_0{{"e_lg_0":"noten"}}
+      title: Bessere Noten
+    text: " "
+
+  utter_ask_s_lg_1:
+  - buttons:
+    - payload: /i_lg_1{{"e_lg_1":"affirm"}}
+      title: Festlegen
+    - payload: /i_lg_1{{"e_lg_1":"deny"}}
+      title: Anderes Ziel wählen
+    - payload: /i_lg_1{{"e_lg_1":"need_longer"}}
+      title: Brauche länger für mein Ziel
+    - payload: /i_lg_1{{"e_lg_1":"faster"}}
+      title: Schaffe mein Ziel schneller
+    text: "Soll ich das uns als übergeordnetes Lernziel für diesen Kurs festlegen? Oder möchtest du ein anderes Thema als Lernziel wählen? 🤔"
+
+  utter_s_lg_2/need_longer:
+  - text: Gar kein Problem! Es ist vollkommen richtig, auf das eigene Tempo zu achten & die Zeit gesund einzuteilen. Bis wann möchtest du diesen Kurs beenden?
+  
+  utter_s_lg_2/faster: 
+  - text: Du gibst ja ganz schön Gas! Bis wann möchtest du denn diesen Kurs beenden? 
+
+  utter_ask_s_lg_3:
+  - buttons:
+    - payload: /i_lg_3{{"e_lg_3":"Vokabelziel anpassen"}}
+      title: Vokabel Ziel anpassen
+    - payload: /i_lg_3{{"e_lg_3":"Grammatikziel anpassen"}}
+      title: Grammatik Ziel anpassen
+    - payload: /i_lg_3{{"e_lg_3":"Exit"}}
+      title: Exit
+    text: "Möchtest du deine Ziele für die jeweilige Lektion auch anpassen?"
+
+actions:
+  - validate_learngoals_form
+  - action_ask_s_lg_0
+  - action_ask_s_lg_2
+  - action_ask_s_lg_4
+
+
+forms:
+  learngoals_form:
+    required_slots:
+    - s_lg_0
+    - s_lg_1
+    - s_lg_2
+    - s_lg_3
+    - s_lg_4
