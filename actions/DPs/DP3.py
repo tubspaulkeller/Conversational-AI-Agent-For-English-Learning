@@ -128,9 +128,13 @@ class ValidateDP3VOCForm(FormValidationAction):
     ) -> Dict[Text, Any]:
         """ validates the second question of DP3. It does not need to be validated bcs it is checked at the action """
         if value == "affirm":
-            # TODO überprüfe ob Grammar section schon gemacht wurde
-            dispatcher.utter_message(
-                text="Perfekt! Dann können wir ja jetzt mit den Vokabeln starten!\nÜbrigens: Sobald du die Grammatik Lektion startest, können wir auch dafür ein separates Ziel anlegen. 😁")
+            if tracker.slots.get("s_dp3_q4") == "grammar_form":
+                dispatcher.utter_message(
+                    text="Perfekt! Dann können wir ja jetzt mit den Vokabeln starten!\n 😁")
+            else:
+                dispatcher.utter_message(
+                    text="Perfekt! Dann können wir ja jetzt mit den Vokabeln starten!\nÜbrigens: Sobald du die Grammatik Lektion startest, können wir auch dafür ein separates Ziel anlegen. 😁")
+
         return {"s_dp3_v_q2": value}
 
     def validate_s_dp3_v_evaluation(
@@ -272,9 +276,13 @@ class ValidateDP3GRAMForm(FormValidationAction):
     ) -> Dict[Text, Any]:
         """ does not need to be validated bcs it is checked at different action """
         if value == "affirm":
-            # TODO ANPASSEN ÜRBIGENS
-            dispatcher.utter_message(
-                text="Perfekt! Dann können wir ja jetzt mit der Grammatik starten!\nÜbrigens: Sobald du die Vokabel Lektion startest, können wir auch dafür ein separates Ziel anlegen. 😁")
+            if tracker.slots.get("s_dp3_q4") == "grammar_form":
+                dispatcher.utter_message(
+                    text="Perfekt! Dann können wir ja jetzt mit der Grammatik starten!\nÜbrigens: Sobald du die Vokabel Lektion startest, können wir auch dafür ein separates Ziel anlegen. 😁")
+            else:
+                dispatcher.utter_message(
+                    text="Perfekt! Dann können wir ja jetzt mit der Grammatik starten! 😁")
+
         return {"s_dp3_g_q2": value}
 
     def validate_s_dp3_g_evaluation(

@@ -14,7 +14,6 @@ class AskForSlotAction(Action):
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker,
             domain: Dict) -> List[EventType]:
         user_selection = tracker.slots.get("s_lg_intro")
-        # TODO BUTTON MIT INFO ÜBER LERNZIELE
         if user_selection == "EXIT":
             return [UserUtteranceReverted(), SlotSet("s_get_dp_form", None), SlotSet("s_set_next_form", None), FollowupAction("get_dp_form")]
 
@@ -28,8 +27,7 @@ class AskForSlotAction(Action):
             dispatcher.utter_message(response="utter_s_lg_0/grammatikziel")
 
         if user_selection == "INFO":
-            # TODO INFO ÜBER LERNZIELE
-            # TODO gloable SLOTS für Lernziele in DP3 anpassen
+            # TODO gloable SLOTS für Teil-Lernziele in DP3 anpassen
 
             oberziel = tracker.get_slot("s_oberziel")
             vokabelziel = tracker.get_slot("s_vokabelziel")

@@ -13,7 +13,6 @@ def give_user_feedback_on_learn_goal_if_he_changes(slot_value, goal_slot_value, 
 
 
 def get_overall_learn_goal(dp_n, overall_goal_slot_value, tracker):
-    # TODO OVERALL GOAL ANPASSEN
     oberziel = tracker.get_slot("s_oberziel")
     print("oberziel: ", oberziel)
     return {
