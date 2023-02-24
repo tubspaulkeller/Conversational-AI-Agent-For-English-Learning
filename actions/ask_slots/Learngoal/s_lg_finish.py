@@ -4,6 +4,7 @@ from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import UserUtteranceReverted, FollowupAction, AllSlotsReset, Restarted, SlotSet, EventType
 import time
 from actions.common.common import get_dp_inmemory_db
+from actions.helper.learn_goal import get_key_for_json
 
 
 class AskForSlotAction(Action):
@@ -17,6 +18,7 @@ class AskForSlotAction(Action):
         goal = " "
         slot = " "
         user_selection = tracker.slots.get("s_lg_intro")
+        key, pretext, deadline = get_key_for_json(user_selection, tracker)
         # in s_lg_2 ist custom goal
         if tracker.get_slot("s_lg_2") != None:
             goal = tracker.get_slot("s_lg_2")
@@ -24,7 +26,7 @@ class AskForSlotAction(Action):
             dp3 = get_dp_inmemory_db('DP3.json')
             topic = tracker.slots.get("s_lg_0")
             deadline = "bis zum Ende des Jahres"
-            goal = dp3["s_dp3_q1"]["goal"][topic] % deadline
+            goal = dp3[key]["goal"][topic] % deadline
 
         if user_selection == "oberziel":
             slot = "s_oberziel"
