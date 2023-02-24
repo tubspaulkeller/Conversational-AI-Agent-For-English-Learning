@@ -42,6 +42,13 @@ nlu:
     - kann ich mein Lernziel anpassen
     - Ben ich will mein Lernziel anpassen
     - anpassen des Lernziels bitte 
+    - Lernziel ändern
+    - Lernziel tauschen
+    - Lernziel neu bestimmen 
+    - Ich will mein Lernziel ändern
+    - Ich will mein Lernziel tauschen
+    -Ich will mein Lernziel neu bestimmen 
+
 
 - intent: i_ask_last_question
   examples: |
