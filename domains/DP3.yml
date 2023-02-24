@@ -67,6 +67,22 @@ entities:
 - e_activate_form_grammatik
 
 slots:
+
+  s_oberziel:
+    type: text
+    mappings:
+    - type: custom
+  
+  s_vokabelziel:
+    type: text
+    mappings: 
+    - type: custom 
+  
+  s_grammatikziel:
+    type: text
+    mappings:
+    - type: custom 
+
   s_dp3_q1:
     type: text
     mappings:

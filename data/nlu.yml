@@ -191,6 +191,48 @@ nlu:
     - warum erhalte ich [Punkte](e_why_points_badges_stars) und [Sterne](e_why_points_badges_stars)?
     - wofür erhalte ich [Sterne](e_why_points_badges_stars) und [Punkte](e_why_points_badges_stars)?
     - wofür erhalte ich [Punkte](e_why_points_badges_stars) und [Sterne](e_why_points_badges_stars)?
+    - wofür bekomme ich [Punkte](e_why_points_badges_stars)?
+    - warum bekomme ich [Punkte](e_why_points_badges_stars)?
+    - wofür bekomme ich [Abzeichen](e_why_points_badges_stars)?
+    - warum bekomme ich [Abzeichen](e_why_points_badges_stars)?
+    - wofür bekomme ich [badges](e_why_points_badges_stars)?
+    - warum bekomme ich [badges](e_why_points_badges_stars)?
+    - wofür bekomme ich [stars](e_why_points_badges_stars)?
+    - warum bekomme ich [stars](e_why_points_badges_stars)?
+    - wofür bekomme ich [Sterne](e_why_points_badges_stars)?
+    - warum bekomme ich [Sterne](e_why_points_badges_stars)?
+    - warum bekomme ich [Sterne](e_why_points_badges_stars) und [Punkte](e_why_points_badges_stars)?
+    - warum bekomme ich [Punkte](e_why_points_badges_stars) und [Sterne](e_why_points_badges_stars)?
+    - was bringen [Sterne](e_why_points_badges_stars) und [Punkte](e_why_points_badges_stars)?
+    - was bringen [Punkte](e_why_points_badges_stars) und [Sterne](e_why_points_badges_stars)?
+    - was bringen [Punkte](e_why_points_badges_stars)?
+    - was bringen [Abzeichen](e_why_points_badges_stars)?
+    - was bringen [badges](e_why_points_badges_stars)?
+    - was bringen [stars](e_why_points_badges_stars)?
+    - was bringen [Sterne](e_why_points_badges_stars)?
+    - was bringen [Punkte](e_why_points_badges_stars) und [Sterne](e_why_points_badges_stars)?
+    - was bedeuten [Sterne](e_why_points_badges_stars) und [Punkte](e_why_points_badges_stars)?
+    - was bedeuten [Punkte](e_why_points_badges_stars) und [Sterne](e_why_points_badges_stars)?
+    - was bedeuten [Sterne](e_why_points_badges_stars) und [Punkte](e_why_points_badges_stars)?
+    - was bedeuten  [Punkte](e_why_points_badges_stars) und [Sterne](e_why_points_badges_stars)?
+    - was bedeuten  [Punkte](e_why_points_badges_stars)?
+    - was bedeuten [Abzeichen](e_why_points_badges_stars)?
+    - was bedeuten  [badges](e_why_points_badges_stars)?
+    - was bedeuten  [stars](e_why_points_badges_stars)?
+    - was bedeuten  [Sterne](e_why_points_badges_stars)?
+    - was bedeuten  [Punkte](e_why_points_badges_stars) und [Sterne](e_why_points_badges_stars)?
+    - warun [Punkte](e_why_points_badges_stars) und [Sterne](e_why_points_badges_stars)?
+    - was bedeuten [Sterne](e_why_points_badges_stars) und [Punkte](e_why_points_badges_stars)?
+    - warum [Punkte](e_why_points_badges_stars) und [Sterne](e_why_points_badges_stars)?
+    - warum [Sterne](e_why_points_badges_stars) und [Punkte](e_why_points_badges_stars)?
+    - warum  [Punkte](e_why_points_badges_stars) und [Sterne](e_why_points_badges_stars)?
+    - warum  [Punkte](e_why_points_badges_stars)?
+    - warum [Abzeichen](e_why_points_badges_stars)?
+    - warum  [badges](e_why_points_badges_stars)?
+    - warum  [stars](e_why_points_badges_stars)?
+    - warum  [Sterne](e_why_points_badges_stars)?
+    - warum  [Punkte](e_why_points_badges_stars) und [Sterne](e_why_points_badges_stars)?
+
 
 - intent: i_ask_why_x_points
   examples: |
@@ -206,6 +248,28 @@ nlu:
     - Warum erhalte ich nur [2](e_why_x_points) Punkte?
     - Wofür erhalte ich [2](e_why_x_points) Punkte?
     - Wieso [2](e_why_x_points) Punkte?
+    - Warum bekomme ich [5](e_why_x_points) Punkte?
+    - Wofür bekomme ich [5](e_why_x_points) Punkte?
+    - Wieso [5](e_why_x_points) Punkte?
+    - Warum bekomme ich [4](e_why_x_points) Punkte?
+    - Wofür bekomme ich [4](e_why_x_points) Punkte?
+    - Wieso [4](e_why_x_points) Punkte?
+    - Warum bekomme ich [3](e_why_x_points) Punkte?
+    - Wofür bekomme ich [3](e_why_x_points) Punkte?
+    - Wieso [3](e_why_x_points) Punkte?
+    - Warum bekomme ich nur [2](e_why_x_points) Punkte?
+    - Wofür bekomme ich [2](e_why_x_points) Punkte?
+    - Wieso [2](e_why_x_points) Punkte?
+    - Was bringen [3](e_why_x_points) Punkte?
+    - Was bringen [3](e_why_x_points) Punkte?
+    - Was bringen [2](e_why_x_points) Punkte?
+    - Was bringen [2](e_why_x_points) Punkte?
+    - Was bringen [2](e_why_x_points) Punkte?
+    - warum [3](e_why_x_points) Punkte?
+    - warum [3](e_why_x_points) Punkte?
+    - warum [2](e_why_x_points) Punkte?
+    - warum [2](e_why_x_points) Punkte?
+    - warum [2](e_why_x_points) Punkte?
     
 - intent: i_call_anwendungsaufgabe
   examples: |

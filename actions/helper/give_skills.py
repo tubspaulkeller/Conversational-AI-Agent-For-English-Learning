@@ -3,6 +3,8 @@ from rasa_sdk import Action, Tracker, FormValidationAction
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import UserUtteranceReverted, FollowupAction, AllSlotsReset, Restarted, SlotSet, EventType
 
+from actions.common.common import markdown_formatting
+
 
 class ActionRepeatLastQuest(Action):
     def name(self) -> Text:
@@ -11,7 +13,6 @@ class ActionRepeatLastQuest(Action):
     def run(self, dispatcher: "CollectingDispatcher", tracker: "Tracker", domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         """ total points are given to the user """
         # TODO Ziel formulierung anpassen!
-        dispatcher.utter_message(
-            text="Mein Name ist Ben und ich bin dein persönlicher Assistent. Ich helfe dir dabei, deine Englisch-Fähigkeiten zu verbessern. 🤖\n Frage mich gerne jeder Zeit zu deinen:\n- erzielten Punkten 🎯\n- gesammelten Sternen 🌟\n- verdienten Abzeichen 🎖\nGerne erkläre ich dir auch, wofür du Punkte, Sterne oder Abzeichen erhälst.\n\n Mit 'Was war die letzte Frage' o.ä. kehren wir anschließend zur Quiz-Frage zurück.\nUm mich neuzustarten, tippe bitte 'restart' ein. 😎")
-
+        text = "Frage mich gerne jeder Zeit zu deinen:\n- erzielten Punkten 🎯\n- gesammelten Sternen 🌟\n- verdienten Abzeichen 🎖\n\n Außerdem *erkläre* ich dir gerne, *wofür du Punkte, Abzeichen und Sterne erhältst*, damit du genau weißt, welche Leistungen ich belohne und wie du noch besser werden kannst, frag mich einfach nach dem jeweiligen Element z.B. _Wofür stehen Sterne?_\nFalls wir während deinen Fragen in einem Quiz stecken, kannst du jederzeit zur *letzten Quiz-Frage zurückkehren*, frag mich einfach nach der letzten Frage. \n\nUnd wenn du dein *Lernziel anpassen* möchtest, weil du vielleicht noch intensiver lernen möchtest oder dein Tempo verändern willst, dann ist das überhaupt kein Problem! Sag mir einfach bescheid, dass du dein Lernziel anpassen möchtest.\n\nFalls du mich neustarten willst, schreib mir ein einfaches *restart*. 😎"
+        dispatcher.utter_message(json_message=markdown_formatting(text))
         return [UserUtteranceReverted(), FollowupAction(tracker.active_form.get('latest_action_name'))]

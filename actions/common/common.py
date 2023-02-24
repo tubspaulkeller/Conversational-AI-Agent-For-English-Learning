@@ -25,3 +25,18 @@ def get_credentials(keyname):
         )
     except:
         return os.getenv(keyname)
+
+
+def markdown_formatting(text):
+    """ format the text to markdown """
+    return {
+        "blocks": [
+            {
+                "type": "section",
+                "text": {
+                    "text": text,
+                    "type": "mrkdwn"
+                }
+            }
+        ]
+    }

@@ -20,7 +20,7 @@ action_endpoint:
 #    username: tubspkeller
 #    password: companiondev+1
 
-tracker_store:
-  type: actions.myTracker.MyCustomTracker
-  url: mongodb+srv://tubspkeller:companiondev+1@cluster0.wox1fna.mongodb.net/?retryWrites=true&w=majority
+#tracker_store:
+ # type: actions.myTracker.MyCustomTracker
+ # url: mongodb+srv://tubspkeller:companiondev+1@cluster0.wox1fna.mongodb.net/?retryWrites=true&w=majority
 

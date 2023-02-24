@@ -3,6 +3,7 @@ from rasa_sdk import Action, Tracker, FormValidationAction
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import UserUtteranceReverted, FollowupAction, AllSlotsReset, Restarted, SlotSet, EventType
 import time
+from actions.common.common import markdown_formatting
 
 
 class AskForSlotAction(Action):
@@ -26,4 +27,19 @@ class AskForSlotAction(Action):
         if user_selection == "grammatikziel":
             dispatcher.utter_message(response="utter_s_lg_0/grammatikziel")
 
+        if user_selection == "INFO":
+            # TODO INFO ÜBER LERNZIELE
+            # TODO gloable SLOTS für Lernziele in DP3 anpassen
+
+            oberziel = tracker.get_slot("s_oberziel")
+            vokabelziel = tracker.get_slot("s_vokabelziel")
+            grammatikziel = tracker.get_slot("s_grammatikziel")
+
+            text = "Deine aktuellen Lernziele sind:\n\n* Oberziel: " + oberziel + "\n* Vokabelziel: " + \
+                vokabelziel + "\n* Grammatikziel: " + grammatikziel + \
+                "\n\nDu kannst diese jederzeit ändern."
+
+            dispatcher.utter_message(json_message=markdown_formatting(text))
+            dispatcher.utter_message(response="utter_s_lg_intro")
+            return [SlotSet("s_lg_intro", None)]
         return []

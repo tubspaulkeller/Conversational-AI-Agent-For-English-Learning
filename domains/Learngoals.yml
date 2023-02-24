@@ -64,6 +64,8 @@ responses:
       title: Grammatikziel 
     - payload: /i_lg_intro{{"e_lg_intro":"EXIT"}}
       title: Aktuell erstmal keins
+    - payload: /i_lg_intro{{"e_lg_intro":"INFO"}}
+      title: Zeige Lernziele
 
     text: "Welches Ziel möchtest du anpassen?"
 

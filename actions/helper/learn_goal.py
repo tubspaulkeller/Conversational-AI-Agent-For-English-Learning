@@ -17,12 +17,13 @@ def utter_learn_goal(key, dispatcher, dp_n, value, pre_text, deadline, post_text
     }
     dispatcher.utter_message(
         json_message=learn_goal)
+    return text
 
 
 def generate_learn_goal(key, slot, dispatcher, value, pre_text, deadline, post_text):
-    utter_learn_goal(key, dispatcher, get_dp_inmemory_db(
+    goal = utter_learn_goal(key, dispatcher, get_dp_inmemory_db(
         'DP3.json'), value, pre_text, deadline, post_text)
-    return {slot: value}
+    return {slot: goal}
 
 
 def is_user_accepting_learn_goal(slot, user_selection, value, dispatcher):
@@ -69,9 +70,9 @@ def customize_learn_goal(slot, goal, customize, dispatcher, tracker):
         return {slot: None}
     key, pretext, posttext = get_key_for_json(
         tracker.slots.get("s_lg_intro"), tracker)
-    utter_learn_goal(key, dispatcher, get_dp_inmemory_db("DP3.json"), goal, 'Ich habe dein Lernziel bezüglich des Datums angepasst:', 'bis zum %s' % datetime.strptime(
+    goal = utter_learn_goal(key, dispatcher, get_dp_inmemory_db("DP3.json"), goal, 'Ich habe dein Lernziel bezüglich des Datums angepasst:', 'bis zum %s' % datetime.strptime(
         date_picker, '%Y-%m-%d').strftime('%d.%m.%Y'), '')
-    return {slot: date_picker}
+    return {slot: goal}
 
 
 def get_key_for_json(user_selection, tracker):
