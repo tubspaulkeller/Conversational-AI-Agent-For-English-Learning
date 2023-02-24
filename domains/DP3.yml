@@ -248,7 +248,7 @@ responses:
       title: Brauche länger für mein Ziel
     - payload: /i_dp3_q2{{"e_dp3_q2":"faster"}}
       title: Schaffe mein Ziel schneller
-    text: "Soll ich das uns als übergeordnetes Lernziel für diesen Kurs festlegen? Oder möchtest du ein anderes Thema als Lernziel wählen? 🤔"
+    text: "Soll ich das uns als Lernziel für diesen Kurs festlegen? Oder möchtest du ein anderes Thema als Lernziel wählen? 🤔"
 
   utter_s_dp3_q2/need_longer:
   - text: Gar kein Problem! Es ist vollkommen richtig, auf das eigene Tempo zu achten & die Zeit gesund einzuteilen. Bis wann möchtest du diesen Kurs beenden?
@@ -277,17 +277,17 @@ responses:
   utter_ask_s_dp3_v_q1:
   - buttons:
     - payload: /i_dp3_v_q1{{"e_dp3_v_q1":"Englisch-Wortschatz"}}
-      title: Meinen Wortschatz erweitern
+      title: Wortschatz erweitern
     - payload: /i_dp3_v_q1{{"e_dp3_v_q1":"Englisch-Konversation"}}
-      title: Meine Gesprächsfähigkeit verbessern
+      title: Gesprächsfähigkeit verbessern
     text: "Bevor wir mit der Vokabel-Lektion anfangen, lass uns noch ein Lernziel für diese Grundlagen-Lektion festlegen, damit wir zusammen auf etwas hinarbeiten können 😊 Welches der aufgeführten Ziele motiviert dich am meisten? 🤔"
 
   utter_ask_s_dp3_v_q1/repeat:
   - buttons:
     - payload: /i_dp3_v_q1{{"e_dp3_v_q1":"Englisch-Wortschatz"}}
-      title: Meinen Wortschatz erweitern
+      title: Wortschatz erweitern
     - payload: /i_dp3_v_q1{{"e_dp3_v_q1":"Englisch-Konversation"}}
-      title: Meine Gesprächsfähigkeit verbessern
+      title: Gesprächsfähigkeit verbessern
     text: " "
 
   utter_ask_s_dp3_v_q2:

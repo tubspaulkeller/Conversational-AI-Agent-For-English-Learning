@@ -13,4 +13,4 @@ class ActionGetSkills(Action):
 
     def run(self, dispatcher: "CollectingDispatcher", tracker: "Tracker", domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        return [SlotSet("s_lg_0", None), SlotSet("s_lg_1", None), SlotSet("s_lg_2", None), SlotSet("s_lg_3", None), SlotSet("s_lg_4", None), FollowupAction("learngoals_form")]
+        return [SlotSet("s_lg_intro", None), SlotSet("s_lg_1", None), SlotSet("s_lg_2", None), SlotSet("s_lg_finish", None), FollowupAction("learngoals_form")]
