@@ -1,3 +1,5 @@
+from slack_bolt.adapter.socket_mode import SocketModeHandler
+from slack_bolt import App
 from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker, FormValidationAction
 from rasa_sdk.executor import CollectingDispatcher
