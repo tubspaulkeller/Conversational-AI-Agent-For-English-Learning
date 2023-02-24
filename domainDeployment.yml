@@ -1,5 +1,16 @@
 version: '3.0'
 intents:
+- i_adjust_learn_goal
+- i_lg_intro:
+    use_entities: e_lg_intro
+- i_lg_0:
+    use_entities: e_lg_0
+- i_lg_1:
+    use_entities: e_lg_1
+- i_lg_2:
+    use_entities: e_lg_2
+- i_lg_3:
+    use_entities: e_lg_3
 - i_dp1_q0:
     use_entities: e_dp1_q0
 - i_dp1_q1:
@@ -30,12 +41,17 @@ intents:
     use_entities: e_dp1_evaluation
 - i_dp1_long_term_scenario:
     use_entities: e_dp1_long_term_scenario
+- i_date
 - i_dp3_q1:
     use_entities: e_dp3_q1
 - i_dp3_q2:
     use_entities: e_dp3_q2
 - i_dp3_q3:
     use_entities: e_dp3_q3
+- i_dp3_date:
+    use_entities: e_dp3_date
+- i_dp3_date_confirm:
+    use_entities: e_dp3_date_confirm
 - i_dp3_v_q1:
     use_entities: e_dp3_v_q1
 - i_dp3_v_q2:
@@ -132,6 +148,11 @@ intents:
 - i_dp4_q3B:
     use_entities: e_dp4_q3B
 entities:
+- e_lg_intro
+- e_lg_0
+- e_lg_1
+- e_lg_2
+- e_lg_3
 - e_dp1_q0
 - e_dp1_q1
 - e_dp1_q2
@@ -150,6 +171,8 @@ entities:
 - e_dp3_q1
 - e_dp3_q2
 - e_dp3_q3
+- e_dp3_date
+- e_dp3_date_confirm
 - e_dp3_v_q1
 - e_dp3_v_q2
 - e_dp3_v_q3
@@ -192,6 +215,31 @@ entities:
 - e_dp4_q3A
 - e_dp4_q3B
 slots:
+  s_lg_intro:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_lg_intro
+  s_lg_0:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_lg_0
+  s_lg_1:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_lg_1
+  s_lg_2:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_lg_2
+  s_lg_finish:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_lg_3
   s_dp1_q0:
     type: text
     mappings:
@@ -275,6 +323,18 @@ slots:
     type: text
     mappings:
     - type: custom
+  s_oberziel:
+    type: text
+    mappings:
+    - type: custom
+  s_vokabelziel:
+    type: text
+    mappings:
+    - type: custom
+  s_grammatikziel:
+    type: text
+    mappings:
+    - type: custom
   s_dp3_q1:
     type: text
     mappings:
@@ -285,6 +345,16 @@ slots:
     mappings:
     - type: from_entity
       entity: e_dp3_q2
+  s_dp3_date:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp3_date
+  s_dp3_date_confirm:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp3_date_confirm
   s_dp3_q3:
     type: text
     mappings:
@@ -576,6 +646,94 @@ slots:
     mappings:
     - type: custom
 responses:
+  utter_s_lg_intro:
+  - buttons:
+    - payload: /i_lg_intro{{"e_lg_intro":"oberziel"}}
+      title: Oberziel
+    - payload: /i_lg_intro{{"e_lg_intro":"vokabelziel"}}
+      title: Vokabelziel
+    - payload: /i_lg_intro{{"e_lg_intro":"grammatikziel"}}
+      title: Grammatikziel
+    - payload: /i_lg_intro{{"e_lg_intro":"EXIT"}}
+      title: Aktuell erstmal keins
+    - payload: /i_lg_intro{{"e_lg_intro":"INFO"}}
+      title: Zeige Lernziele
+    text: "Welches Ziel m\xF6chtest du anpassen?"
+  utter_s_lg_0/oberziel:
+  - buttons:
+    - payload: /i_lg_0{{"e_lg_0":"berufliche_weiterentwicklung"}}
+      title: Berufliche Weiterentwicklung
+    - payload: /i_lg_0{{"e_lg_0":"toefl_test"}}
+      title: TOEFL-Test
+    - payload: /i_lg_0{{"e_lg_0":"reisen"}}
+      title: "Vorbereitet sein f\xFCr's Reisen"
+    - payload: /i_lg_0{{"e_lg_0":"auslandssemester"}}
+      title: Auslandssemester
+    - payload: /i_lg_0{{"e_lg_0":"noten"}}
+      title: Bessere Noten
+    text: "Du kannst dein Lernziel gerne anpassen. Welches dieser Themen motiviert\
+      \ dich denn am meisten f\xFCr diesen Kurs?"
+  utter_s_lg_0/oberziel/repeat:
+  - buttons:
+    - payload: /i_lg_0{{"e_lg_0":"berufliche_weiterentwicklung"}}
+      title: Berufliche Weiterentwicklung
+    - payload: /i_lg_0{{"e_lg_0":"toefl_test"}}
+      title: TOEFL-Test
+    - payload: /i_lg_0{{"e_lg_0":"reisen"}}
+      title: "Vorbereitet sein f\xFCr's Reisen"
+    - payload: /i_lg_0{{"e_lg_0":"auslandssemester"}}
+      title: Auslandssemester
+    - payload: /i_lg_0{{"e_lg_0":"noten"}}
+      title: Bessere Noten
+    text: ' '
+  utter_s_lg_0/vokabelziel:
+  - buttons:
+    - payload: /i_lg_0{{"e_lg_0":"Englisch-Wortschatz"}}
+      title: Wortschatz erweitern
+    - payload: /i_lg_0{{"e_lg_0":"Englisch-Konversation"}}
+      title: "Gespr\xE4chsf\xE4higkeit verbessern"
+    text: "Wir k\xF6nnen gerne dein Lernziel f\xFCr die Vokabellektion anpassen. Welches\
+      \ der aufgef\xFChrten Ziele motiviert dich am meisten?"
+  utter_s_lg_0/vokabelziel/repeat:
+  - buttons:
+    - payload: /i_lg_0{{"e_lg_0":"Englisch-Wortschatz"}}
+      title: Wortschatz erweitern
+    - payload: /i_lg_0{{"e_lg_0":"Englisch-Konversation"}}
+      title: "Gespr\xE4chsf\xE4higkeit verbessern"
+    text: ' '
+  utter_s_lg_0/grammatikziel:
+  - buttons:
+    - payload: /i_lg_0{{"e_lg_0":"Zeitformen_verbessern"}}
+      title: Zeitformen verbessern
+    - payload: /i_lg_0{{"e_lg_0":"Zeitformen_erweitern"}}
+      title: Zeitformen erweitern
+    text: "Wir k\xF6nnen gerne dein Lernziel f\xFCr die Grammatiklektion anpassen.\
+      \ Welches der aufgef\xFChrten Ziele motiviert dich am meisten?"
+  utter_s_lg_0/grammatikziel/repeat:
+  - buttons:
+    - payload: /i_lg_0{{"e_lg_0":"Zeitformen_verbessern"}}
+      title: Zeitformen verbessern
+    - payload: /i_lg_0{{"e_lg_0":"Zeitformen_erweitern"}}
+      title: Zeitformen erweitern
+    text: ' '
+  utter_ask_s_lg_1:
+  - buttons:
+    - payload: /i_lg_1{{"e_lg_1":"affirm"}}
+      title: Festlegen
+    - payload: /i_lg_1{{"e_lg_1":"deny"}}
+      title: "Anderes Ziel w\xE4hlen"
+    - payload: /i_lg_1{{"e_lg_1":"need_longer"}}
+      title: "Brauche l\xE4nger f\xFCr mein Ziel"
+    - payload: /i_lg_1{{"e_lg_1":"faster"}}
+      title: Schaffe mein Ziel schneller
+    text: "Soll ich das als Lernziel festlegen oder m\xF6chtest du das Ziel anpassen\
+      \ bzw. wechseln? \U0001F914"
+  utter_s_lg_2/need_longer:
+  - text: "Gar kein Problem! Es ist vollkommen richtig, auf das eigene Tempo zu achten\
+      \ & die Zeit gesund einzuteilen. Bis wann m\xF6chtest du diesen Kurs beenden?"
+  utter_s_lg_2/faster:
+  - text: "Du gibst ja ganz sch\xF6n Gas! Bis wann m\xF6chtest du denn diesen Kurs\
+      \ beenden?"
   utter_ask_s_dp1_q0:
   - buttons:
     - payload: /i_dp1_q0{{"e_dp1_q0":"PLAY"}}
@@ -776,18 +934,29 @@ responses:
       \ daran orientieren k\xF6nnen!"
   utter_s_dp3_q1:
   - buttons:
-    - payload: /i_dp3_q1{{"e_dp3_q1":"abroad"}}
+    - payload: /i_dp3_q1{{"e_dp3_q1":"berufliche_weiterentwicklung"}}
+      title: Berufliche Weiterentwicklung
+    - payload: /i_dp3_q1{{"e_dp3_q1":"toefl_test"}}
+      title: TOEFL-Test
+    - payload: /i_dp3_q1{{"e_dp3_q1":"reisen"}}
+      title: "Vorbereitet sein f\xFCr's Reisen"
+    - payload: /i_dp3_q1{{"e_dp3_q1":"auslandssemester"}}
       title: Auslandssemester
-    - payload: /i_dp3_q1{{"e_dp3_q1":"grades"}}
+    - payload: /i_dp3_q1{{"e_dp3_q1":"noten"}}
       title: Bessere Noten
-    text: "Hast du schon eine Idee, welche Kenntnisse und F\xE4higkeiten du nach Abschluss\
-      \ dieses Kurses erworben haben m\xF6chtest? Und somit eins der aufgef\xFChrten\
-      \ Themen dich am meisten f\xFCr diesen Kurs motiviert? \U0001F914"
+    text: "Mit Abschluss des Kurses kannst du neue Kenntnisse und F\xE4higkeiten erwerben.\
+      \ Welches dieser Themen motiviert dich denn am meisten f\xFCr diesen Kurs?"
   utter_s_dp3_q1/repeat:
   - buttons:
-    - payload: /i_dp3_q1{{"e_dp3_q1":"abroad"}}
+    - payload: /i_dp3_q1{{"e_dp3_q1":"berufliche_weiterentwicklung"}}
+      title: Berufliche Weiterentwicklung
+    - payload: /i_dp3_q1{{"e_dp3_q1":"toefl_test"}}
+      title: TOEFL-Test
+    - payload: /i_dp3_q1{{"e_dp3_q1":"reisen"}}
+      title: "Vorbereitet sein f\xFCr's Reisen"
+    - payload: /i_dp3_q1{{"e_dp3_q1":"auslandssemester"}}
       title: Auslandssemester
-    - payload: /i_dp3_q1{{"e_dp3_q1":"grades"}}
+    - payload: /i_dp3_q1{{"e_dp3_q1":"noten"}}
       title: Bessere Noten
     text: ' '
   utter_ask_s_dp3_q2:
@@ -795,9 +964,24 @@ responses:
     - payload: /i_dp3_q2{{"e_dp3_q2":"affirm"}}
       title: Festlegen
     - payload: /i_dp3_q2{{"e_dp3_q2":"deny"}}
-      title: Neu bestimmen
-    text: "Soll ich das uns als \xFCbergeordnetes Lernziel f\xFCr diesen Kurs festlegen?\
-      \ Oder m\xF6chtest du ein anderes Thema als Lernziel w\xE4hlen? \U0001F914"
+      title: "Anderes Ziel w\xE4hlen"
+    - payload: /i_dp3_q2{{"e_dp3_q2":"need_longer"}}
+      title: "Brauche l\xE4nger f\xFCr mein Ziel"
+    - payload: /i_dp3_q2{{"e_dp3_q2":"faster"}}
+      title: Schaffe mein Ziel schneller
+    text: "Soll ich das uns als Lernziel f\xFCr diesen Kurs festlegen? Oder m\xF6\
+      chtest du ein anderes Thema als Lernziel w\xE4hlen? \U0001F914"
+  utter_s_dp3_q2/need_longer:
+  - text: "Gar kein Problem! Es ist vollkommen richtig, auf das eigene Tempo zu achten\
+      \ & die Zeit gesund einzuteilen. Bis wann m\xF6chtest du diesen Kurs beenden?"
+  utter_s_dp3_q2/faster:
+  - text: "Du gibst ja ganz sch\xF6n Gas! Bis wann m\xF6chtest du denn diesen Kurs\
+      \ beenden?"
+  utter_ask_s_dp3_date_confirm:
+  - buttons:
+    - payload: /i_dp3_date_confirm{{"e_dp3_date_confirm":"affirm"}}
+      title: "Let's Go! \U0001F680\U0001F4DA"
+    text: ' '
   utter_affirm_learn_goal:
   - text: "Perfekt, damit h\xE4tten wir das \xFCbergeordnete Lernziel f\xFCr diesen\
       \ Kurs festgelegt! \U0001F601"
@@ -811,9 +995,9 @@ responses:
   utter_ask_s_dp3_v_q1:
   - buttons:
     - payload: /i_dp3_v_q1{{"e_dp3_v_q1":"Englisch-Wortschatz"}}
-      title: Meinen Wortschatz erweitern
+      title: Wortschatz erweitern
     - payload: /i_dp3_v_q1{{"e_dp3_v_q1":"Englisch-Konversation"}}
-      title: Meine Konversation verbessern
+      title: "Gespr\xE4chsf\xE4higkeit verbessern"
     text: "Bevor wir mit der Vokabel-Lektion anfangen, lass uns noch ein Lernziel\
       \ f\xFCr diese Grundlagen-Lektion festlegen, damit wir zusammen auf etwas hinarbeiten\
       \ k\xF6nnen \U0001F60A Welches der aufgef\xFChrten Ziele motiviert dich am meisten?\
@@ -821,16 +1005,16 @@ responses:
   utter_ask_s_dp3_v_q1/repeat:
   - buttons:
     - payload: /i_dp3_v_q1{{"e_dp3_v_q1":"Englisch-Wortschatz"}}
-      title: Meinen Wortschatz erweitern
+      title: Wortschatz erweitern
     - payload: /i_dp3_v_q1{{"e_dp3_v_q1":"Englisch-Konversation"}}
-      title: Meine Konversation verbessern
+      title: "Gespr\xE4chsf\xE4higkeit verbessern"
     text: ' '
   utter_ask_s_dp3_v_q2:
   - buttons:
     - payload: /i_dp3_v_q2{{"e_dp3_v_q2":"affirm"}}
       title: Festlegen
     - payload: /i_dp3_v_q2{{"e_dp3_v_q2":"deny"}}
-      title: Neu bestimmen
+      title: "Anderes Ziel w\xE4hlen"
     text: ' '
   utter_ask_s_dp3_v_q3:
   - buttons:
@@ -894,7 +1078,7 @@ responses:
     - payload: /i_dp3_g_q2{{"e_dp3_g_q2":"affirm"}}
       title: Festlegen
     - payload: /i_dp3_g_q2{{"e_dp3_g_q2":"deny"}}
-      title: Neu bestimmen
+      title: "Anderes Ziel w\xE4hlen"
     text: ' '
   utter_ask_s_dp3_g_q3:
   - buttons:
@@ -1268,6 +1452,11 @@ responses:
       \ Ich werde dir helfen, indem ich dir im Lauf der Zeit weitere Lern-Stories\
       \ zeige."
 actions:
+- validate_learngoals_form
+- action_ask_s_lg_intro
+- action_ask_s_lg_0
+- action_ask_s_lg_2
+- action_ask_s_lg_finish
 - validate_dp1_form
 - action_ask_s_dp1_q1
 - action_ask_s_dp1_q3
@@ -1279,6 +1468,7 @@ actions:
 - action_ask_s_dp1_call_next_dp
 - validate_dp3_form
 - action_ask_s_dp3_q1
+- action_ask_s_dp3_date
 - action_ask_s_dp3_q3
 - action_ask_s_dp3_q4
 - validate_dp3_form_voc
@@ -1307,6 +1497,8 @@ actions:
 - action_ask_s_dp2_part_one_end
 - action_set_reminder_set_dp
 - action_react_to_reminder_set_dp
+- action_get_skills
+- action_set_slots_none
 - action_restart
 - action_rephrase
 - action_repeat_last_quest
@@ -1332,6 +1524,13 @@ actions:
 - action_ask_s_dp4_q3A
 - action_ask_s_dp4_end
 forms:
+  learngoals_form:
+    required_slots:
+    - s_lg_intro
+    - s_lg_0
+    - s_lg_1
+    - s_lg_2
+    - s_lg_finish
   dp1_form:
     required_slots:
     - s_dp1_q0
@@ -1355,6 +1554,8 @@ forms:
     required_slots:
     - s_dp3_q1
     - s_dp3_q2
+    - s_dp3_date
+    - s_dp3_date_confirm
     - s_dp3_q3
     - s_dp3_q4
   dp3_form_voc:
