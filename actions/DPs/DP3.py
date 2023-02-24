@@ -12,7 +12,7 @@ from datetime import datetime, date
 from actions.gamification.evaluate_user_scoring import evaluate_users_answer
 from actions.helper.check_grammar_of_users_input import validate_grammar_for_user_answer
 from actions.common.common import get_dp_inmemory_db, get_slots_for_dp
-from actions.helper.learn_goal import generate_learn_goal, is_user_accepting_learn_goal, customize_learn_goal
+from actions.helper.learn_goal import generate_learn_goal, is_user_accepting_learn_goal, customize_learn_goal, get_key_for_json
 
 ############################################################################################################
 ##### DP3 #####
@@ -44,16 +44,16 @@ class ValidateDP3Form(FormValidationAction):
 
     def validate_s_dp3_q1(self, slot_value: Any, dispatcher: CollectingDispatcher, tracker: Tracker, domain: "DomainDict") -> Dict[Text, Any]:
         """ validates the first question of DP3. The user can choose his learning goal """
-        return generate_learn_goal('s_dp3_q1', dispatcher, slot_value,
+        return generate_learn_goal('s_dp3_q1', 's_dp3_q1', dispatcher, slot_value,
                                    'Das klingt interessant! Ich würde daraus folgendes Lernziel forumlieren:', 'Ende des Jahres', " ")
 
     def validate_s_dp3_q2(self, slot_value: Any, dispatcher: CollectingDispatcher, tracker: Tracker, domain: "DomainDict") -> Dict[Text, Any]:
         """ validates the second question of DP3. The user can affirm or deny his learning goal """
-        return is_user_accepting_learn_goal('s_dp3_q2', slot_value, dispatcher)
+        return is_user_accepting_learn_goal('s_dp3_q2', 'oberziel', slot_value, dispatcher)
 
     def validate_s_dp3_date(self, slot_value: Any, dispatcher: CollectingDispatcher, tracker: Tracker, domain: "DomainDict") -> Dict[Text, Any]:
         """ validates the date of the third question of DP3. The user can choose a date for his learning goal """
-        return customize_learn_goal('s_dp3_date', 's_dp3_q1', 's_dp3_q2', dispatcher, tracker)
+        return customize_learn_goal('s_dp3_date', 's_dp3_q1', 's_dp3_q2', dispatcher, tracker, "s_dp3_q1")
 
     def validate_dp3(name_of_slot):
         """validates the following questions of DP3. The answers has not be checked at all bcs they are checked at different actions. """
@@ -111,7 +111,12 @@ class ValidateDP3VOCForm(FormValidationAction):
     ) -> Dict[Text, Any]:
         """ validates the first question of DP3. The user can choose his learning goal """
 
-        define_learn_goal("s_dp3_v_q1", value, dispatcher)
+        #define_learn_goal("s_dp3_v_q1", value, dispatcher)
+        key, pretext, deadline = get_key_for_json("s_dp3_v_q1", tracker)
+
+        return generate_learn_goal(key, 's_dp3_v_q1', dispatcher, value,
+                                   pretext, deadline, " ")
+
         return {"s_dp3_v_q1": value}
 
     def validate_s_dp3_v_q2(
@@ -123,6 +128,7 @@ class ValidateDP3VOCForm(FormValidationAction):
     ) -> Dict[Text, Any]:
         """ validates the second question of DP3. It does not need to be validated bcs it is checked at the action """
         if value == "affirm":
+            # TODO überprüfe ob Grammar section schon gemacht wurde
             dispatcher.utter_message(
                 text="Perfekt! Dann können wir ja jetzt mit den Vokabeln starten!\nÜbrigens: Sobald du die Grammatik Lektion startest, können wir auch dafür ein separates Ziel anlegen. 😁")
         return {"s_dp3_v_q2": value}
@@ -250,8 +256,12 @@ class ValidateDP3GRAMForm(FormValidationAction):
         domain: Dict[Text, Any],
     ) -> Dict[Text, Any]:
         """ the user can choose his learning goal """
-        define_learn_goal("s_dp3_g_q1", value, dispatcher)
-        return {"s_dp3_g_q1": value}
+        #define_learn_goal("s_dp3_g_q1", value, dispatcher)
+
+        key, pretext, deadline = get_key_for_json("s_dp3_g_q1", tracker)
+
+        return generate_learn_goal(key, 's_dp3_g_q1', dispatcher, value,
+                                   pretext, deadline, " ")
 
     def validate_s_dp3_g_q2(
         self,
@@ -262,6 +272,7 @@ class ValidateDP3GRAMForm(FormValidationAction):
     ) -> Dict[Text, Any]:
         """ does not need to be validated bcs it is checked at different action """
         if value == "affirm":
+            # TODO ANPASSEN ÜRBIGENS
             dispatcher.utter_message(
                 text="Perfekt! Dann können wir ja jetzt mit der Grammatik starten!\nÜbrigens: Sobald du die Vokabel Lektion startest, können wir auch dafür ein separates Ziel anlegen. 😁")
         return {"s_dp3_g_q2": value}
@@ -371,7 +382,7 @@ def define_learn_goal(slot_value, value, dispatcher):
             {
                 "type": "section",
                 "text": {
-                    "text": "%s" % dp3[slot_value][value],
+                    "text": "%s" % dp3[slot_value]["goal"][value],
                     "type": "mrkdwn"
                 }
             }

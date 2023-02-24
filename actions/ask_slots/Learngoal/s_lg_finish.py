@@ -3,6 +3,7 @@ from rasa_sdk import Action, Tracker, FormValidationAction
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import UserUtteranceReverted, FollowupAction, AllSlotsReset, Restarted, SlotSet, EventType
 import time
+from actions.common.common import get_dp_inmemory_db
 
 
 class AskForSlotAction(Action):
@@ -16,11 +17,14 @@ class AskForSlotAction(Action):
         goal = " "
         slot = " "
         user_selection = tracker.slots.get("s_lg_intro")
-
+        # in s_lg_2 ist custom goal
         if tracker.get_slot("s_lg_2") != None:
             goal = tracker.get_slot("s_lg_2")
         else:
-            goal = tracker.get_slot("s_lg_1")
+            dp3 = get_dp_inmemory_db('DP3.json')
+            topic = tracker.slots.get("s_lg_0")
+            deadline = "bis zum Ende des Jahres"
+            goal = dp3["s_dp3_q1"]["goal"][topic] % deadline
 
         if user_selection == "oberziel":
             slot = "s_oberziel"

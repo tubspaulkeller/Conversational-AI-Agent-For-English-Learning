@@ -311,7 +311,7 @@ responses:
     - payload: /i_dp3_v_q2{{"e_dp3_v_q2":"affirm"}}
       title: Festlegen
     - payload: /i_dp3_v_q2{{"e_dp3_v_q2":"deny"}}
-      title: Neu bestimmen
+      title: Anderes Ziel wählen
     text: " "
 
 
@@ -391,7 +391,7 @@ responses:
     - payload: /i_dp3_g_q2{{"e_dp3_g_q2":"affirm"}}
       title: Festlegen
     - payload: /i_dp3_g_q2{{"e_dp3_g_q2":"deny"}}
-      title: Neu bestimmen
+      title: Anderes Ziel wählen
     text: " "
   
   utter_ask_s_dp3_g_q3:

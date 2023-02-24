@@ -34,11 +34,8 @@ class AskForSlotAction(Action):
             oberziel = tracker.get_slot("s_oberziel")
             vokabelziel = tracker.get_slot("s_vokabelziel")
             grammatikziel = tracker.get_slot("s_grammatikziel")
-
-            text = "Deine aktuellen Lernziele sind:\n\n* Oberziel: " + oberziel + "\n* Vokabelziel: " + \
-                vokabelziel + "\n* Grammatikziel: " + grammatikziel + \
-                "\n\nDu kannst diese jederzeit ändern."
-
+            text = "Deine aktuellen Lernziele sind:\n\nOberziel: *%s*\n\nVokabelziel: *%s*\n\nGrammatikziel: *%s*" % (
+                oberziel, vokabelziel, grammatikziel)
             dispatcher.utter_message(json_message=markdown_formatting(text))
             dispatcher.utter_message(response="utter_s_lg_intro")
             return [SlotSet("s_lg_intro", None)]
