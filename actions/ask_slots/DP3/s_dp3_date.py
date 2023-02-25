@@ -11,7 +11,7 @@ msg = {
             "block_id": "section_date",
             "text": {
                     "type": "mrkdwn",
-                    "text": "Gebe hier bitte das *Datum* ein."
+                    "text": "Bis wann möchtest du diesen Kurs beenden? Gebe hier bitte das *Datum* ein."
             },
             "accessory": {
                 "type": "datepicker",

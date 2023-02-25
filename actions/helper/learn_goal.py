@@ -1,4 +1,4 @@
-from actions.common.common import get_dp_inmemory_db
+from actions.common.common import get_dp_inmemory_db, markdown_formatting
 from datetime import datetime, date
 
 
@@ -48,9 +48,19 @@ def customize_learn_goal(slot, get_goal, customize, dispatcher, tracker, user_se
 
     date_picker = "None"
     goal = tracker.get_slot(get_goal)
+    custom_goal = " "
+    pre_text_accept = "Ich habe dein Lernziel angepasst:\n"
+    pre_text_deny = "Ich habe dein Lernziel *nicht* angepasst:\n"
+    is_user_accepting = tracker.get_slot(slot)
+    print("\ngoal: ", goal, "customize: ", customize, "slot: ", slot)
 
-    print("\ngoal: ", goal)
+    # special case for goal "Englisch-Konversation"
+    if goal == "Englisch-Konversation" and customize == 'faster':
+        return custom_goal_englisch_konversation_faster(dispatcher, slot, is_user_accepting, pre_text_accept, pre_text_deny, custom_goal)
+    elif goal == "Englisch-Konversation" and customize == 'need_longer':
+        return custom_goal_englisch_konversation_longer(dispatcher, slot, is_user_accepting, pre_text_accept, pre_text_deny, custom_goal)
 
+    # User want change the date
     for event in reversed(tracker.events):
         if event['event'] == 'user' and event['parse_data']['intent']['name'] == 'i_date':
             date_picker = event['parse_data']['text']
@@ -65,7 +75,7 @@ def customize_learn_goal(slot, get_goal, customize, dispatcher, tracker, user_se
     user_date = datetime.strptime(date_picker, "%Y-%m-%d")
 
     # check if the user wants to learn longer than one year
-    if tracker.get_slot(customize) == 'need_longer' and user_date.year == today_date.year:
+    if customize == 'need_longer' and user_date.year == today_date.year:
         dispatcher.utter_message(
             text="Bitte wähle ein Datum aus, welches später als 'Ende dieses Jahres ist', da du dich entschieden hast, dir länger Zeit für dein Ziel zu nehmen.")
         return {slot: None}
@@ -80,6 +90,34 @@ def customize_learn_goal(slot, get_goal, customize, dispatcher, tracker, user_se
 
     custom_goal = utter_learn_goal(key, dispatcher, get_dp_inmemory_db(
         "DP3.json"), goal, 'Ich habe dein Lernziel bezüglich des Datums angepasst:', 'bis zum %s' % datetime.strptime(date_picker, '%Y-%m-%d').strftime('%d.%m.%Y'), '')
+    return {slot: custom_goal}
+
+
+def custom_goal_englisch_konversation_longer(dispatcher, slot, is_user_accepting, pre_text_accept, pre_text_deny, custom_goal):
+    if is_user_accepting == "confirm":
+        custom_goal = "'Ich möchte meine Gesprächsfähigkeit auf Englisch verbessern, sodass ich nach zwei Lektionen eine 20-minütige Konversation mit einem Muttersprachler führen kann.'"
+        dispatcher.utter_message(
+            json_message=markdown_formatting(pre_text_accept))
+    elif is_user_accepting == "deny":
+        custom_goal = "'Ich möchte meine Gesprächsfähigkeit auf Englisch verbessern, sodass ich nach der Lektion eine 20-minütige Konversation mit einem Muttersprachler führen kann.'"
+        dispatcher.utter_message(
+            json_message=markdown_formatting(pre_text_deny))
+    dispatcher.utter_message(
+        json_message=markdown_formatting("*%s*" % custom_goal))
+    return {slot: custom_goal}
+
+
+def custom_goal_englisch_konversation_faster(dispatcher, slot, is_user_accepting, pre_text_accept, pre_text_deny, custom_goal):
+    if is_user_accepting == "confirm":
+        custom_goal = "'Ich möchte meine Gesprächsfähigkeit auf Englisch verbessern, sodass ich nach der hälfte der Lektion eine 20-minütige Konversation mit einem Muttersprachler führen kann.'"
+        dispatcher.utter_message(
+            json_message=markdown_formatting(pre_text_accept))
+    elif is_user_accepting == "deny":
+        custom_goal = "'Ich möchte meine Gesprächsfähigkeit auf Englisch verbessern, sodass ich nach der Lektion eine 20-minütige Konversation mit einem Muttersprachler führen kann.'"
+        dispatcher.utter_message(
+            json_message=markdown_formatting(pre_text_deny))
+    dispatcher.utter_message(
+        json_message=markdown_formatting("*%s*" % custom_goal))
     return {slot: custom_goal}
 
 

@@ -267,10 +267,10 @@ responses:
     text: "Soll ich das uns als Lernziel für diesen Kurs festlegen? Oder möchtest du ein anderes Thema als Lernziel wählen? 🤔"
 
   utter_s_dp3_q2/need_longer:
-  - text: Gar kein Problem! Es ist vollkommen richtig, auf das eigene Tempo zu achten & die Zeit gesund einzuteilen. Bis wann möchtest du diesen Kurs beenden?
+  - text: Gar kein Problem! Es ist vollkommen richtig, auf das eigene Tempo zu achten & die Zeit gesund einzuteilen.
   
   utter_s_dp3_q2/faster: 
-  - text: Du gibst ja ganz schön Gas! Bis wann möchtest du denn diesen Kurs beenden? 
+  - text: Du gibst ja ganz schön Gas!
 
   utter_ask_s_dp3_date_confirm:
   - buttons:
