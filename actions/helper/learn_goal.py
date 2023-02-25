@@ -86,7 +86,6 @@ def customize_learn_goal(slot, get_goal, customize, dispatcher, tracker, user_se
     custom_goal = utter_learn_goal(key, dispatcher, get_dp_inmemory_db(
         "DP3.json"), goal, 'Ich habe dein Lernziel bezüglich des Datums angepasst:', 'bis zum %s' % datetime.strptime(date_picker, '%Y-%m-%d').strftime('%d.%m.%Y'), '')
 
-    print("\n CUSTOM_GOAL: ", custom_goal)
     return {slot: custom_goal}
 
 

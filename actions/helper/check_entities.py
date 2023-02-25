@@ -28,6 +28,5 @@ def exist_all_parts_of_question(number_of_entities, name_of_slot, entities, enti
 def _check_wrong_entities(name_of_slot, entities, entities_list):
     for entity in entities:
         if entity not in entities_list[name_of_slot]["entities"]:
-            print("Wrong entity: " + entity)
             return True
     return False
