@@ -100,7 +100,7 @@ class ValidateDP3VOCForm(FormValidationAction):
         if tracker.slots.get("s_dp3_v_q2") == 'affirm':
             # there we will skip next slot
             updated_slots.remove("s_dp3_v_customize_goal")
-            updated_slots.remove("s_dp3_v_start_button")
+           # updated_slots.remove("s_dp3_v_start_button")
         return updated_slots
 
     def validate_s_dp3_v_q1(
@@ -212,7 +212,6 @@ class ValidateDP3VOCForm(FormValidationAction):
         tracker: Tracker,
         domain: Dict[Text, Any],
     ) -> Dict[Text, Any]:
-        print("validate_s_dp3_v_start_button", value)
         return {"s_dp3_v_start_button": value}
 
     def validate_dp3voc(name_of_slot):
@@ -231,7 +230,7 @@ class ValidateDP3VOCForm(FormValidationAction):
             return evaluate_users_answer(solution, dp_3, name_of_slot, value, dispatcher, slots_dp3)
         return validate_slot
 
-    validate_s_dp3_v_q3 = validate_dp3voc(name_of_slot="s_dp3_v_q3")
+    validate_s_dp3_v_q3_0 = validate_dp3voc(name_of_slot="s_dp3_v_q3_0")
     validate_s_dp3_v_q3_1 = validate_dp3voc(name_of_slot="s_dp3_v_q3_1")
     validate_s_dp3_v_q3_2 = validate_dp3voc(name_of_slot="s_dp3_v_q3_2")
     validate_s_dp3_v_q3_3 = validate_dp3voc(name_of_slot="s_dp3_v_q3_3")
@@ -378,7 +377,6 @@ class ValidateDP3GRAMForm(FormValidationAction):
         tracker: Tracker,
         domain: Dict[Text, Any],
     ) -> Dict[Text, Any]:
-        print("validate_s_dp3_g_start_button", value)
         return {"s_dp3_g_start_button": value}
 
     def validate_dp3gram(name_of_slot):
@@ -399,7 +397,7 @@ class ValidateDP3GRAMForm(FormValidationAction):
 
         return validate_slot
 
-    validate_s_dp3_g_q3 = validate_dp3gram(name_of_slot="s_dp3_g_q3")
+    validate_s_dp3_g_q3_0 = validate_dp3gram(name_of_slot="s_dp3_g_q3_0")
     validate_s_dp3_g_q3_1 = validate_dp3gram(name_of_slot="s_dp3_g_q3_1")
     validate_s_dp3_g_q3_2 = validate_dp3gram(name_of_slot="s_dp3_g_q3_2")
     validate_s_dp3_g_q3_3 = validate_dp3gram(name_of_slot="s_dp3_g_q3_3")

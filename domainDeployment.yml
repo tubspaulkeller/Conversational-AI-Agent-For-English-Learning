@@ -56,8 +56,8 @@ intents:
     use_entities: e_dp3_v_q1
 - i_dp3_v_q2:
     use_entities: e_dp3_v_q2
-- i_dp3_v_q3:
-    use_entities: e_dp3_v_q3
+- i_dp3_v_q3_0:
+    use_entities: e_dp3_v_q3_0
 - i_dp3_v_evaluation:
     use_entities: e_dp3_v_evaluation
 - i_dp3_v_q4:
@@ -70,8 +70,8 @@ intents:
     use_entities: e_dp3_g_q1
 - i_dp3_g_q2:
     use_entities: e_dp3_g_q2
-- i_dp3_g_q3:
-    use_entities: e_dp3_g_q3
+- i_dp3_g_q3_0:
+    use_entities: e_dp3_g_q3_0
 - i_dp3_g_evaluation:
     use_entities: e_dp3_g_evaluation
 - i_dp3_g_q4:
@@ -175,14 +175,14 @@ entities:
 - e_dp3_date_confirm
 - e_dp3_v_q1
 - e_dp3_v_q2
-- e_dp3_v_q3
+- e_dp3_v_q3_0
 - e_dp3_v_evaluation
 - e_dp3_v_q4
 - e_dp3_v_q5
 - e_dp3_v_q6
 - e_dp3_g_q1
 - e_dp3_g_q2
-- e_dp3_g_q3
+- e_dp3_g_q3_0
 - e_dp3_g_evaluation
 - e_dp3_g_q4
 - e_dp3_g_q5
@@ -374,11 +374,11 @@ slots:
     mappings:
     - type: from_entity
       entity: e_dp3_v_q2
-  s_dp3_v_q3:
+  s_dp3_v_q3_0:
     type: text
     mappings:
     - type: from_entity
-      entity: e_dp3_v_q3
+      entity: e_dp3_v_q3_0
   s_dp3_v_evaluation:
     type: text
     mappings:
@@ -414,11 +414,11 @@ slots:
     mappings:
     - type: from_entity
       entity: e_dp3_g_q2
-  s_dp3_g_q3:
+  s_dp3_g_q3_0:
     type: text
     mappings:
     - type: from_entity
-      entity: e_dp3_g_q3
+      entity: e_dp3_g_q3_0
   s_dp3_g_evaluation:
     type: text
     mappings:
@@ -1018,13 +1018,13 @@ responses:
     text: ' '
   utter_ask_s_dp3_v_q3:
   - buttons:
-    - payload: /i_dp3_v_q3{{"e_dp3_v_q3":"play"}}
+    - payload: /i_dp3_v_q3_0{{"e_dp3_v_q3_0":"play"}}
       title: Play
-    - payload: /i_dp3_v_q3{{"e_dp3_v_q3":"wrote"}}
+    - payload: /i_dp3_v_q3_0{{"e_dp3_v_q3_0":"wrote"}}
       title: Wrote
-    - payload: /i_dp3_v_q3{{"e_dp3_v_q3":"eat"}}
+    - payload: /i_dp3_v_q3_0{{"e_dp3_v_q3_0":"eat"}}
       title: Eat
-    - payload: /i_dp3_v_q3{{"e_dp3_v_q3":"drink"}}
+    - payload: /i_dp3_v_q3_0{{"e_dp3_v_q3_0":"drink"}}
       title: Drink
     text: "Welches der folgenden W\xF6rter ist eine Simple Past-Form?"
   utter_ask_s_dp3_v_evaluation:
@@ -1082,13 +1082,13 @@ responses:
     text: ' '
   utter_ask_s_dp3_g_q3:
   - buttons:
-    - payload: /i_dp3_g_q3{{"e_dp3_g_q3":"play"}}
+    - payload: /i_dp3_g_q3_0{{"e_dp3_g_q3_0":"play"}}
       title: Play
-    - payload: /i_dp3_g_q3{{"e_dp3_g_q3":"wrote"}}
+    - payload: /i_dp3_g_q3_0{{"e_dp3_g_q3_0":"wrote"}}
       title: Wrote
-    - payload: /i_dp3_g_q3{{"e_dp3_g_q3":"eat"}}
+    - payload: /i_dp3_g_q3_0{{"e_dp3_g_q3_0":"eat"}}
       title: Eat
-    - payload: /i_dp3_g_q3{{"e_dp3_g_q3":"drink"}}
+    - payload: /i_dp3_g_q3_0{{"e_dp3_g_q3_0":"drink"}}
       title: Drink
     text: "Welches der folgenden W\xF6rter ist eine Simple Past-Form?"
   utter_ask_s_dp3_g_evaluation:
@@ -1562,7 +1562,7 @@ forms:
     required_slots:
     - s_dp3_v_q1
     - s_dp3_v_q2
-    - s_dp3_v_q3
+    - s_dp3_v_q3_0
     - s_dp3_v_evaluation
     - s_dp3_v_q4
     - s_dp3_v_q5
@@ -1573,7 +1573,7 @@ forms:
     required_slots:
     - s_dp3_g_q1
     - s_dp3_g_q2
-    - s_dp3_g_q3
+    - s_dp3_g_q3_0
     - s_dp3_g_evaluation
     - s_dp3_g_q4
     - s_dp3_g_q5

@@ -24,7 +24,7 @@
     "total_questions": 6,
     "total_points": 30,
     "badge_naturtalent": "https://res.cloudinary.com/dmnkxrxes/image/upload/v1667925124/Ben_Bot/Abzeichen_Naturtalent_evz2oo.png",
-    "s_dp3_v_q3": {
+    "s_dp3_v_q3_0": {
         "solution": "commission", 
         "points": 5,
         "question": 1
@@ -58,7 +58,7 @@
         "shorter_learntime": "ab sofort wird dein Vokabel-Quiz nur noch aus 35 Fragen bestehen 😁",
         "longer_learntime": "ab sofort wird dein Vokabel-Quiz nun aus 60 Fragen bestehen 😁"
     },
-    "s_dp3_g_q3": {
+    "s_dp3_g_q3_0": {
         "solution": "overtook",
         "points": 5,
         "question": 1
