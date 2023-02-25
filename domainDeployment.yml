@@ -56,8 +56,22 @@ intents:
     use_entities: e_dp3_v_q1
 - i_dp3_v_q2:
     use_entities: e_dp3_v_q2
+- i_dp3_v_customize_goal:
+    use_entities: e_dp3_v_customize_goal
+- i_dp3_v_start_button:
+    use_entities: e_dp3_v_start_button
 - i_dp3_v_q3_0:
     use_entities: e_dp3_v_q3_0
+- i_dp3_v_q3_1:
+    use_entities: e_dp3_v_q3_1
+- i_dp3_v_q3_2:
+    use_entities: e_dp3_v_q3_2
+- i_dp3_v_q3_3:
+    use_entities: e_dp3_v_q3_3
+- i_dp3_v_q3_4:
+    use_entities: e_dp3_v_q3_4
+- i_dp3_v_q3_5:
+    use_entities: e_dp3_v_q3_5
 - i_dp3_v_evaluation:
     use_entities: e_dp3_v_evaluation
 - i_dp3_v_q4:
@@ -70,8 +84,22 @@ intents:
     use_entities: e_dp3_g_q1
 - i_dp3_g_q2:
     use_entities: e_dp3_g_q2
+- i_dp3_g_customize_goal:
+    use_entities: e_dp3_g_customize_goal
+- i_dp3_g_start_button:
+    use_entities: e_dp3_g_start_button
 - i_dp3_g_q3_0:
     use_entities: e_dp3_g_q3_0
+- i_dp3_g_q3_1:
+    use_entities: e_dp3_g_q3_1
+- i_dp3_g_q3_2:
+    use_entities: e_dp3_g_q3_2
+- i_dp3_g_q3_3:
+    use_entities: e_dp3_g_q3_3
+- i_dp3_g_q3_4:
+    use_entities: e_dp3_g_q3_4
+- i_dp3_g_q3_5:
+    use_entities: e_dp3_g_q3_5
 - i_dp3_g_evaluation:
     use_entities: e_dp3_g_evaluation
 - i_dp3_g_q4:
@@ -175,14 +203,28 @@ entities:
 - e_dp3_date_confirm
 - e_dp3_v_q1
 - e_dp3_v_q2
+- e_dp3_v_customize_goal
+- e_dp3_v_start_button
 - e_dp3_v_q3_0
+- e_dp3_v_q3_1
+- e_dp3_v_q3_2
+- e_dp3_v_q3_3
+- e_dp3_v_q3_4
+- e_dp3_v_q3_5
 - e_dp3_v_evaluation
 - e_dp3_v_q4
 - e_dp3_v_q5
 - e_dp3_v_q6
 - e_dp3_g_q1
 - e_dp3_g_q2
+- e_dp3_g_customize_goal
+- e_dp3_g_start_button
 - e_dp3_g_q3_0
+- e_dp3_g_q3_1
+- e_dp3_g_q3_2
+- e_dp3_g_q3_3
+- e_dp3_g_q3_4
+- e_dp3_g_q3_5
 - e_dp3_g_evaluation
 - e_dp3_g_q4
 - e_dp3_g_q5
@@ -374,11 +416,46 @@ slots:
     mappings:
     - type: from_entity
       entity: e_dp3_v_q2
+  s_dp3_v_customize_goal:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp3_v_customize_goal
+  s_dp3_v_start_button:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp3_v_start_button
   s_dp3_v_q3_0:
     type: text
     mappings:
     - type: from_entity
       entity: e_dp3_v_q3_0
+  s_dp3_v_q3_1:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp3_v_q3_1
+  s_dp3_v_q3_2:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp3_v_q3_2
+  s_dp3_v_q3_3:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp3_v_q3_3
+  s_dp3_v_q3_4:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp3_v_q3_4
+  s_dp3_v_q3_5:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp3_v_q3_5
   s_dp3_v_evaluation:
     type: text
     mappings:
@@ -414,11 +491,46 @@ slots:
     mappings:
     - type: from_entity
       entity: e_dp3_g_q2
+  s_dp3_g_customize_goal:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp3_g_customize_goal
+  s_dp3_g_start_button:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp3_g_start_button
   s_dp3_g_q3_0:
     type: text
     mappings:
     - type: from_entity
       entity: e_dp3_g_q3_0
+  s_dp3_g_q3_1:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp3_g_q3_1
+  s_dp3_g_q3_2:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp3_g_q3_2
+  s_dp3_g_q3_3:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp3_g_q3_3
+  s_dp3_g_q3_4:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp3_g_q3_4
+  s_dp3_g_q3_5:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_dp3_g_q3_5
   s_dp3_g_evaluation:
     type: text
     mappings:
@@ -729,11 +841,10 @@ responses:
     text: "Soll ich das als Lernziel festlegen oder m\xF6chtest du das Ziel anpassen\
       \ bzw. wechseln? \U0001F914"
   utter_s_lg_2/need_longer:
-  - text: "Gar kein Problem! Es ist vollkommen richtig, auf das eigene Tempo zu achten\
-      \ & die Zeit gesund einzuteilen. Bis wann m\xF6chtest du diesen Kurs beenden?"
+  - text: Gar kein Problem! Es ist vollkommen richtig, auf das eigene Tempo zu achten
+      & die Zeit gesund einzuteilen.
   utter_s_lg_2/faster:
-  - text: "Du gibst ja ganz sch\xF6n Gas! Bis wann m\xF6chtest du denn diesen Kurs\
-      \ beenden?"
+  - text: "Du gibst ja ganz sch\xF6n Gas!"
   utter_ask_s_dp1_q0:
   - buttons:
     - payload: /i_dp1_q0{{"e_dp1_q0":"PLAY"}}
@@ -972,11 +1083,10 @@ responses:
     text: "Soll ich das uns als Lernziel f\xFCr diesen Kurs festlegen? Oder m\xF6\
       chtest du ein anderes Thema als Lernziel w\xE4hlen? \U0001F914"
   utter_s_dp3_q2/need_longer:
-  - text: "Gar kein Problem! Es ist vollkommen richtig, auf das eigene Tempo zu achten\
-      \ & die Zeit gesund einzuteilen. Bis wann m\xF6chtest du diesen Kurs beenden?"
+  - text: Gar kein Problem! Es ist vollkommen richtig, auf das eigene Tempo zu achten
+      & die Zeit gesund einzuteilen.
   utter_s_dp3_q2/faster:
-  - text: "Du gibst ja ganz sch\xF6n Gas! Bis wann m\xF6chtest du denn diesen Kurs\
-      \ beenden?"
+  - text: "Du gibst ja ganz sch\xF6n Gas!"
   utter_ask_s_dp3_date_confirm:
   - buttons:
     - payload: /i_dp3_date_confirm{{"e_dp3_date_confirm":"affirm"}}
@@ -1015,18 +1125,83 @@ responses:
       title: Festlegen
     - payload: /i_dp3_v_q2{{"e_dp3_v_q2":"deny"}}
       title: "Anderes Ziel w\xE4hlen"
-    text: ' '
-  utter_ask_s_dp3_v_q3:
+    - payload: /i_dp3_v_q2{{"e_dp3_v_q2":"need_longer"}}
+      title: "Brauche l\xE4nger f\xFCr mein Ziel"
+    - payload: /i_dp3_v_q2{{"e_dp3_v_q2":"faster"}}
+      title: Schaffe mein Ziel schneller
+    text: "Soll ich das als Lernziel festlegen oder m\xF6chtest du das Ziel anpassen\
+      \ bzw. wechseln? \U0001F914"
+  utter_ask_s_dp3_v_start_button:
   - buttons:
-    - payload: /i_dp3_v_q3_0{{"e_dp3_v_q3_0":"play"}}
-      title: Play
-    - payload: /i_dp3_v_q3_0{{"e_dp3_v_q3_0":"wrote"}}
-      title: Wrote
-    - payload: /i_dp3_v_q3_0{{"e_dp3_v_q3_0":"eat"}}
-      title: Eat
-    - payload: /i_dp3_v_q3_0{{"e_dp3_v_q3_0":"drink"}}
-      title: Drink
-    text: "Welches der folgenden W\xF6rter ist eine Simple Past-Form?"
+    - payload: /i_dp3_v_start_button{{"e_dp3_v_start_button":"affirm"}}
+      title: "Starte Vokabeltraining! \U0001F680\U0001F4DA"
+    text: ' '
+  utter_ask_s_dp3_v_q3_0:
+  - buttons:
+    - payload: /i_dp3_v_q3_0{{"e_dp3_v_q3_0":"initiate"}}
+      title: initiate
+    - payload: /i_dp3_v_q3_0{{"e_dp3_v_q3_0":"commission"}}
+      title: commission
+    - payload: /i_dp3_v_q3_0{{"e_dp3_v_q3_0":"conduct"}}
+      title: conduct
+    - payload: /i_dp3_v_q3_0{{"e_dp3_v_q3_0":"authorize"}}
+      title: authorize
+    text: "Was ist die englische \xDCbersetzung f\xFCr 'beauftragen'?"
+  utter_ask_s_dp3_v_q3_1:
+  - buttons:
+    - payload: /i_dp3_v_q3_1{{"e_dp3_v_q3_1":"verringern"}}
+      title: verringern
+    - payload: /i_dp3_v_q3_1{{"e_dp3_v_q3_1":"abwerten"}}
+      title: abwerten
+    - payload: "/i_dp3_v_q3_1{{\"e_dp3_v_q3_1\":\"\xFCbertreiben\"}}"
+      title: "\xFCbertreiben"
+    - payload: "/i_dp3_v_q3_1{{\"e_dp3_v_q3_1\":\"verf\xE4lschen\"}}"
+      title: "verf\xE4lschen"
+    text: "Was ist die deutsche \xDCbersetzung f\xFCr 'exaggerate'?"
+  utter_ask_s_dp3_v_q3_2:
+  - buttons:
+    - payload: /i_dp3_v_q3_2{{"e_dp3_v_q3_2":"error"}}
+      title: error
+    - payload: /i_dp3_v_q3_2{{"e_dp3_v_q3_2":"err"}}
+      title: err
+    - payload: /i_dp3_v_q3_2{{"e_dp3_v_q3_2":"mistake"}}
+      title: mistake
+    - payload: /i_dp3_v_q3_2{{"e_dp3_v_q3_2":"fault"}}
+      title: fault
+    text: "Was ist die englische \xDCbersetzung f\xFCr 'sich irren'?"
+  utter_ask_s_dp3_v_q3_3:
+  - buttons:
+    - payload: /i_dp3_v_q3_3{{"e_dp3_v_q3_3":"Tapferkeit"}}
+      title: Tapferkeit
+    - payload: "/i_dp3_v_q3_3{{\"e_dp3_v_q3_3\":\"K\xFChnheit\"}}"
+      title: "K\xFChnheit"
+    - payload: /i_dp3_v_q3_3{{"e_dp3_v_q3_3":"Mutlosigkeit"}}
+      title: Mutlosigkeit
+    - payload: "/i_dp3_v_q3_3{{\"e_dp3_v_q3_3\":\"Zur\xFCckhaltung\"}}"
+      title: "Zur\xFCckhaltung"
+    text: "Was ist die deutsche \xDCbersetzung f\xFCr 'courage'?"
+  utter_ask_s_dp3_v_q3_4:
+  - buttons:
+    - payload: /i_dp3_v_q3_4{{"e_dp3_v_q3_4":"accelerate"}}
+      title: accelerate
+    - payload: /i_dp3_v_q3_4{{"e_dp3_v_q3_4":"decelerate"}}
+      title: decelerate
+    - payload: /i_dp3_v_q3_4{{"e_dp3_v_q3_4":"precipitate"}}
+      title: precipitate
+    - payload: /i_dp3_v_q3_4{{"e_dp3_v_q3_4":"expedite"}}
+      title: expedite
+    text: "Was ist die englische \xDCbersetzung f\xFCr 'beschleunigen'?"
+  utter_ask_s_dp3_v_q3_5:
+  - buttons:
+    - payload: /i_dp3_v_q3_5{{"e_dp3_v_q3_5":"verletzen"}}
+      title: verletzen
+    - payload: /i_dp3_v_q3_5{{"e_dp3_v_q3_5":"beschuldigen"}}
+      title: beschuldigen
+    - payload: /i_dp3_v_q3_5{{"e_dp3_v_q3_5":"verurteilen"}}
+      title: verurteilen
+    - payload: "/i_dp3_v_q3_5{{\"e_dp3_v_q3_5\":\"\xFCberzeugen\"}}"
+      title: "\xFCberzeugen"
+    text: "Was ist die deutsche \xDCbersetzung f\xFCr 'convince'?"
   utter_ask_s_dp3_v_evaluation:
   - buttons:
     - payload: /i_dp3_v_evaluation{{"e_dp3_v_evaluation":"EVALUATION"}}
@@ -1079,18 +1254,83 @@ responses:
       title: Festlegen
     - payload: /i_dp3_g_q2{{"e_dp3_g_q2":"deny"}}
       title: "Anderes Ziel w\xE4hlen"
-    text: ' '
-  utter_ask_s_dp3_g_q3:
+    - payload: /i_dp3_g_q2{{"e_dp3_g_q2":"need_longer"}}
+      title: "Brauche l\xE4nger f\xFCr mein Ziel"
+    - payload: /i_dp3_g_q2{{"e_dp3_g_q2":"faster"}}
+      title: Schaffe mein Ziel schneller
+    text: "Soll ich das als Lernziel festlegen oder m\xF6chtest du das Ziel anpassen\
+      \ bzw. wechseln? \U0001F914"
+  utter_ask_s_dp3_g_start_button:
   - buttons:
-    - payload: /i_dp3_g_q3_0{{"e_dp3_g_q3_0":"play"}}
-      title: Play
-    - payload: /i_dp3_g_q3_0{{"e_dp3_g_q3_0":"wrote"}}
-      title: Wrote
-    - payload: /i_dp3_g_q3_0{{"e_dp3_g_q3_0":"eat"}}
-      title: Eat
-    - payload: /i_dp3_g_q3_0{{"e_dp3_g_q3_0":"drink"}}
-      title: Drink
+    - payload: /i_dp3_g_start_button{{"e_dp3_g_start_button":"affirm"}}
+      title: "Starte Grammatiktraining! \U0001F680\U0001F4DA"
+    text: ' '
+  utter_ask_s_dp3_g_q3_0:
+  - buttons:
+    - payload: /i_dp3_g_q3_0{{"e_dp3_g_q3_0":"overtook"}}
+      title: overtook
+    - payload: /i_dp3_g_q3_0{{"e_dp3_g_q3_0":"ridden"}}
+      title: ridden
+    - payload: /i_dp3_g_q3_0{{"e_dp3_g_q3_0":"ring"}}
+      title: ring
+    - payload: /i_dp3_g_q3_0{{"e_dp3_g_q3_0":"freeze"}}
+      title: freeze
     text: "Welches der folgenden W\xF6rter ist eine Simple Past-Form?"
+  utter_ask_s_dp3_g_q3_1:
+  - buttons:
+    - payload: /i_dp3_g_q3_1{{"e_dp3_g_q3_1":"have found"}}
+      title: have found
+    - payload: /i_dp3_g_q3_1{{"e_dp3_g_q3_1":"had forbidden"}}
+      title: had forbidden
+    - payload: /i_dp3_g_q3_1{{"e_dp3_g_q3_1":"showed"}}
+      title: showed
+    - payload: /i_dp3_g_q3_1{{"e_dp3_g_q3_1":"liked"}}
+      title: liked
+    text: "Bei welchen der folgenden W\xF6rter handelt es sich um eine Past Perfect-Form?"
+  utter_ask_s_dp3_g_q3_2:
+  - buttons:
+    - payload: /i_dp3_g_q3_2{{"e_dp3_g_q3_2":"grown"}}
+      title: grown
+    - payload: /i_dp3_g_q3_2{{"e_dp3_g_q3_2":"come"}}
+      title: come
+    - payload: /i_dp3_g_q3_2{{"e_dp3_g_q3_2":"grew"}}
+      title: grew
+    - payload: /i_dp3_g_q3_2{{"e_dp3_g_q3_2":"should"}}
+      title: should
+    text: "Welches der folgenden W\xF6rter ist eine Simple Past-Form?"
+  utter_ask_s_dp3_g_q3_3:
+  - buttons:
+    - payload: /i_dp3_g_q3_3{{"e_dp3_g_q3_3":"had shone"}}
+      title: had shone
+    - payload: /i_dp3_g_q3_3{{"e_dp3_g_q3_3":"have slept"}}
+      title: have slept
+    - payload: /i_dp3_g_q3_3{{"e_dp3_g_q3_3":"is spreading"}}
+      title: is spreading
+    - payload: /i_dp3_g_q3_3{{"e_dp3_g_q3_3":"swam"}}
+      title: swam
+    text: "Bei welchen der folgenden W\xF6rter handelt es sich um eine Past Perfect-Form?"
+  utter_ask_s_dp3_g_q3_4:
+  - buttons:
+    - payload: /i_dp3_g_q3_4{{"e_dp3_g_q3_4":"shall"}}
+      title: shall
+    - payload: /i_dp3_g_q3_4{{"e_dp3_g_q3_4":"walk"}}
+      title: walk
+    - payload: /i_dp3_g_q3_4{{"e_dp3_g_q3_4":"eaten"}}
+      title: eaten
+    - payload: /i_dp3_g_q3_4{{"e_dp3_g_q3_4":"blew"}}
+      title: blew
+    text: "Welches der folgenden W\xF6rter ist eine Simple Past-Form?"
+  utter_ask_s_dp3_g_q3_5:
+  - buttons:
+    - payload: /i_dp3_g_q3_5{{"e_dp3_g_q3_5":"had taught"}}
+      title: had taught
+    - payload: /i_dp3_g_q3_5{{"e_dp3_g_q3_5":"tread"}}
+      title: tread
+    - payload: /i_dp3_g_q3_5{{"e_dp3_g_q3_5":"wear"}}
+      title: wear
+    - payload: /i_dp3_g_q3_5{{"e_dp3_g_q3_5":"spent"}}
+      title: spent
+    text: "Bei welchen der folgenden W\xF6rter handelt es sich um eine Past Perfect-Form?"
   utter_ask_s_dp3_g_evaluation:
   - buttons:
     - payload: /i_dp3_g_evaluation{{"e_dp3_g_evaluation":"EVALUATION"}}
@@ -1472,10 +1712,12 @@ actions:
 - action_ask_s_dp3_q3
 - action_ask_s_dp3_q4
 - validate_dp3_form_voc
+- action_ask_s_dp3_v_customize_goal
 - action_ask_s_dp3_v_q3
 - action_ask_s_dp3_v_q4
 - action_ask_s_dp3_v_end
 - validate_dp3_form_gram
+- action_ask_s_dp3_g_customize_goal
 - action_ask_s_dp3_g_q3
 - action_ask_s_dp3_g_q4
 - action_ask_s_dp3_g_end
@@ -1562,7 +1804,14 @@ forms:
     required_slots:
     - s_dp3_v_q1
     - s_dp3_v_q2
+    - s_dp3_v_customize_goal
+    - s_dp3_v_start_button
     - s_dp3_v_q3_0
+    - s_dp3_v_q3_1
+    - s_dp3_v_q3_2
+    - s_dp3_v_q3_3
+    - s_dp3_v_q3_4
+    - s_dp3_v_q3_5
     - s_dp3_v_evaluation
     - s_dp3_v_q4
     - s_dp3_v_q5
@@ -1573,7 +1822,14 @@ forms:
     required_slots:
     - s_dp3_g_q1
     - s_dp3_g_q2
+    - s_dp3_g_customize_goal
+    - s_dp3_g_start_button
     - s_dp3_g_q3_0
+    - s_dp3_g_q3_1
+    - s_dp3_g_q3_2
+    - s_dp3_g_q3_3
+    - s_dp3_g_q3_4
+    - s_dp3_g_q3_5
     - s_dp3_g_evaluation
     - s_dp3_g_q4
     - s_dp3_g_q5
