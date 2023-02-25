@@ -22,8 +22,6 @@ class AskForSlotAction(Action):
             deadline = "bis zum Ende des Jahres"
             oberziel = dp3["s_dp3_q1"]["goal"][user_selection] % deadline
 
-        print("\noberziel: ", oberziel)
-
         if tracker.slots.get("s_dp3_q3") == "vocabels":
             return [FollowupAction("dp3_form_voc"), SlotSet("s_dp3_q4", "vocabel_form"), SlotSet("s_oberziel", oberziel)]
         else:

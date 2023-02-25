@@ -16,8 +16,6 @@ class AskForSlotAction(Action):
             domain: Dict) -> List[EventType]:
         """ The next form get called depending on the user input. If the user choosed before vocabluary, the form grammar is called. If the user choosed before grammar, the form grammar is called. """
         dp_3 = get_dp_inmemory_db("DP3.json")
-        print("SLOT V1", tracker.slots.get("s_dp3_v_q1"))
-        print("SLOT V5 ", tracker.slots.get("s_dp3_v_q5"))
 
         # generate goal for vocabulary form
         topic = tracker.slots.get("s_dp3_g_q1")

@@ -25,8 +25,6 @@ class ActionRepeatLastQuest(Action):
                 text="Ich habe dich leider nicht verstanden. Bitte wiederhole deine Eingabe.")
             return [UserUtteranceReverted(), FollowupAction(tracker.active_form.get('latest_action_name'))]
 
-       # print("\nValue: ", value)
-
         # Sterne und punkte
         if len(value) == 2:
             if ((value[0] == "sterne" or value[0] == "stars") and value[1] == "punkte") or (value[0] == "punkte" and (value[1] == "sterne" or value[1] == "stars")):

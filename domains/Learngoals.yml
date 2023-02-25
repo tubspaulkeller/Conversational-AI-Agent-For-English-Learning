@@ -142,11 +142,14 @@ responses:
     - payload: /i_lg_1{{"e_lg_1":"faster"}}
       title: Schaffe mein Ziel schneller
     text: "Soll ich das als Lernziel festlegen oder möchtest du das Ziel anpassen bzw. wechseln? 🤔"
+
+
+    
   utter_s_lg_2/need_longer:
-  - text: Gar kein Problem! Es ist vollkommen richtig, auf das eigene Tempo zu achten & die Zeit gesund einzuteilen. Bis wann möchtest du diesen Kurs beenden?
+  - text: Gar kein Problem! Es ist vollkommen richtig, auf das eigene Tempo zu achten & die Zeit gesund einzuteilen.
   
   utter_s_lg_2/faster: 
-  - text: Du gibst ja ganz schön Gas! Bis wann möchtest du denn diesen Kurs beenden? 
+  - text: Du gibst ja ganz schön Gas!
 
 actions:
   - validate_learngoals_form

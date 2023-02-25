@@ -32,25 +32,25 @@ msg = {
 class AskForSlotAction(Action):
 
     def name(self) -> Text:
-        return "action_ask_s_lg_2"
+        return "action_ask_s_dp3_g_customize_goal"
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker,
             domain: Dict) -> List[EventType]:
 
-        is_accepting_learngoal = tracker.slots.get("s_lg_1")
-        user_selection = tracker.slots.get("s_lg_intro")
-        topic = tracker.slots.get("s_lg_0")
+        is_accepting_learngoal = tracker.slots.get("s_dp3_g_q2")
+        topic = tracker.slots.get("s_dp3_g_q1")
+
         date_button = [{'title': 'Datum bestätigen',
-                        'payload': "/i_lg_2{\"e_lg_2\":\"date\"}"}]
+                        'payload': "/i_dp3_g_customize_goal{\"e_dp3_g_customize_goal\":\"date\"}"}]
         confirm_button = [{'title': 'Bestätigen',
-                           'payload': "/i_lg_2{\"e_lg_2\":\"confirm\"}"},
+                           'payload': "/i_dp3_g_customize_goal{\"e_dp3_g_customize_goal\":\"confirm\"}"},
                           {'title': 'Doch nicht ändern',
-                           'payload': "/i_lg_2{\"e_lg_2\":\"deny\"}"}]
+                           'payload': "/i_dp3_g_customize_goal{\"e_dp3_g_customize_goal\":\"deny\"}"}]
 
         if is_accepting_learngoal == "deny":
             dispatcher.utter_message(
-                response="utter_s_lg_0/%s/repeat" % user_selection)
-            return [SlotSet("s_lg_0", None), SlotSet("s_lg_1", None)]
+                response="utter_ask_s_dp3_g_q1/repeat")
+            return [SlotSet("s_dp3_g_q1", None), SlotSet("s_dp3_gs_q2", None)]
 
         elif is_accepting_learngoal == "need_longer" or is_accepting_learngoal == "faster":
 

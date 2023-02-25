@@ -27,8 +27,6 @@ class AskForSlotAction(Action):
             dispatcher.utter_message(response="utter_s_lg_0/grammatikziel")
 
         if user_selection == "INFO":
-            # TODO gloable SLOTS für Teil-Lernziele in DP3 anpassen
-
             oberziel = tracker.get_slot("s_oberziel")
             vokabelziel = tracker.get_slot("s_vokabelziel")
             grammatikziel = tracker.get_slot("s_grammatikziel")
