@@ -56,7 +56,7 @@
     },
     "s_dp3_v_end": {
         "shorter_learntime": "ab sofort wird dein Vokabel-Quiz nur noch aus 35 Fragen bestehen 😁",
-        "longer_learntime": "ab sofort wird dein Vokabel-Quiz nur aus 60 Fragen bestehen 😁"
+        "longer_learntime": "ab sofort wird dein Vokabel-Quiz nun aus 60 Fragen bestehen 😁"
     },
     "s_dp3_g_q3": {
         "solution": "overtook",
@@ -90,6 +90,6 @@
     },
     "s_dp3_g_end": {
         "shorter_learntime": "ab sofort wird dein Grammatik-Quiz nur noch aus 35 Fragen bestehen 😁",
-        "longer_learntime": "ab sofort wird dein Grammatik-Quiz nur aus 60 Fragen bestehen 😁"
+        "longer_learntime": "ab sofort wird dein Grammatik-Quiz nun aus 60 Fragen bestehen 😁"
     }
 }

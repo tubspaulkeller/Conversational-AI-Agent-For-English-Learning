@@ -17,8 +17,8 @@ intents:
       use_entities: e_dp3_v_q2
   - i_dp3_v_customize_goal:
       use_entities: e_dp3_v_customize_goal
-  - i_dp3_v_accepting_goal:
-      use_entities: e_dp3_v_accepting_goal
+  - i_dp3_v_start_button:
+      use_entities: e_dp3_v_start_button
   - i_dp3_v_q3:
       use_entities: e_dp3_v_q3
   - i_dp3_v_q3_1:
@@ -45,8 +45,8 @@ intents:
       use_entities: e_dp3_g_q2
   - i_dp3_g_customize_goal:
       use_entities: e_dp3_g_customize_goal
-  - i_dp3_g_accepting_goal:
-      use_entities: e_dp3_g_accepting_goal
+  - i_dp3_g_start_button:
+      use_entities: e_dp3_g_start_button
   - i_dp3_g_q3:
       use_entities: e_dp3_g_q3
   - i_dp3_g_q3_1:
@@ -80,7 +80,7 @@ entities:
 - e_dp3_v_q1
 - e_dp3_v_q2
 - e_dp3_v_customize_goal
-- e_dp3_v_accepting_goal
+- e_dp3_v_start_button
 - e_dp3_v_q3
 - e_dp3_v_q3_1
 - e_dp3_v_q3_2
@@ -94,7 +94,7 @@ entities:
 - e_dp3_g_q1
 - e_dp3_g_q2
 - e_dp3_g_customize_goal
-- e_dp3_g_accepting_goal
+- e_dp3_g_start_button
 - e_dp3_g_q3
 - e_dp3_g_q3_1
 - e_dp3_g_q3_2
@@ -178,11 +178,11 @@ slots:
     - type: from_entity
       entity: e_dp3_v_customize_goal
   
-  s_dp3_v_accepting_goal: 
+  s_dp3_v_start_button: 
     type: text 
     mappings:
     - type: from_entity
-      entity: e_dp3_v_accepting_goal
+      entity: e_dp3_v_start_button
 
   s_dp3_v_q3:
     type: text
@@ -268,11 +268,11 @@ slots:
     - type: from_entity
       entity: e_dp3_g_customize_goal
   
-  s_dp3_g_accepting_goal: 
+  s_dp3_g_start_button: 
     type: text 
     mappings:
     - type: from_entity
-      entity: e_dp3_g_accepting_goal
+      entity: e_dp3_g_start_button
 
   s_dp3_g_q3:
     type: text
@@ -445,9 +445,9 @@ responses:
       title: Schaffe mein Ziel schneller
     text: "Soll ich das als Lernziel festlegen oder möchtest du das Ziel anpassen bzw. wechseln? 🤔"
   
-  utter_ask_s_dp3_v_accepting_goal:
+  utter_ask_s_dp3_v_start_button:
   - buttons:
-    - payload: /i_dp3_v_accepting_goal{{"e_dp3_v_accepting_goal":"affirm"}}
+    - payload: /i_dp3_v_start_button{{"e_dp3_v_start_button":"affirm"}}
       title: Starte Vokabeltraining! 🚀📚
     text: " "
     
@@ -612,9 +612,9 @@ responses:
       title: Schaffe mein Ziel schneller
     text: "Soll ich das als Lernziel festlegen oder möchtest du das Ziel anpassen bzw. wechseln? 🤔"
   
-  utter_ask_s_dp3_g_accepting_goal:
+  utter_ask_s_dp3_g_start_button:
   - buttons:
-    - payload: /i_dp3_g_accepting_goal{{"e_dp3_g_accepting_goal":"affirm"}}
+    - payload: /i_dp3_g_start_button{{"e_dp3_g_start_button":"affirm"}}
       title: Starte Grammatiktraining! 🚀📚
     text: " "
   
@@ -795,7 +795,7 @@ forms:
     - s_dp3_v_q1
     - s_dp3_v_q2
     - s_dp3_v_customize_goal
-    - s_dp3_v_accepting_goal
+    - s_dp3_v_start_button
     - s_dp3_v_q3
     - s_dp3_v_q3_1
     - s_dp3_v_q3_2
@@ -814,7 +814,7 @@ forms:
     - s_dp3_g_q1
     - s_dp3_g_q2
     - s_dp3_g_customize_goal
-    - s_dp3_g_accepting_goal
+    - s_dp3_g_start_button
     - s_dp3_g_q3
     - s_dp3_g_q3_1
     - s_dp3_g_q3_2

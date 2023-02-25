@@ -43,11 +43,6 @@ def is_user_accepting_learn_goal(slot, user_selection, value, dispatcher):
 
 
 def customize_learn_goal(slot, get_goal, customize, dispatcher, tracker, user_selection):
-    print("customize_learn_goal")
-
-    print("get_goal: ", get_goal)
-    print("customize: ", customize)
-    print("user_selection: ", user_selection)
     date_picker = "None"
     goal = tracker.get_slot(get_goal)
     custom_goal = " "

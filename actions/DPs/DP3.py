@@ -63,7 +63,6 @@ class ValidateDP3Form(FormValidationAction):
             tracker: Tracker,
             domain: Dict[Text, Any],
         ) -> Dict[Text, Any]:
-            print("test", value)
             return {name_of_slot: value}
         return validate_slot
 
@@ -101,7 +100,7 @@ class ValidateDP3VOCForm(FormValidationAction):
         if tracker.slots.get("s_dp3_v_q2") == 'affirm':
             # there we will skip next slot
             updated_slots.remove("s_dp3_v_customize_goal")
-            updated_slots.remove("s_dp3_v_accepting_goal")
+            updated_slots.remove("s_dp3_v_start_button")
         return updated_slots
 
     def validate_s_dp3_v_q1(
@@ -206,15 +205,15 @@ class ValidateDP3VOCForm(FormValidationAction):
     ) -> Dict[Text, Any]:
         return {"s_dp3_display_form_button": "DISPLAYED"}
 
-    def validate_s_dp3_v_accepting_goal(
+    def validate_s_dp3_v_start_button(
         self,
         value: Text,
         dispatcher: CollectingDispatcher,
         tracker: Tracker,
         domain: Dict[Text, Any],
     ) -> Dict[Text, Any]:
-        print("validate_s_dp3_v_accepting_goal", value)
-        return {"s_dp3_v_accepting_goal": value}
+        print("validate_s_dp3_v_start_button", value)
+        return {"s_dp3_v_start_button": value}
 
     def validate_dp3voc(name_of_slot):
         def validate_slot(
@@ -266,7 +265,7 @@ class ValidateDP3GRAMForm(FormValidationAction):
         if tracker.slots.get("s_dp3_g_q2") == 'affirm':
             # there we will skip next slot
             updated_slots.remove("s_dp3_g_customize_goal")
-            updated_slots.remove("s_dp3_g_accepting_goal")
+            updated_slots.remove("s_dp3_g_start_button")
         return updated_slots
 
     def validate_s_dp3_g_q1(
@@ -372,15 +371,15 @@ class ValidateDP3GRAMForm(FormValidationAction):
     ) -> Dict[Text, Any]:
         return {"s_dp3_activate_form": value}
 
-    def validate_s_dp3_g_accepting_goal(
+    def validate_s_dp3_g_start_button(
         self,
         value: Text,
         dispatcher: CollectingDispatcher,
         tracker: Tracker,
         domain: Dict[Text, Any],
     ) -> Dict[Text, Any]:
-        print("validate_s_dp3_g_accepting_goal", value)
-        return {"s_dp3_g_accepting_goal": value}
+        print("validate_s_dp3_g_start_button", value)
+        return {"s_dp3_g_start_button": value}
 
     def validate_dp3gram(name_of_slot):
 
