@@ -3,9 +3,7 @@ from datetime import datetime, date
 
 
 def utter_learn_goal(key, dispatcher, dp_n, value, pre_text, deadline, post_text):
-    print("key: ", key + " value: ", value + " deadline: ", deadline)
     text = dp_n[key]["goal"][value] % deadline
-    print("text: ", text)
     learn_goal = {
         "blocks": [
             {
@@ -45,14 +43,17 @@ def is_user_accepting_learn_goal(slot, user_selection, value, dispatcher):
 
 
 def customize_learn_goal(slot, get_goal, customize, dispatcher, tracker, user_selection):
+    print("customize_learn_goal")
 
+    print("get_goal: ", get_goal)
+    print("customize: ", customize)
+    print("user_selection: ", user_selection)
     date_picker = "None"
     goal = tracker.get_slot(get_goal)
     custom_goal = " "
     pre_text_accept = "Ich habe dein Lernziel angepasst:\n"
     pre_text_deny = "Ich habe dein Lernziel *nicht* angepasst:\n"
     is_user_accepting = tracker.get_slot(slot)
-    print("\ngoal: ", goal, "customize: ", customize, "slot: ", slot)
 
     # special case for goal "Englisch-Konversation"
     if goal == "Englisch-Konversation" and customize == 'faster':
@@ -79,7 +80,6 @@ def customize_learn_goal(slot, get_goal, customize, dispatcher, tracker, user_se
         dispatcher.utter_message(
             text="Bitte wähle ein Datum aus, welches später als 'Ende dieses Jahres ist', da du dich entschieden hast, dir länger Zeit für dein Ziel zu nehmen.")
         return {slot: None}
-    print("test", user_date, today_date)
     if user_date <= today_date:
         dispatcher.utter_message(
             text="Bitte wähle ein Datum in der Zukunft aus.")
@@ -90,6 +90,8 @@ def customize_learn_goal(slot, get_goal, customize, dispatcher, tracker, user_se
 
     custom_goal = utter_learn_goal(key, dispatcher, get_dp_inmemory_db(
         "DP3.json"), goal, 'Ich habe dein Lernziel bezüglich des Datums angepasst:', 'bis zum %s' % datetime.strptime(date_picker, '%Y-%m-%d').strftime('%d.%m.%Y'), '')
+
+    print("\n CUSTOM_GOAL: ", custom_goal)
     return {slot: custom_goal}
 
 

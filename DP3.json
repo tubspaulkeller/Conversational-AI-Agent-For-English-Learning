@@ -21,25 +21,75 @@
         "Zeitformen_erweitern": "'Ich möchte meine Englisch-Grammatik %s um zwei Zeitformen erweitern.'"
         }
     },
-    "total_questions": 1,
-    "total_points": 5,
+    "total_questions": 6,
+    "total_points": 30,
     "badge_naturtalent": "https://res.cloudinary.com/dmnkxrxes/image/upload/v1667925124/Ben_Bot/Abzeichen_Naturtalent_evz2oo.png",
     "s_dp3_v_q3": {
-        "solution": "wrote",
+        "solution": "commission", 
         "points": 5,
         "question": 1
+    },
+    "s_dp3_v_q3_1": {
+        "solution": "übertreiben", 
+        "points": 5,
+        "question": 2
+    },
+    "s_dp3_v_q3_2": {
+        "solution": "err", 
+        "points": 5,
+        "question": 3
+    },
+    "s_dp3_v_q3_3": {
+        "solution": "Tapferkeit", 
+        "points": 5,
+        "question": 4
+    },
+    "s_dp3_v_q3_4": {
+        "solution": "accelerate", 
+        "points": 5,
+        "question": 5
+    },
+    "s_dp3_v_q3_5": {
+        "solution": "überzeugen", 
+        "points": 5,
+        "question": 6
     },
     "s_dp3_v_end": {
         "shorter_learntime": "ab sofort wird dein Vokabel-Quiz nur noch aus 35 Fragen bestehen 😁",
         "longer_learntime": "ab sofort wird dein Vokabel-Quiz nur aus 60 Fragen bestehen 😁"
     },
     "s_dp3_g_q3": {
-        "solution": "wrote",
+        "solution": "overtook",
         "points": 5,
         "question": 1
     },
+    "s_dp3_g_q3_1": {
+        "solution": "had forbidden", 
+        "points": 5,
+        "question": 2
+    },
+    "s_dp3_g_q3_2": {
+        "solution": "grew", 
+        "points": 5,
+        "question": 3
+    },
+    "s_dp3_g_q3_3": {
+        "solution": "had shone", 
+        "points": 5,
+        "question": 4
+    },
+    "s_dp3_g_q3_4": {
+        "solution": "blew", 
+        "points": 5,
+        "question": 5
+    },
+    "s_dp3_g_q3_5": {
+        "solution": "had taught", 
+        "points": 5,
+        "question": 6
+    },
     "s_dp3_g_end": {
-        "shorter_learntime": "ab sofort wird dein Vokabel-Quiz nur noch aus 35 Fragen bestehen 😁",
-        "longer_learntime": "ab sofort wird dein Vokabel-Quiz nur aus 60 Fragen bestehen 😁"
+        "shorter_learntime": "ab sofort wird dein Grammatik-Quiz nur noch aus 35 Fragen bestehen 😁",
+        "longer_learntime": "ab sofort wird dein Grammatik-Quiz nur aus 60 Fragen bestehen 😁"
     }
 }

@@ -98,6 +98,10 @@ class ValidateDP3VOCForm(FormValidationAction):
         if tracker.slots.get("s_dp3_v_q5") == 'deny':
             # there we will skip next slot
             updated_slots.remove("s_dp3_v_q6")
+        if tracker.slots.get("s_dp3_v_q2") == 'affirm':
+            # there we will skip next slot
+            updated_slots.remove("s_dp3_v_customize_goal")
+            updated_slots.remove("s_dp3_v_accepting_goal")
         return updated_slots
 
     def validate_s_dp3_v_q1(
@@ -109,13 +113,11 @@ class ValidateDP3VOCForm(FormValidationAction):
     ) -> Dict[Text, Any]:
         """ validates the first question of DP3. The user can choose his learning goal """
 
-        #define_learn_goal("s_dp3_v_q1", value, dispatcher)
+        # define_learn_goal("s_dp3_v_q1", value, dispatcher)
         key, pretext, deadline = get_key_for_json("s_dp3_v_q1", tracker)
 
         return generate_learn_goal(key, 's_dp3_v_q1', dispatcher, value,
                                    pretext, deadline, " ")
-
-        return {"s_dp3_v_q1": value}
 
     def validate_s_dp3_v_q2(
         self,
@@ -125,15 +127,11 @@ class ValidateDP3VOCForm(FormValidationAction):
         domain: Dict[Text, Any],
     ) -> Dict[Text, Any]:
         """ validates the second question of DP3. It does not need to be validated bcs it is checked at the action """
-        if value == "affirm":
-            if tracker.slots.get("s_dp3_q4") == "grammar_form":
-                dispatcher.utter_message(
-                    text="Perfekt! Dann können wir ja jetzt mit den Vokabeln starten!\n 😁")
-            else:
-                dispatcher.utter_message(
-                    text="Perfekt! Dann können wir ja jetzt mit den Vokabeln starten!\nÜbrigens: Sobald du die Grammatik Lektion startest, können wir auch dafür ein separates Ziel anlegen. 😁")
+        return is_user_accepting_learn_goal('s_dp3_v_q2', 'vokabelziel', value, dispatcher)
 
-        return {"s_dp3_v_q2": value}
+    def validate_s_dp3_v_customize_goal(self, slot_value: Any, dispatcher: CollectingDispatcher, tracker: Tracker, domain: "DomainDict") -> Dict[Text, Any]:
+        """ validates the second question of DP3. The user can affirm or deny his learning goal """
+        return customize_learn_goal('s_dp3_v_customize_goal', 's_dp3_v_q1', tracker.get_slot('s_dp3_v_q2'), dispatcher, tracker, "s_dp3_v_q1")
 
     def validate_s_dp3_v_evaluation(
         self,
@@ -208,6 +206,16 @@ class ValidateDP3VOCForm(FormValidationAction):
     ) -> Dict[Text, Any]:
         return {"s_dp3_display_form_button": "DISPLAYED"}
 
+    def validate_s_dp3_v_accepting_goal(
+        self,
+        value: Text,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> Dict[Text, Any]:
+        print("validate_s_dp3_v_accepting_goal", value)
+        return {"s_dp3_v_accepting_goal": value}
+
     def validate_dp3voc(name_of_slot):
         def validate_slot(
             self,
@@ -225,6 +233,12 @@ class ValidateDP3VOCForm(FormValidationAction):
         return validate_slot
 
     validate_s_dp3_v_q3 = validate_dp3voc(name_of_slot="s_dp3_v_q3")
+    validate_s_dp3_v_q3_1 = validate_dp3voc(name_of_slot="s_dp3_v_q3_1")
+    validate_s_dp3_v_q3_2 = validate_dp3voc(name_of_slot="s_dp3_v_q3_2")
+    validate_s_dp3_v_q3_3 = validate_dp3voc(name_of_slot="s_dp3_v_q3_3")
+    validate_s_dp3_v_q3_4 = validate_dp3voc(name_of_slot="s_dp3_v_q3_4")
+    validate_s_dp3_v_q3_5 = validate_dp3voc(name_of_slot="s_dp3_v_q3_5")
+
 
 ############################################################################################################
 ##### DP3 gram #####
@@ -248,6 +262,11 @@ class ValidateDP3GRAMForm(FormValidationAction):
         updated_slots = domain_slots.copy()
         if tracker.slots.get("s_dp3_g_q5") == 'deny':
             updated_slots.remove("s_dp3_g_q6")
+
+        if tracker.slots.get("s_dp3_g_q2") == 'affirm':
+            # there we will skip next slot
+            updated_slots.remove("s_dp3_g_customize_goal")
+            updated_slots.remove("s_dp3_g_accepting_goal")
         return updated_slots
 
     def validate_s_dp3_g_q1(
@@ -258,7 +277,7 @@ class ValidateDP3GRAMForm(FormValidationAction):
         domain: Dict[Text, Any],
     ) -> Dict[Text, Any]:
         """ the user can choose his learning goal """
-        #define_learn_goal("s_dp3_g_q1", value, dispatcher)
+        # define_learn_goal("s_dp3_g_q1", value, dispatcher)
 
         key, pretext, deadline = get_key_for_json("s_dp3_g_q1", tracker)
 
@@ -272,16 +291,12 @@ class ValidateDP3GRAMForm(FormValidationAction):
         tracker: Tracker,
         domain: Dict[Text, Any],
     ) -> Dict[Text, Any]:
-        """ does not need to be validated bcs it is checked at different action """
-        if value == "affirm":
-            if tracker.slots.get("s_dp3_q4") == "grammar_form":
-                dispatcher.utter_message(
-                    text="Perfekt! Dann können wir ja jetzt mit der Grammatik starten!\nÜbrigens: Sobald du die Vokabel Lektion startest, können wir auch dafür ein separates Ziel anlegen. 😁")
-            else:
-                dispatcher.utter_message(
-                    text="Perfekt! Dann können wir ja jetzt mit der Grammatik starten! 😁")
+        """ validates the second question of DP3. It does not need to be validated bcs it is checked at the action """
+        return is_user_accepting_learn_goal('s_dp3_g_q2', 'grammatikziel', value, dispatcher)
 
-        return {"s_dp3_g_q2": value}
+    def validate_s_dp3_g_customize_goal(self, slot_value: Any, dispatcher: CollectingDispatcher, tracker: Tracker, domain: "DomainDict") -> Dict[Text, Any]:
+        """ validates the second question of DP3. The user can affirm or deny his learning goal """
+        return customize_learn_goal('s_dp3_g_customize_goal', 's_dp3_g_q1', tracker.get_slot('s_dp3_g_q2'), dispatcher, tracker, "s_dp3_g_q1")
 
     def validate_s_dp3_g_evaluation(
         self,
@@ -357,6 +372,16 @@ class ValidateDP3GRAMForm(FormValidationAction):
     ) -> Dict[Text, Any]:
         return {"s_dp3_activate_form": value}
 
+    def validate_s_dp3_g_accepting_goal(
+        self,
+        value: Text,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> Dict[Text, Any]:
+        print("validate_s_dp3_g_accepting_goal", value)
+        return {"s_dp3_g_accepting_goal": value}
+
     def validate_dp3gram(name_of_slot):
 
         def validate_slot(
@@ -376,6 +401,11 @@ class ValidateDP3GRAMForm(FormValidationAction):
         return validate_slot
 
     validate_s_dp3_g_q3 = validate_dp3gram(name_of_slot="s_dp3_g_q3")
+    validate_s_dp3_g_q3_1 = validate_dp3gram(name_of_slot="s_dp3_g_q3_1")
+    validate_s_dp3_g_q3_2 = validate_dp3gram(name_of_slot="s_dp3_g_q3_2")
+    validate_s_dp3_g_q3_3 = validate_dp3gram(name_of_slot="s_dp3_g_q3_3")
+    validate_s_dp3_g_q3_4 = validate_dp3gram(name_of_slot="s_dp3_g_q3_4")
+    validate_s_dp3_g_q3_5 = validate_dp3gram(name_of_slot="s_dp3_g_q3_5")
 
 
 ############################################################################################################
@@ -408,9 +438,9 @@ def utter_affirm_learn_process(dispatcher):
 
 def utter_shorter_learntime(dispatcher, quest, goal):
     dispatcher.utter_message(
-        text="Oh, ich verstehe. Was hälst du davon, wenn wir das %s von 50 auf 35 Fragen verkürzen? So könntest du dein Ziel von %s bis zum Ende des Jahres trotzdem noch erreichen." % (quest, goal))
+        text="Oh, ich verstehe. Was hälst du davon, wenn wir das %s von 50 auf 35 Fragen verkürzen? So könntest du dein Ziel von %s trotzdem noch erreichen." % (quest, goal))
 
 
 def utter_longer_learntime(dispatcher, quest, goal):
     dispatcher.utter_message(
-        text="Cool, dann erhöhren wir das %s von 50 auf 60 Fragen. So kannst du dein Ziel von %s bis zum Ende des Jahres sogar übertreffen!" % (quest, goal))
+        text="Cool, dann erhöhren wir das %s von 50 auf 60 Fragen. So kannst du dein Ziel von %s sogar übertreffen!" % (quest, goal))
