@@ -845,6 +845,7 @@ responses:
       & die Zeit gesund einzuteilen.
   utter_s_lg_2/faster:
   - text: "Du gibst ja ganz sch\xF6n Gas!"
+
   utter_ask_s_dp1_q0:
   - buttons:
     - payload: /i_dp1_q0{{"e_dp1_q0":"PLAY"}}
@@ -1087,6 +1088,9 @@ responses:
       & die Zeit gesund einzuteilen.
   utter_s_dp3_q2/faster:
   - text: "Du gibst ja ganz sch\xF6n Gas!"
+  utter_s_dp3_q2/faster:
+  - text: "Du gibst ja ganz sch\xF6n Gas! Bis wann m\xF6chtest du denn diesen Kurs\
+      \ beenden?"
   utter_ask_s_dp3_date_confirm:
   - buttons:
     - payload: /i_dp3_date_confirm{{"e_dp3_date_confirm":"affirm"}}
