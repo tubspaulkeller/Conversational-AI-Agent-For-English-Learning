@@ -8,6 +8,7 @@ NO_ALL_PARTS_OF_QUEST_DE_DP2 = "Du hast leider nicht alle Teile der Frage beantw
 
 
 def exist_present_perfect(name_of_slot, entities, entities_list, dispatcher):
+    print("entities: ", entities)
     for entity in entities:
         if entity in entities_list[name_of_slot]["present_perfect"]:
             return True
