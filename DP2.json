@@ -55,7 +55,7 @@
         "quantity": 4
     },
     "s_dp2_at_q4": { 
-        "present_perfect": ["has been"], 
+        "present_perfect": ["has never been", "has been"], 
         "entities": ["She", "she", "has never been","has been", "never", "London","london"],
         "quantity": 3
     }
