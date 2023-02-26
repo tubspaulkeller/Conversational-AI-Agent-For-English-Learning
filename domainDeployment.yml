@@ -154,7 +154,10 @@ intents:
 - i_out_of_scope
 - i_badges_images
 - i_call_anwendungsaufgabe
-- i_zeitform
+- i_lets_go:
+    use_entities: e_lets_go
+- i_zeitform:
+    use_entities: e_zeitform
 - i_ask_why_points_badges_stars:
     use_entites: e_why_points_badges_stars
 - i_ask_why_x_points:
@@ -246,9 +249,11 @@ entities:
 - e_dp2_at_q2
 - e_dp2_at_q3
 - e_dp2_at_q4
+- e_lets_go
 - e_get_dp
 - e_why_x_points
 - e_why_points_badges_stars
+- e_zeitform
 - e_dp4_q0
 - e_dp4_q1A
 - e_dp4_q1B
@@ -663,6 +668,11 @@ slots:
     type: text
     mappings:
     - type: custom
+  lets_go:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: e_lets_go
   s_get_dp_form:
     type: text
     mappings:
@@ -1760,6 +1770,7 @@ actions:
 - action_why_x_points
 - action_call_anwendungsaufgabe
 - action_ask_zeitform
+- action_validate_lets_go
 - validate_dp4_form
 - action_ask_s_dp4_q1A
 - action_ask_s_dp4_q2A

@@ -96,6 +96,10 @@ rules:
   - intent: i_goodbye
   - action: utter_goodbye
 
+- rule: lets_go
+  steps:
+  - intent: i_lets_go
+  - action: get_dp_form
 
 
 - rule: User can adjust his learn goal

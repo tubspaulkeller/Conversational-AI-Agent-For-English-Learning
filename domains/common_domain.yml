@@ -3,6 +3,8 @@ version: "3.0"
 intents:
   - EXTERNAL_reminder_set_dp
   - i_goodbye
+  - i_lets_go:
+      use_entities: e_lets_go
   - i_greet
   - i_restart_conversation
   - i_ask_last_question
@@ -19,13 +21,11 @@ intents:
       use_entites: e_why_points_badges_stars
   - i_ask_why_x_points:
       use_entities: e_why_x_points
-
-
-
   - i_get_dp:
       use_entities: e_get_dp
       
 entities: 
+  - e_lets_go
   - e_get_dp
   - e_why_x_points
   - e_why_points_badges_stars
@@ -41,7 +41,11 @@ slots:
     type: text
     mappings:
     - type: custom 
-    
+  lets_go: 
+    type: text 
+    mappings:
+    - type: from_entity 
+      entity: e_lets_go
   s_get_dp_form:
     type: text
     mappings:
@@ -133,6 +137,7 @@ actions:
   - action_why_x_points
   - action_call_anwendungsaufgabe
   - action_ask_zeitform 
+  - action_validate_lets_go
 
 forms: 
   get_dp_form:
