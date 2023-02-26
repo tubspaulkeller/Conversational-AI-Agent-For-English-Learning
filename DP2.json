@@ -1,7 +1,7 @@
 {
     "total_questions": 7,
     "total_points": 35,
-    "badge_naturtalent": "https://res.cloudinary.com/dmnkxrxes/image/upload/v1667925124/Ben_Bot/Abzeichen_Naturtalent_evz2oo.png",
+    "badge_naturtalent": "https://res.cloudinary.com/dmnkxrxes/image/upload/v1677413316/Ben_Bot/Fehlerfrei_im_ersten_Versuch_sqawk5.png",
     "s_dp2_q2": { 
         "solution": "have played",
         "points": 5,
@@ -55,8 +55,8 @@
         "quantity": 4
     },
     "s_dp2_at_q4": { 
-        "present_perfect": ["has never been"],
-        "entities": ["She", "she", "has never been", "London","london"],
+        "present_perfect": ["has been"], 
+        "entities": ["She", "she", "has never been","has been", "never", "London","london"],
         "quantity": 3
     }
 }

@@ -162,25 +162,72 @@ nlu:
     - Gib mir mal meine Abzeichen
     - Zeig mir meine Badges
 
-- intent: i_present_progressive
+- intent: i_zeitform
   examples: |
-    - wie wird das present progressive gebildet?
-    - Ben, erklär mir mal das Present progressive
-    - was ist das present progressive
-    - present progressive?
-    - wie geht das present progressive?
-    - was macht das present progressive?
-    - wie wird das Present-Progressiv gebildet?
-    - Ben, erklär mir mal das Present-Progressiv
-    - was ist das Present-Progressiv
-    - present progressive?
-    - Present-Progressiv?
-    - wie geht das Present-Progressiv?
-    - was macht das Present-Progressiv?
-    - wie geht die Present-Progressiv-Form?
-    - was macht die Present-Progressiv-Form?
-    - wie wird das Present-Progressiv-Form gebildet?
-
+    - wie wird das [present progressive](e_zeitform) gebildet?
+    - Ben, erklär mir mal das [present progressive](e_zeitform) 
+    - was ist das [present progressive](e_zeitform) 
+    - [present progressive](e_zeitform) ?
+    - wie geht das [present progressive](e_zeitform) ?
+    - was macht das [present progressive](e_zeitform) ?
+    - wie wird das [present progressive](e_zeitform)  gebildet?
+    - Ben, erklär mir mal das [present progressive](e_zeitform) 
+    - was ist das [present progressive](e_zeitform) 
+    - [present progressive](e_zeitform) ?
+    - [present progressive](e_zeitform) ?
+    - wie geht das [present progressive](e_zeitform) ?
+    - was macht das [present progressive](e_zeitform) ?
+    - wie geht die [present progressive](e_zeitform) ?
+    - was macht die [present progressive](e_zeitform) ?
+    - wie wird das [present progressive](e_zeitform)  gebildet?
+    - wie wird das [present perfect](e_zeitform) gebildet?
+    - Ben, erklär mir mal das [present perfect](e_zeitform) 
+    - was ist das [present perfect](e_zeitform) 
+    - [present perfect](e_zeitform) ?
+    - wie geht das [present perfect](e_zeitform) ?
+    - was macht das [present perfect](e_zeitform) ?
+    - wie wird das [present perfect](e_zeitform)  gebildet?
+    - Ben, erklär mir mal das [present perfect](e_zeitform) 
+    - was ist das [present perfect](e_zeitform) 
+    - [present perfect](e_zeitform) ?
+    - [present perfect](e_zeitform) ?
+    - wie geht das [present perfect](e_zeitform) ?
+    - was macht das [present perfect](e_zeitform) ?
+    - wie geht die [present perfect](e_zeitform) ?
+    - was macht die [present perfect](e_zeitform) ?
+    - wie wird das [present perfect](e_zeitform)  gebildet?
+    - wie wird das [simple past](e_zeitform) gebildet?
+    - Ben, erklär mir mal das [simple past](e_zeitform) 
+    - was ist das [simple past](e_zeitform) 
+    - [simple past](e_zeitform) ?
+    - wie geht das [simple past](e_zeitform) ?
+    - was macht das [simple past](e_zeitform) ?
+    - wie wird das [simple past](e_zeitform)  gebildet?
+    - Ben, erklär mir mal das [simple past](e_zeitform) 
+    - was ist das [simple past](e_zeitform) 
+    - [simple past](e_zeitform) ?
+    - [simple past](e_zeitform) ?
+    - wie geht das [simple past](e_zeitform) ?
+    - was macht das [simple past](e_zeitform) ?
+    - wie geht die [simple past](e_zeitform) ?
+    - was macht die [simple past](e_zeitform) ?
+    - wie wird das [simple past](e_zeitform)  gebildet?
+    - wie wird das [past perfect](e_zeitform) gebildet?
+    - Ben, erklär mir mal das [past perfect](e_zeitform) 
+    - was ist das [past perfect](e_zeitform) 
+    - [past perfect](e_zeitform) ?
+    - wie geht das [past perfect](e_zeitform) ?
+    - was macht das [past perfect](e_zeitform) ?
+    - wie wird das [past perfect](e_zeitform)  gebildet?
+    - Ben, erklär mir mal das [past perfect](e_zeitform) 
+    - was ist das [past perfect](e_zeitform) 
+    - [past perfect](e_zeitform) ?
+    - [past perfect](e_zeitform) ?
+    - wie geht das [past perfect](e_zeitform) ?
+    - was macht das [past perfect](e_zeitform) ?
+    - wie geht die [past perfect](e_zeitform) ?
+    - was macht die [past perfect](e_zeitform) ?
+    - wie wird das [past perfect](e_zeitform)  gebildet?
 
 - intent: i_ask_why_points_badges_stars
   examples: |

@@ -18,7 +18,7 @@ class AskForSlotAction(Action):
             dispatcher.utter_message(
                 text="Damit hast du deine erste Anwendungsaufgabe in dieser Lektion gemeistert und dir ein Abzeichen verdient!")
             dispatcher.utter_message(
-                image="https://res.cloudinary.com/dmnkxrxes/image/upload/v1670165171/Ben_Bot/BEREIT_FU%CC%88R_DIE_KLAUSUR_wskrz2.png")
+                image="https://res.cloudinary.com/dmnkxrxes/image/upload/v1677413377/Ben_Bot/Abschluss_einer_Anwendungsaufgabe_oucoaz.png")
 
         if user_score['call_anwendungsaufgabe'] == 0:
             dispatcher.utter_message(
