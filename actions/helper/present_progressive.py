@@ -19,19 +19,9 @@ class ActionRepeatLastQuest(Action):
 
     def run(self, dispatcher: "CollectingDispatcher", tracker: "Tracker", domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        entities = tracker.latest_message.get('entities')
-        value = []
-
-        try:
-            for entity in entities:
-                value.append(entity['value'].lower())
-        except:
-            value = []
-            dispatcher.utter_message(
-                text="Ich habe dich leider nicht verstanden. Bitte wiederhole deine Eingabe.")
-            return [UserUtteranceReverted(), FollowupAction(tracker.active_form.get('latest_action_name'))]
-
+        entity = tracker.latest_message.get('entities')
+        text = zeitformen[entity[0]['value'].lower()]
         dispatcher.utter_message(
-            json_message=zeitformen[value[0]])
+            json_message=markdown_formatting(text))
 
         return [UserUtteranceReverted(), FollowupAction(tracker.active_form.get('latest_action_name'))]
