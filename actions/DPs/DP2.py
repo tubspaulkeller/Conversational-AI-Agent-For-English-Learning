@@ -129,6 +129,8 @@ class ValidateDP2ApplicationTasksForm(FormValidationAction):
         if tracker.slots.get("s_dp2_at_q1") == 'no':
             # there we will skip next slot
             updated_slots.remove("s_dp2_at_q2")
+            updated_slots.remove("s_dp2_at_q3")
+            updated_slots.remove("s_dp2_at_q4")
         return updated_slots
 
     def validate_s_dp2_at_q1(
