@@ -264,7 +264,7 @@ class ValidateDP3GRAMForm(FormValidationAction):
         if tracker.slots.get("s_dp3_g_q2") == 'affirm':
             # there we will skip next slot
             updated_slots.remove("s_dp3_g_customize_goal")
-            updated_slots.remove("s_dp3_g_start_button")
+            # updated_slots.remove("s_dp3_g_start_button")
         return updated_slots
 
     def validate_s_dp3_g_q1(

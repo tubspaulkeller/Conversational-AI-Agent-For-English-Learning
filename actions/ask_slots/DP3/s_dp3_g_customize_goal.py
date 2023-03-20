@@ -50,7 +50,7 @@ class AskForSlotAction(Action):
         if is_accepting_learngoal == "deny":
             dispatcher.utter_message(
                 response="utter_ask_s_dp3_g_q1/repeat")
-            return [SlotSet("s_dp3_g_q1", None), SlotSet("s_dp3_gs_q2", None)]
+            return [SlotSet("s_dp3_g_q1", None), SlotSet("s_dp3_g_q2", None)]
 
         elif is_accepting_learngoal == "need_longer" or is_accepting_learngoal == "faster":
 
