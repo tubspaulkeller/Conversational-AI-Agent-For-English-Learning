@@ -350,7 +350,7 @@ slots:
 
 responses:
   utter_intro:
-  - text: "Du hast soeben den Englisch Kurs auf dem Level B2 gestartet. 😁 Ich freue mich darauf, die Inhalte mit dir zusammen durchzugehen!\nLass uns zu Beginn gemeinsam ein Lernziel aufstellen, damit wir uns im Laufe des Kurses daran orientieren können!"
+  - text: "Du hast soeben den Englisch Kurs auf dem Level B1 gestartet. 😁 Ich freue mich darauf, die Inhalte mit dir zusammen durchzugehen!\nLass uns zu Beginn gemeinsam ein Lernziel aufstellen, damit wir uns im Laufe des Kurses daran orientieren können!"
 
   utter_s_dp3_q1:
   - buttons:

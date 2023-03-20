@@ -7,9 +7,9 @@ from rasa_sdk.events import UserUtteranceReverted, FollowupAction, AllSlotsReset
 from actions.helper.debug import debug
 from actions.helper.non_cancellable_shield import non_cancellable_shield
 buttons_forms_to_fill = {
-    "s_dp1_end": {'title': 'DP1', 'payload': "/i_get_dp{\"e_get_dp\":\"dp1_form\"}"},
+    "s_dp3_g_end": {'title': 'DP1', 'payload': '/i_get_dp{\"e_get_dp\":\"dp3_form\"}'},
     "s_dp2_part_one_end": {'title': 'DP2', 'payload': '/i_get_dp{\"e_get_dp\":\"dp2_form\"}'},
-    "s_dp3_g_end": {'title': 'DP3', 'payload': '/i_get_dp{\"e_get_dp\":\"dp3_form\"}'},
+    "s_dp1_end": {'title': 'DP3', 'payload': "/i_get_dp{\"e_get_dp\":\"dp1_form\"}"},
     "s_dp4_end": {'title': 'DP4', 'payload': '/i_get_dp{\"e_get_dp\":\"dp4_form\"}'},
 }
 

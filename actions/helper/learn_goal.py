@@ -61,6 +61,10 @@ def customize_learn_goal(slot, get_goal, customize, dispatcher, tracker, user_se
         if event['event'] == 'user' and event['parse_data']['intent']['name'] == 'i_date':
             date_picker = event['parse_data']['text']
             break
+    oberziel = tracker.get_slot('s_oberziel')
+    print("oberziel: ", oberziel)
+    print("date_picker: ", date_picker)
+
     if date_picker == "None":
         dispatcher.utter_message(
             text="Bitte wähle ein Datum in der Zukunft aus.")
