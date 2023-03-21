@@ -48,6 +48,12 @@ rules:
   - intent: i_ask_skills
   - action: action_give_skills
 
+# zurück 
+- rule: zuück befehl
+  steps:
+  - intent: i_ask_back_navigation
+  - action: action_back_navigation
+
 # out_of_scope
 - rule: out of scope
   steps:

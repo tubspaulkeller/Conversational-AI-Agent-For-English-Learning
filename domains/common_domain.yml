@@ -11,6 +11,7 @@ intents:
   - i_ask_score
   - i_ask_badge
   - i_ask_skills
+  - i_ask_back_navigation
   - i_ask_stars
   - i_out_of_scope
   - i_badges_images
@@ -117,6 +118,7 @@ actions:
   - action_set_reminder_set_dp
   - action_react_to_reminder_set_dp
   - action_get_skills
+  - action_back_navigation
   - action_set_slots_none
   - action_restart
   - action_rephrase

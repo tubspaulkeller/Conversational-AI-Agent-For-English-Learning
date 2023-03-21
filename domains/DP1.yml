@@ -272,8 +272,8 @@ responses:
 
   utter_s_dp1_q6/button:
   - buttons:
-    - payload: /i_dp1_q6{{"e_dp1_q6":"beated"}}
-      title: beated
+    - payload: /i_dp1_q6{{"e_dp1_q6":"fly"}}
+      title: fly
 
     - payload: /i_dp1_q6{{"e_dp1_q6":"carried"}}
       title: carried

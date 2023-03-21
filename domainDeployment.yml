@@ -150,6 +150,7 @@ intents:
 - i_ask_score
 - i_ask_badge
 - i_ask_skills
+- i_ask_back_navigation
 - i_ask_stars
 - i_out_of_scope
 - i_badges_images
@@ -948,8 +949,8 @@ responses:
           type: mrkdwn
   utter_s_dp1_q6/button:
   - buttons:
-    - payload: /i_dp1_q6{{"e_dp1_q6":"beated"}}
-      title: beated
+    - payload: /i_dp1_q6{{"e_dp1_q6":"fly"}}
+      title: fly
     - payload: /i_dp1_q6{{"e_dp1_q6":"carried"}}
       title: carried
     - payload: /i_dp1_q6{{"e_dp1_q6":"raised"}}
@@ -1750,6 +1751,7 @@ actions:
 - action_set_reminder_set_dp
 - action_react_to_reminder_set_dp
 - action_get_skills
+- action_back_navigation
 - action_set_slots_none
 - action_restart
 - action_rephrase

@@ -91,6 +91,17 @@ nlu:
     - Wo sind die Buttons
     - Ich brauche die Buttons
 
+
+- intent: i_ask_back_navigation
+  examples: |
+    - Hauptmenü 
+    - Menü
+    - Hauptauswahl
+    - zur Auswahl zurück 
+    - lass mich zur Auwahl zurück 
+    - zur DP Auwahl 
+    - zu den DPs 
+    
 - intent: i_ask_score
   examples: |
     - Ben, wieiviele Punkte habe ich?

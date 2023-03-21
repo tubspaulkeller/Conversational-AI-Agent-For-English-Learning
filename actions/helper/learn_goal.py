@@ -63,7 +63,9 @@ def customize_learn_goal(slot, get_goal, customize, dispatcher, tracker, user_se
             break
     oberziel = tracker.get_slot('s_oberziel')
     print("oberziel: ", oberziel)
-    print("date_picker: ", date_picker)
+    # if oberziel is not None:
+    #     print("date_picker: ", oberziel[20:30])
+    # print("date_picker: ", date_picker)
 
     if date_picker == "None":
         dispatcher.utter_message(
@@ -79,10 +81,17 @@ def customize_learn_goal(slot, get_goal, customize, dispatcher, tracker, user_se
         dispatcher.utter_message(
             text="Bitte wähle ein Datum aus, welches später als 'Ende dieses Jahres ist', da du dich entschieden hast, dir länger Zeit für dein Ziel zu nehmen.")
         return {slot: None}
+
     if user_date <= today_date:
         dispatcher.utter_message(
             text="Bitte wähle ein Datum in der Zukunft aus.")
         return {slot: None}
+
+    # if tracker.get_slot('s_oberziel') is not None:
+    #     if get_date_of_upper_goal(tracker.get_slot('s_oberziel')) < date_picker:
+    #         dispatcher.utter_message(
+    #             text="Bitte wähle ein Datum aus, welches vor dem Datum des Oberziels liegt.")
+    #         return {slot: None}
 
     key, pretext, posttext = get_key_for_json(
         user_selection, tracker)
@@ -91,6 +100,22 @@ def customize_learn_goal(slot, get_goal, customize, dispatcher, tracker, user_se
         "DP3.json"), goal, 'Ich habe dein Lernziel bezüglich des Datums angepasst:', 'bis zum %s' % datetime.strptime(date_picker, '%Y-%m-%d').strftime('%d.%m.%Y'), '')
 
     return {slot: custom_goal}
+
+
+def get_date_of_upper_goal(goal):
+    if "Ende des Jahres" in goal:
+        return "2023-12-31"
+    else:
+        return _format_date(goal[20:30])
+
+
+def _format_date(date):
+
+    print("date: ", date)
+    parts = date.split('.')
+
+    print("parts: ", parts)
+    return parts[2] + '-' + parts[1] + '-' + parts[0]
 
 
 def custom_goal_englisch_konversation_longer(dispatcher, slot, is_user_accepting, pre_text_accept, pre_text_deny, custom_goal):

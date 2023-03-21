@@ -25,6 +25,8 @@ def evaluate_users_answer(solution, dp_n, name_of_slot, value, dispatcher, slots
        # if dp_n[name_of_slot]["question"] == dp_n["total_questions"]:
         #    finish_quiz(dispatcher, name_of_slot, dp_n)
         # else:
+
+        # BADGES SENDEN UND FORTSCHRITTBALKEN
         resetTries()
         return {name_of_slot: value}
     # Users answer is wrong
