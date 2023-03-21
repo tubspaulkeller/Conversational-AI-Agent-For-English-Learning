@@ -1052,15 +1052,15 @@ responses:
       title: Langzeit Szenario erleben
     text: Stell dir vor, du hast zwei Monate gelernt..
   utter_intro:
-  - custom: null
-    blocks:
-    - type: section
-      text:
-        text: "Du hast soeben den Englisch Kurs auf dem Level B1 gestartet. \U0001F601\
-          \ Ich freue mich darauf, die Inhalte mit dir zusammen durchzugehen!\nLass\
-          \ uns zu Beginn gemeinsam ein *\xFCbergeordnetes Lernziel* aufstellen, damit\
-          \ wir uns im Laufe des Kurses daran orientieren k\xF6nnen!"
-        type: mrkdwn
+  - custom:
+      blocks:
+      - type: section
+        text:
+          text: "Du hast soeben den Englisch Kurs auf dem Level B1 gestartet. \U0001F601\
+            \ Ich freue mich darauf, die Inhalte mit dir zusammen durchzugehen!\n\
+            Lass uns zu Beginn gemeinsam ein *\xFCbergeordnetes Lernziel* aufstellen,\
+            \ damit wir uns im Laufe des Kurses daran orientieren k\xF6nnen!"
+          type: mrkdwn
   utter_s_dp3_q1:
   - buttons:
     - payload: /i_dp3_q1{{"e_dp3_q1":"berufliche_weiterentwicklung"}}
@@ -1111,14 +1111,14 @@ responses:
       title: "Let's Go! \U0001F680\U0001F4DA"
     text: ' '
   utter_affirm_learn_goal:
-  - custom: null
-    blocks:
-    - type: section
-      text:
-        text: "Perfekt, damit h\xE4tten wir das *\xFCbergeordnete Lernziel* f\xFC\
-          r diesen Kurs festgelegt! \U0001F601\nWir werden gleich noch f\xFCr die\
-          \ jeweilige Lektion ein *Teilziel* festlegen."
-        type: mrkdwn
+  - custom:
+      blocks:
+      - type: section
+        text:
+          text: "Perfekt, damit h\xE4tten wir das *\xFCbergeordnete Lernziel* f\xFC\
+            r diesen Kurs festgelegt! \U0001F601\nWir werden gleich noch f\xFCr die\
+            \ jeweilige Lektion ein *Teilziel* festlegen."
+          type: mrkdwn
   utter_s_dp3_q3:
   - buttons:
     - payload: /i_dp3_q3{{"e_dp3_q3":"vocabels"}}
