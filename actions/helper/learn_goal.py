@@ -63,9 +63,9 @@ def customize_learn_goal(slot, get_goal, customize, dispatcher, tracker, user_se
             break
     oberziel = tracker.get_slot('s_oberziel')
     print("oberziel: ", oberziel)
-    # if oberziel is not None:
-    #     print("date_picker: ", oberziel[20:30])
-    # print("date_picker: ", date_picker)
+    if oberziel is not None:
+        print("date_picker: ", oberziel[20:30])
+    print("date_picker: ", date_picker)
 
     if date_picker == "None":
         dispatcher.utter_message(
@@ -77,9 +77,9 @@ def customize_learn_goal(slot, get_goal, customize, dispatcher, tracker, user_se
     user_date = datetime.strptime(date_picker, "%Y-%m-%d")
 
     # check if the user wants to learn longer than one year
-    if customize == 'need_longer' and user_date.year == today_date.year:
+    if customize == 'need_longer' and user_date.month < 6:
         dispatcher.utter_message(
-            text="Bitte wähle ein Datum aus, welches später als 'Ende dieses Jahres ist', da du dich entschieden hast, dir länger Zeit für dein Ziel zu nehmen.")
+            text="Bitte wähle ein Datum aus, welches später als 'Mitte diesen Jahres ', da du dich entschieden hast, dir länger Zeit für dein Ziel zu nehmen.")
         return {slot: None}
 
     if user_date <= today_date:
@@ -87,11 +87,11 @@ def customize_learn_goal(slot, get_goal, customize, dispatcher, tracker, user_se
             text="Bitte wähle ein Datum in der Zukunft aus.")
         return {slot: None}
 
-    # if tracker.get_slot('s_oberziel') is not None:
-    #     if get_date_of_upper_goal(tracker.get_slot('s_oberziel')) < date_picker:
-    #         dispatcher.utter_message(
-    #             text="Bitte wähle ein Datum aus, welches vor dem Datum des Oberziels liegt.")
-    #         return {slot: None}
+    if tracker.get_slot('s_oberziel') is not None:
+        if get_date_of_upper_goal(tracker.get_slot('s_oberziel')) < date_picker:
+            dispatcher.utter_message(
+                text="Bitte wähle ein Datum aus, welches vor dem Datum des Oberziels liegt.")
+            return {slot: None}
 
     key, pretext, posttext = get_key_for_json(
         user_selection, tracker)
@@ -161,7 +161,7 @@ def get_key_for_json(user_selection, tracker):
         if tracker.slots.get("s_lg_0") == 'Englisch-Konversation' or tracker.slots.get("s_dp3_v_q1") == 'Englisch-Konversation':
             deadline = "am Ende der Lektion"
         else:
-            deadline = "bis zum Ende des Jahres"
+            deadline = "bis Mitte diesen Jahres"
     elif user_selection == "grammatikziel" or user_selection == "s_dp3_g_q1":
         key = "s_dp3_g_q1"
         pretext = "Das folgende Ziel basiert auf erfolgreich erreichten Lernzielen von Kommilitonen und ist nach dem bewährten SMART-Konzept formuliert:"
