@@ -736,7 +736,7 @@ nlu:
     - To the [Coliseum](e_dp4_q1A), please. That's where [we](e_dp4_q1A) want to go.
     - Our destination is the [Coliseum](e_dp4_q1A). Can you take [us](e_dp4_q1A) there, please?
     - Would it be possible to drive [us](e_dp4_q1A) to the [Coliseum](e_dp4_q1A)?
-    - We're hoping to see the[Coliseum](e_dp4_q1A). Can you take [us](e_dp4_q1A) there?
+    - We're hoping to see the [Coliseum](e_dp4_q1A). Can you take [us](e_dp4_q1A) there?
     - Can you please take [us](e_dp4_q1A) to the [Coliseum](e_dp4_q1A)? It's our desired destination.
     - [Our](e_dp4_q1A) intended destination is the [Coliseum](e_dp4_q1A). Could you take [us](e_dp4_q1A) there, please?
 
@@ -878,7 +878,7 @@ nlu:
     - I [have been](e_dp4_q3A) [friends](e_dp4_q3A)  with someone from [Eldoria](e_dp4_q3A)  for the [last](e_dp4_q3A) five years.
     - [He](e_dp4_q3A) [has been](e_dp4_q3A) living in [Eldoria](e_dp4_q3A) [since](e_dp4_q3A) 2012.
     - [My friend](e_dp4_q3A) from [Eldoria](e_dp4_q3A) [has been](e_dp4_q3A) a resident of this city for a [decade](e_dp4_q3A)
-    - [Eldoria](e_dp4_q3A) [has been](e_dp4_q3A)[my friends](e_dp4_q3A) home for the [past](e_dp4_q3A) ten years.
+    - [Eldoria](e_dp4_q3A) [has been](e_dp4_q3A) [my friends](e_dp4_q3A) home for the [past](e_dp4_q3A) ten years.
     - [Since](e_dp4_q3A)  2012, [my friend](e_dp4_q3A) [has been](e_dp4_q3A) living in [Eldoria](e_dp4_q3A) .
     - [For](e_dp4_q3A) ten years now, [my friend](e_dp4_q3A) [has been](e_dp4_q3A)  residing in [Eldoria](e_dp4_q3A) .
     - [My friend](e_dp4_q3A) [has been](e_dp4_q3A) living in [Eldoria](e_dp4_q3A) [since](e_dp4_q3A) he moved here ten years ago.
