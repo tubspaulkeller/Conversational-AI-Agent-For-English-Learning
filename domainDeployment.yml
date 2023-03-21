@@ -861,7 +861,9 @@ responses:
     - payload: /i_dp1_q0{{"e_dp1_q0":"PLAY"}}
       title: "Legen wir los! \U0001F3AE"
     text: "Lass uns ein kurzes Quiz starten, damit wir dein neues Wissen festigen\
-      \ \U0001F601"
+      \ \U0001F601\nSpielregel: F\xFCr eine korrekte Antwort erh\xE4lst du 5 Punkte\
+      \ und f\xFCr eine korrekte Antwort im zweiten Versuch erh\xE4lst du 2 Punkte.\
+      \ Du bekommst zwei Chancen von mir die Frage richtig zu beantworten."
   utter_s_dp1_q1/msg:
   - custom:
       blocks:
@@ -1146,7 +1148,9 @@ responses:
   - buttons:
     - payload: /i_dp3_v_start_button{{"e_dp3_v_start_button":"affirm"}}
       title: "Starte Vokabeltraining! \U0001F680\U0001F4DA"
-    text: ' '
+    text: "Spielregel: F\xFCr eine korrekte Antwort erh\xE4lst du 5 Punkte und f\xFC\
+      r eine korrekte Antwort im zweiten Versuch erh\xE4lst du 2 Punkte. Du bekommst\
+      \ zwei Chancen von mir die Frage richtig zu beantworten."
   utter_ask_s_dp3_v_q3_0:
   - buttons:
     - payload: /i_dp3_v_q3_0{{"e_dp3_v_q3_0":"initiate"}}
@@ -1275,7 +1279,9 @@ responses:
   - buttons:
     - payload: /i_dp3_g_start_button{{"e_dp3_g_start_button":"affirm"}}
       title: "Starte Grammatiktraining! \U0001F680\U0001F4DA"
-    text: ' '
+    text: "Spielregel: F\xFCr eine korrekte Antwort erh\xE4lst du 5 Punkte und f\xFC\
+      r eine korrekte Antwort im zweiten Versuch erh\xE4lst du 2 Punkte. Du bekommst\
+      \ zwei Chancen von mir die Frage richtig zu beantworten."
   utter_ask_s_dp3_g_q3_0:
   - buttons:
     - payload: /i_dp3_g_q3_0{{"e_dp3_g_q3_0":"overtook"}}
@@ -1399,8 +1405,10 @@ responses:
   utter_ask_s_dp2_q1_2:
   - buttons:
     - payload: /i_dp2_q1_2{{"e_dp2_q1_2":"START_QUIZ"}}
-      title: "Quiz  \U0001F3AE"
-    text: 'Starte das: '
+      title: "Starte Quiz  \U0001F3AE"
+    text: "Spielregel: F\xFCr eine korrekte Antwort erh\xE4lst du 5 Punkte und f\xFC\
+      r eine korrekte Antwort im zweiten Versuch erh\xE4lst du 2 Punkte. Du bekommst\
+      \ zwei Chancen von mir die Frage richtig zu beantworten."
   utter_correct_answer_qn:
   - text: "Korrekt! \U0001F60A Damit hast du dir {points} von 5 Punkten verdient!"
   - text: "Richtig! \U0001F389 Du hast {points} von 5 Punkten erzielt."
@@ -1430,7 +1438,7 @@ responses:
       title: skip
     - payload: /i_dp2_q2{{"e_dp2_q2":"return"}}
       title: return
-    text: "(Frage 1 von 7): Bei welchem der folgenden W\xF6rter handelt es sich um\
+    text: "(Frage 1 von 4): Bei welchem der folgenden W\xF6rter handelt es sich um\
       \ eine Present Perfect-Form? \U0001F914"
   utter_s_dp2_q3:
   - buttons:
@@ -1442,14 +1450,14 @@ responses:
       title: fought
     - payload: /i_dp2_q3{{"e_dp2_q3":"have bought"}}
       title: have bought
-    text: "(Frage 2 von 7): Welches der folgenden W\xF6rter ist eine Present Perfect-Form?\
+    text: "(Frage 2 von 4): Welches der folgenden W\xF6rter ist eine Present Perfect-Form?\
       \ \U0001F914"
   utter_s_dp2_q4/msg:
   - custom:
       blocks:
       - type: section
         text:
-          text: "(Frage 3 von 7): Bei welchem der folgenden W\xF6rter handelt es sich\
+          text: "(Frage 3 von 4): Bei welchem der folgenden W\xF6rter handelt es sich\
             \ *nicht* um eine Present Perfect-Form? \U0001F914"
           type: mrkdwn
   utter_s_dp2_q4/button:
@@ -1468,7 +1476,7 @@ responses:
       blocks:
       - type: section
         text:
-          text: "(Frage 4 von 7): Bei welchem der folgenden W\xF6rter handelt es sich\
+          text: "(Frage 4 von 4): Bei welchem der folgenden W\xF6rter handelt es sich\
             \ *nicht* um eine Present Perfect-Form? \U0001F914"
           type: mrkdwn
   utter_s_dp2_q5/button:
@@ -1545,8 +1553,11 @@ responses:
       - type: section
         text:
           type: mrkdwn
-          text: "Versuche bitte aus den folgenden W\xF6rtern:\n *Braunschweig, She,\
-            \ since, live*\n einen Satz im *Present Perfect* zu formulieren:"
+          text: "Die *Spielregeln* \xE4ndern sich: Bei jeder Frage kannst du max.\
+            \ 5 Punkte und min. 3 Punkte holen. Allerdings werden pro Fehler 1 Punkt\
+            \ von den 5 Punkten abgezogen.\n\nVersuche bitte aus den folgenden W\xF6\
+            rtern:\n *Eldoria, She, since, live*\n einen Satz im *Present Perfect*\
+            \ zu formulieren:"
   utter_s_dp2_at_q3:
   - custom:
       blocks:
@@ -1644,9 +1655,10 @@ responses:
     text: "Da wir das Grundlagen-Kapitel erfolgreich beendet haben, lass uns dein\
       \ neues Wissen bei einer Lern-Story anwenden!\nIch werde nicht Teil der Geschichte\
       \ sein, damit du diese eigenst\xE4ndig bew\xE4ltigen kannst. Aber ich werde\
-      \ dich mit Feedback und Tipps zu deinen Antworten unterst\xFCtzen!\n*Spielregel*:\
-      \ Bei jeder Frage kannst du max. 5 Punkte und min. 3 Punkte holen. Allerdings\
-      \ werden pro Fehler 1 Punkt von den 5 Punkten abgezogen."
+      \ dich mit Feedback und Tipps zu deinen Antworten unterst\xFCtzen!\nDie *Spielregeln*\
+      \ \xE4ndern sich: Bei jeder Frage kannst du max. 5 Punkte und min. 3 Punkte\
+      \ holen. Allerdings werden pro Fehler 1 Punkt von den 5 Punkten abgezogen.\n\
+      \ Bitte meide Abk\xFCrzung wie z.B. _I've_ und schreibe dies aus _I have_"
   utter_s_dp4_intro:
   - text: Stell dir vor, dass du zusammen mit deinem besten Freund nach Rom gereist
       bist...
@@ -1686,7 +1698,7 @@ responses:
       - type: section
         text:
           type: mrkdwn
-          text: "*Quest3A:* Erkl\xE4re den Touristen, dass dein Freund aus Braunschweig\
+          text: "*Quest3A:* Erkl\xE4re den Touristen, dass dein Freund aus Eldoria\
             \ kommt und seit wann er dort wohnt. Bitte benutze das *Present Perfect*."
   utter_ask_s_dp4_q3B:
   - custom:
@@ -1694,8 +1706,8 @@ responses:
       - type: section
         text:
           type: mrkdwn
-          text: "*Quest3B:* Nun erz\xE4hle den Touristen, dass du aus Braunschweig\
-            \ kommst und seit wann du dort wohnst."
+          text: "*Quest3B:* Nun erz\xE4hle den Touristen, dass du aus Eldoria kommst\
+            \ und seit wann du dort wohnst. Bitte benutze das *Present Perfect*"
   utter_dp4_finish:
   - text: "Klasse, damit hast du alle Quests abgeschlossen sowie die Lern-Story 'Das\
       \ r\xF6mische Kolosseum' erfolgreich mit {total_points} von 30 Punkten beendet.\n\
@@ -1858,9 +1870,6 @@ forms:
     - s_dp2_q3
     - s_dp2_q4
     - s_dp2_q5
-    - s_dp2_q6
-    - s_dp2_q7
-    - s_dp2_q8
     - s_dp2_evaluation
     - s_dp2_part_one_end
   dp2_application_tasks_form:

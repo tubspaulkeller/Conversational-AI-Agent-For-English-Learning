@@ -161,7 +161,7 @@ responses:
   - buttons:
     - payload: /i_dp1_q0{{"e_dp1_q0":"PLAY"}}
       title: Legen wir los! 🎮
-    text: Lass uns ein kurzes Quiz starten, damit wir dein neues Wissen festigen 😁
+    text: "Lass uns ein kurzes Quiz starten, damit wir dein neues Wissen festigen 😁\nSpielregel: Für eine korrekte Antwort erhälst du 5 Punkte und für eine korrekte Antwort im zweiten Versuch erhälst du 2 Punkte. Du bekommst zwei Chancen von mir die Frage richtig zu beantworten."
 
   utter_s_dp1_q1/msg: 
   - custom:

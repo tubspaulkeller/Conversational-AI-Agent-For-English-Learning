@@ -25,4 +25,4 @@ class AskForSlotAction(Action):
 # How much does it cost
 # Can I get two tickets pls
 # Do you offer a discount for students
-# We have lived in Braunschweig since 2000
+# We have lived in Eldoria since 2000

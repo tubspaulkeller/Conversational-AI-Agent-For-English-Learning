@@ -729,6 +729,18 @@ nlu:
     - Can you bring [us](e_dp4_q1A) please to the [Coliseum](e_dp4_q1A) 
     - Can you drive [us](e_dp4_q1A) please to the [Coliseum](e_dp4_q1A) 
     - Can you deliver [us](e_dp4_q1A) please to the [Coliseum](e_dp4_q1A) 
+    - Excuse me, could you please take [us](e_dp4_q1A) to the [Coliseum](e_dp4_q1A)?
+    - [We](e_dp4_q1A) would like to go to the [Coliseum](e_dp4_q1A), could you take us there?
+    - Could you drive [us](e_dp4_q1A) to the [Coliseum](e_dp4_q1A), please?
+    - Our destination is the [Coliseum](e_dp4_q1A), could you take [us](e_dp4_q1A) there?
+    - To the [Coliseum](e_dp4_q1A), please. That's where [we](e_dp4_q1A) want to go.
+    - Our destination is the [Coliseum](e_dp4_q1A). Can you take [us](e_dp4_q1A) there, please?
+    - Would it be possible to drive [us](e_dp4_q1A) to the [Coliseum](e_dp4_q1A)?
+    - We're hoping to see the[Coliseum](e_dp4_q1A). Can you take [us](e_dp4_q1A) there?
+    - Can you please take [us](e_dp4_q1A) to the [Coliseum](e_dp4_q1A)? It's our desired destination.
+    - [Our](e_dp4_q1A) intended destination is the [Coliseum](e_dp4_q1A). Could you take [us](e_dp4_q1A) there, please?
+
+
  
 - intent: i_dp4_q1B
   examples: |
@@ -745,6 +757,13 @@ nlu:
     - [How](e_dp4_q1B) [costly](e_dp4_q1B) is the trip?
     - [How](e_dp4_q1B) [expensively](e_dp4_q1B) is the journey?
     - [How](e_dp4_q1B) [dearly](e_dp4_q1B) is the ride?
+    - Excuse me, [how](e_dp4_q1B)  much does the taxi ride [cost](e_dp4_q1B) to our destination?
+    - Can you tell us the [fare](e_dp4_q1B) for the taxi [ride](e_dp4_q1B) to our destination, please?
+    - [How](e_dp4_q1B) [much](e_dp4_q1B) will it cost for the taxi ride to our destination?
+    - May I ask what the [fare](e_dp4_q1B) for the taxi [ride](e_dp4_q1B) to our destination is?
+    - Before we begin our [ride](e_dp4_q1B), could you please inform us of the [fare](e_dp4_q1B) to our destination?
+    - Excuse me, do you mind telling us the [cost](e_dp4_q1B) of the taxi [ride](e_dp4_q1B) to our destination?
+    - Before we proceed, may we know the [fare](e_dp4_q1B) for the taxi [ride](e_dp4_q1B) to our destination?
 
 - intent: i_dp4_q2A
   examples: |
@@ -758,6 +777,22 @@ nlu:
     - Could you give me [two](e_dp4_q2A) [tickets](e_dp4_q2A) for us?
     - I would like to buy [two](e_dp4_q2A) [tickets](e_dp4_q2A) for me and my friend
     - I would like to order [two](e_dp4_q2A) [tickets](e_dp4_q2A) for me and my friend
+    - Could I have [two](e_dp4_q2A) [tickets](e_dp4_q2A) for my friend and me, please?
+    - Can you sell us [two]](e_dp4_q2A) [tickets](e_dp4_q2A) for my friend and myself, please?
+    - I'd like to purchase [two](e_dp4_q2A) [tickets](e_dp4_q2A) for my friend and me, please.
+    - May I buy [two](e_dp4_q2A) [tickets](e_dp4_q2A) for my friend and myself, please?
+    - [Two](e_dp4_q2A) [tickets](e_dp4_q2A) for my friend and me, please. I'd like to purchase them.
+    - Can we get [two](e_dp4_q2A) [tickets](e_dp4_q2A) for my friend and I, please?
+    - I would like to buy [two](e_dp4_q2A) [tickets](e_dp4_q2A) for my friend and myself, please.
+    - Could you sell us [two](e_dp4_q2A) [tickets](e_dp4_q2A) for my friend and me, please?
+    - We need [two](e_dp4_q2A) [tickets](e_dp4_q2A) for my friend and me, please.
+    - My friend and I would like to purchase [two](e_dp4_q2A) [tickets](e_dp4_q2A), please.
+    - [Two](e_dp4_q2A) [tickets](e_dp4_q2A), please, for my friend and me.
+    - May we have [two](e_dp4_q2A) [tickets](e_dp4_q2A) for my friend and myself, please?
+    - I'd like to buy [two](e_dp4_q2A) [tickets](e_dp4_q2A) for my friend and I, please.
+    - Can you please sell us [two](e_dp4_q2A) [tickets](e_dp4_q2A) for my friend and myself?
+    - [Two](e_dp4_q2A) [tickets](e_dp4_q2A) for my friend and me, please.
+    
 
 
 - intent: i_dp4_q2B
@@ -782,124 +817,166 @@ nlu:
     - Do you have a [student](e_dp4_q2B) [prices](e_dp4_q2B)?
     - Are [student](e_dp4_q2B) [prices](e_dp4_q2B)?
     - How [much](e_dp4_q2B) is it for [students](e_dp4_q2B)?
-    
+    - Is there a [student](e_dp4_q2B) [discount](e_dp4_q2B) available?
+    - Do you offer any [discounts](e_dp4_q2B) for [students](e_dp4_q2B)?
+    - Can I ask if there are any [student](e_dp4_q2B) [discounts](e_dp4_q2B) available?
+    - Are there any special [rates](e_dp4_q2B) for [students](e_dp4_q2B)?
+    - Would it be possible to get a [student](e_dp4_q2B) [discount](e_dp4_q2B)?
+    - I'm a [student](e_dp4_q2B). Do you have any [discounts](e_dp4_q2B) available?
+    - May I inquire about any [student](e_dp4_q2B) [discounts](e_dp4_q2B) that are available?
+    - Could you tell me if there are any special [rates](e_dp4_q2B) for [students](e_dp4_q2B)?
+    - Is it possible to get a [discount](e_dp4_q2B) as a [student](e_dp4_q2B)?
+    - Are there any reduced [prices](e_dp4_q2B) for [students](e_dp4_q2B) that I could take advantage of?
+
 
 
 - intent: i_dp4_q3A
   examples: |
-    - My [friend](e_dp4_q3A) [has lived](e_dp4_q3A) in [Braunschweig](e_dp4_q3A) [for](e_dp4_q3A) two [years](e_dp4_q3A)
-    - My [buddy](e_dp4_q3A) [has lived](e_dp4_q3A) in [Braunschweig](e_dp4_q3A) [for](e_dp4_q3A) two [years](e_dp4_q3A)
-    - My [mate](e_dp4_q3A) [has lived](e_dp4_q3A) in [Braunschweig](e_dp4_q3A) [for](e_dp4_q3A) two [years](e_dp4_q3A) 
-    - My [friend](e_dp4_q3A) [has lived](e_dp4_q3A) in [Braunschweig](e_dp4_q3A) [for](e_dp4_q3A) three [years](e_dp4_q3A) 
-    - My [buddy](e_dp4_q3A) [has lived](e_dp4_q3A) in [Braunschweig](e_dp4_q3A) [for](e_dp4_q3A) three [years](e_dp4_q3A) 
-    - My [mate](e_dp4_q3A) [has lived](e_dp4_q3A) in [Braunschweig](e_dp4_q3A) [for](e_dp4_q3A) thre [years](e_dp4_q3A) 
-    - My [friend](e_dp4_q3A) [has lived](e_dp4_q3A) in [Braunschweig](e_dp4_q3A) [for](e_dp4_q3A) four [years](e_dp4_q3A) 
-    - My [buddy](e_dp4_q3A) [has lived](e_dp4_q3A) in [Braunschweig](e_dp4_q3A) [for](e_dp4_q3A) five [years](e_dp4_q3A) 
-    - My [mate](e_dp4_q3A) [has lived](e_dp4_q3A) in [Braunschweig](e_dp4_q3A) [for](e_dp4_q3A) six [years](e_dp4_q3A) 
-    - My [friend](e_dp4_q3A) [has lived](e_dp4_q3A) in [Braunschweig](e_dp4_q3A) [for](e_dp4_q3A) three [years](e_dp4_q3A) 
-    - My [buddy](e_dp4_q3A) [has lived](e_dp4_q3A) in [Braunschweig](e_dp4_q3A) [for](e_dp4_q3A) three [years](e_dp4_q3A) 
-    - My [mate](e_dp4_q3A) [has lived](e_dp4_q3A) in [Braunschweig](e_dp4_q3A) [for](e_dp4_q3A) thre [years](e_dp4_q3A) 
-    - My [friend](e_dp4_q3A) [has lived](e_dp4_q3A) in [Braunschweig](e_dp4_q3A)  [since](e_dp4_q3A) 2017 
-    - My [buddy](e_dp4_q3A) [has lived](e_dp4_q3A) in [Braunschweig](e_dp4_q3A) [since](e_dp4_q3A) 2022 
-    - My [mate](e_dp4_q3A) [has lived](e_dp4_q3A) in [Braunschweig](e_dp4_q3A) [since](e_dp4_q3A) 2021 
-    - My [friend](e_dp4_q3A) [has lived](e_dp4_q3A) in [Braunschweig](e_dp4_q3A) [since](e_dp4_q3A) 2010 
-    - My [buddy](e_dp4_q3A) [has lived](e_dp4_q3A) in [Braunschweig](e_dp4_q3A) [since](e_dp4_q3A) 2019 
-    - My [mate](e_dp4_q3A) [has lived](e_dp4_q3A) in [Braunschweig](e_dp4_q3A) [since](e_dp4_q3A) 2014
-    - My [friend](e_dp4_q3A) [has lived](e_dp4_q3A) in [Braunschweig](e_dp4_q3A)  [for](e_dp4_q3A) two [years](e_dp4_q3A) 
-    - My [buddy](e_dp4_q3A) [has lived](e_dp4_q3A) in [Braunschweig](e_dp4_q3A) [for](e_dp4_q3A) one [year](e_dp4_q3A) 
-    - My [mate](e_dp4_q3A) [has lived](e_dp4_q3A) in [Braunschweig](e_dp4_q3A) [for](e_dp4_q3A) three [years](e_dp4_q3A)  
-    - My [friend](e_dp4_q3A) [has lived](e_dp4_q3A) in [Braunschweig](e_dp4_q3A) [for](e_dp4_q3A) five [years](e_dp4_q3A) 
-    - My [buddy](e_dp4_q3A) [has lived](e_dp4_q3A) in [Braunschweig](e_dp4_q3A) [for](e_dp4_q3A) three [years](e_dp4_q3A) 
-    - My [mate](e_dp4_q3A) [has lived](e_dp4_q3A) in [Braunschweig](e_dp4_q3A) [for](e_dp4_q3A) five [years](e_dp4_q3A) 
-    - My [friend](e_dp4_q3A) [has lived](e_dp4_q3A) in [Braunschweig](e_dp4_q3A) [since](e_dp4_q3A) 2021 
-    - My [buddy](e_dp4_q3A) [has lived](e_dp4_q3A) in [Braunschweig](e_dp4_q3A) [since](e_dp4_q3A) 2023 
-    - My [mate](e_dp4_q3A) [has lived](e_dp4_q3A) in [Braunschweig](e_dp4_q3A) [since](e_dp4_q3A) 2020 
-    - My [friend](e_dp4_q3A) [has lived](e_dp4_q3A) in [Braunschweig](e_dp4_q3A) [since](e_dp4_q3A) 2012
-    - My [buddy](e_dp4_q3A) [has lived](e_dp4_q3A) in [Braunschweig](e_dp4_q3A) [since](e_dp4_q3A) 2015  
-    - My [mate](e_dp4_q3A) [has lived](e_dp4_q3A) in [Braunschweig](e_dp4_q3A) [since](e_dp4_q3A) 2017
-    - My [mate](e_dp4_q3A) [have lived](e_dp4_q3A) in [Braunschweig](e_dp4_q3A) [since](e_dp4_q3A) 2020 
-    - My [friend](e_dp4_q3A) [have lived](e_dp4_q3A) in [Braunschweig](e_dp4_q3A) [since](e_dp4_q3A) 2012
-    - My [buddy](e_dp4_q3A) [have lived](e_dp4_q3A) in [Braunschweig](e_dp4_q3A) [since](e_dp4_q3A) 2015  
-    - My [mate](e_dp4_q3A) [have lived](e_dp4_q3A) in [Braunschweig](e_dp4_q3A) [since](e_dp4_q3A) 2017
-    - My [friend](e_dp4_q3A) [have lived](e_dp4_q3A) in [Braunschweig](e_dp4_q3A) [for](e_dp4_q3A) two [years](e_dp4_q3A)
-    - My [buddy](e_dp4_q3A) [have lived](e_dp4_q3A) in [Braunschweig](e_dp4_q3A) [for](e_dp4_q3A) two [years](e_dp4_q3A)
-    - My [mate](e_dp4_q3A) [have lived](e_dp4_q3A) in [Braunschweig](e_dp4_q3A) [for](e_dp4_q3A) two [years](e_dp4_q3A) 
-    - My [mate](e_dp4_q3A)  [have lived](e_dp4_q3A) in [Braunschweig](e_dp4_q3A) a [long](e_dp4_q3A) time
-    - My [friend](e_dp4_q3A)  [have lived](e_dp4_q3A) in [Braunschweig](e_dp4_q3A) a [decade](e_dp4_q3A) 
-    
+    - My [friend](e_dp4_q3A) [has lived](e_dp4_q3A) in [Eldoria](e_dp4_q3A) [for](e_dp4_q3A) two [years](e_dp4_q3A)
+    - My [buddy](e_dp4_q3A) [has lived](e_dp4_q3A) in [Eldoria](e_dp4_q3A) [for](e_dp4_q3A) two [years](e_dp4_q3A)
+    - My [mate](e_dp4_q3A) [has lived](e_dp4_q3A) in [Eldoria](e_dp4_q3A) [for](e_dp4_q3A) two [years](e_dp4_q3A) 
+    - My [friend](e_dp4_q3A) [has lived](e_dp4_q3A) in [Eldoria](e_dp4_q3A) [for](e_dp4_q3A) three [years](e_dp4_q3A) 
+    - My [buddy](e_dp4_q3A) [has lived](e_dp4_q3A) in [Eldoria](e_dp4_q3A) [for](e_dp4_q3A) three [years](e_dp4_q3A) 
+    - My [mate](e_dp4_q3A) [has lived](e_dp4_q3A) in [Eldoria](e_dp4_q3A) [for](e_dp4_q3A) thre [years](e_dp4_q3A) 
+    - My [friend](e_dp4_q3A) [has lived](e_dp4_q3A) in [Eldoria](e_dp4_q3A) [for](e_dp4_q3A) four [years](e_dp4_q3A) 
+    - My [buddy](e_dp4_q3A) [has lived](e_dp4_q3A) in [Eldoria](e_dp4_q3A) [for](e_dp4_q3A) five [years](e_dp4_q3A) 
+    - My [mate](e_dp4_q3A) [has lived](e_dp4_q3A) in [Eldoria](e_dp4_q3A) [for](e_dp4_q3A) six [years](e_dp4_q3A) 
+    - My [friend](e_dp4_q3A) [has lived](e_dp4_q3A) in [Eldoria](e_dp4_q3A) [for](e_dp4_q3A) three [years](e_dp4_q3A) 
+    - My [buddy](e_dp4_q3A) [has lived](e_dp4_q3A) in [Eldoria](e_dp4_q3A) [for](e_dp4_q3A) three [years](e_dp4_q3A) 
+    - My [mate](e_dp4_q3A) [has lived](e_dp4_q3A) in [Eldoria](e_dp4_q3A) [for](e_dp4_q3A) thre [years](e_dp4_q3A) 
+    - My [friend](e_dp4_q3A) [has lived](e_dp4_q3A) in [Eldoria](e_dp4_q3A)  [since](e_dp4_q3A) 2017 
+    - My [buddy](e_dp4_q3A) [has lived](e_dp4_q3A) in [Eldoria](e_dp4_q3A) [since](e_dp4_q3A) 2022 
+    - My [mate](e_dp4_q3A) [has lived](e_dp4_q3A) in [Eldoria](e_dp4_q3A) [since](e_dp4_q3A) 2021 
+    - My [friend](e_dp4_q3A) [has lived](e_dp4_q3A) in [Eldoria](e_dp4_q3A) [since](e_dp4_q3A) 2010 
+    - My [buddy](e_dp4_q3A) [has lived](e_dp4_q3A) in [Eldoria](e_dp4_q3A) [since](e_dp4_q3A) 2019 
+    - My [mate](e_dp4_q3A) [has lived](e_dp4_q3A) in [Eldoria](e_dp4_q3A) [since](e_dp4_q3A) 2014
+    - My [friend](e_dp4_q3A) [has lived](e_dp4_q3A) in [Eldoria](e_dp4_q3A)  [for](e_dp4_q3A) two [years](e_dp4_q3A) 
+    - My [buddy](e_dp4_q3A) [has lived](e_dp4_q3A) in [Eldoria](e_dp4_q3A) [for](e_dp4_q3A) one [year](e_dp4_q3A) 
+    - My [mate](e_dp4_q3A) [has lived](e_dp4_q3A) in [Eldoria](e_dp4_q3A) [for](e_dp4_q3A) three [years](e_dp4_q3A)  
+    - My [friend](e_dp4_q3A) [has lived](e_dp4_q3A) in [Eldoria](e_dp4_q3A) [for](e_dp4_q3A) five [years](e_dp4_q3A) 
+    - My [buddy](e_dp4_q3A) [has lived](e_dp4_q3A) in [Eldoria](e_dp4_q3A) [for](e_dp4_q3A) three [years](e_dp4_q3A) 
+    - My [mate](e_dp4_q3A) [has lived](e_dp4_q3A) in [Eldoria](e_dp4_q3A) [for](e_dp4_q3A) five [years](e_dp4_q3A) 
+    - My [friend](e_dp4_q3A) [has lived](e_dp4_q3A) in [Eldoria](e_dp4_q3A) [since](e_dp4_q3A) 2021 
+    - My [buddy](e_dp4_q3A) [has lived](e_dp4_q3A) in [Eldoria](e_dp4_q3A) [since](e_dp4_q3A) 2023 
+    - My [mate](e_dp4_q3A) [has lived](e_dp4_q3A) in [Eldoria](e_dp4_q3A) [since](e_dp4_q3A) 2020 
+    - My [friend](e_dp4_q3A) [has lived](e_dp4_q3A) in [Eldoria](e_dp4_q3A) [since](e_dp4_q3A) 2012
+    - My [buddy](e_dp4_q3A) [has lived](e_dp4_q3A) in [Eldoria](e_dp4_q3A) [since](e_dp4_q3A) 2015  
+    - My [mate](e_dp4_q3A) [has lived](e_dp4_q3A) in [Eldoria](e_dp4_q3A) [since](e_dp4_q3A) 2017
+    - My [mate](e_dp4_q3A) [have lived](e_dp4_q3A) in [Eldoria](e_dp4_q3A) [since](e_dp4_q3A) 2020 
+    - My [friend](e_dp4_q3A) [have lived](e_dp4_q3A) in [Eldoria](e_dp4_q3A) [since](e_dp4_q3A) 2012
+    - My [buddy](e_dp4_q3A) [have lived](e_dp4_q3A) in [Eldoria](e_dp4_q3A) [since](e_dp4_q3A) 2015  
+    - My [mate](e_dp4_q3A) [have lived](e_dp4_q3A) in [Eldoria](e_dp4_q3A) [since](e_dp4_q3A) 2017
+    - My [friend](e_dp4_q3A) [have lived](e_dp4_q3A) in [Eldoria](e_dp4_q3A) [for](e_dp4_q3A) two [years](e_dp4_q3A)
+    - My [buddy](e_dp4_q3A) [have lived](e_dp4_q3A) in [Eldoria](e_dp4_q3A) [for](e_dp4_q3A) two [years](e_dp4_q3A)
+    - My [mate](e_dp4_q3A) [have lived](e_dp4_q3A) in [Eldoria](e_dp4_q3A) [for](e_dp4_q3A) two [years](e_dp4_q3A) 
+    - My [mate](e_dp4_q3A)  [have lived](e_dp4_q3A) in [Eldoria](e_dp4_q3A) a [long](e_dp4_q3A) time
+    - My [friend](e_dp4_q3A)  [have lived](e_dp4_q3A) in [Eldoria](e_dp4_q3A) a [decade](e_dp4_q3A) 
+    - My [friend](e_dp4_q3A)  [has been](e_dp4_q3A)  living in [Eldoria](e_dp4_q3A)  for five [years](e_dp4_q3A) now
+    - I [have known](e_dp4_q3A) [my friend](e_dp4_q3A)  from [Eldoria](e_dp4_q3A)  for quite [some time](e_dp4_q3A) .
+    - [He](e_dp4_q3A) [has lived](e_dp4_q3A) in [Eldoria](e_dp4_q3A) for the [past](e_dp4_q3A) five years.
+    - [My friend](e_dp4_q3A) [has been](e_dp4_q3A) a resident of [Eldoria](e_dp4_q3A) [since](e_dp4_q3A) 2016
+    - I [have been](e_dp4_q3A) [friends](e_dp4_q3A)  with someone from [Eldoria](e_dp4_q3A)  for the [last](e_dp4_q3A) five years.
+    - [He](e_dp4_q3A) [has been](e_dp4_q3A) living in [Eldoria](e_dp4_q3A) [since](e_dp4_q3A) 2012.
+    - [My friend](e_dp4_q3A) from [Eldoria](e_dp4_q3A) [has been](e_dp4_q3A) a resident of this city for a [decade](e_dp4_q3A)
+    - [Eldoria](e_dp4_q3A) [has been](e_dp4_q3A)[my friends](e_dp4_q3A) home for the [past](e_dp4_q3A) ten years.
+    - [Since](e_dp4_q3A)  2012, [my friend](e_dp4_q3A) [has been](e_dp4_q3A) living in [Eldoria](e_dp4_q3A) .
+    - [For](e_dp4_q3A) ten years now, [my friend](e_dp4_q3A) [has been](e_dp4_q3A)  residing in [Eldoria](e_dp4_q3A) .
+    - [My friend](e_dp4_q3A) [has been](e_dp4_q3A) living in [Eldoria](e_dp4_q3A) [since](e_dp4_q3A) he moved here ten years ago.
+    - I've known [my friend](e_dp4_q3A) who hails from [Eldoria](e_dp4_q3A) for a [decade](e_dp4_q3A) now, during which he [has been](e_dp4_q3A) living in the city.
+    - [My friend](e_dp4_q3A) [has been](e_dp4_q3A) living in [Eldoria](e_dp4_q3A) for the [past](e_dp4_q3A) ten years, ever since he moved here.
+    - [Since](e_dp4_q3A) 2012, [my friend](e_dp4_q3A) [has been](e_dp4_q3A) calling [Eldoria](e_dp4_q3A) his home.
+
+
 - intent: i_dp4_q3B
   examples: |
-    - [I](e_dp4_q3B) [has lived](e_dp4_q3B) in [Braunschweig](e_dp4_q3B) [since](e_dp4_q3B) 2017.
-    - [I](e_dp4_q3B) [has lived](e_dp4_q3B) in [Braunschweig](e_dp4_q3B) [since](e_dp4_q3B) 2017.
-    - [I](e_dp4_q3B) [has lived](e_dp4_q3B) in [Braunschweig](e_dp4_q3B) [since](e_dp4_q3B) 2017.
-    - [I](e_dp4_q3B)  [have lived](e_dp4_q3B) in [Braunschweig](e_dp4_q3B) [for](e_dp4_q3B) two [years](e_dp4_q3B)
-    - [I](e_dp4_q3B)  [have lived](e_dp4_q3B) in [Braunschweig](e_dp4_q3B) [for](e_dp4_q3B) two [years](e_dp4_q3B)
-    - [I](e_dp4_q3B)  [have lived](e_dp4_q3B) in [Braunschweig](e_dp4_q3B) [for](e_dp4_q3B) two [years](e_dp4_q3B)
-    - [I](e_dp4_q3B)  [have lived](e_dp4_q3B) in [Braunschweig](e_dp4_q3B) [for](e_dp4_q3B) one [year](e_dp4_q3B)
-    - [I](e_dp4_q3B)  [have lived](e_dp4_q3B) in [Braunschweig](e_dp4_q3B) [for](e_dp4_q3B) one [year](e_dp4_q3B)
-    - [I](e_dp4_q3B)  [have lived](e_dp4_q3B) in [Braunschweig](e_dp4_q3B) [for](e_dp4_q3B) one [year](e_dp4_q3B)
-    - [I](e_dp4_q3B)  [have lived](e_dp4_q3B) in [Braunschweig](e_dp4_q3B) [for](e_dp4_q3B) two [years](e_dp4_q3B)
-    - [I](e_dp4_q3B)  [have lived](e_dp4_q3B) in [Braunschweig](e_dp4_q3B) [for](e_dp4_q3B) two [years](e_dp4_q3B)
-    - [I](e_dp4_q3B)  [have lived](e_dp4_q3B) in [Braunschweig](e_dp4_q3B) [for](e_dp4_q3B) five [years](e_dp4_q3B)
-    - [I](e_dp4_q3B)  [have lived](e_dp4_q3B) in [Braunschweig](e_dp4_q3B) [for](e_dp4_q3B) one [year](e_dp4_q3B)
-    - [I](e_dp4_q3B)  [have lived](e_dp4_q3B) in [Braunschweig](e_dp4_q3B) [for](e_dp4_q3B) one [year](e_dp4_q3B)
-    - [I](e_dp4_q3B)  [have lived](e_dp4_q3B) in [Braunschweig](e_dp4_q3B) [for](e_dp4_q3B) one [year](e_dp4_q3B)
-    - [I](e_dp4_q3B)  [have lived](e_dp4_q3B) in [Braunschweig](e_dp4_q3B) [since](e_dp4_q3B) 2014
-    - [I](e_dp4_q3B)  [have lived](e_dp4_q3B) in [Braunschweig](e_dp4_q3B) [since](e_dp4_q3B) 2012
-    - [I](e_dp4_q3B)  [have lived](e_dp4_q3B) in [Braunschweig](e_dp4_q3B) [since](e_dp4_q3B) 2020
-    - [I](e_dp4_q3B)  [have lived](e_dp4_q3B) in [Braunschweig](e_dp4_q3B) [since](e_dp4_q3B) 2022
-    - [I](e_dp4_q3B)  [have lived](e_dp4_q3B) in [Braunschweig](e_dp4_q3B) [since](e_dp4_q3B) 2021
-    - [I](e_dp4_q3B)  [have lived](e_dp4_q3B) in [Braunschweig](e_dp4_q3B) [since](e_dp4_q3B) 2019
-    - [I](e_dp4_q3B)  [have lived](e_dp4_q3B) in [Braunschweig](e_dp4_q3B) [since](e_dp4_q3B) 2014
-    - [I](e_dp4_q3B)  [have lived](e_dp4_q3B) in [Braunschweig](e_dp4_q3B) [since](e_dp4_q3B) 2012
-    - [I](e_dp4_q3B)  [have lived](e_dp4_q3B) in [Braunschweig](e_dp4_q3B) [since](e_dp4_q3B) 2020
-    - [I](e_dp4_q3B)  [have lived](e_dp4_q3B) in [Braunschweig](e_dp4_q3B) [since](e_dp4_q3B) 2022
-    - [I](e_dp4_q3B)  [have lived](e_dp4_q3B) in [Braunschweig](e_dp4_q3B) [since](e_dp4_q3B) 2021
-    - [I](e_dp4_q3B)  [have lived](e_dp4_q3B) in [Braunschweig](e_dp4_q3B) [since](e_dp4_q3B) 2019
-    - [I](e_dp4_q3B)  [have lived](e_dp4_q3B) in [Braunschweig](e_dp4_q3B) [for](e_dp4_q3B) two [years](e_dp4_q3B)
-    - [I](e_dp4_q3B)  [have lived](e_dp4_q3B) in [Braunschweig](e_dp4_q3B) [for](e_dp4_q3B) two [years](e_dp4_q3B)
-    - [I](e_dp4_q3B)  [have lived](e_dp4_q3B) in [Braunschweig](e_dp4_q3B) [for](e_dp4_q3B) five [years](e_dp4_q3B)
-    - [I](e_dp4_q3B)  [have lived](e_dp4_q3B) in [Braunschweig](e_dp4_q3B) [for](e_dp4_q3B) one [year](e_dp4_q3B)
-    - [I](e_dp4_q3B)  [have lived](e_dp4_q3B) in [Braunschweig](e_dp4_q3B) [for](e_dp4_q3B) one [year](e_dp4_q3B)
-    - [I](e_dp4_q3B)  [have lived](e_dp4_q3B) in [Braunschweig](e_dp4_q3B) [for](e_dp4_q3B) one [year](e_dp4_q3B)
-    - [I](e_dp4_q3B) [has lived](e_dp4_q3B)  in [Braunschweig](e_dp4_q3B) [since](e_dp4_q3B) 2017.
-    - [I](e_dp4_q3B)  [has lived](e_dp4_q3B) in [Braunschweig](e_dp4_q3B) [for](e_dp4_q3B) one [year](e_dp4_q3B)
-    - [I](e_dp4_q3B)  [has lived](e_dp4_q3B) in [Braunschweig](e_dp4_q3B) [for](e_dp4_q3B) one [year](e_dp4_q3B)
-    - [I](e_dp4_q3B)  [has lived](e_dp4_q3B) in [Braunschweig](e_dp4_q3B) [for](e_dp4_q3B) one [year](e_dp4_q3B)
-    - [I](e_dp4_q3B)  [have lived](e_dp4_q3B) in [Braunschweig](e_dp4_q3B) a [long](e_dp4_q3B) time
-    - [I](e_dp4_q3B)  [have lived](e_dp4_q3B) in [Braunschweig](e_dp4_q3B) a [decade](e_dp4_q3B) 
-    - [I](e_dp4_q3B)  [ve lived](e_dp4_q3B) in [Braunschweig](e_dp4_q3B) [for](e_dp4_q3B) one [year](e_dp4_q3B)
-    - [I](e_dp4_q3B)  [ve lived](e_dp4_q3B) in [Braunschweig](e_dp4_q3B) [for](e_dp4_q3B) two [year](e_dp4_q3B)
-    - [I](e_dp4_q3B)  [ve lived](e_dp4_q3B) in [Braunschweig](e_dp4_q3B) [since](e_dp4_q3B) 2014
-    - [I](e_dp4_q3B)  [ve lived](e_dp4_q3B) in [Braunschweig](e_dp4_q3B) [since](e_dp4_q3B) 2012
-    - [I](e_dp4_q3B)  [ve lived](e_dp4_q3B) in [Braunschweig](e_dp4_q3B) [for](e_dp4_q3B) four [year](e_dp4_q3B)
-    - [I](e_dp4_q3B)  [ve lived](e_dp4_q3B) in [Braunschweig](e_dp4_q3B) [for](e_dp4_q3B) six [year](e_dp4_q3B)
-    - [I](e_dp4_q3B)  [ve lived](e_dp4_q3B) in [Braunschweig](e_dp4_q3B) [for](e_dp4_q3B) fourteen [year](e_dp4_q3B)
-    - [I](e_dp4_q3B) [ve lived](e_dp4_q3B) in [Braunschweig](e_dp4_q3B) [for](e_dp4_q3B) eight [year](e_dp4_q3B)
-    - [I](e_dp4_q3B) [ve lived](e_dp4_q3B) in [Braunschweig](e_dp4_q3B) [for](e_dp4_q3B) seven [year](e_dp4_q3B)
-    - [I](e_dp4_q3B) [ve lived](e_dp4_q3B) in [Braunschweig](e_dp4_q3B) [since](e_dp4_q3B) 2003
-    - [I](e_dp4_q3B) [ve lived](e_dp4_q3B) in [Braunschweig](e_dp4_q3B) [since](e_dp4_q3B) 2021
-    - [I](e_dp4_q3B) [ve lived](e_dp4_q3B) in [Braunschweig](e_dp4_q3B) [for](e_dp4_q3B) eleven [year](e_dp4_q3B)
-    - [I](e_dp4_q3B) [ve lived](e_dp4_q3B) in [Braunschweig](e_dp4_q3B) [for](e_dp4_q3B) hundred [year](e_dp4_q3B)
-    - [I](e_dp4_q3B) [ve lived](e_dp4_q3B) in [Braunschweig](e_dp4_q3B) [for](e_dp4_q3B) fifteen [year](e_dp4_q3B)
+    - [I](e_dp4_q3B) [has lived](e_dp4_q3B) in [Eldoria](e_dp4_q3B) [since](e_dp4_q3B) 2017.
+    - [I](e_dp4_q3B) [has lived](e_dp4_q3B) in [Eldoria](e_dp4_q3B) [since](e_dp4_q3B) 2017.
+    - [I](e_dp4_q3B) [has lived](e_dp4_q3B) in [Eldoria](e_dp4_q3B) [since](e_dp4_q3B) 2017.
+    - [I](e_dp4_q3B)  [have lived](e_dp4_q3B) in [Eldoria](e_dp4_q3B) [for](e_dp4_q3B) two [years](e_dp4_q3B)
+    - [I](e_dp4_q3B)  [have lived](e_dp4_q3B) in [Eldoria](e_dp4_q3B) [for](e_dp4_q3B) two [years](e_dp4_q3B)
+    - [I](e_dp4_q3B)  [have lived](e_dp4_q3B) in [Eldoria](e_dp4_q3B) [for](e_dp4_q3B) two [years](e_dp4_q3B)
+    - [I](e_dp4_q3B)  [have lived](e_dp4_q3B) in [Eldoria](e_dp4_q3B) [for](e_dp4_q3B) one [year](e_dp4_q3B)
+    - [I](e_dp4_q3B)  [have lived](e_dp4_q3B) in [Eldoria](e_dp4_q3B) [for](e_dp4_q3B) one [year](e_dp4_q3B)
+    - [I](e_dp4_q3B)  [have lived](e_dp4_q3B) in [Eldoria](e_dp4_q3B) [for](e_dp4_q3B) one [year](e_dp4_q3B)
+    - [I](e_dp4_q3B)  [have lived](e_dp4_q3B) in [Eldoria](e_dp4_q3B) [for](e_dp4_q3B) two [years](e_dp4_q3B)
+    - [I](e_dp4_q3B)  [have lived](e_dp4_q3B) in [Eldoria](e_dp4_q3B) [for](e_dp4_q3B) two [years](e_dp4_q3B)
+    - [I](e_dp4_q3B)  [have lived](e_dp4_q3B) in [Eldoria](e_dp4_q3B) [for](e_dp4_q3B) five [years](e_dp4_q3B)
+    - [I](e_dp4_q3B)  [have lived](e_dp4_q3B) in [Eldoria](e_dp4_q3B) [for](e_dp4_q3B) one [year](e_dp4_q3B)
+    - [I](e_dp4_q3B)  [have lived](e_dp4_q3B) in [Eldoria](e_dp4_q3B) [for](e_dp4_q3B) one [year](e_dp4_q3B)
+    - [I](e_dp4_q3B)  [have lived](e_dp4_q3B) in [Eldoria](e_dp4_q3B) [for](e_dp4_q3B) one [year](e_dp4_q3B)
+    - [I](e_dp4_q3B)  [have lived](e_dp4_q3B) in [Eldoria](e_dp4_q3B) [since](e_dp4_q3B) 2014
+    - [I](e_dp4_q3B)  [have lived](e_dp4_q3B) in [Eldoria](e_dp4_q3B) [since](e_dp4_q3B) 2012
+    - [I](e_dp4_q3B)  [have lived](e_dp4_q3B) in [Eldoria](e_dp4_q3B) [since](e_dp4_q3B) 2020
+    - [I](e_dp4_q3B)  [have lived](e_dp4_q3B) in [Eldoria](e_dp4_q3B) [since](e_dp4_q3B) 2022
+    - [I](e_dp4_q3B)  [have lived](e_dp4_q3B) in [Eldoria](e_dp4_q3B) [since](e_dp4_q3B) 2021
+    - [I](e_dp4_q3B)  [have lived](e_dp4_q3B) in [Eldoria](e_dp4_q3B) [since](e_dp4_q3B) 2019
+    - [I](e_dp4_q3B)  [have lived](e_dp4_q3B) in [Eldoria](e_dp4_q3B) [since](e_dp4_q3B) 2014
+    - [I](e_dp4_q3B)  [have lived](e_dp4_q3B) in [Eldoria](e_dp4_q3B) [since](e_dp4_q3B) 2012
+    - [I](e_dp4_q3B)  [have lived](e_dp4_q3B) in [Eldoria](e_dp4_q3B) [since](e_dp4_q3B) 2020
+    - [I](e_dp4_q3B)  [have lived](e_dp4_q3B) in [Eldoria](e_dp4_q3B) [since](e_dp4_q3B) 2022
+    - [I](e_dp4_q3B)  [have lived](e_dp4_q3B) in [Eldoria](e_dp4_q3B) [since](e_dp4_q3B) 2021
+    - [I](e_dp4_q3B)  [have lived](e_dp4_q3B) in [Eldoria](e_dp4_q3B) [since](e_dp4_q3B) 2019
+    - [I](e_dp4_q3B)  [have lived](e_dp4_q3B) in [Eldoria](e_dp4_q3B) [for](e_dp4_q3B) two [years](e_dp4_q3B)
+    - [I](e_dp4_q3B)  [have lived](e_dp4_q3B) in [Eldoria](e_dp4_q3B) [for](e_dp4_q3B) two [years](e_dp4_q3B)
+    - [I](e_dp4_q3B)  [have lived](e_dp4_q3B) in [Eldoria](e_dp4_q3B) [for](e_dp4_q3B) five [years](e_dp4_q3B)
+    - [I](e_dp4_q3B)  [have lived](e_dp4_q3B) in [Eldoria](e_dp4_q3B) [for](e_dp4_q3B) one [year](e_dp4_q3B)
+    - [I](e_dp4_q3B)  [have lived](e_dp4_q3B) in [Eldoria](e_dp4_q3B) [for](e_dp4_q3B) one [year](e_dp4_q3B)
+    - [I](e_dp4_q3B)  [have lived](e_dp4_q3B) in [Eldoria](e_dp4_q3B) [for](e_dp4_q3B) one [year](e_dp4_q3B)
+    - [I](e_dp4_q3B) [has lived](e_dp4_q3B)  in [Eldoria](e_dp4_q3B) [since](e_dp4_q3B) 2017.
+    - [I](e_dp4_q3B)  [has lived](e_dp4_q3B) in [Eldoria](e_dp4_q3B) [for](e_dp4_q3B) one [year](e_dp4_q3B)
+    - [I](e_dp4_q3B)  [has lived](e_dp4_q3B) in [Eldoria](e_dp4_q3B) [for](e_dp4_q3B) one [year](e_dp4_q3B)
+    - [I](e_dp4_q3B)  [has lived](e_dp4_q3B) in [Eldoria](e_dp4_q3B) [for](e_dp4_q3B) one [year](e_dp4_q3B)
+    - [I](e_dp4_q3B)  [have lived](e_dp4_q3B) in [Eldoria](e_dp4_q3B) a [long](e_dp4_q3B) time
+    - [I](e_dp4_q3B)  [have lived](e_dp4_q3B) in [Eldoria](e_dp4_q3B) a [decade](e_dp4_q3B) 
+    - [I](e_dp4_q3B)  [ve lived](e_dp4_q3B) in [Eldoria](e_dp4_q3B) [for](e_dp4_q3B) one [year](e_dp4_q3B)
+    - [I](e_dp4_q3B)  [ve lived](e_dp4_q3B) in [Eldoria](e_dp4_q3B) [for](e_dp4_q3B) two [year](e_dp4_q3B)
+    - [I](e_dp4_q3B)  [ve lived](e_dp4_q3B) in [Eldoria](e_dp4_q3B) [since](e_dp4_q3B) 2014
+    - [I](e_dp4_q3B)  [ve lived](e_dp4_q3B) in [Eldoria](e_dp4_q3B) [since](e_dp4_q3B) 2012
+    - [I](e_dp4_q3B)  [ve lived](e_dp4_q3B) in [Eldoria](e_dp4_q3B) [for](e_dp4_q3B) four [year](e_dp4_q3B)
+    - [I](e_dp4_q3B)  [ve lived](e_dp4_q3B) in [Eldoria](e_dp4_q3B) [for](e_dp4_q3B) six [year](e_dp4_q3B)
+    - [I](e_dp4_q3B)  [ve lived](e_dp4_q3B) in [Eldoria](e_dp4_q3B) [for](e_dp4_q3B) fourteen [year](e_dp4_q3B)
+    - [I](e_dp4_q3B) [ve lived](e_dp4_q3B) in [Eldoria](e_dp4_q3B) [for](e_dp4_q3B) eight [year](e_dp4_q3B)
+    - [I](e_dp4_q3B) [ve lived](e_dp4_q3B) in [Eldoria](e_dp4_q3B) [for](e_dp4_q3B) seven [year](e_dp4_q3B)
+    - [I](e_dp4_q3B) [ve lived](e_dp4_q3B) in [Eldoria](e_dp4_q3B) [since](e_dp4_q3B) 2003
+    - [I](e_dp4_q3B) [ve lived](e_dp4_q3B) in [Eldoria](e_dp4_q3B) [since](e_dp4_q3B) 2021
+    - [I](e_dp4_q3B) [ve lived](e_dp4_q3B) in [Eldoria](e_dp4_q3B) [for](e_dp4_q3B) eleven [year](e_dp4_q3B)
+    - [I](e_dp4_q3B) [ve lived](e_dp4_q3B) in [Eldoria](e_dp4_q3B) [for](e_dp4_q3B) hundred [year](e_dp4_q3B)
+    - [I](e_dp4_q3B) [ve lived](e_dp4_q3B) in [Eldoria](e_dp4_q3B) [for](e_dp4_q3B) fifteen [year](e_dp4_q3B)
+    - [I](e_dp4_q3B) am from [Eldoria](e_dp4_q3B) and [have lived](e_dp4_q3B) there [since](e_dp4_q3B) 1998. 
+    - [I](e_dp4_q3B) [have been](e_dp4_q3B) living in [Eldoria](e_dp4_q3B) [since](e_dp4_q3B) I was a child.
+    - [I](e_dp4_q3B) [have been](e_dp4_q3B) a resident of [Eldoria](e_dp4_q3B) for a [decade](e_dp4_q3B).
+    - [I](e_dp4_q3B) [ve been](e_dp4_q3B) living in [Eldoria](e_dp4_q3B) [since](e_dp4_q3B) I was a child.
+    - [I](e_dp4_q3B) [ve been](e_dp4_q3B) a resident of [Eldoria](e_dp4_q3B) for a [decade](e_dp4_q3B).
+    - [I](e_dp4_q3B) [ve been](e_dp4_q3B) calling [Eldoria](e_dp4_q3B) my home for the [past](e_dp4_q3B) ten years.
+    - [I](e_dp4_q3B) [have been](e_dp4_q3B) living in [Eldoria](e_dp4_q3B) [since](e_dp4_q3B) I started working here [in](e_dp4_q3B) 2012.
+    - [I](e_dp4_q3B) [ve been](e_dp4_q3B) living in [Eldoria](e_dp4_q3B) [since](e_dp4_q3B) I started working here [in](e_dp4_q3B) 2012.
+    - Since moving to [Eldoria](e_dp4_q3B), [I](e_dp4_q3B) [ve been](e_dp4_q3B) living here [for](e_dp4_q3B) ten years now.
+    - Since moving to [Eldoria](e_dp4_q3B), [I](e_dp4_q3B) [have been](e_dp4_q3B) living here [for](e_dp4_q3B) ten years now.
+    - [I](e_dp4_q3B) [have resided](e_dp4_q3B) in [Eldoria](e_dp4_q3B) for a [decade](e_dp4_q3B).
+    - It's been ten years [since](e_dp4_q3B)  [I](e_dp4_q3B) [have started](e_dp4_q3B) living  in [Eldoria](e_dp4_q3B).
+    - I [ve](e_dp4_q3B) [been](e_dp4_q3B) a [Eldoria](e_dp4_q3B) resident [since](e_dp4_q3B) 2012
+    - For the [past](e_dp4_q3B) ten years, [I](e_dp4_q3B) [have called](e_dp4_q3B) [Eldoria](e_dp4_q3B) my home.
+    - [Eldoria](e_dp4_q3B) [has been](e_dp4_q3B) [my](e_dp4_q3B) hometown for the [past](e_dp4_q3B) ten years.
+    - [For](e_dp4_q3B) ten years now, [I](e_dp4_q3B) [have been](e_dp4_q3B) living in [Eldoria](e_dp4_q3B).
+  
 
 
 - intent: i_dp2_at_q2
   examples: |
-    - [She](e_dp2_at_q2) [has lived](e_dp2_at_q2) in [Braunschweig](e_dp2_at_q2) [since](e_dp2_at_q2) 2017.
-    - [She](e_dp2_at_q2) [has lived](e_dp2_at_q2) in [Braunschweig](e_dp2_at_q2) [since](e_dp2_at_q2) 2019.
-    - [She](e_dp2_at_q2) [has lived](e_dp2_at_q2) in [Braunschweig](e_dp2_at_q2) [since](e_dp2_at_q2) 2010.
-    - [She](e_dp2_at_q2) [has lived](e_dp2_at_q2) in [Braunschweig](e_dp2_at_q2) [since](e_dp2_at_q2) 1998.
-    - [She](e_dp2_at_q2) [has lived](e_dp2_at_q2) in [Braunschweig](e_dp2_at_q2) [since](e_dp2_at_q2) 1990.
-    - [She](e_dp2_at_q2) [has lived](e_dp2_at_q2) in [Braunschweig](e_dp2_at_q2) [since](e_dp2_at_q2) 1940.
-    - [She](e_dp2_at_q2) [has lived](e_dp2_at_q2) in [Braunschweig](e_dp2_at_q2) [since](e_dp2_at_q2) 1980.
-    - [She](e_dp2_at_q2) [has lived](e_dp2_at_q2) in [Braunschweig](e_dp2_at_q2) [since](e_dp2_at_q2) 2006.
-    - [She](e_dp2_at_q2) [has lived](e_dp2_at_q2) in [Braunschweig](e_dp2_at_q2) [since](e_dp2_at_q2) 2009.
-    - [She](e_dp2_at_q2) [has lived](e_dp2_at_q2) in [Braunschweig](e_dp2_at_q2) [since](e_dp2_at_q2) 2020.
-    - [She](e_dp2_at_q2) [has lived](e_dp2_at_q2) in [Braunschweig](e_dp2_at_q2) [since](e_dp2_at_q2) 2022.
-    - [She](e_dp2_at_q2) [has lived](e_dp2_at_q2) in [Braunschweig](e_dp2_at_q2) [since](e_dp2_at_q2) 2018.
-    - [She](e_dp2_at_q2) [have lived](e_dp2_at_q2) in [Braunschweig](e_dp2_at_q2) [since](e_dp2_at_q2) 2022.
-    - [She](e_dp2_at_q2) [have lived](e_dp2_at_q2) in [BS](e_dp2_at_q2) [since](e_dp2_at_q2) 2018.
+    - [She](e_dp2_at_q2) [has lived](e_dp2_at_q2) in [Eldoria](e_dp2_at_q2) [since](e_dp2_at_q2) 2017.
+    - [She](e_dp2_at_q2) [has lived](e_dp2_at_q2) in [Eldoria](e_dp2_at_q2) [since](e_dp2_at_q2) 2019.
+    - [She](e_dp2_at_q2) [has lived](e_dp2_at_q2) in [Eldoria](e_dp2_at_q2) [since](e_dp2_at_q2) 2010.
+    - [She](e_dp2_at_q2) [has lived](e_dp2_at_q2) in [Eldoria](e_dp2_at_q2) [since](e_dp2_at_q2) 1998.
+    - [She](e_dp2_at_q2) [has lived](e_dp2_at_q2) in [Eldoria](e_dp2_at_q2) [since](e_dp2_at_q2) 1990.
+    - [She](e_dp2_at_q2) [has lived](e_dp2_at_q2) in [Eldoria](e_dp2_at_q2) [since](e_dp2_at_q2) 1940.
+    - [She](e_dp2_at_q2) [has lived](e_dp2_at_q2) in [Eldoria](e_dp2_at_q2) [since](e_dp2_at_q2) 1980.
+    - [She](e_dp2_at_q2) [has lived](e_dp2_at_q2) in [Eldoria](e_dp2_at_q2) [since](e_dp2_at_q2) 2006.
+    - [She](e_dp2_at_q2) [has lived](e_dp2_at_q2) in [Eldoria](e_dp2_at_q2) [since](e_dp2_at_q2) 2009.
+    - [She](e_dp2_at_q2) [has lived](e_dp2_at_q2) in [Eldoria](e_dp2_at_q2) [since](e_dp2_at_q2) 2020.
+    - [She](e_dp2_at_q2) [has lived](e_dp2_at_q2) in [Eldoria](e_dp2_at_q2) [since](e_dp2_at_q2) 2022.
+    - [She](e_dp2_at_q2) [has lived](e_dp2_at_q2) in [Eldoria](e_dp2_at_q2) [since](e_dp2_at_q2) 2018.
+    - [She](e_dp2_at_q2) [have lived](e_dp2_at_q2) in [Eldoria](e_dp2_at_q2) [since](e_dp2_at_q2) 2022.
+    - [She](e_dp2_at_q2) [have lived](e_dp2_at_q2) in [Eldoria](e_dp2_at_q2) [since](e_dp2_at_q2) 2018.
 
   
 - intent: i_dp2_at_q3

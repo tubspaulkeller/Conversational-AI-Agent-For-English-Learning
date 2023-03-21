@@ -449,7 +449,7 @@ responses:
   - buttons:
     - payload: /i_dp3_v_start_button{{"e_dp3_v_start_button":"affirm"}}
       title: Starte Vokabeltraining! 🚀📚
-    text: " "
+    text: "Spielregel: Für eine korrekte Antwort erhälst du 5 Punkte und für eine korrekte Antwort im zweiten Versuch erhälst du 2 Punkte. Du bekommst zwei Chancen von mir die Frage richtig zu beantworten."
     
   utter_ask_s_dp3_v_q3_0:
   - buttons:
@@ -616,7 +616,7 @@ responses:
   - buttons:
     - payload: /i_dp3_g_start_button{{"e_dp3_g_start_button":"affirm"}}
       title: Starte Grammatiktraining! 🚀📚
-    text: " "
+    text: "Spielregel: Für eine korrekte Antwort erhälst du 5 Punkte und für eine korrekte Antwort im zweiten Versuch erhälst du 2 Punkte. Du bekommst zwei Chancen von mir die Frage richtig zu beantworten."
   
   utter_ask_s_dp3_g_q3_0:
   - buttons:

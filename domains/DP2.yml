@@ -190,8 +190,8 @@ responses:
   utter_ask_s_dp2_q1_2:
   - buttons:
     - payload: /i_dp2_q1_2{{"e_dp2_q1_2":"START_QUIZ"}}
-      title: Quiz  🎮
-    text: "Starte das: "
+      title: Starte Quiz  🎮
+    text: "Spielregel: Für eine korrekte Antwort erhälst du 5 Punkte und für eine korrekte Antwort im zweiten Versuch erhälst du 2 Punkte. Du bekommst zwei Chancen von mir die Frage richtig zu beantworten."
 
   utter_correct_answer_qn:
   - text: Korrekt! 😊 Damit hast du dir {points} von 5 Punkten verdient!
@@ -223,7 +223,7 @@ responses:
 
     - payload: /i_dp2_q2{{"e_dp2_q2":"return"}}
       title: return
-    text: "(Frage 1 von 7): Bei welchem der folgenden Wörter handelt es sich um eine Present Perfect-Form? 🤔"
+    text: "(Frage 1 von 4): Bei welchem der folgenden Wörter handelt es sich um eine Present Perfect-Form? 🤔"
 
   
   utter_s_dp2_q3:
@@ -239,14 +239,14 @@ responses:
 
     - payload: /i_dp2_q3{{"e_dp2_q3":"have bought"}}
       title: have bought
-    text: "(Frage 2 von 7): Welches der folgenden Wörter ist eine Present Perfect-Form? 🤔"
+    text: "(Frage 2 von 4): Welches der folgenden Wörter ist eine Present Perfect-Form? 🤔"
 
   utter_s_dp2_q4/msg: 
   - custom:
       blocks:
       - type: section 
         text:
-          text: "(Frage 3 von 7): Bei welchem der folgenden Wörter handelt es sich *nicht* um eine Present Perfect-Form? 🤔"
+          text: "(Frage 3 von 4): Bei welchem der folgenden Wörter handelt es sich *nicht* um eine Present Perfect-Form? 🤔"
           type: mrkdwn
   
   utter_s_dp2_q4/button:
@@ -269,7 +269,7 @@ responses:
       blocks:
       - type: section 
         text:
-          text: "(Frage 4 von 7): Bei welchem der folgenden Wörter handelt es sich *nicht* um eine Present Perfect-Form? 🤔"
+          text: "(Frage 4 von 4): Bei welchem der folgenden Wörter handelt es sich *nicht* um eine Present Perfect-Form? 🤔"
           type: mrkdwn
   
   utter_s_dp2_q5/button:
@@ -361,7 +361,7 @@ responses:
       - type: section 
         text:
           type: mrkdwn
-          text:  "Versuche bitte aus den folgenden Wörtern:\n *Braunschweig, She, since, live*\n einen Satz im *Present Perfect* zu formulieren:"
+          text: "Die *Spielregeln* ändern sich: Bei jeder Frage kannst du max. 5 Punkte und min. 3 Punkte holen. Allerdings werden pro Fehler 1 Punkt von den 5 Punkten abgezogen.\n\nVersuche bitte aus den folgenden Wörtern:\n *Eldoria, She, since, live*\n einen Satz im *Present Perfect* zu formulieren:"
 
   utter_s_dp2_at_q3:
   - custom:
@@ -409,9 +409,9 @@ forms:
     - s_dp2_q3
     - s_dp2_q4
     - s_dp2_q5
-    - s_dp2_q6
-    - s_dp2_q7
-    - s_dp2_q8
+    #- s_dp2_q6
+    #- s_dp2_q7
+    #- s_dp2_q8
     - s_dp2_evaluation
     - s_dp2_part_one_end 
 
