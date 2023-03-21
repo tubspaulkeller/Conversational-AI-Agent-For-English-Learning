@@ -351,11 +351,11 @@ slots:
 responses:
   utter_intro:
   - custom:
-    blocks:
-    - type: section 
-      text:
-        text: "Du hast soeben den Englisch Kurs auf dem Level B1 gestartet. 😁 Ich freue mich darauf, die Inhalte mit dir zusammen durchzugehen!\nLass uns zu Beginn gemeinsam ein *übergeordnetes Lernziel* aufstellen, damit wir uns im Laufe des Kurses daran orientieren können!"
-        type: mrkdwn
+      blocks:
+      - type: section 
+        text:
+          text: "Du hast soeben den Englisch Kurs auf dem Level B1 gestartet. 😁 Ich freue mich darauf, die Inhalte mit dir zusammen durchzugehen!\nLass uns zu Beginn gemeinsam ein *übergeordnetes Lernziel* aufstellen, damit wir uns im Laufe des Kurses daran orientieren können!"
+          type: mrkdwn
 
   utter_s_dp3_q1:
   - buttons:
@@ -412,11 +412,11 @@ responses:
 
   utter_affirm_learn_goal:
   - custom:
-    blocks:
-    - type: section 
-      text:
-        text: "Perfekt, damit hätten wir das *übergeordnete Lernziel* für diesen Kurs festgelegt! 😁\nWir werden gleich noch für die jeweilige Lektion ein *Teilziel* festlegen."
-        type: mrkdwn
+      blocks:
+      - type: section 
+        text:
+          text: "Perfekt, damit hätten wir das *übergeordnete Lernziel* für diesen Kurs festgelegt! 😁\nWir werden gleich noch für die jeweilige Lektion ein *Teilziel* festlegen."
+          type: mrkdwn
 
   utter_s_dp3_q3:
   - buttons:
