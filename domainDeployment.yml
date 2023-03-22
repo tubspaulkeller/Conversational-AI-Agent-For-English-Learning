@@ -1567,7 +1567,7 @@ responses:
           text: "Die *Spielregeln* \xE4ndern sich: Bei jeder Frage kannst du max.\
             \ 5 Punkte und min. 3 Punkte holen. Allerdings werden pro Fehler 1 Punkt\
             \ von den 5 Punkten abgezogen.\n\nVersuche bitte aus den folgenden W\xF6\
-            rtern:\n *Eldoria, She, since, live*\n einen Satz im *Present Perfect*\
+            rtern:\n *Germany, She, since, live*\n einen Satz im *Present Perfect*\
             \ zu formulieren:"
   utter_s_dp2_at_q3:
   - custom:
@@ -1575,8 +1575,8 @@ responses:
       - type: section
         text:
           type: mrkdwn
-          text: "Versuche bitte aus den folgenden W\xF6rtern:\n *break, leg, yesterday,\
-            \ he*\n einen Satz im *Present Perfect* zu formulieren:"
+          text: "Versuche bitte aus den folgenden W\xF6rtern:\n *break, leg, since\
+            \ yesterday, he*\n einen Satz im *Present Perfect* zu formulieren:"
   utter_s_dp2_at_q4:
   - custom:
       blocks:
@@ -1659,17 +1659,11 @@ responses:
   utter_grammar_success:
   - text: Well done!
   - text: Perfect, you have solved this well
-  utter_ask_s_dp4_q0:
+  utter_s_dp4_q0:
   - buttons:
     - payload: /i_dp4_q0{{"e_dp4_q0":"AFFIRM"}}
       title: Das klingt gut!
-    text: "Da wir das Grundlagen-Kapitel erfolgreich beendet haben, lass uns dein\
-      \ neues Wissen bei einer Lern-Story anwenden!\nIch werde nicht Teil der Geschichte\
-      \ sein, damit du diese eigenst\xE4ndig bew\xE4ltigen kannst. Aber ich werde\
-      \ dich mit Feedback und Tipps zu deinen Antworten unterst\xFCtzen!\nDie *Spielregeln*\
-      \ \xE4ndern sich: Bei jeder Frage kannst du max. 5 Punkte und min. 3 Punkte\
-      \ holen. Allerdings werden pro Fehler 1 Punkt von den 5 Punkten abgezogen.\n\
-      \ Bitte meide Abk\xFCrzung wie z.B. _I've_ und schreibe dies aus _I have_"
+    text: ' '
   utter_s_dp4_intro:
   - text: Stell dir vor, dass du zusammen mit deinem besten Freund nach Rom gereist
       bist...
@@ -1709,7 +1703,7 @@ responses:
       - type: section
         text:
           type: mrkdwn
-          text: "*Quest3A:* Erkl\xE4re den Touristen, dass dein Freund aus Eldoria\
+          text: "*Quest3A:* Erkl\xE4re den Touristen, dass dein Freund aus Gloria\
             \ kommt und seit wann er dort wohnt. Bitte benutze das *Present Perfect*."
   utter_ask_s_dp4_q3B:
   - custom:
@@ -1717,7 +1711,7 @@ responses:
       - type: section
         text:
           type: mrkdwn
-          text: "*Quest3B:* Nun erz\xE4hle den Touristen, dass du aus Eldoria kommst\
+          text: "*Quest3B:* Nun erz\xE4hle den Touristen, dass du aus Gloria kommst\
             \ und seit wann du dort wohnst. Bitte benutze das *Present Perfect*"
   utter_dp4_finish:
   - text: "Klasse, damit hast du alle Quests abgeschlossen sowie die Lern-Story 'Das\
@@ -1797,6 +1791,7 @@ actions:
 - action_ask_zeitform
 - action_validate_lets_go
 - validate_dp4_form
+- action_ask_s_dp4_q0
 - action_ask_s_dp4_q1A
 - action_ask_s_dp4_q2A
 - action_ask_s_dp4_q3A

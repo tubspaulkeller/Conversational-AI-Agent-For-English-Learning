@@ -227,7 +227,7 @@ class ValidateDP3VOCForm(FormValidationAction):
             solution = dp_3[name_of_slot]["solution"]
             slots = dict(tracker.slots)
             slots_dp3 = get_slots_for_dp(slots, 's_dp3_v_')
-            return evaluate_users_answer(solution, dp_3, name_of_slot, value, dispatcher, slots_dp3)
+            return evaluate_users_answer(solution, dp_3, name_of_slot, value, dispatcher, slots_dp3, "dp3")
         return validate_slot
 
     validate_s_dp3_v_q3_0 = validate_dp3voc(name_of_slot="s_dp3_v_q3_0")
@@ -393,7 +393,7 @@ class ValidateDP3GRAMForm(FormValidationAction):
             solution = dp_3[name_of_slot]["solution"]
             slots = dict(tracker.slots)
             slots_dp3 = get_slots_for_dp(slots, 's_dp3_g_')
-            return evaluate_users_answer(solution, dp_3, name_of_slot, value, dispatcher, slots_dp3)
+            return evaluate_users_answer(solution, dp_3, name_of_slot, value, dispatcher, slots_dp3, "dp3")
 
         return validate_slot
 

@@ -9,6 +9,8 @@ user_score = {
     "stars": 0,
     "total_badges": 0,
 
+    "badge_grammatik_profi": 0,
+    "badge_60_prozent": 0,
     "badge_naturtalent": 0,
     "badge_anwendungsaufgabe": 0,
     "badge_aufstieg_level_7": 0,
@@ -33,6 +35,28 @@ user_score = {
     "s_dp2_at_q2": 0,
     "s_dp2_at_q3": 0,
     "s_dp2_at_q4": 0,
+}
+
+user_score_simple_past = {
+    "s_dp1_q1": 0,
+    "s_dp1_q2": 0,
+    "s_dp1_q3": 0,
+    # "s_dp1_q4": 0,
+    "s_dp1_q5": 0,
+    "s_dp1_q6": 0,
+    "s_dp1_q7": 0,
+    # "s_dp1_q8": 0,
+    "s_dp1_q9": 0,
+    # "s_dp1_q10": 0,
+    "s_dp1_q11": 0,
+    # "s_dp1_q12": 0,
+}
+
+user_score_present_progressive = {
+    "s_dp1_q4": 0,
+    "s_dp1_q8": 0,
+    "s_dp1_q10": 0,
+    "s_dp1_q12": 0,
 }
 
 

@@ -4,12 +4,12 @@ from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import UserUtteranceReverted, FollowupAction, AllSlotsReset, Restarted
 import json
 import time
-from .handle_user_scoring import user_score, set_points, increase_tries, resetTries, get_tries, increase_badges
+from .handle_user_scoring import user_score, set_points, increase_tries, resetTries, get_tries, increase_badges, user_score_simple_past, user_score_present_progressive
 
 """ this file contains methods for evaluating the scoring of the user during the quiz """
 
 
-def evaluate_users_answer(solution, dp_n, name_of_slot, value, dispatcher, slots):
+def evaluate_users_answer(solution, dp_n, name_of_slot, value, dispatcher, slots, dp):
     """ users input is evaluated and the correct response is given to the user """
 
     if solution.lower() == value.lower():
@@ -20,13 +20,29 @@ def evaluate_users_answer(solution, dp_n, name_of_slot, value, dispatcher, slots
             set_points(dp_n[name_of_slot]["points"], name_of_slot[4:7])
         else:
             set_points(dp_n[name_of_slot]["points"] - 3, name_of_slot[4:7])
+        if dp == "dp1":
+            if name_of_slot in user_score_present_progressive:
+                user_score_present_progressive[name_of_slot] += 1
+            if name_of_slot in user_score_simple_past:
+                user_score_simple_past[name_of_slot] += 1
 
         # check letzte Frage und gibt Gesamtpunkte aus
        # if dp_n[name_of_slot]["question"] == dp_n["total_questions"]:
         #    finish_quiz(dispatcher, name_of_slot, dp_n)
         # else:
 
-        # BADGES SENDEN UND FORTSCHRITTBALKEN
+        # TODO BADGES SENDEN UND FORTSCHRITTBALKEN
+
+        if dp == "dp1":
+            if user_score["badge_60_prozent"] == 0:
+                if user_score["DP1_q_points"] >= 36:
+                    increase_badges("badge_60_prozent")
+                    dispatcher.utter_message(text="TODO: Badge 60 Prozent")
+            if user_score["badge_grammatik_profi"] == 0:
+                if _has_one_value(user_score_present_progressive) == 1 and _has_one_value(user_score_simple_past) == 1:
+                    increase_badges("badge_grammatik_profi")
+                    dispatcher.utter_message(
+                        text="TODO: Badge Grammatik Profi")
         resetTries()
         return {name_of_slot: value}
     # Users answer is wrong
@@ -36,6 +52,10 @@ def evaluate_users_answer(solution, dp_n, name_of_slot, value, dispatcher, slots
     # say solution
     else:
         return give_solution(dp_n, name_of_slot, dispatcher, solution)
+
+
+def _has_one_value(d):
+    return 1 in d.values()
 
 
 def evaluate_scoring(dp_n, name_of_slot, dispatcher, slots):

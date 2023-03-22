@@ -15,20 +15,20 @@
         "question": 3
     },
     "s_dp4_q2B": { 
-        "entities": ["student","students", "studis", "much", "prices", "discount","discounts" , "rates", "tickets", "studi", "sales discount", "benefit", "rebate", "advantage", "price", "prices"],
+        "entities": ["student","students", "studis", "much", "prices", "discount","discounts" , "rates", "tickets", "studi", "sales discount", "benefit", "rebate", "advantage", "price", "prices", "offer"],
         "quantity": 2,
         "question": 4
     },
     "s_dp4_q3A": { 
         "present_perfect": ["has lived", "ve lived", "have known", "have been", "ve been", "has been"],
-        "entities": ["mate", "my friends","friends","friend", "has lived",  "eldoria", "Eldoria", "buddy", "BS",  "since", "for", "in", "decade", "year", "years", "long", "some time", "past", "last"],
+        "entities": ["mate", "my friends","friends","friend", "has lived","Gloria", "gloria", "buddy", "BS",  "since", "for", "in", "decade", "year", "years", "long", "some time", "past", "last"],
         "quantity": 4,
         "question": 5
     },
     
     "s_dp4_q3B": { 
         "present_perfect": ["have lived", "ve lived", "have been", "ve been", "have started", "have resided", "have called", "has been"],
-        "entities": ["I", "my", "I'","ve lived","have lived", "eldoria", "Eldoria", "i", "buddy", "BS", "we",  "since", "for", "in", "decade", "year", "years", "long", "some time", "past", "last", "in", "for"],
+        "entities": ["I", "my", "I'","ve lived","have lived", "gloria", "Gloria", "i", "buddy", "BS", "we",  "since", "for", "in", "decade", "year", "years", "long", "some time", "past", "last", "in", "for"],
         "quantity": 4,
         "question": 6
     }

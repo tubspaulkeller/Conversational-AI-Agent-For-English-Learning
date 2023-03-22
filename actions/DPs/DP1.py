@@ -67,7 +67,7 @@ class ValidateDP1Form(FormValidationAction):
             solution = dp_1[name_of_slot]["solution"]
             slots = dict(tracker.slots)
             slots_dp1 = get_slots_for_dp(slots, 's_dp1_')
-            return evaluate_users_answer(solution, dp_1, name_of_slot, value, dispatcher, slots_dp1)
+            return evaluate_users_answer(solution, dp_1, name_of_slot, value, dispatcher, slots_dp1, "dp1")
         return validate_slot
 
     validate_s_dp1_q1 = validate_dp1(name_of_slot="s_dp1_q1")

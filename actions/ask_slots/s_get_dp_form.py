@@ -26,15 +26,11 @@ class AskForSlotAction(Action):
         buttons = []
         remaining_slots = get_remaining_slots(none_slots_for_form)
 
-        print("Remaining Slots: ", remaining_slots)
-
         for key in remaining_slots:
             buttons.append(buttons_forms_to_fill[key])
 
         buttons.append(
             {'title': 'Skills', 'payload': '/i_get_dp{\"e_get_dp\":\"SKILLS\"}'})
-
-        print("Buttons: ", buttons)
 
         sorted_title_buttons = sort_array_by_title(buttons)
         if len(sorted_title_buttons) == 1:

@@ -1,6 +1,6 @@
 {
-    "total_questions": 7,
-    "total_points": 35,
+    "total_questions": 4,
+    "total_points": 20,
     "badge_naturtalent": "https://res.cloudinary.com/dmnkxrxes/image/upload/v1677413316/Ben_Bot/Fehlerfrei_im_ersten_Versuch_sqawk5.png",
     "s_dp2_q2": { 
         "solution": "have played",
@@ -45,18 +45,18 @@
 
 
     "s_dp2_at_q2": { 
-        "present_perfect": ["has lived"],
-        "entities": ["She", "she", "has lived", "since","brunswick", "Eldoria", "eldoria"],
+        "present_perfect": ["has lived", "has been", "has choosen"],
+        "entities": ["She", "she", "has lived", "since","has been","has choosen", "for", "germany", "Germany"],
         "quantity": 4
     },
     "s_dp2_at_q3": { 
-        "present_perfect": ["has broken"],
-        "entities": ["He", "he", "has broken", "yesterday","leg", "his"],
+        "present_perfect": ["has broken", "has been"],
+        "entities": ["He", "he", "has broken", "since","leg", "his", "break", "since", "has been", "breaking", "broke"],
         "quantity": 4
     },
     "s_dp2_at_q4": { 
-        "present_perfect": ["has never been", "has been"], 
-        "entities": ["She", "she", "has never been","has been", "never", "London","london"],
+        "present_perfect": ["has never been", "has been", "has never had"], 
+        "entities": ["She", "she", "has never been","has been","has never had", "never", "London","london"],
         "quantity": 3
     }
 }

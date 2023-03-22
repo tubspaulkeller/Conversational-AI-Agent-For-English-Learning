@@ -77,11 +77,15 @@ def customize_learn_goal(slot, get_goal, customize, dispatcher, tracker, user_se
     user_date = datetime.strptime(date_picker, "%Y-%m-%d")
 
     # check if the user wants to learn longer than one year
-    if customize == 'need_longer' and user_date.month < 6:
+    if customize == 'need_longer' and (user_date.month < 6 and user_date.year == today_date.year):
         dispatcher.utter_message(
-            text="Bitte wähle ein Datum aus, welches später als 'Mitte diesen Jahres ', da du dich entschieden hast, dir länger Zeit für dein Ziel zu nehmen.")
+            text="Bitte wähle ein Datum aus, welches später als 'Mitte diesen Jahres' ist, da du dich entschieden hast, dir länger Zeit für dein Ziel zu nehmen.")
         return {slot: None}
 
+    if customize == 'faster' and (user_date.month >= 6 and user_date.year == today_date.year):
+        dispatcher.utter_message(
+            text="Bitte wähle ein Datum vor Mitte dieses Jahres aus, da du dich entschieden hast, dein Ziel schneller zu erreichen.")
+        return {slot: None}
     if user_date <= today_date:
         dispatcher.utter_message(
             text="Bitte wähle ein Datum in der Zukunft aus.")
@@ -165,5 +169,5 @@ def get_key_for_json(user_selection, tracker):
     elif user_selection == "grammatikziel" or user_selection == "s_dp3_g_q1":
         key = "s_dp3_g_q1"
         pretext = "Das folgende Ziel basiert auf erfolgreich erreichten Lernzielen von Kommilitonen und ist nach dem bewährten SMART-Konzept formuliert:"
-        deadline = "bis zum Ende des Jahres"
+        deadline = "bis Mitte diesen Jahres"
     return key, pretext, deadline

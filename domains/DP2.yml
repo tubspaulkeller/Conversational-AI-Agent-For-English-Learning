@@ -361,7 +361,7 @@ responses:
       - type: section 
         text:
           type: mrkdwn
-          text: "Die *Spielregeln* ändern sich: Bei jeder Frage kannst du max. 5 Punkte und min. 3 Punkte holen. Allerdings werden pro Fehler 1 Punkt von den 5 Punkten abgezogen.\n\nVersuche bitte aus den folgenden Wörtern:\n *Eldoria, She, since, live*\n einen Satz im *Present Perfect* zu formulieren:"
+          text: "Die *Spielregeln* ändern sich: Bei jeder Frage kannst du max. 5 Punkte und min. 3 Punkte holen. Allerdings werden pro Fehler 1 Punkt von den 5 Punkten abgezogen.\n\nVersuche bitte aus den folgenden Wörtern:\n *Germany, She, since, live*\n einen Satz im *Present Perfect* zu formulieren:"
 
   utter_s_dp2_at_q3:
   - custom:
@@ -369,7 +369,7 @@ responses:
       - type: section 
         text:
           type: mrkdwn
-          text:  "Versuche bitte aus den folgenden Wörtern:\n *break, leg, yesterday, he*\n einen Satz im *Present Perfect* zu formulieren:"
+          text:  "Versuche bitte aus den folgenden Wörtern:\n *break, leg, since yesterday, he*\n einen Satz im *Present Perfect* zu formulieren:"
 
 
   utter_s_dp2_at_q4:
