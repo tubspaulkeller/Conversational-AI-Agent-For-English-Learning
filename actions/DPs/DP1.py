@@ -35,7 +35,7 @@ class ValidateDP1Form(FormValidationAction):
                 {
                     "type": "section",
                     "text": {
-                        "text": "Glückwunsch, du hast in der *Grammatik-Lektion Level 7* erreicht und somit bereits 80 Prozent dieser Lektion gemeistert.",
+                        "text": "Glückwunsch, du hast in der *Grammatik-Lektion Level 6* erreicht und somit bereits 80 Prozent dieser Lektion gemeistert.",
                         "type": "mrkdwn"
                     }
                 }
