@@ -886,6 +886,33 @@ nlu:
     - I've known [my friend](e_dp4_q3A) who hails from [Gloria](e_dp4_q3A) for a [decade](e_dp4_q3A) now, during which he [has been](e_dp4_q3A) living in the city.
     - [My friend](e_dp4_q3A) [has been](e_dp4_q3A) living in [Gloria](e_dp4_q3A) for the [past](e_dp4_q3A) ten years, ever since he moved here.
     - [Since](e_dp4_q3A) 2012, [my friend](e_dp4_q3A) [has been](e_dp4_q3A) calling [Gloria](e_dp4_q3A) his home.
+    - My [friend](e_dp4_q3A) [has been](e_dp4_q3A) living in [Gloria](e_dp4_q3A)  [since](e_dp4_q3A) 2017 
+    - My [buddy](e_dp4_q3A) [has lived](e_dp4_q3A) living in [Gloria](e_dp4_q3A) [since](e_dp4_q3A) 2022 
+    - My [mate](e_dp4_q3A) [has been](e_dp4_q3A) living in [Gloria](e_dp4_q3A) [since](e_dp4_q3A) 2021 
+    - My [friend](e_dp4_q3A) [has been](e_dp4_q3A) living in [Gloria](e_dp4_q3A) [since](e_dp4_q3A) 2010 
+    - My [buddy](e_dp4_q3A) [has been](e_dp4_q3A) living in [Gloria](e_dp4_q3A) [since](e_dp4_q3A) 2019 
+    - My [mate](e_dp4_q3A) [has been](e_dp4_q3A) living in [Gloria](e_dp4_q3A) [since](e_dp4_q3A) 2014
+    - My [friend](e_dp4_q3A) [has been](e_dp4_q3A) living in [Gloria](e_dp4_q3A)  [for](e_dp4_q3A) two [years](e_dp4_q3A) 
+    - My [buddy](e_dp4_q3A) [has been](e_dp4_q3A) living in [Gloria](e_dp4_q3A) [for](e_dp4_q3A) one [year](e_dp4_q3A) 
+    - My [mate](e_dp4_q3A) [has been](e_dp4_q3A) living in [Gloria](e_dp4_q3A) [for](e_dp4_q3A) three [years](e_dp4_q3A)  
+    - My [friend](e_dp4_q3A) [has been](e_dp4_q3A) living in [Gloria](e_dp4_q3A) [for](e_dp4_q3A) five [years](e_dp4_q3A) 
+    - My [buddy](e_dp4_q3A) [has been](e_dp4_q3A) living in [Gloria](e_dp4_q3A) [for](e_dp4_q3A) three [years](e_dp4_q3A) 
+    - My [mate](e_dp4_q3A) [has been](e_dp4_q3A) living in [Gloria](e_dp4_q3A) [for](e_dp4_q3A) five [years](e_dp4_q3A) 
+    - My [friend](e_dp4_q3A) [has been](e_dp4_q3A) living in [Gloria](e_dp4_q3A) [since](e_dp4_q3A) 2021 
+    - My [buddy](e_dp4_q3A) [has been](e_dp4_q3A) living in [Gloria](e_dp4_q3A) [since](e_dp4_q3A) 2023 
+    - My [mate](e_dp4_q3A) [has been](e_dp4_q3A) living in [Gloria](e_dp4_q3A) [since](e_dp4_q3A) 2020 
+    - My [friend](e_dp4_q3A) [has been](e_dp4_q3A) living in [Gloria](e_dp4_q3A) [since](e_dp4_q3A) 2012
+    - My [buddy](e_dp4_q3A) [has been](e_dp4_q3A) living in [Gloria](e_dp4_q3A) [since](e_dp4_q3A) 2015  
+    - My [mate](e_dp4_q3A) [has been](e_dp4_q3A) living in [Gloria](e_dp4_q3A) [since](e_dp4_q3A) 2017
+    - My [mate](e_dp4_q3A) [have lived](e_dp4_q3A) living in [Gloria](e_dp4_q3A) [since](e_dp4_q3A) 2020 
+    - My [friend](e_dp4_q3A) [have been](e_dp4_q3A) living in [Gloria](e_dp4_q3A) [since](e_dp4_q3A) 2012
+    - My [buddy](e_dp4_q3A) [have been](e_dp4_q3A) living in [Gloria](e_dp4_q3A) [since](e_dp4_q3A) 2015  
+    - My [mate](e_dp4_q3A) [have been](e_dp4_q3A) living in [Gloria](e_dp4_q3A) [since](e_dp4_q3A) 2017
+    - My [friend](e_dp4_q3A) [have been](e_dp4_q3A) living in [Gloria](e_dp4_q3A) [for](e_dp4_q3A) two [years](e_dp4_q3A)
+    - My [buddy](e_dp4_q3A) [has been](e_dp4_q3A) living in [Gloria](e_dp4_q3A) [for](e_dp4_q3A) two [years](e_dp4_q3A)
+    - My [mate](e_dp4_q3A) [has been](e_dp4_q3A) living in [Gloria](e_dp4_q3A) [for](e_dp4_q3A) two [years](e_dp4_q3A) 
+    - My [mate](e_dp4_q3A)  [has been](e_dp4_q3A) living in [Gloria](e_dp4_q3A) a [long](e_dp4_q3A) time
+    - My [friend](e_dp4_q3A)  [has been](e_dp4_q3A) living in [Gloria](e_dp4_q3A) a [decade](e_dp4_q3A) 
 
 
 - intent: i_dp4_q3B
@@ -959,6 +986,22 @@ nlu:
     - For the [past](e_dp4_q3B) ten years, [I](e_dp4_q3B) [have called](e_dp4_q3B) [Gloria](e_dp4_q3B) my home.
     - [Gloria](e_dp4_q3B) [has been](e_dp4_q3B) [my](e_dp4_q3B) hometown for the [past](e_dp4_q3B) ten years.
     - [For](e_dp4_q3B) ten years now, [I](e_dp4_q3B) [have been](e_dp4_q3B) living in [Gloria](e_dp4_q3B).
+    - [I](e_dp4_q3B)  [have been](e_dp4_q3B) living in [Gloria](e_dp4_q3B) [for](e_dp4_q3B) two [years](e_dp4_q3B)
+    - [I](e_dp4_q3B)  [have been](e_dp4_q3B) living in [Gloria](e_dp4_q3B) [for](e_dp4_q3B) one [year](e_dp4_q3B)
+    - [I](e_dp4_q3B)  [have been](e_dp4_q3B) living in [Gloria](e_dp4_q3B) [for](e_dp4_q3B) one [year](e_dp4_q3B)
+    - [I](e_dp4_q3B)  [have been](e_dp4_q3B) living in [Gloria](e_dp4_q3B) [for](e_dp4_q3B) one [year](e_dp4_q3B)
+    - [I](e_dp4_q3B)  [have been](e_dp4_q3B) living in [Gloria](e_dp4_q3B) [for](e_dp4_q3B) two [years](e_dp4_q3B)
+    - [I](e_dp4_q3B)  [have been](e_dp4_q3B) living in [Gloria](e_dp4_q3B) [for](e_dp4_q3B) two [years](e_dp4_q3B)
+    - [I](e_dp4_q3B)  [have been](e_dp4_q3B) living in [Gloria](e_dp4_q3B) [for](e_dp4_q3B) five [years](e_dp4_q3B)
+    - [I](e_dp4_q3B)  [have been](e_dp4_q3B) living in [Gloria](e_dp4_q3B) [for](e_dp4_q3B) one [year](e_dp4_q3B)
+    - [I](e_dp4_q3B)  [have been](e_dp4_q3B) living in [Gloria](e_dp4_q3B) [for](e_dp4_q3B) one [year](e_dp4_q3B)
+    - [I](e_dp4_q3B)  [have been](e_dp4_q3B) living in [Gloria](e_dp4_q3B) [for](e_dp4_q3B) one [year](e_dp4_q3B)
+    - [I](e_dp4_q3B)  [have been](e_dp4_q3B) living in [Gloria](e_dp4_q3B) [since](e_dp4_q3B) 2014
+    - [I](e_dp4_q3B)  [have been](e_dp4_q3B) living in [Gloria](e_dp4_q3B) [since](e_dp4_q3B) 2012
+    - [I](e_dp4_q3B)  [have been](e_dp4_q3B) living in [Gloria](e_dp4_q3B) [since](e_dp4_q3B) 2020
+    - [I](e_dp4_q3B)  [have been](e_dp4_q3B) living in [Gloria](e_dp4_q3B) [since](e_dp4_q3B) 2022
+    - [I](e_dp4_q3B)  [have been](e_dp4_q3B) living in [Gloria](e_dp4_q3B) [since](e_dp4_q3B) 2021
+    - [I](e_dp4_q3B)  [have been](e_dp4_q3B) living in [Gloria](e_dp4_q3B) [since](e_dp4_q3B) 2019
   
 
 
@@ -1010,6 +1053,8 @@ nlu:
   examples: |
     - [He](e_dp2_at_q3) [has broken](e_dp2_at_q3)  [his](e_dp2_at_q3) [leg](e_dp2_at_q3) [since](e_dp2_at_q3) yesterday
     - [he](e_dp2_at_q3) [has broken](e_dp2_at_q3)  his [leg](e_dp2_at_q3) [since](e_dp2_at_q3) yesterday
+    - [he](e_dp2_at_q3) [has been](e_dp2_at_q3) broken his [leg](e_dp2_at_q3) [since](e_dp2_at_q3) yesterday
+    - [He](e_dp2_at_q3) [has been](e_dp2_at_q3) broken his [leg](e_dp2_at_q3) [since](e_dp2_at_q3) yesterday
     - [He](e_dp2_at_q3) [has been](e_dp2_at_q3) trying to [break](e_dp2_at_q3) his own record for the longest [leg](e_dp2_at_q3) of a journey since [yesterday](e_dp2_at_q3).
     - [He](e_dp2_at_q3) [has been](e_dp2_at_q3) putting off seeing a doctor for his broken [leg](e_dp2_at_q3), but he knows he needs to take care of it soon.
     - [Since](e_dp2_at_q3) [his](e_dp2_at_q3) [leg](e_dp2_at_q3) injury, he [has been](e_dp2_at_q3) trying to find new hobbies that don't require standing or putting weight on his leg.
