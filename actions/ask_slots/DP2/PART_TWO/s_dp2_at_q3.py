@@ -14,12 +14,15 @@ class AskForSlotAction(Action):
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker,
             domain: Dict) -> List[EventType]:
-        increase_badges("badge_anwendungsaufgabe")
-        badges = get_dp_inmemory_db("badges.json")
-        dispatcher.utter_message(
-            text="Damit hast du deine erste Anwendungsaufgabe in dieser Lektion gemeistert und dir ein Abzeichen verdient!")
-        dispatcher.utter_message(
-            image=badges['badge_anwendungsaufgabe'])
+
+        if user_score["badge_anwendungsaufgabe"] == 0:
+            increase_badges("badge_anwendungsaufgabe")
+            badges = get_dp_inmemory_db("badges.json")
+
+            dispatcher.utter_message(
+                text="Damit hast du deine erste Anwendungsaufgabe in dieser Lektion gemeistert und dir ein Abzeichen verdient!")
+            dispatcher.utter_message(
+                image=badges['badge_anwendungsaufgabe'])
 
         dispatcher.utter_message(response="utter_s_dp2_at_q3")
         return []
