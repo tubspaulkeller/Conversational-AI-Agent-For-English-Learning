@@ -4,6 +4,7 @@ from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import UserUtteranceReverted, FollowupAction, AllSlotsReset, Restarted, SlotSet, EventType
 import time
 from actions.gamification.handle_user_scoring import increase_badges, user_score
+from actions.common.common import get_dp_inmemory_db
 
 
 class AskForSlotAction(Action):
@@ -14,10 +15,11 @@ class AskForSlotAction(Action):
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker,
             domain: Dict) -> List[EventType]:
         increase_badges("badge_anwendungsaufgabe")
+        badges = get_dp_inmemory_db("badges.json")
         dispatcher.utter_message(
             text="Damit hast du deine erste Anwendungsaufgabe in dieser Lektion gemeistert und dir ein Abzeichen verdient!")
         dispatcher.utter_message(
-            image="https://res.cloudinary.com/dmnkxrxes/image/upload/v1677413377/Ben_Bot/Abschluss_einer_Anwendungsaufgabe_oucoaz.png")
+            image=badges['badge_anwendungsaufgabe'])
 
         dispatcher.utter_message(response="utter_s_dp2_at_q3")
         return []

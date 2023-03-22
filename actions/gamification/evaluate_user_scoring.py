@@ -5,7 +5,7 @@ from rasa_sdk.events import UserUtteranceReverted, FollowupAction, AllSlotsReset
 import json
 import time
 from .handle_user_scoring import user_score, set_points, increase_tries, resetTries, get_tries, increase_badges, user_score_simple_past, user_score_present_progressive
-
+from actions.common.common import get_dp_inmemory_db
 """ this file contains methods for evaluating the scoring of the user during the quiz """
 
 
@@ -34,15 +34,15 @@ def evaluate_users_answer(solution, dp_n, name_of_slot, value, dispatcher, slots
         # TODO BADGES SENDEN UND FORTSCHRITTBALKEN
 
         if dp == "dp1":
+            badges = get_dp_inmemory_db("badges.json")
             if user_score["badge_60_prozent"] == 0:
                 if user_score["DP1_q_points"] >= 36:
                     increase_badges("badge_60_prozent")
-                    dispatcher.utter_message(text="TODO: Badge 60 Prozent")
+                    dispatcher.utter_message(image=badges['quiz_master'])
             if user_score["badge_grammatik_profi"] == 0:
                 if _has_one_value(user_score_present_progressive) == 1 and _has_one_value(user_score_simple_past) == 1:
                     increase_badges("badge_grammatik_profi")
-                    dispatcher.utter_message(
-                        text="TODO: Badge Grammatik Profi")
+                    dispatcher.utter_message(image=badges['grammar_king'])
         resetTries()
         return {name_of_slot: value}
     # Users answer is wrong

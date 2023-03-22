@@ -45,10 +45,11 @@ class ValidateDP1Form(FormValidationAction):
         increase_badges("badge_grammatik_basics")
         dispatcher.utter_message(
             json_message=long_term_scenario)
+        badges = get_dp_inmemory_db("badges.json")
         dispatcher.utter_message(
-            image="https://res.cloudinary.com/dmnkxrxes/image/upload/c_scale,w_250/v1670505883/Ben_Bot/AUFSTIEG_LEVEL_7_idgskn.png")
+            image=badges['badge_aufstieg_level_7'])
         dispatcher.utter_message(
-            image="https://res.cloudinary.com/dmnkxrxes/image/upload/c_scale,w_250/v1670506193/Ben_Bot/GRAMMATIK-BASICS_ifoiks.png")
+            image=badges['badge_grammatik_basics'])
         dispatcher.utter_message(
             text="Wenn du in diesem Tempo weiterlernst, dann können wir schon bald die letzte Lektion dieses Kurses beginnen, bei der es um Anwendungsaufgaben gehen wird! 😁")
         return {"s_dp1_long_term_scenario": slot_value}

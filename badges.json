@@ -1,6 +1,8 @@
 {
-    "badge_naturtalent": "https://res.cloudinary.com/dmnkxrxes/image/upload/v1677413316/Ben_Bot/Fehlerfrei_im_ersten_Versuch_sqawk5.png",
-    "badge_anwendungsaufgabe":"https://res.cloudinary.com/dmnkxrxes/image/upload/v1677413377/Ben_Bot/Abschluss_einer_Anwendungsaufgabe_oucoaz.png",
+    "badge_naturtalent": "https://res.cloudinary.com/dmnkxrxes/image/upload/v1679493360/Fehlerfrei_im_ersten_Versuch_amtg9h.png",
+    "badge_anwendungsaufgabe":"https://res.cloudinary.com/dmnkxrxes/image/upload/v1679493360/Abschluss_einer_Anwendungsaufgabe_twbcog.png",
     "badge_grammatik_basics": "https://res.cloudinary.com/dmnkxrxes/image/upload/c_scale,w_250/v1670506193/Ben_Bot/GRAMMATIK-BASICS_ifoiks.png",
-    "badge_aufstieg_level_7": "https://res.cloudinary.com/dmnkxrxes/image/upload/c_scale,w_250/v1670505883/Ben_Bot/AUFSTIEG_LEVEL_7_idgskn.png"
+    "badge_aufstieg_level_7": "https://res.cloudinary.com/dmnkxrxes/image/upload/c_scale,w_250/v1670505883/Ben_Bot/AUFSTIEG_LEVEL_7_idgskn.png",
+    "grammar_king": "https://res.cloudinary.com/dmnkxrxes/image/upload/v1679493360/Grammar_King_uam1dp.png",
+    "quiz_master": "https://res.cloudinary.com/dmnkxrxes/image/upload/v1679493360/Quiz_Master_mkltow.png" 
 }
