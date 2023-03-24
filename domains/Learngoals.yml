@@ -102,36 +102,36 @@ responses:
   - buttons:
     - payload: /i_lg_0{{"e_lg_0":"Englisch-Wortschatz"}}
       title: Wortschatz erweitern
-    - payload: /i_lg_0{{"e_lg_0":"Englisch-Konversation"}}
-      title: Gesprächsfähigkeit verbessern
-    text: "Wir können gerne dein Lernziel für die Vokabellektion anpassen. Welches der aufgeführten Ziele motiviert dich am meisten?"
+   # - payload: /i_lg_0{{"e_lg_0":"Englisch-Konversation"}}
+    #  title: Gesprächsfähigkeit verbessern
+    text: "Wir können gerne dein Lernziel für die Vokabellektion anpassen."
 
   utter_s_lg_0/vokabelziel/repeat:
   - buttons:
     - payload: /i_lg_0{{"e_lg_0":"Englisch-Wortschatz"}}
       title: Wortschatz erweitern
-    - payload: /i_lg_0{{"e_lg_0":"Englisch-Konversation"}}
-      title: Gesprächsfähigkeit verbessern
+   # - payload: /i_lg_0{{"e_lg_0":"Englisch-Konversation"}}
+    #  title: Gesprächsfähigkeit verbessern
     text: " "
 
   utter_s_lg_0/grammatikziel:
   - buttons:
     - payload: /i_lg_0{{"e_lg_0":"Zeitformen_verbessern"}}
       title: Zeitformen verbessern
-    - payload: /i_lg_0{{"e_lg_0":"Zeitformen_erweitern"}}
-      title: Zeitformen erweitern
-    text: "Wir können gerne dein Lernziel für die Grammatiklektion anpassen. Welches der aufgeführten Ziele motiviert dich am meisten?"
+   # - payload: /i_lg_0{{"e_lg_0":"Zeitformen_erweitern"}}
+    #  title: Zeitformen erweitern
+    text: "Wir können gerne dein Lernziel für die Grammatiklektion anpassen."
 
   utter_s_lg_0/grammatikziel/repeat:
   - buttons:
     - payload: /i_lg_0{{"e_lg_0":"Zeitformen_verbessern"}}
       title: Zeitformen verbessern
-    - payload: /i_lg_0{{"e_lg_0":"Zeitformen_erweitern"}}
-      title: Zeitformen erweitern
+ #   - payload: /i_lg_0{{"e_lg_0":"Zeitformen_erweitern"}}
+  #    title: Zeitformen erweitern
     text: " "
   
 
-  utter_ask_s_lg_1:
+  utter_s_lg_1:
   - buttons:
     - payload: /i_lg_1{{"e_lg_1":"affirm"}}
       title: Festlegen
@@ -143,8 +143,28 @@ responses:
       title: Schaffe mein Ziel schneller
     text: "Soll ich das als Lernziel festlegen oder möchtest du das Ziel anpassen bzw. wechseln? 🤔"
 
+  
+  utter_s_lg_1/vokabelziel:
+  - buttons:
+    - payload: /i_lg_1{{"e_lg_1":"affirm"}}
+      title: Festlegen
+    - payload: /i_lg_1{{"e_lg_1":"more_words"}}
+      title: Schaffe mehr Wörter
+    - payload: /i_lg_1{{"e_lg_1":"less_words"}}
+      title: Schaffe weniger Wörter
+    text: "Soll ich das als Lernziel festlegen oder möchtest du das Ziel anpassen? 🤔"
 
-    
+  
+  utter_s_lg_1/grammatikziel:
+  - buttons:
+    - payload: /i_lg_1{{"e_lg_1":"affirm"}}
+      title: Festlegen
+    - payload: /i_lg_1{{"e_lg_1":"more_zeitformen"}}
+      title: Schaffe mehr Zeitformen
+    - payload: /i_lg_1{{"e_lg_1":"less_zeitformen"}}
+      title: Schaffe weniger Zeitformen
+    text: "Soll ich das als Lernziel festlegen oder möchtest du das Ziel anpassen? 🤔"
+
   utter_s_lg_2/need_longer:
   - text: Gar kein Problem! Es ist vollkommen richtig, auf das eigene Tempo zu achten & die Zeit gesund einzuteilen.
   
@@ -154,6 +174,7 @@ responses:
 actions:
   - validate_learngoals_form
   - action_ask_s_lg_intro
+  - action_ask_s_lg_1
   - action_ask_s_lg_0
   - action_ask_s_lg_2
   - action_ask_s_lg_finish

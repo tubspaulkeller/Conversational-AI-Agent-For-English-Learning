@@ -9,7 +9,7 @@ from datetime import datetime, date
 # imports from different files
 from actions.gamification.evaluate_user_scoring import evaluate_users_answer
 from actions.helper.check_grammar_of_users_input import validate_grammar_for_user_answer
-from actions.common.common import get_dp_inmemory_db, get_slots_for_dp
+from actions.common.common import get_dp_inmemory_db, get_slots_for_dp, markdown_formatting
 from actions.helper.learn_goal import generate_learn_goal, is_user_accepting_learn_goal, customize_learn_goal, get_key_for_json
 
 ############################################################################################################
@@ -51,7 +51,7 @@ class ValidateDP3Form(FormValidationAction):
 
     def validate_s_dp3_date(self, slot_value: Any, dispatcher: CollectingDispatcher, tracker: Tracker, domain: "DomainDict") -> Dict[Text, Any]:
         """ validates the date of the third question of DP3. The user can choose a date for his learning goal """
-        return customize_learn_goal('s_dp3_date', 's_dp3_q1', 's_dp3_q2', dispatcher, tracker, "s_dp3_q1")
+        return customize_learn_goal(slot_value, 's_dp3_date', 's_dp3_q1', tracker.get_slot('s_dp3_q2'), dispatcher, tracker, "s_dp3_q1")
 
     def validate_dp3(name_of_slot):
         """validates the following questions of DP3. The answers has not be checked at all bcs they are checked at different actions. """
@@ -130,7 +130,7 @@ class ValidateDP3VOCForm(FormValidationAction):
 
     def validate_s_dp3_v_customize_goal(self, slot_value: Any, dispatcher: CollectingDispatcher, tracker: Tracker, domain: "DomainDict") -> Dict[Text, Any]:
         """ validates the second question of DP3. The user can affirm or deny his learning goal """
-        return customize_learn_goal('s_dp3_v_customize_goal', 's_dp3_v_q1', tracker.get_slot('s_dp3_v_q2'), dispatcher, tracker, "s_dp3_v_q1")
+        return customize_learn_goal(slot_value, 's_dp3_v_customize_goal', 's_dp3_v_q1', tracker.get_slot('s_dp3_v_q2'), dispatcher, tracker, "s_dp3_v_q1")
 
     def validate_s_dp3_v_evaluation(
         self,
@@ -160,12 +160,18 @@ class ValidateDP3VOCForm(FormValidationAction):
                             domain: Dict[Text, Any],
                             ) -> Dict[Text, Any]:
         """ validates the fifth question of DP3. The user can change his learning goal """
+        dp_3 = get_dp_inmemory_db("DP3.json")
+        topic = tracker.slots.get("s_dp3_v_q1")
+        goal = tracker.get_slot("s_dp3_v_customize_goal")
+        if goal == None:
+            key, pretext, deadline = get_key_for_json("s_dp3_v_q1", tracker)
+            goal = dp_3["s_dp3_v_q1"]["goal"][topic] % "2000"
         if value == "shorter_learntime":
             utter_shorter_learntime(
-                dispatcher, "Vobabelquiz", "2000 neuen Wörtern")
+                dispatcher, "Vobabelquiz", goal)
         elif value == "longer_learntime":
             utter_longer_learntime(
-                dispatcher, "Vobabelquiz", "2000 neuen Wörtern")
+                dispatcher, "Vobabelquiz", goal)
         return {"s_dp3_v_q5": value}
 
     def validate_s_dp3_v_q6(
@@ -294,7 +300,7 @@ class ValidateDP3GRAMForm(FormValidationAction):
 
     def validate_s_dp3_g_customize_goal(self, slot_value: Any, dispatcher: CollectingDispatcher, tracker: Tracker, domain: "DomainDict") -> Dict[Text, Any]:
         """ validates the second question of DP3. The user can affirm or deny his learning goal """
-        return customize_learn_goal('s_dp3_g_customize_goal', 's_dp3_g_q1', tracker.get_slot('s_dp3_g_q2'), dispatcher, tracker, "s_dp3_g_q1")
+        return customize_learn_goal(slot_value, 's_dp3_g_customize_goal', 's_dp3_g_q1', tracker.get_slot('s_dp3_g_q2'), dispatcher, tracker, "s_dp3_g_q1")
 
     def validate_s_dp3_g_evaluation(
         self,
@@ -325,12 +331,20 @@ class ValidateDP3GRAMForm(FormValidationAction):
                             domain: Dict[Text, Any],
                             ) -> Dict[Text, Any]:
         """ user can change his learning goal """
+        goal = tracker.get_slot("s_dp3_g_customize_goal")
+
+        dp_3 = get_dp_inmemory_db("DP3.json")
+        topic = tracker.slots.get("s_dp3_g_q1")
+        goal = tracker.get_slot("s_dp3_g_customize_goal")
+        if goal == None:
+            key, pretext, deadline = get_key_for_json("s_dp3_g_q1", tracker)
+            goal = dp_3["s_dp3_g_q1"]["goal"][topic] % "zwei"
         if value == "shorter_learntime":
             utter_shorter_learntime(
-                dispatcher, "Grammatikquiz", "zwei Zeitformen")
+                dispatcher, "Grammatikquiz", goal)
         elif value == "longer_learntime":
             utter_longer_learntime(
-                dispatcher, "Grammatikquiz", "zwei Zeitformen")
+                dispatcher, "Grammatikquiz", goal)
         return {"s_dp3_g_q5": value}
 
     def validate_s_dp3_g_q6(
@@ -435,9 +449,9 @@ def utter_affirm_learn_process(dispatcher):
 
 def utter_shorter_learntime(dispatcher, quest, goal):
     dispatcher.utter_message(
-        text="Oh, ich verstehe. Was hälst du davon, wenn wir das %s von 50 auf 35 Fragen verkürzen? So könntest du dein Ziel von %s trotzdem noch erreichen." % (quest, goal))
+        json_message=markdown_formatting("Oh, ich verstehe. Was hälst du davon, wenn wir das %s von 60 auf 40 Fragen verkürzen? So könntest du dein Ziel *%s* trotzdem noch erreichen." % (quest, goal)))
 
 
 def utter_longer_learntime(dispatcher, quest, goal):
     dispatcher.utter_message(
-        text="Cool, dann erhöhren wir das %s von 50 auf 60 Fragen. So kannst du dein Ziel von %s sogar übertreffen!" % (quest, goal))
+        json_message=markdown_formatting("*Cool*, dann erhöhren wir das %s von 60 auf 85 Fragen. So kannst du dein Ziel *%s* sogar übertreffen!" % (quest, goal)))

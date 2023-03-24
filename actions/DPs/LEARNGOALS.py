@@ -64,7 +64,7 @@ class ValidateLearngoalsForm(FormValidationAction):
         tracker: Tracker,
         domain: "DomainDict",
     ) -> Dict[Text, Any]:
-        return customize_learn_goal('s_lg_2', 's_lg_0', tracker.get_slot('s_lg_1'), dispatcher, tracker, tracker.slots.get("s_lg_intro"))
+        return customize_learn_goal(slot_value, 's_lg_2', 's_lg_0', tracker.get_slot('s_lg_1'), dispatcher, tracker, tracker.slots.get("s_lg_intro"))
 
     def validate_learngoals(name_of_slot):
         def validate_slot(

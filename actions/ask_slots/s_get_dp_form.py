@@ -36,7 +36,7 @@ class AskForSlotAction(Action):
         if len(sorted_title_buttons) == 1:
             return [SlotSet("s_get_dp_form", "DONE"), SlotSet("s_set_next_form", "DONE"), FollowupAction("action_quest_end_give_user_score")]
         dispatcher.utter_message(
-            json_message=markdown_formatting("Wenn du mehr über meine Fähigkeiten erfahren möchtest, dann schau doch mal unter *Skills* nach! Oder frage mich jederzeit nach diesen.\nBitte wähle ein *Design-Prinzip* (DP) aus."))
+            json_message=markdown_formatting("Wenn du mehr über meine Fähigkeiten erfahren möchtest, dann schau doch mal unter *Skills* nach! Oder frage mich jederzeit nach diesen.\nBitte wähle ein *Design-Prinzip* (DP) in aufsteigender Nummerierung aus."))
         dispatcher.utter_message(text=" ", buttons=sorted_title_buttons)
         return []
 
