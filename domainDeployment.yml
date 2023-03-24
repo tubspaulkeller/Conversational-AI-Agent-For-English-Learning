@@ -822,12 +822,12 @@ responses:
   utter_s_lg_0/grammatikziel:
   - buttons:
     - payload: /i_lg_0{{"e_lg_0":"Zeitformen_verbessern"}}
-      title: Zeitformen erlernen
+      title: Zeitformen verbessern
     text: "Wir k\xF6nnen gerne dein Lernziel f\xFCr die Grammatiklektion anpassen."
   utter_s_lg_0/grammatikziel/repeat:
   - buttons:
     - payload: /i_lg_0{{"e_lg_0":"Zeitformen_verbessern"}}
-      title: Zeitformen erlernen
+      title: Zeitformen verbessern
     text: ' '
   utter_s_lg_1:
   - buttons:
@@ -1271,12 +1271,12 @@ responses:
   utter_s_dp3_g_q1/buttons:
   - buttons:
     - payload: /i_dp3_g_q1{{"e_dp3_g_q1":"Zeitformen_verbessern"}}
-      title: Zeitformen erlernen
+      title: Zeitformen verbessern
     text: ' '
   utter_s_dp3_g_q1/repeat:
   - buttons:
     - payload: /i_dp3_g_q1{{"e_dp3_g_q1":"Zeitformen_verbessern"}}
-      title: Zeitformen erlernen
+      title: Zeitformen verbessern
     text: ' '
   utter_ask_s_dp3_g_q2:
   - buttons:
