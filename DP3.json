@@ -2,22 +2,22 @@
 
     "s_dp3_q1": { 
         "goal": {
-            "berufliche_weiterentwicklung": "'Ich möchte %s dieses Level abgeschlossen haben, um meine beruflichen Ziele zu erreichen.'",
-            "toefl_test": "'Ich möchte %s dieses Level abgeschlossen haben, um für meinen TOEFL-Test gewappnet zu sein.'",
-            "reisen": "'Ich möchte %s dieses Level abgeschlossen haben, um gut vorbereitet für meine nächste große Reise zu sein.'",
-            "auslandssemester":"'Ich möchte %s dieses Level abgeschlossen haben, um gut vorbereitet in mein Auslandssemester zu gehen.'",
-            "noten": "'Ich möchte %s dieses Level abgeschlossen haben, um gute Noten zu bekommen.'"
+            "berufliche_weiterentwicklung": "'Ich möchte %s diesen Kurs abgeschlossen haben, um meine beruflichen Ziele zu erreichen.'",
+            "toefl_test": "'Ich möchte %s diesen Kurs abgeschlossen haben, um für meinen TOEFL-Test gewappnet zu sein.'",
+            "reisen": "'Ich möchte %s diesen Kurs abgeschlossen haben, um gut vorbereitet für meine nächste große Reise zu sein.'",
+            "auslandssemester":"'Ich möchte %s diesen Kurs abgeschlossen haben, um gut vorbereitet in mein Auslandssemester zu gehen.'",
+            "noten": "'Ich möchte %s diesen Kurs abgeschlossen haben, um gute Noten zu bekommen.'"
         }
     },
     "s_dp3_v_q1": {
         "goal": {
-        "Englisch-Wortschatz": "'Ich möchte meinen Englisch-Wortschatz %s um 2000 Wörter erweitern.'",
+        "Englisch-Wortschatz": "'Ich möchte meinen Englisch-Wortschatz um %s Wörter erweitern.'",
         "Englisch-Konversation": "'Ich möchte meine Gesprächsfähigkeit in Englisch verbessern, sodass ich %s eine 20-minütige Konversation mit einem Muttersprachler führen kann.'"
         }
     },
     "s_dp3_g_q1": {
         "goal": {
-        "Zeitformen_verbessern": "'Ich möchte meine Englisch-Grammatik %s um eine Zeitform vertiefen.'",
+        "Zeitformen_verbessern": "'Ich möchte meine Englisch-Grammatik um %s Zeitformen vertiefen.'",
         "Zeitformen_erweitern": "'Ich möchte meine Englisch-Grammatik %s um zwei Zeitformen erweitern.'"
         }
     },
@@ -55,8 +55,8 @@
         "question": 6
     },
     "s_dp3_v_end": {
-        "shorter_learntime": "ab sofort wird dein Vokabel-Quiz nur noch aus 35 Fragen bestehen 😁",
-        "longer_learntime": "ab sofort wird dein Vokabel-Quiz nun aus 60 Fragen bestehen 😁"
+        "shorter_learntime": "ab sofort wird dein Vokabel-Quiz nur noch aus 40 Fragen bestehen 😁",
+        "longer_learntime": "ab sofort wird dein Vokabel-Quiz nun aus 80 Fragen bestehen 😁"
     },
     "s_dp3_g_q3_0": {
         "solution": "overtook",
@@ -89,7 +89,7 @@
         "question": 6
     },
     "s_dp3_g_end": {
-        "shorter_learntime": "ab sofort wird dein Grammatik-Quiz nur noch aus 35 Fragen bestehen 😁",
-        "longer_learntime": "ab sofort wird dein Grammatik-Quiz nun aus 60 Fragen bestehen 😁"
+        "shorter_learntime": "ab sofort wird dein Grammatik-Quiz nur noch aus 40 Fragen bestehen 😁",
+        "longer_learntime": "ab sofort wird dein Grammatik-Quiz nun aus 85 Fragen bestehen 😁"
     }
 }

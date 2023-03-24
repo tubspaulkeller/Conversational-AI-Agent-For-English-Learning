@@ -31,8 +31,6 @@ def evaluate_users_answer(solution, dp_n, name_of_slot, value, dispatcher, slots
         #    finish_quiz(dispatcher, name_of_slot, dp_n)
         # else:
 
-        # TODO BADGES SENDEN UND FORTSCHRITTBALKEN
-
         if dp == "dp1":
             badges = get_dp_inmemory_db("badges.json")
             if user_score["badge_60_prozent"] == 0:

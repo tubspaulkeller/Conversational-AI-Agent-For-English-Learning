@@ -49,7 +49,7 @@ class AskForSlotAction(Action):
 
         if is_accepting_learngoal == "deny":
             dispatcher.utter_message(
-                response="utter_ask_s_dp3_v_q1/repeat")
+                response="utter_s_dp3_v_q1/repeat")
             return [SlotSet("s_dp3_v_q1", None), SlotSet("s_dp3_v_q2", None)]
 
         elif is_accepting_learngoal == "need_longer" or is_accepting_learngoal == "faster":
@@ -67,5 +67,25 @@ class AskForSlotAction(Action):
                 dispatcher.utter_message(json_message=msg)
                 dispatcher.utter_message(text=" ", buttons=date_button)
 
+        elif is_accepting_learngoal == "more_words":
+            text = "Wähle eine Anzahl der Wört aus, die du lernen möchtest."
+            buttons_words = [
+                {'title': '3000', 'payload': '/i_dp3_v_customize_goal{\"e_dp3_v_customize_goal\":\"3000\"}'},
+                {'title': '4000', 'payload': '/i_dp3_v_customize_goal{\"e_dp3_v_customize_goal\":\"4000\"}'},
+                {'title': '5000', 'payload': '/i_dp3_v_customize_goal{\"e_dp3_v_customize_goal\":\"5000\"}'},
+                {'title': '6000', 'payload': '/i_dp3_v_customize_goal{\"e_dp3_v_customize_goal\":\"6000\"}'},
+                {'title': '7000', 'payload': '/i_dp3_v_customize_goal{\"e_dp3_v_customize_goal\":\"7000\"}'}
+            ]
+
+            dispatcher.utter_message(text=text, buttons=buttons_words)
+
+        elif is_accepting_learngoal == "less_words":
+            text = "Wähle eine Anzahl der Wört aus, die du lernen möchtest."
+            buttons_words = [
+                {'title': '500', 'payload': '/i_dp3_v_customize_goal{\"e_dp3_v_customize_goal\":\"500\"}'},
+                {'title': '1000', 'payload': '/i_dp3_v_customize_goal{\"e_dp3_v_customize_goal\":\"1000\"}'},
+                {'title': '1500', 'payload': '/i_lg_2{\"e_dp3_v_customize_goal\":\"1500\"}'}
+            ]
+            dispatcher.utter_message(text=text, buttons=buttons_words)
         else:
             return

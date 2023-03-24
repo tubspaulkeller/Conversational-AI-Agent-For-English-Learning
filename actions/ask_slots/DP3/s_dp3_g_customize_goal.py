@@ -67,5 +67,20 @@ class AskForSlotAction(Action):
                 dispatcher.utter_message(json_message=msg)
                 dispatcher.utter_message(text=" ", buttons=date_button)
 
+        elif is_accepting_learngoal == "more_zeitformen":
+            text = "Wähle eine Anzahl an Zeitformen aus, die du lernen möchtest."
+            buttons_words = [
+                {'title': '3-4', 'payload': '/i_dp3_g_customize_goal{\"e_dp3_g_customize_goal\":\"3-4\"}'},
+                {'title': '5-6', 'payload': '/i_dp3_g_customize_goal{\"e_dp3_g_customize_goal\":\"5-6\"}'},
+                {'title': '7-8', 'payload': '/i_dp3_g_customize_goal{\"e_dp3_g_customize_goal\":\"7-8\"}'},
+                {'title': '9-10', 'payload': '/i_dp3_g_customize_goal{\"e_dp3_g_customize_goal\":\"9-10\"}'}
+            ]
+            dispatcher.utter_message(text=text, buttons=buttons_words)
+        elif is_accepting_learngoal == "less_zeitformen":
+            text = "Wir setzen unser Monatsziel auf mindestens eine und maximal auf zwei Zeitformen."
+            buttons_words = [
+                {'title': 'Ok', 'payload': '/i_dp3_g_customize_goal{\"e_dp3_g_customize_goal\":\"1-2\"}'},
+            ]
+            dispatcher.utter_message(text=text, buttons=buttons_words)
         else:
             return

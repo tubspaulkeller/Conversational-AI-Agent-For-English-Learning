@@ -402,7 +402,19 @@ responses:
   - text: Gar kein Problem! Es ist vollkommen richtig, auf das eigene Tempo zu achten & die Zeit gesund einzuteilen.
   
   utter_s_dp3_q2/faster: 
+  - text: 🚀 Wow, du legst ja richtig los!
+
+  utter_s_dp3_q2/less_words:
+  - text: Natürlich, das ist absolut in Ordnung! Es ist wichtig, auf das eigene Tempo zu achten und die Zeit vernünftig zu planen, um eine gesunde Work-Life-Balance aufrechtzuerhalten.
+  
+  utter_s_dp3_q2/more_words: 
   - text: Du gibst ja ganz schön Gas!
+
+  utter_s_dp3_q2/less_zeitformen:
+  - text: Natürlich, das ist absolut in Ordnung! Es ist wichtig, auf das eigene Tempo zu achten und die Zeit vernünftig zu planen, um eine gesunde Work-Life-Balance aufrechtzuerhalten.
+  
+  utter_s_dp3_q2/more_zeitformen: 
+  - text: 🚀 Wow, du legst ja richtig los!
 
   utter_ask_s_dp3_date_confirm:
   - buttons:
@@ -415,7 +427,7 @@ responses:
       blocks:
       - type: section 
         text:
-          text: "Perfekt, damit hätten wir das *übergeordnete Lernziel* für diesen Kurs festgelegt! 😁\nWir werden gleich noch für die jeweilige Lektion ein *Teilziel* festlegen."
+          text: "Perfekt, damit hätten wir das *übergeordnete Lernziel* für diesen Kurs festgelegt! 😁"
           type: mrkdwn
 
   utter_s_dp3_q3:
@@ -424,42 +436,40 @@ responses:
       title: Vokabeln - Basic
     - payload: /i_dp3_q3{{"e_dp3_q3":"grammar"}}
       title: Grammatik - Basic
-    text: "Mit welcher Grundlagen-Lektion möchtest du starten?"
+    text: "Mit welcher Grundlagen-Lektion möchtest du starten? \nWir werden gleich noch für die jeweilige Lektion ein Teilziel festlegen."
 
 
-  utter_ask_s_dp3_v_q1:
+  utter_s_dp3_v_q1/buttons:
   - buttons:
     - payload: /i_dp3_v_q1{{"e_dp3_v_q1":"Englisch-Wortschatz"}}
       title: Wortschatz erweitern
-    - payload: /i_dp3_v_q1{{"e_dp3_v_q1":"Englisch-Konversation"}}
-      title: Gesprächsfähigkeit verbessern
-    text: "Bevor wir mit der Vokabel-Lektion anfangen, lass uns noch ein Teilziel für diese Grundlagen-Lektion festlegen, damit wir zusammen auf etwas hinarbeiten können 😊 Welches der aufgeführten Ziele motiviert dich am meisten? 🤔"
+   # - payload: /i_dp3_v_q1{{"e_dp3_v_q1":"Englisch-Konversation"}}
+ #     title: Gesprächsfähigkeit verbessern
+    text: " "
 
-  utter_ask_s_dp3_v_q1/repeat:
+  utter_s_dp3_v_q1/repeat:
   - buttons:
     - payload: /i_dp3_v_q1{{"e_dp3_v_q1":"Englisch-Wortschatz"}}
       title: Wortschatz erweitern
-    - payload: /i_dp3_v_q1{{"e_dp3_v_q1":"Englisch-Konversation"}}
-      title: Gesprächsfähigkeit verbessern
+  #  - payload: /i_dp3_v_q1{{"e_dp3_v_q1":"Englisch-Konversation"}}
+   #   title: Gesprächsfähigkeit verbessern
     text: " "
 
   utter_ask_s_dp3_v_q2:
   - buttons:
     - payload: /i_dp3_v_q2{{"e_dp3_v_q2":"affirm"}}
       title: Festlegen
-    - payload: /i_dp3_v_q2{{"e_dp3_v_q2":"deny"}}
-      title: Anderes Ziel wählen
-    - payload: /i_dp3_v_q2{{"e_dp3_v_q2":"need_longer"}}
-      title: Brauche länger für mein Ziel
-    - payload: /i_dp3_v_q2{{"e_dp3_v_q2":"faster"}}
-      title: Schaffe mein Ziel schneller
-    text: "Soll ich das als Lernziel festlegen oder möchtest du das Ziel anpassen bzw. wechseln? 🤔"
+    - payload: /i_dp3_v_q2{{"e_dp3_v_q2":"more_words"}}
+      title: Schaffe mehr Wörter
+    - payload: /i_dp3_v_q2{{"e_dp3_v_q2":"less_words"}}
+      title: Schaffe weniger Wörter
+    text: "Soll ich das als Lernziel festlegen oder möchtest du das Ziel anpassen? 🤔"
   
-  utter_ask_s_dp3_v_start_button:
+  utter_s_dp3_v_start_button:
   - buttons:
     - payload: /i_dp3_v_start_button{{"e_dp3_v_start_button":"affirm"}}
       title: Starte Vokabeltraining! 🚀📚
-    text: "Spielregel: Für eine korrekte Antwort erhälst du 5 Punkte und für eine korrekte Antwort im zweiten Versuch erhälst du 2 Punkte. Du bekommst zwei Chancen von mir die Frage richtig zu beantworten."
+    text: " "
     
   utter_ask_s_dp3_v_q3_0:
   - buttons:
@@ -592,21 +602,21 @@ responses:
     text: Bist du damit einverstanden? 
 
 
-  utter_ask_s_dp3_g_q1:
+  utter_s_dp3_g_q1/buttons:
   - buttons:
     - payload: /i_dp3_g_q1{{"e_dp3_g_q1":"Zeitformen_verbessern"}}
       title: Zeitformen verbessern
-    - payload: /i_dp3_g_q1{{"e_dp3_g_q1":"Zeitformen_erweitern"}}
-      title: Zeitformen erweitern
-    text: "Bevor wir mit der Grammatik-Lektion anfangen, lass uns noch ein Teilziel für diese Grundlagen-Lektion festlegen, damit wir zusammen auf etwas hinarbeiten können 😊 Welches der aufgeführten Ziele motiviert dich am meisten? 🤔"
+ #   - payload: /i_dp3_g_q1{{"e_dp3_g_q1":"Zeitformen_erweitern"}}
+ #     title: Zeitformen erweitern
+    text: " "
 
 
-  utter_ask_s_dp3_g_q1/repeat:
+  utter_s_dp3_g_q1/repeat:
   - buttons:
     - payload: /i_dp3_g_q1{{"e_dp3_g_q1":"Zeitformen_verbessern"}}
       title: Zeitformen verbessern
-    - payload: /i_dp3_g_q1{{"e_dp3_g_q1":"Zeitformen_erweitern"}}
-      title: Zeitformen erweitern
+ #   - payload: /i_dp3_g_q1{{"e_dp3_g_q1":"Zeitformen_erweitern"}}
+  #    title: Zeitformen erweitern
     text: " "
 
 
@@ -614,19 +624,17 @@ responses:
   - buttons:
     - payload: /i_dp3_g_q2{{"e_dp3_g_q2":"affirm"}}
       title: Festlegen
-    - payload: /i_dp3_g_q2{{"e_dp3_g_q2":"deny"}}
-      title: Anderes Ziel wählen
-    - payload: /i_dp3_g_q2{{"e_dp3_g_q2":"need_longer"}}
-      title: Brauche länger für mein Ziel
-    - payload: /i_dp3_g_q2{{"e_dp3_g_q2":"faster"}}
-      title: Schaffe mein Ziel schneller
-    text: "Soll ich das als Lernziel festlegen oder möchtest du das Ziel anpassen bzw. wechseln? 🤔"
+    - payload: /i_dp3_g_q2{{"e_dp3_g_q2":"more_zeitformen"}}
+      title: Schaffe mehr Zeitformen
+    - payload: /i_dp3_g_q2{{"e_dp3_g_q2":"less_zeitformen"}}
+      title: Schaffe weniger Zeitformen
+    text: "Soll ich das als Lernziel festlegen oder möchtest du das Ziel anpassen? 🤔"
   
-  utter_ask_s_dp3_g_start_button:
+  utter_s_dp3_g_start_button:
   - buttons:
     - payload: /i_dp3_g_start_button{{"e_dp3_g_start_button":"affirm"}}
       title: Starte Grammatiktraining! 🚀📚
-    text: "Spielregel: Für eine korrekte Antwort erhälst du 5 Punkte und für eine korrekte Antwort im zweiten Versuch erhälst du 2 Punkte. Du bekommst zwei Chancen von mir die Frage richtig zu beantworten."
+    text: " "
   
   utter_ask_s_dp3_g_q3_0:
   - buttons:
@@ -776,12 +784,16 @@ actions:
   - action_ask_s_dp3_q3
   - action_ask_s_dp3_q4
   - validate_dp3_form_voc
+  - action_ask_s_dp3_v_q1
   - action_ask_s_dp3_v_customize_goal
+  - action_ask_s_dp3_v_start_button
   - action_ask_s_dp3_v_q3
   - action_ask_s_dp3_v_q4
   - action_ask_s_dp3_v_end
   - validate_dp3_form_gram
+  - action_ask_s_dp3_g_q1
   - action_ask_s_dp3_g_customize_goal
+  - action_ask_s_dp3_g_start_button
   - action_ask_s_dp3_g_q3
   - action_ask_s_dp3_g_q4
   - action_ask_s_dp3_g_end
