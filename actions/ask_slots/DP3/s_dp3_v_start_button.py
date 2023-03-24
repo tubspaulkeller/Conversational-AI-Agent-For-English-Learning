@@ -15,5 +15,5 @@ class AskForSlotAction(Action):
         # user can change his goal
         text = "Lass uns nun mit dem Quiz beginnen!\n*Spielregel*: Für eine korrekte Antwort erhälst du 5 Punkte und für eine korrekte Antwort im zweiten Versuch erhälst du 2 Punkte. Du bekommst zwei Chancen von mir die Frage richtig zu beantworten."
         dispatcher.utter_message(json_message=markdown_formatting(text))
-        dispatcher.utter_message(response="utter_s_dp3_v_q1/buttons")
+        dispatcher.utter_message(response="utter_s_dp3_v_start_button")
         return []
