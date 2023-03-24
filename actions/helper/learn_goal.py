@@ -47,7 +47,6 @@ def customize_learn_goal(slot_value, slot, get_goal, customize, dispatcher, trac
     goal = tracker.get_slot(get_goal)
     custom_goal = " "
 
-    print("customize: ", customize)
     if user_selection == "oberziel" or user_selection == "s_dp3_q1":
         date_picker = "None"
         pre_text_accept = "Ich habe dein Lernziel angepasst:\n"
@@ -64,9 +63,6 @@ def customize_learn_goal(slot_value, slot, get_goal, customize, dispatcher, trac
             dispatcher.utter_message(
                 text="Bitte wähle ein Datum in der Zukunft aus.")
             return {slot: None}
-
-        oberziel = tracker.get_slot('s_oberziel')
-        print("oberziel: ", oberziel)
 
         today = date.today().strftime("%Y-%m-%d")
         today_date = datetime.strptime(today, "%Y-%m-%d")
@@ -94,7 +90,7 @@ def customize_learn_goal(slot_value, slot, get_goal, customize, dispatcher, trac
         custom_goal = utter_learn_goal(key, dispatcher, get_dp_inmemory_db(
             "DP3.json"), goal, 'Ich habe dein Lernziel bezüglich des Datums angepasst:', 'bis zum %s' % datetime.strptime(date_picker, '%Y-%m-%d').strftime('%d.%m.%Y'), '')
     else:
-        # Ziel formulierung anpassen
+        # Teilziel anpassen
         key, pretext, posttext = get_key_for_json(
             user_selection, tracker)
 
@@ -102,22 +98,6 @@ def customize_learn_goal(slot_value, slot, get_goal, customize, dispatcher, trac
             "DP3.json"), goal, 'Ich habe dein Lernziel angepasst:', '%s' % slot_value, '')
 
     return {slot: custom_goal}
-
-
-def get_date_of_upper_goal(goal):
-    if "Ende des Jahres" in goal:
-        return "2023-12-31"
-    else:
-        return _format_date(goal[20:30])
-
-
-def _format_date(date):
-
-    print("date: ", date)
-    parts = date.split('.')
-
-    print("parts: ", parts)
-    return parts[2] + '-' + parts[1] + '-' + parts[0]
 
 
 def _check_date_range_days(date1, date2):
@@ -132,32 +112,32 @@ def _check_date_range_years(date1, date2):
     return delta >= 3 * 365
 
 
-def custom_goal_englisch_konversation_longer(dispatcher, slot, is_user_accepting, pre_text_accept, pre_text_deny, custom_goal):
-    if is_user_accepting == "confirm":
-        custom_goal = "'Ich möchte meine Gesprächsfähigkeit auf Englisch verbessern, sodass ich nach zwei Lektionen eine 20-minütige Konversation mit einem Muttersprachler führen kann.'"
-        dispatcher.utter_message(
-            json_message=markdown_formatting(pre_text_accept))
-    elif is_user_accepting == "deny":
-        custom_goal = "'Ich möchte meine Gesprächsfähigkeit auf Englisch verbessern, sodass ich nach der Lektion eine 20-minütige Konversation mit einem Muttersprachler führen kann.'"
-        dispatcher.utter_message(
-            json_message=markdown_formatting(pre_text_deny))
-    dispatcher.utter_message(
-        json_message=markdown_formatting("*%s*" % custom_goal))
-    return {slot: custom_goal}
+# def custom_goal_englisch_konversation_longer(dispatcher, slot, is_user_accepting, pre_text_accept, pre_text_deny, custom_goal):
+#     if is_user_accepting == "confirm":
+#         custom_goal = "'Ich möchte meine Gesprächsfähigkeit auf Englisch verbessern, sodass ich nach zwei Lektionen eine 20-minütige Konversation mit einem Muttersprachler führen kann.'"
+#         dispatcher.utter_message(
+#             json_message=markdown_formatting(pre_text_accept))
+#     elif is_user_accepting == "deny":
+#         custom_goal = "'Ich möchte meine Gesprächsfähigkeit auf Englisch verbessern, sodass ich nach der Lektion eine 20-minütige Konversation mit einem Muttersprachler führen kann.'"
+#         dispatcher.utter_message(
+#             json_message=markdown_formatting(pre_text_deny))
+#     dispatcher.utter_message(
+#         json_message=markdown_formatting("*%s*" % custom_goal))
+#     return {slot: custom_goal}
 
 
-def custom_goal_englisch_konversation_faster(dispatcher, slot, is_user_accepting, pre_text_accept, pre_text_deny, custom_goal):
-    if is_user_accepting == "confirm":
-        custom_goal = "'Ich möchte meine Gesprächsfähigkeit auf Englisch verbessern, sodass ich nach der hälfte der Lektion eine 20-minütige Konversation mit einem Muttersprachler führen kann.'"
-        dispatcher.utter_message(
-            json_message=markdown_formatting(pre_text_accept))
-    elif is_user_accepting == "deny":
-        custom_goal = "'Ich möchte meine Gesprächsfähigkeit auf Englisch verbessern, sodass ich nach der Lektion eine 20-minütige Konversation mit einem Muttersprachler führen kann.'"
-        dispatcher.utter_message(
-            json_message=markdown_formatting(pre_text_deny))
-    dispatcher.utter_message(
-        json_message=markdown_formatting("*%s*" % custom_goal))
-    return {slot: custom_goal}
+# def custom_goal_englisch_konversation_faster(dispatcher, slot, is_user_accepting, pre_text_accept, pre_text_deny, custom_goal):
+#     if is_user_accepting == "confirm":
+#         custom_goal = "'Ich möchte meine Gesprächsfähigkeit auf Englisch verbessern, sodass ich nach der hälfte der Lektion eine 20-minütige Konversation mit einem Muttersprachler führen kann.'"
+#         dispatcher.utter_message(
+#             json_message=markdown_formatting(pre_text_accept))
+#     elif is_user_accepting == "deny":
+#         custom_goal = "'Ich möchte meine Gesprächsfähigkeit auf Englisch verbessern, sodass ich nach der Lektion eine 20-minütige Konversation mit einem Muttersprachler führen kann.'"
+#         dispatcher.utter_message(
+#             json_message=markdown_formatting(pre_text_deny))
+#     dispatcher.utter_message(
+#         json_message=markdown_formatting("*%s*" % custom_goal))
+#     return {slot: custom_goal}
 
 
 def get_key_for_json(user_selection, tracker):

@@ -23,7 +23,9 @@ class AskForSlotAction(Action):
         customize = tracker.slots.get("s_dp3_v_q5")
 
         goal = tracker.get_slot("s_dp3_v_customize_goal")
-
+        if goal == None:
+            key, pretext, deadline = get_key_for_json("s_dp3_v_q1", tracker)
+            goal = dp_3["s_dp3_v_q1"]["goal"][topic] % "2000"
         if tracker.slots.get("s_dp3_v_q6") == "deny":
             dispatcher.utter_message(response="utter_ask_s_dp3_v_q5")
             return [SlotSet("s_dp3_v_q5", None), SlotSet("s_dp3_v_q6", None)]

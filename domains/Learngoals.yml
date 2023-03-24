@@ -117,7 +117,7 @@ responses:
   utter_s_lg_0/grammatikziel:
   - buttons:
     - payload: /i_lg_0{{"e_lg_0":"Zeitformen_verbessern"}}
-      title: Zeitformen verbessern
+      title: Zeitformen erlernen
    # - payload: /i_lg_0{{"e_lg_0":"Zeitformen_erweitern"}}
     #  title: Zeitformen erweitern
     text: "Wir können gerne dein Lernziel für die Grammatiklektion anpassen."
@@ -125,7 +125,7 @@ responses:
   utter_s_lg_0/grammatikziel/repeat:
   - buttons:
     - payload: /i_lg_0{{"e_lg_0":"Zeitformen_verbessern"}}
-      title: Zeitformen verbessern
+      title: Zeitformen erlernen
  #   - payload: /i_lg_0{{"e_lg_0":"Zeitformen_erweitern"}}
   #    title: Zeitformen erweitern
     text: " "
