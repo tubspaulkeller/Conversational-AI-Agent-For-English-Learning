@@ -25,9 +25,14 @@ class AskForSlotAction(Action):
         else:
             dp3 = get_dp_inmemory_db('DP3.json')
             topic = tracker.slots.get("s_lg_0")
-            deadline = "bis zum Ende des Jahres"
+            deadline = " "
+            if topic == "Englisch-Wortschatz":
+                deadline = "2000"
+            elif topic == "Zeitformen_verbessern":
+                deadline = "zwei"
+            else:
+                deadline = "bis zum Ende des Jahres"
             goal = dp3[key]["goal"][topic] % deadline
-
         if user_selection == "oberziel":
             slot = "s_oberziel"
         elif user_selection == "vokabelziel":

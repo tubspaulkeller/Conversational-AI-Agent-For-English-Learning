@@ -28,6 +28,7 @@ class AskForSlotAction(Action):
 
         if user_selection == "INFO":
             oberziel = tracker.get_slot("s_oberziel")
+
             vokabelziel = tracker.get_slot("s_vokabelziel")
             grammatikziel = tracker.get_slot("s_grammatikziel")
 
