@@ -33,10 +33,10 @@ def is_user_accepting_learn_goal(slot, user_selection, value, dispatcher):
             dispatcher.utter_message(response="utter_affirm_learn_goal")
         elif user_selection == 'vokabelziel':
             dispatcher.utter_message(
-                text="Perfekt, damit hätten wir das Lernziel für die Vokabellektion für dieses Kurses festgelegt! 😁")
+                text="Perfekt, damit hätten wir das Teilziel für die Vokabellektion dieses Kurses festgelegt! 😁")
         elif user_selection == 'grammatikziel':
             dispatcher.utter_message(
-                text="Perfekt, damit hätten wir das Lernziel für die Grammatiklektion für dieses Kurses festgelegt! 😁")
+                text="Perfekt, damit hätten wir das Teilziel für die Grammatiklektion dieses Kurses festgelegt! 😁")
     else:
         dispatcher.utter_message(
             response="utter_s_dp3_q2/%s" % value)
