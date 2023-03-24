@@ -98,10 +98,11 @@ class AskForSlotAction(Action):
             ]
             dispatcher.utter_message(text=text, buttons=buttons_words)
         elif is_accepting_learngoal == "less_zeitformen":
-            text = "Wir setzen unser Monatsziel auf mindestens eine und maximal auf zwei Zeitformen."
+            text = "Wir setzen unser Monatsziel auf *mindestens eine* und *maximal auf zwei Zeitformen*."
             buttons_words = [
-                {'title': 'Ok', 'payload': '/i_lg_2{\"e_lg_2\":\"1-2\"}'},
+                {'title': 'Ok 😊', 'payload': '/i_lg_2{\"e_lg_2\":\"1-2\"}'},
             ]
-            dispatcher.utter_message(text=text, buttons=buttons_words)
+            dispatcher.utter_message(json_message=markdown_formatting(text))
+            dispatcher.utter_message(text=" ", buttons=buttons_words)
         else:
             return
