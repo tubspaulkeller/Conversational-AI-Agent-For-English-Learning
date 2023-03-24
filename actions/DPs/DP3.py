@@ -160,7 +160,12 @@ class ValidateDP3VOCForm(FormValidationAction):
                             domain: Dict[Text, Any],
                             ) -> Dict[Text, Any]:
         """ validates the fifth question of DP3. The user can change his learning goal """
+        dp_3 = get_dp_inmemory_db("DP3.json")
+        topic = tracker.slots.get("s_dp3_v_q1")
         goal = tracker.get_slot("s_dp3_v_customize_goal")
+        if goal == None:
+            key, pretext, deadline = get_key_for_json("s_dp3_v_q1", tracker)
+            goal = dp_3["s_dp3_v_q1"]["goal"][topic] % "2000"
         if value == "shorter_learntime":
             utter_shorter_learntime(
                 dispatcher, "Vobabelquiz", goal)
@@ -327,6 +332,13 @@ class ValidateDP3GRAMForm(FormValidationAction):
                             ) -> Dict[Text, Any]:
         """ user can change his learning goal """
         goal = tracker.get_slot("s_dp3_g_customize_goal")
+
+        dp_3 = get_dp_inmemory_db("DP3.json")
+        topic = tracker.slots.get("s_dp3_g_q1")
+        goal = tracker.get_slot("s_dp3_g_customize_goal")
+        if goal == None:
+            key, pretext, deadline = get_key_for_json("s_dp3_g_q1", tracker)
+            goal = dp_3["s_dp3_g_q1"]["goal"][topic] % "zwei"
         if value == "shorter_learntime":
             utter_shorter_learntime(
                 dispatcher, "Grammatikquiz", goal)
