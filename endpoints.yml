@@ -14,12 +14,12 @@ action_endpoint:
  url: "https://rasa-actions-ben-dp1-dp4-paulkeller94.cloud.okteto.net/webhook"
  #url: "http://localhost:5055/webhook"
 
-tracker_store:
-   type: mongod
-   url: ${MONGO_DB_URL}
-   db: ${DB_NAME}
-   username: ${USERNAME}
-   password: ${PSWD}
+# tracker_store:
+#    type: mongod
+#    url: ${MONGO_DB_URL}
+#    db: ${DB_NAME}
+#    username: ${USERNAME}
+#    password: ${PSWD}
 
 #tracker_store:
  # type: actions.myTracker.MyCustomTracker
