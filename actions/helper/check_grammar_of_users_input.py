@@ -46,7 +46,6 @@ def validate_grammar_for_user_answer(value, json_file, name_of_slot, dispatcher,
 
     if not exist_all_parts_of_question(number_of_entities, name_of_slot, entities, entities_list, dispatcher):
         increase_tries()
-        print("not all parts", get_tries())
         if get_tries() > 2:
             solution = entities_list[name_of_slot]["solution"]
             solution_text = "Du hast *keine weiteren Versuche mehr* zur Verfügung. Eine Lösung wäre: *%s*" % solution
