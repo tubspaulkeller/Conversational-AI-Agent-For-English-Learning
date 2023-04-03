@@ -12,6 +12,7 @@ rules:
   steps: 
   - intent: i_restart_conversation
   - action: action_restart
+  - action: action_send_i_greet
 
 - rule: Ask the user to rephrase whenever they send a message with low NLU confidence
   steps:
@@ -52,7 +53,10 @@ rules:
 - rule: zuück befehl
   steps:
   - intent: i_ask_back_navigation
-  - action: action_back_navigation
+  - action: action_deactivate_loop
+  - active_loop: null
+  - action: action_call_dp
+
 
 # out_of_scope
 - rule: out of scope

@@ -40,3 +40,18 @@ def markdown_formatting(text):
             }
         ]
     }
+
+
+def update_required_slots(updated_slots, tracker, domain, dp_name):
+    last_requested_slot = None
+    for event in reversed(tracker.events):
+        if event['event'] == 'slot' and event['name'] == 'requested_slot' and event['value'] != 's_set_next_form' and event['value'] != 's_get_dp_form':
+            last_requested_slot = event['value']
+            if last_requested_slot != None:
+                break
+
+    for slot in domain['forms'][dp_name].get("required_slots"):
+        value_of_slot = tracker.get_slot(slot)
+        if value_of_slot != None and slot != last_requested_slot:
+            updated_slots.remove(slot)
+    return updated_slots

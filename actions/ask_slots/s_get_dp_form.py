@@ -26,6 +26,25 @@ class AskForSlotAction(Action):
         buttons = []
         remaining_slots = get_remaining_slots(none_slots_for_form)
 
+        # wenn dp3 form fertig ist und dann vocabel oder grammar ausgewäht ist
+        if tracker.slots.get("s_dp3_q3") == "vocabels":
+            buttons_forms_to_fill["s_dp3_g_end"] = {
+                'title': 'DP1', 'payload': '/i_get_dp{\"e_get_dp\":\"dp3_form_voc\"}'}
+            if tracker.slots.get("s_dp3_v_end") is not None:
+                buttons_forms_to_fill["s_dp3_g_end"] = {
+                    'title': 'DP1', 'payload': '/i_get_dp{\"e_get_dp\":\"dp3_form_gram\"}'}
+
+        elif tracker.slots.get("s_dp3_q3") == "grammar":
+            buttons_forms_to_fill["s_dp3_g_end"] = {
+                'title': 'DP1', 'payload': '/i_get_dp{\"e_get_dp\":\"dp3_form_gram\"}'}
+            if tracker.slots.get("s_dp3_g_end") is not None:
+                buttons_forms_to_fill["s_dp3_g_end"] = {
+                    'title': 'DP1', 'payload': '/i_get_dp{\"e_get_dp\":\"dp3_form_voc\"}'}
+
+        if tracker.slots.get("s_dp3_g_end") is not None and tracker.slots.get("s_dp3_v_end") is None:
+            buttons.append(
+                {'title': 'DP1', 'payload': '/i_get_dp{\"e_get_dp\":\"dp3_form_voc\"}'})
+
         for key in remaining_slots:
             buttons.append(buttons_forms_to_fill[key])
 
@@ -43,7 +62,7 @@ class AskForSlotAction(Action):
 
 def get_none_slots_for_form(slots):
     """ returns and check the still available forms """
-    return {k: v for k, v in slots.items() if k.endswith('_end') and v is None}
+    return {k: v for k, v in slots.items() if k.endswith('_end') and (v is None)}
 
 
 def get_remaining_slots(none_slots_for_form):

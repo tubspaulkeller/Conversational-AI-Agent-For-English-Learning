@@ -52,4 +52,4 @@ class AskForSlotAction(Action):
                 else:
                     give_user_feedback_on_learn_goal_with_no_change(
                         "s_dp3_q1", dp_3, tracker,  dispatcher)
-                return [SlotSet("s_dp3_v_end", "vocabel_form"), SlotSet("s_get_dp_form", None), SlotSet("s_set_next_form", None), FollowupAction("action_set_reminder_set_dp"), SlotSet("s_vobabelziel", goal)]
+                return [SlotSet("s_dp3_v_end", "vocabel_form"), SlotSet("s_get_dp_form", None), SlotSet("s_set_next_form", None), FollowupAction("action_set_reminder_set_dp"), SlotSet("s_vokabelziel", goal)]

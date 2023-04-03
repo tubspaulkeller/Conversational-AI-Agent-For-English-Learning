@@ -47,16 +47,19 @@
     "s_dp2_at_q2": { 
         "present_perfect": ["has lived", "has been", "has choosen"],
         "entities": ["She", "she", "has lived", "since","has been","has choosen", "for", "germany", "Germany"],
-        "quantity": 4
+        "quantity": 4,
+        "solution": "She has lived in Germany since 2010."
     },
     "s_dp2_at_q3": { 
         "present_perfect": ["has broken", "has been"],
         "entities": ["He", "he", "has broken", "since","leg", "his", "break", "since", "has been", "breaking", "broke"],
-        "quantity": 4
+        "quantity": 4,
+        "solution": "He has broken his leg since yesterday."
     },
     "s_dp2_at_q4": { 
         "present_perfect": ["has never been", "has been", "has never had"], 
         "entities": ["She", "she", "has never been","has been","has never had", "never", "London","london"],
-        "quantity": 3
+        "quantity": 3,
+        "solution": "She has never been to London."
     }
 }

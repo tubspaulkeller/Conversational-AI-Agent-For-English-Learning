@@ -75,8 +75,8 @@ responses:
   - text: I'm sorry, I didn't understand you correctly. Can you please repeat that? 😊
 
   utter_first_quest_correct:
-  - text: "Super, das war richtig! 🙌  Damit hast du 5 Punkte gesammelt. Lass uns gleich weitermachen."
-  - text: "Klasse, das war richtig! 😊 Du hast dir 5 Punkte verdient. Lass uns gleich weitermachen."
+  - text: "Ausgezeichnet, deine Antwort war korrekt! 👍 Das bringt dir 5 Punkte ein. Lass uns jetzt direkt fortfahren."
+  - text: "Sehr gut gemacht! 👏 Das war die richtige Antwort und bringt dir 5 Punkte ein. Lass uns nun direkt mit der nächsten Aufgabe fortfahren."
 
   utter_last_and_previous_correct:
   - text: "Super, das war ebenfalls richtig! 🙌  Damit hast du 5 weitere Punkte gesammelt."
@@ -119,8 +119,10 @@ actions:
   - action_react_to_reminder_set_dp
   - action_get_skills
   - action_back_navigation
+  - action_call_dp
   - action_set_slots_none
   - action_restart
+  - action_send_i_greet
   - action_rephrase
   - action_repeat_last_quest
   - validate_get_dp_form

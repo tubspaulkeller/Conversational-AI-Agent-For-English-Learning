@@ -9,7 +9,7 @@ from actions.gamification.handle_user_scoring import user_score
 
 class ActionRepeatLastQuest(Action):
     def name(self) -> Text:
-        return "action_back_navigation"
+        return "action_call_dp"
 
     async def run(
         self,
@@ -17,8 +17,4 @@ class ActionRepeatLastQuest(Action):
         tracker: Tracker,
         domain: Dict[Text, Any],
     ) -> List[Dict[Text, Any]]:
-        # print(tracker.current_state)
-        # name_of_form = tracker.active_loop.get('name')
-        # print(name_of_form)
-        # print("domain", domain['forms']['dp1_form'].get("required_slots")
-        return []
+        return [SlotSet("s_get_dp_form", None), SlotSet("s_set_next_form", None), FollowupAction("get_dp_form")]

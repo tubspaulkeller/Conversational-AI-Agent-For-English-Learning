@@ -1,3 +1,4 @@
+from actions.common.common import markdown_formatting
 from actions.helper.check_entities import exist_present_perfect, exist_all_parts_of_question
 from actions.common.common import get_dp_inmemory_db
 from actions.gamification.handle_user_scoring import get_tries, resetTries, increase_tries, set_points, user_score
@@ -35,10 +36,23 @@ def validate_grammar_for_user_answer(value, json_file, name_of_slot, dispatcher,
     if (name_of_slot[4] != '4' or name_of_slot == 's_dp4_q3A' or name_of_slot == 's_dp4_q3B'):
         if not exist_present_perfect(name_of_slot, entities, entities_list, dispatcher):
             increase_tries()
+            if get_tries() > 2:
+                solution = entities_list[name_of_slot]["solution"]
+                solution_text = "Du hast *keine weiteren Versuche mehr* zur Verfügung. Eine Lösung wäre: *%s*" % solution
+                dispatcher.utter_message(
+                    json_message=markdown_formatting(solution_text))
+                return {name_of_slot: "solution"}
             return {name_of_slot: None}
 
     if not exist_all_parts_of_question(number_of_entities, name_of_slot, entities, entities_list, dispatcher):
         increase_tries()
+        print("not all parts", get_tries())
+        if get_tries() > 2:
+            solution = entities_list[name_of_slot]["solution"]
+            solution_text = "Du hast *keine weiteren Versuche mehr* zur Verfügung. Eine Lösung wäre: *%s*" % solution
+            dispatcher.utter_message(
+                json_message=markdown_formatting(solution_text))
+            return {name_of_slot: "solution"}
         return {name_of_slot: None}
 
     # get Userinput
@@ -47,8 +61,15 @@ def validate_grammar_for_user_answer(value, json_file, name_of_slot, dispatcher,
     usertext = usertext[0].upper() + usertext[1:]
 
     if not valid_grammar(usertext, dispatcher):
-        increase_tries()
-        return {name_of_slot: None}
+        if get_tries() > 2:
+            solution = entities_list[name_of_slot]["solution"]
+            solution_text = "Du hast *keine weiteren Versuche mehr* zur Verfügung. Eine Lösung wäre: *%s*" % solution
+            dispatcher.utter_message(
+                json_message=json_formatter(solution_text))
+            return {name_of_slot: "solution"}
+        else:
+            increase_tries()
+            return {name_of_slot: None}
     else:
         points = 0
         if get_tries() == 0:
@@ -60,9 +81,7 @@ def validate_grammar_for_user_answer(value, json_file, name_of_slot, dispatcher,
         elif get_tries() == 2:
             set_points(3, name_of_slot[4: 7])
             points = 3
-        elif get_tries() > 2:
-            set_points(2, name_of_slot[4: 7])
-            points = 2
+
         resetTries()
         dispatcher.utter_message(
             response="utter_correct_answer_qn", points=points)

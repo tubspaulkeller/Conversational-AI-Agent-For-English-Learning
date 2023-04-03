@@ -182,6 +182,9 @@ responses:
   - buttons:
     - payload: /i_dp2_q1{{"e_dp2_q1":"Zusammenfassung"}}
       title: Zusammenfassung
+    
+   # - payload: /i_dp2_q1{{"e_dp2_q1":"Abzeichen"}}
+    #  title: Bedingungen für Abzeichen 
 
     - payload: /i_dp2_q1{{"e_dp2_q1":"Quiz"}}
       title: Quiz
@@ -209,6 +212,14 @@ responses:
         text:
           type: mrkdwn
           text: " Gerne doch! 😊\n*Bildung:* 'have/has' + dritte Form des Verbs\n*Verwendung:*\n - Etwas hat in der Vergangenheit begonnen und dauert bis in die Gegenwart an\n - Etwas wurde in der Vergangenheit abgeschlossen, aber die Folgen reichen bis in die Gegenwart"
+  
+  utter_abzeichen:
+  - custom:
+      blocks:
+      - type: section 
+        text:
+          type: mrkdwn
+          text: "*Abzeichen* werden für herausragende Leistungen verliehen und stehen somit für Erfolge, die durch besondere Leistungen erzielt wurden. Wenn du beispielsweise *60% der Punkte erreichst*, wirst du dafür mit einem *Abzeichen belohnt*."
   
   utter_s_dp2_q2:
   - buttons:
@@ -361,7 +372,7 @@ responses:
       - type: section 
         text:
           type: mrkdwn
-          text: "Die *Spielregeln* ändern sich: Bei jeder Frage kannst du max. 5 Punkte und min. 3 Punkte holen. Allerdings werden pro Fehler 1 Punkt von den 5 Punkten abgezogen.\n\nVersuche bitte aus den folgenden Wörtern:\n *Germany, She, since, live*\n einen Satz im *Present Perfect* zu formulieren:"
+          text: "Versuche bitte aus den folgenden Wörtern:\n *Germany, She, since, live*\n einen Satz im *Present Perfect* zu formulieren:"
 
   utter_s_dp2_at_q3:
   - custom:
@@ -421,7 +432,6 @@ forms:
     - s_dp2_at_q2 
     - s_dp2_at_q3
     - s_dp2_at_q4
-
     - s_dp2_part_two_end 
 
 

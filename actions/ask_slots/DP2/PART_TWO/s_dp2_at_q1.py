@@ -14,4 +14,4 @@ class AskForSlotAction(Action):
             domain: Dict) -> List[EventType]:
 
         dispatcher.utter_message(response="utter_s_dp2_at_q1")
-        return [SlotSet("s_dp2_at_q2", None), SlotSet("s_dp2_part_two_end", None)]
+        return [SlotSet("s_dp2_at_q2", None), SlotSet("s_dp2_at_q3", None), SlotSet("s_dp2_at_q4", None), SlotSet("s_dp2_part_two_end", None)]

@@ -10,12 +10,24 @@ from actions.gamification.handle_user_scoring import increase_badges
 ############################################################################################################
 ##### DP1 #####
 ############################################################################################################
+from actions.common.common import update_required_slots
 
 
 class ValidateDP1Form(FormValidationAction):
     def name(self) -> Text:
         # Unique identifier of the form"
         return "validate_dp1_form"
+
+    async def required_slots(
+        self,
+        domain_slots: List[Text],
+        dispatcher: "CollectingDispatcher",
+        tracker: "Tracker",
+        domain: "DomainDict",
+    ) -> List[Text]:
+        updated_slots = domain_slots.copy()
+        return update_required_slots(updated_slots,
+                                     tracker, domain, "dp1_form")
 
     def validate_s_dp1_q0(
         self,
@@ -29,6 +41,12 @@ class ValidateDP1Form(FormValidationAction):
     def validate_s_dp1_evaluation(self, slot_value: Any, dispatcher: CollectingDispatcher, tracker: Tracker, domain: "DomainDict",) -> Dict[Text, Any]:
         return {"s_dp1_evaluation": slot_value}
 
+    def validate_s_dp1_call_next_dp(self, slot_value: Any, dispatcher: CollectingDispatcher, tracker: Tracker, domain: "DomainDict",) -> Dict[Text, Any]:
+        return {"s_dp1_call_next_dp": slot_value}
+
+    def validate_s_dp1_end(self, slot_value: Any, dispatcher: CollectingDispatcher, tracker: Tracker, domain: "DomainDict",) -> Dict[Text, Any]:
+        return {"s_dp1_end": slot_value}
+
     def validate_s_dp1_long_term_scenario(self, slot_value: Any, dispatcher: CollectingDispatcher, tracker: Tracker, domain: "DomainDict",) -> Dict[Text, Any]:
         long_term_scenario = {
             "blocks": [
@@ -41,6 +59,8 @@ class ValidateDP1Form(FormValidationAction):
                 }
             ]
         }
+
+        print("HHHERRE")
         increase_badges("badge_aufstieg_level_7")
         increase_badges("badge_grammatik_basics")
         dispatcher.utter_message(

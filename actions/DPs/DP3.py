@@ -1,7 +1,7 @@
 from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker, FormValidationAction
 from rasa_sdk.executor import CollectingDispatcher
-from rasa_sdk.events import UserUtteranceReverted, FollowupAction, AllSlotsReset, Restarted
+from rasa_sdk.events import UserUtteranceReverted, FollowupAction, AllSlotsReset, Restarted, SlotSet
 import requests
 import json
 from datetime import datetime, date
@@ -15,6 +15,7 @@ from actions.helper.learn_goal import generate_learn_goal, is_user_accepting_lea
 ############################################################################################################
 ##### DP3 #####
 ############################################################################################################
+from actions.common.common import update_required_slots
 
 
 class ValidateDP3Form(FormValidationAction):
@@ -33,11 +34,13 @@ class ValidateDP3Form(FormValidationAction):
         """
         updates the order of the slots that should be requested
         """
-        updated_slots = domain_slots.copy()
+        updated_slots = update_required_slots(domain_slots.copy(),
+                                              tracker, domain, "dp3_form")
         if tracker.slots.get("s_dp3_q2") == 'affirm':
             # there we will skip next slot
             updated_slots.remove("s_dp3_date")
             updated_slots.remove("s_dp3_date_confirm")
+
         return updated_slots
 
     def validate_s_dp3_q1(self, slot_value: Any, dispatcher: CollectingDispatcher, tracker: Tracker, domain: "DomainDict") -> Dict[Text, Any]:
@@ -92,15 +95,15 @@ class ValidateDP3VOCForm(FormValidationAction):
         tracker: "Tracker",
         domain: "DomainDict",
     ) -> List[Text]:
+
         """ updates the required slots of the form """
-        updated_slots = domain_slots.copy()
+        updated_slots = update_required_slots(domain_slots.copy(),
+                                              tracker, domain, "dp3_form_voc")
         if tracker.slots.get("s_dp3_v_q5") == 'deny':
             # there we will skip next slot
             updated_slots.remove("s_dp3_v_q6")
         if tracker.slots.get("s_dp3_v_q2") == 'affirm':
-            # there we will skip next slot
             updated_slots.remove("s_dp3_v_customize_goal")
-           # updated_slots.remove("s_dp3_v_start_button")
         return updated_slots
 
     def validate_s_dp3_v_q1(
@@ -160,18 +163,6 @@ class ValidateDP3VOCForm(FormValidationAction):
                             domain: Dict[Text, Any],
                             ) -> Dict[Text, Any]:
         """ validates the fifth question of DP3. The user can change his learning goal """
-        dp_3 = get_dp_inmemory_db("DP3.json")
-        topic = tracker.slots.get("s_dp3_v_q1")
-        goal = tracker.get_slot("s_dp3_v_customize_goal")
-        if goal == None:
-            key, pretext, deadline = get_key_for_json("s_dp3_v_q1", tracker)
-            goal = dp_3["s_dp3_v_q1"]["goal"][topic] % "2000"
-        if value == "shorter_learntime":
-            utter_shorter_learntime(
-                dispatcher, "Vobabelquiz", goal)
-        elif value == "longer_learntime":
-            utter_longer_learntime(
-                dispatcher, "Vobabelquiz", goal)
         return {"s_dp3_v_q5": value}
 
     def validate_s_dp3_v_q6(
@@ -263,14 +254,15 @@ class ValidateDP3GRAMForm(FormValidationAction):
         domain: "DomainDict",
     ) -> List[Text]:
         """ updates the required slots of the form """
+
         updated_slots = domain_slots.copy()
+        updated_slots = update_required_slots(
+            domain_slots.copy(), tracker, domain, "dp3_form_gram")
         if tracker.slots.get("s_dp3_g_q5") == 'deny':
             updated_slots.remove("s_dp3_g_q6")
-
         if tracker.slots.get("s_dp3_g_q2") == 'affirm':
             # there we will skip next slot
             updated_slots.remove("s_dp3_g_customize_goal")
-            # updated_slots.remove("s_dp3_g_start_button")
         return updated_slots
 
     def validate_s_dp3_g_q1(
@@ -331,20 +323,7 @@ class ValidateDP3GRAMForm(FormValidationAction):
                             domain: Dict[Text, Any],
                             ) -> Dict[Text, Any]:
         """ user can change his learning goal """
-        goal = tracker.get_slot("s_dp3_g_customize_goal")
 
-        dp_3 = get_dp_inmemory_db("DP3.json")
-        topic = tracker.slots.get("s_dp3_g_q1")
-        goal = tracker.get_slot("s_dp3_g_customize_goal")
-        if goal == None:
-            key, pretext, deadline = get_key_for_json("s_dp3_g_q1", tracker)
-            goal = dp_3["s_dp3_g_q1"]["goal"][topic] % "zwei"
-        if value == "shorter_learntime":
-            utter_shorter_learntime(
-                dispatcher, "Grammatikquiz", goal)
-        elif value == "longer_learntime":
-            utter_longer_learntime(
-                dispatcher, "Grammatikquiz", goal)
         return {"s_dp3_g_q5": value}
 
     def validate_s_dp3_g_q6(

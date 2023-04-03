@@ -13,6 +13,9 @@ nlu:
     - hey buddy 
     - guten Tag
     - Guten Abend 
+    - /start
+    - start
+    
 
 - intent: i_goodbye
   examples: |
@@ -744,7 +747,7 @@ nlu:
  
 - intent: i_dp4_q1B
   examples: |
-    - [How](e_dp4_q1B) [much](e_dp4_q1B) does it [costs](e_dp4_q1B)?
+    - [How](e_dp4_q1B) [much](e_dp4_q1B) does it [cost](e_dp4_q1B)?
     - [How](e_dp4_q1B) [much](e_dp4_q1B) would it [costs](e_dp4_q1B)?
     - [How](e_dp4_q1B) [much](e_dp4_q1B) would it [cost](e_dp4_q1B) us to get there?
     - [What](e_dp4_q1B) is the [price](e_dp4_q1B) for us to get there?

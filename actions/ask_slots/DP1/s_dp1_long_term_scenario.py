@@ -9,7 +9,7 @@ from actions.common.common import get_dp_inmemory_db
 class AskForSlotAction(Action):
 
     def name(self) -> Text:
-        return "action_ask_s_dp1_end"
+        return "action_ask_s_dp1_long_term_scenario"
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker,
             domain: Dict) -> List[EventType]:

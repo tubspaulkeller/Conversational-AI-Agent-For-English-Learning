@@ -593,7 +593,7 @@ responses:
       title: Alles perfekt
     text: Gibt es etwas in deinem Lernprozess, was dich stört oder was du anpassen möchtest?
   
-  utter_ask_s_dp3_v_q6:
+  utter_s_dp3_v_q6:
   - buttons:
     - payload: /i_dp3_v_q6{{"e_dp3_v_q6":"affirm"}}
       title: Ja
@@ -789,6 +789,8 @@ actions:
   - action_ask_s_dp3_v_start_button
   - action_ask_s_dp3_v_q3
   - action_ask_s_dp3_v_q4
+  - action_ask_s_dp3_v_q6
+  - action_ask_s_dp3_g_q6
   - action_ask_s_dp3_v_end
   - validate_dp3_form_gram
   - action_ask_s_dp3_g_q1

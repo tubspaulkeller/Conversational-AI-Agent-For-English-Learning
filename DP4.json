@@ -2,34 +2,40 @@
     "s_dp4_q1A": { 
         "entities": ["We", "Coliseum", "we", "coliseum", "buddy", "friend", "amigo", "mate", "us", "our"],
         "quantity": 2,
-        "question": 1
+        "question": 1,
+        "solution": "We would like to go to the Coliseum."
     },  
     "s_dp4_q1B": { 
         "entities": ["How", "costs", "What", "price", "how", "what", "much", "cost", "expensive", "costly", "expensively", "dearly", "fare", "ride"],
         "quantity": 2,
-        "question": 2
+        "question": 2,
+        "solution": "How expensive is the ride?"
     },
     "s_dp4_q2A": { 
         "entities": ["ticket", "two", "tickets", "Two", "Tickets","2"],
         "quantity": 2,
-        "question": 3
+        "question": 3,
+        "solution": "Can I get two tickets, please?"
     },
     "s_dp4_q2B": { 
         "entities": ["student","students", "studis", "much", "prices", "discount","discounts" , "rates", "tickets", "studi", "sales discount", "benefit", "rebate", "advantage", "price", "prices", "offer"],
         "quantity": 2,
-        "question": 4
+        "question": 4,
+        "solution": "We are two students. Do you have any discounts?"
     },
     "s_dp4_q3A": { 
         "present_perfect": ["has lived", "ve lived", "have known", "have been", "ve been", "has been"],
         "entities": ["mate", "my friends","friends","friend","has lived", "ve lived", "living","have known", "have been", "ve been", "has been", "has lived","Gloria", "gloria", "buddy", "BS",  "since", "for", "in", "decade", "year", "years", "long", "some time", "past", "last"],
         "quantity": 4,
-        "question": 5
+        "question": 5,
+        "solution": "My friend has lived in Gloria for a long time."
     },
     
     "s_dp4_q3B": { 
         "present_perfect": ["have lived", "ve lived", "have been", "ve been", "have started", "have resided", "have called", "has been"],
         "entities": ["I", "my", "I'","ve lived","have lived",  "have been","living", "ve been", "have started", "have resided", "have called", "has been", "gloria", "Gloria", "i", "buddy", "BS", "we",  "since", "for", "in", "decade", "year", "years", "long", "some time", "past", "last", "in", "for"],
         "quantity": 4,
-        "question": 6
+        "question": 6,
+        "solution": "I have been living in Gloria for some time."
     }
 }

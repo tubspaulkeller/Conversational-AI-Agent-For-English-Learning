@@ -11,7 +11,6 @@ class AskForSlotAction(Action):
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker,
             domain: Dict) -> List[EventType]:
-
         if tracker.get_slot("s_dp3_v_end") is not None:
             return [SlotSet("s_dp3_activate_form", "ACTIVATED"), FollowupAction("dp3_form_gram")]
 

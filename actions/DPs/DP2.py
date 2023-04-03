@@ -12,6 +12,7 @@ from actions.common.common import get_dp_inmemory_db, get_slots_for_dp
 ############################################################################################################
 ##### DP2 #####
 ############################################################################################################
+from actions.common.common import update_required_slots
 
 
 class ValidateDP2Form(FormValidationAction):
@@ -31,10 +32,12 @@ class ValidateDP2Form(FormValidationAction):
         updates the order of the slots that should be requested
         """
         updated_slots = domain_slots.copy()
-
         if tracker.slots.get("s_dp2_q1") == 'Quiz':
             # there we will skip next slot
             updated_slots.remove("s_dp2_q1_2")
+
+        updated_slots = update_required_slots(updated_slots,
+                                              tracker, domain, "dp2_form")
         return updated_slots
 
     def validate_s_dp2_q0(
@@ -66,6 +69,9 @@ class ValidateDP2Form(FormValidationAction):
         if value == "Zusammenfassung":
             dispatcher.utter_message(response="utter_zusammenfassung")
             return {"s_dp2_q1": value}
+        # elif value == "Abzeichen":
+         #   dispatcher.utter_message(response="utter_abzeichen")
+          #  return {"s_dp2_q1": value}
         elif value == "Quiz":
             dispatcher.utter_message(text="Ok, dann starte ich das Quiz. 🎮")
             return {"s_dp2_q1": value}

@@ -1261,7 +1261,7 @@ responses:
       title: Alles perfekt
     text: "Gibt es etwas in deinem Lernprozess, was dich st\xF6rt oder was du anpassen\
       \ m\xF6chtest?"
-  utter_ask_s_dp3_v_q6:
+  utter_s_dp3_v_q6:
   - buttons:
     - payload: /i_dp3_v_q6{{"e_dp3_v_q6":"affirm"}}
       title: Ja
@@ -1439,6 +1439,16 @@ responses:
             \ Verbs\n*Verwendung:*\n - Etwas hat in der Vergangenheit begonnen und\
             \ dauert bis in die Gegenwart an\n - Etwas wurde in der Vergangenheit\
             \ abgeschlossen, aber die Folgen reichen bis in die Gegenwart"
+  utter_abzeichen:
+  - custom:
+      blocks:
+      - type: section
+        text:
+          type: mrkdwn
+          text: "*Abzeichen* werden f\xFCr herausragende Leistungen verliehen und\
+            \ stehen somit f\xFCr Erfolge, die durch besondere Leistungen erzielt\
+            \ wurden. Wenn du beispielsweise *60% der Punkte erreichst*, wirst du\
+            \ daf\xFCr mit einem *Abzeichen belohnt*."
   utter_s_dp2_q2:
   - buttons:
     - payload: /i_dp2_q2{{"e_dp2_q2":"have played"}}
@@ -1564,11 +1574,8 @@ responses:
       - type: section
         text:
           type: mrkdwn
-          text: "Die *Spielregeln* \xE4ndern sich: Bei jeder Frage kannst du max.\
-            \ 5 Punkte und min. 3 Punkte holen. Allerdings werden pro Fehler 1 Punkt\
-            \ von den 5 Punkten abgezogen.\n\nVersuche bitte aus den folgenden W\xF6\
-            rtern:\n *Germany, She, since, live*\n einen Satz im *Present Perfect*\
-            \ zu formulieren:"
+          text: "Versuche bitte aus den folgenden W\xF6rtern:\n *Germany, She, since,\
+            \ live*\n einen Satz im *Present Perfect* zu formulieren:"
   utter_s_dp2_at_q3:
   - custom:
       blocks:
@@ -1598,10 +1605,10 @@ responses:
   - text: "I'm sorry, I didn't understand you correctly. Can you please repeat that?\
       \ \U0001F60A"
   utter_first_quest_correct:
-  - text: "Super, das war richtig! \U0001F64C  Damit hast du 5 Punkte gesammelt. Lass\
-      \ uns gleich weitermachen."
-  - text: "Klasse, das war richtig! \U0001F60A Du hast dir 5 Punkte verdient. Lass\
-      \ uns gleich weitermachen."
+  - text: "Ausgezeichnet, deine Antwort war korrekt! \U0001F44D Das bringt dir 5 Punkte\
+      \ ein. Lass uns jetzt direkt fortfahren."
+  - text: "Sehr gut gemacht! \U0001F44F Das war die richtige Antwort und bringt dir\
+      \ 5 Punkte ein. Lass uns nun direkt mit der n\xE4chsten Aufgabe fortfahren."
   utter_last_and_previous_correct:
   - text: "Super, das war ebenfalls richtig! \U0001F64C  Damit hast du 5 weitere Punkte\
       \ gesammelt."
@@ -1733,7 +1740,7 @@ actions:
 - action_ask_s_dp1_q6
 - action_ask_s_dp1_q9
 - action_ask_s_dp1_q10
-- action_ask_s_dp1_end
+- action_ask_s_dp1_long_term_scenario
 - action_ask_s_dp1_call_next_dp
 - validate_dp3_form
 - action_ask_s_dp3_q1
@@ -1746,6 +1753,8 @@ actions:
 - action_ask_s_dp3_v_start_button
 - action_ask_s_dp3_v_q3
 - action_ask_s_dp3_v_q4
+- action_ask_s_dp3_v_q6
+- action_ask_s_dp3_g_q6
 - action_ask_s_dp3_v_end
 - validate_dp3_form_gram
 - action_ask_s_dp3_g_q1
@@ -1774,8 +1783,10 @@ actions:
 - action_react_to_reminder_set_dp
 - action_get_skills
 - action_back_navigation
+- action_call_dp
 - action_set_slots_none
 - action_restart
+- action_send_i_greet
 - action_rephrase
 - action_repeat_last_quest
 - validate_get_dp_form
@@ -1825,7 +1836,6 @@ forms:
     - s_dp1_q11
     - s_dp1_q12
     - s_dp1_evaluation
-    - s_dp1_end
     - s_dp1_long_term_scenario
     - s_dp1_call_next_dp
   dp3_form:

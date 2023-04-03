@@ -410,7 +410,7 @@ actions:
   - action_ask_s_dp1_q6
   - action_ask_s_dp1_q9
   - action_ask_s_dp1_q10
-  - action_ask_s_dp1_end
+  - action_ask_s_dp1_long_term_scenario
   - action_ask_s_dp1_call_next_dp
 forms:
   dp1_form:
@@ -429,6 +429,5 @@ forms:
     - s_dp1_q11
     - s_dp1_q12
     - s_dp1_evaluation
-    - s_dp1_end
     - s_dp1_long_term_scenario
     - s_dp1_call_next_dp
