@@ -44,6 +44,9 @@ def markdown_formatting(text):
 
 def update_required_slots(updated_slots, tracker, domain, dp_name):
     last_requested_slot = None
+    # print(tracker.latest_message['intent']['name'])
+    # if tracker.latest_message['intent']['name'] == 'i_ask_back_navigation':
+    #   print("Called from back navigation")
     for event in reversed(tracker.events):
         if event['event'] == 'slot' and event['name'] == 'requested_slot' and event['value'] != 's_set_next_form' and event['value'] != 's_get_dp_form':
             last_requested_slot = event['value']

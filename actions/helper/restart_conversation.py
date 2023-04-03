@@ -1,7 +1,7 @@
 from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker, FormValidationAction
 from rasa_sdk.executor import CollectingDispatcher
-from rasa_sdk.events import UserUtteranceReverted, FollowupAction, AllSlotsReset, Restarted, ActionExecuted
+from rasa_sdk.events import UserUtteranceReverted, FollowupAction, AllSlotsReset, Restarted
 
 # import function from different file
 from actions.gamification.handle_user_scoring import user_score, user_score_simple_past, user_score_present_progressive
@@ -27,5 +27,4 @@ class ActionRestart(Action):
             'title': 'DP1', 'payload': '/i_get_dp{\"e_get_dp\":\"dp3_form\"}'}
 
         dispatcher.utter_message(text="Ich habe neu gestartet. 🤖")
-        # , FollowupAction("action_send_i_greet")]
         return [AllSlotsReset(),  Restarted()]
