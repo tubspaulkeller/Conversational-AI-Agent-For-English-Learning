@@ -18,15 +18,15 @@ class ValidateDP4Form(FormValidationAction):
         # Unique identifier of the form
         return "validate_dp4_form"
 
-    async def required_slots(
-        self,
-        domain_slots: List[Text],
-        dispatcher: "CollectingDispatcher",
-        tracker: "Tracker",
-        domain: "DomainDict",
-    ) -> List[Text]:
-        updated_slots = domain_slots.copy()
-        return update_required_slots(updated_slots, tracker, domain, "dp4_form")
+    # async def required_slots(
+    #     self,
+    #     domain_slots: List[Text],
+    #     dispatcher: "CollectingDispatcher",
+    #     tracker: "Tracker",
+    #     domain: "DomainDict",
+    # ) -> List[Text]:
+    #     updated_slots = domain_slots.copy()
+    #     return update_required_slots(updated_slots, tracker, domain, "dp4_form")
 
     def validate_s_dp4_q0(
         self,

@@ -34,8 +34,9 @@ class ValidateDP3Form(FormValidationAction):
         """
         updates the order of the slots that should be requested
         """
-        updated_slots = update_required_slots(domain_slots.copy(),
-                                              tracker, domain, "dp3_form")
+        updated_slots = domain_slots.copy()
+        # updated_slots = update_required_slots(domain_slots.copy(),
+        #                                     tracker, domain, "dp3_form")
         if tracker.slots.get("s_dp3_q2") == 'affirm':
             # there we will skip next slot
             updated_slots.remove("s_dp3_date")
@@ -97,8 +98,9 @@ class ValidateDP3VOCForm(FormValidationAction):
     ) -> List[Text]:
 
         """ updates the required slots of the form """
-        updated_slots = update_required_slots(domain_slots.copy(),
-                                              tracker, domain, "dp3_form_voc")
+        updated_slots = domain_slots.copy()
+       # updated_slots = update_required_slots(domain_slots.copy(),
+        #                                      tracker, domain, "dp3_form_voc")
         if tracker.slots.get("s_dp3_v_q5") == 'deny':
             # there we will skip next slot
             updated_slots.remove("s_dp3_v_q6")
@@ -256,8 +258,8 @@ class ValidateDP3GRAMForm(FormValidationAction):
         """ updates the required slots of the form """
 
         updated_slots = domain_slots.copy()
-        updated_slots = update_required_slots(
-            domain_slots.copy(), tracker, domain, "dp3_form_gram")
+       # updated_slots = update_required_slots(
+        #    domain_slots.copy(), tracker, domain, "dp3_form_gram")
         if tracker.slots.get("s_dp3_g_q5") == 'deny':
             updated_slots.remove("s_dp3_g_q6")
         if tracker.slots.get("s_dp3_g_q2") == 'affirm':

@@ -36,8 +36,8 @@ class ValidateDP2Form(FormValidationAction):
             # there we will skip next slot
             updated_slots.remove("s_dp2_q1_2")
 
-        updated_slots = update_required_slots(updated_slots,
-                                              tracker, domain, "dp2_form")
+        # updated_slots = update_required_slots(updated_slots,
+         #                                     tracker, domain, "dp2_form")
         return updated_slots
 
     def validate_s_dp2_q0(
