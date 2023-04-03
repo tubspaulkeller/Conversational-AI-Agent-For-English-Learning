@@ -1,7 +1,7 @@
 from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker, FormValidationAction
 from rasa_sdk.executor import CollectingDispatcher
-from rasa_sdk.events import UserUtteranceReverted, FollowupAction, AllSlotsReset, Restarted, ActionExecuted, UserUttered
+from rasa_sdk.events import UserUtteranceReverted, FollowupAction, AllSlotsReset, Restarted, ActionExecuted
 
 
 ##########################################################################################
@@ -20,5 +20,5 @@ class ActionIGreet(Action):
                 "confidence": 1.0,
             }
         }
-        return [ActionExecuted("action_listen"),
-                UserUttered(text="/i_greet", parse_data=data)]  # , FollowupAction("action_get_user_credentials")]
+        # UserUttered(text="/i_greet", parse_data=data)]  # , FollowupAction("action_get_user_credentials")]
+        return [ActionExecuted("action_listen")]

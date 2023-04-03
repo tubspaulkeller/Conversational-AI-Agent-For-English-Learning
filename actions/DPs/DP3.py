@@ -46,6 +46,7 @@ class ValidateDP3Form(FormValidationAction):
 
     def validate_s_dp3_q1(self, slot_value: Any, dispatcher: CollectingDispatcher, tracker: Tracker, domain: "DomainDict") -> Dict[Text, Any]:
         """ validates the first question of DP3. The user can choose his learning goal """
+        # TODO wenn updated slots dann hier auch anpassen
         return generate_learn_goal('s_dp3_q1', 's_dp3_q1', dispatcher, slot_value,
                                    'Das klingt interessant! Ich würde daraus folgendes Lernziel forumlieren:', 'Ende des Jahres', " ")
 
