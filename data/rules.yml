@@ -53,6 +53,7 @@ rules:
 - rule: zuück befehl
   steps:
   - intent: i_ask_back_navigation
+  - action: action_back_navigation
   - action: action_deactivate_loop
   - active_loop: null
   - action: action_call_dp
