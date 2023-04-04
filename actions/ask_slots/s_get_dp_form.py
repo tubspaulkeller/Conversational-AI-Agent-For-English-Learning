@@ -45,6 +45,12 @@ class AskForSlotAction(Action):
             buttons.append(
                 {'title': 'DP1', 'payload': '/i_get_dp{\"e_get_dp\":\"dp3_form_voc\"}'})
 
+        # TODO Test
+        if tracker.slots.get("s_dp2_part_one_end") is not None and tracker.slots.get("s_dp2_part_two_end") is None and (tracker.slots.get("s_dp2_at_q1") is None or tracker.slots.get("s_dp2_at_q1") == "yes"):
+
+            buttons.append(
+                {'title': 'DP2', 'payload': '/i_get_dp{\"e_get_dp\":\"dp2_application_tasks_form\"}'})
+
         for key in remaining_slots:
             buttons.append(buttons_forms_to_fill[key])
 
