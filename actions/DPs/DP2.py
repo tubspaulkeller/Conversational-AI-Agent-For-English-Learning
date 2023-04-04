@@ -132,6 +132,8 @@ class ValidateDP2ApplicationTasksForm(FormValidationAction):
         updates the order of the slots that should be requested
         """
         updated_slots = domain_slots.copy()
+        updated_slots = update_required_slots(updated_slots,
+                                              tracker, domain, "dp2_application_tasks_form")
         if tracker.slots.get("s_dp2_at_q1") == 'no':
             # there we will skip next slot
             updated_slots.remove("s_dp2_at_q2")
