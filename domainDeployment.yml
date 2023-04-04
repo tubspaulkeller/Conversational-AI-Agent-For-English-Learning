@@ -157,6 +157,10 @@ intents:
 - i_call_anwendungsaufgabe
 - i_lets_go:
     use_entities: e_lets_go
+- i_explain_gami_elements:
+    use_entities: e_explain_gami_elements
+- i_hint_rules:
+    use_entities: e_hint_rules
 - i_zeitform:
     use_entities: e_zeitform
 - i_ask_why_points_badges_stars:
@@ -251,6 +255,8 @@ entities:
 - e_dp2_at_q3
 - e_dp2_at_q4
 - e_lets_go
+- e_explain_gami_elements
+- e_hint_rules
 - e_get_dp
 - e_why_x_points
 - e_why_points_badges_stars
@@ -1583,7 +1589,7 @@ responses:
         text:
           type: mrkdwn
           text: "Versuche bitte aus den folgenden W\xF6rtern:\n *break, leg, since\
-            \ yesterday, he*\n einen Satz im *Present Perfect* zu formulieren:"
+            \ yesterday, his*\n einen Satz im *Present Perfect* zu formulieren:"
   utter_s_dp2_at_q4:
   - custom:
       blocks:
@@ -1710,16 +1716,16 @@ responses:
       - type: section
         text:
           type: mrkdwn
-          text: "*Quest3A:* Erkl\xE4re den Touristen, dass dein Freund aus Gloria\
-            \ kommt und seit wann er dort wohnt. Bitte benutze das *Present Perfect*."
+          text: "*Quest3A:* Erkl\xE4re den Touristen, dass *dein Freund* aus Gloria\
+            \ kommt und seit wann *er* dort wohnt. Bitte benutze das *Present Perfect*."
   utter_ask_s_dp4_q3B:
   - custom:
       blocks:
       - type: section
         text:
           type: mrkdwn
-          text: "*Quest3B:* Nun erz\xE4hle den Touristen, dass du aus Gloria kommst\
-            \ und seit wann du dort wohnst. Bitte benutze das *Present Perfect*"
+          text: "*Quest3B:* Nun erz\xE4hle den Touristen, dass *du* aus Gloria kommst\
+            \ und seit wann *du* dort wohnst. Bitte benutze das *Present Perfect*"
   utter_dp4_finish:
   - text: "Klasse, damit hast du alle Quests abgeschlossen sowie die Lern-Story 'Das\
       \ r\xF6mische Kolosseum' erfolgreich mit {total_points} von 30 Punkten beendet.\n\
@@ -1795,6 +1801,8 @@ actions:
 - action_ask_s_get_dp_form
 - action_ask_s_set_next_form
 - action_get_user_credentials
+- action_explain_gamification_elements
+- action_hint_for_rules
 - action_give_user_score
 - action_give_user_badges
 - action_quest_end_give_user_score

@@ -6,6 +6,8 @@ rules:
   conversation_start: true
   steps:
   - action: action_get_user_credentials
+  - action: action_explain_gamification_elements
+  - action: action_hint_for_rules
   - action: action_set_reminder_set_dp
 
 - rule: restart the conversation 
@@ -111,6 +113,16 @@ rules:
   - intent: i_lets_go
   - action: get_dp_form
 
+
+- rule: i_explain_gami_elements
+  steps:
+  - intent: i_explain_gami_elements
+  - action: action_explain_gamification_elements
+
+- rule: hint_game_rules
+  steps:
+  - intent: i_hint_rules
+  - action: action_hint_for_rules
 
 - rule: User can adjust his learn goal
   steps:

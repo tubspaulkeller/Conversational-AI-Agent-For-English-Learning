@@ -380,7 +380,7 @@ responses:
       - type: section 
         text:
           type: mrkdwn
-          text:  "Versuche bitte aus den folgenden Wörtern:\n *break, leg, since yesterday, he*\n einen Satz im *Present Perfect* zu formulieren:"
+          text:  "Versuche bitte aus den folgenden Wörtern:\n *break, leg, be, since yesterday, his*\n einen Satz im *Present Perfect* zu formulieren:"
 
 
   utter_s_dp2_at_q4:

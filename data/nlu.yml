@@ -1054,24 +1054,13 @@ nlu:
   
 - intent: i_dp2_at_q3
   examples: |
-    - [He](e_dp2_at_q3) [has broken](e_dp2_at_q3)  [his](e_dp2_at_q3) [leg](e_dp2_at_q3) [since](e_dp2_at_q3) yesterday
-    - [he](e_dp2_at_q3) [has broken](e_dp2_at_q3)  his [leg](e_dp2_at_q3) [since](e_dp2_at_q3) yesterday
-    - [he](e_dp2_at_q3) [has been](e_dp2_at_q3) broken his [leg](e_dp2_at_q3) [since](e_dp2_at_q3) yesterday
-    - [He](e_dp2_at_q3) [has been](e_dp2_at_q3) broken his [leg](e_dp2_at_q3) [since](e_dp2_at_q3) yesterday
-    - [He](e_dp2_at_q3) [has been](e_dp2_at_q3) trying to [break](e_dp2_at_q3) his own record for the longest [leg](e_dp2_at_q3) of a journey since [yesterday](e_dp2_at_q3).
-    - [He](e_dp2_at_q3) [has been](e_dp2_at_q3) putting off seeing a doctor for his broken [leg](e_dp2_at_q3), but he knows he needs to take care of it soon.
-    - [Since](e_dp2_at_q3) [his](e_dp2_at_q3) [leg](e_dp2_at_q3) injury, he [has been](e_dp2_at_q3) trying to find new hobbies that don't require standing or putting weight on his leg.
-    - [He](e_dp2_at_q3) [has been](e_dp2_at_q3) struggling to break free from the limitations [his](e_dp2_at_q3) [leg](e_dp2_at_q3) injury has placed on him, but he refuses to give up.
-    - Since [yesterday](e_dp2_at_q3), [he](e_dp2_at_q3) [has been](e_dp2_at_q3) trying to [break](e_dp2_at_q3) the bad habit of sitting for long periods of time, as it can lead to leg problems.
-    - [He](e_dp2_at_q3) [has been](e_dp2_at_q3) taking it easy since [breaking](e_dp2_at_q3) his [leg](e_dp2_at_q3) [yesterday](e_dp2_at_q3), and he hopes to be back on his feet soon.
-    - [Yesterday](e_dp2_at_q3), [he](e_dp2_at_q3) took a [break](e_dp2_at_q3) from his usual routine and went for a [relaxing walk](e_dp2_at_q3)] to stretch his leg muscles.
-    - [He](e_dp2_at_q3) [has been](e_dp2_at_q3) struggling with chronic [leg](e_dp2_at_q3) pain [for](e_dp2_at_q3) years, and he finally decided to see a doctor to break the cycle of discomfort.
-    - [He](e_dp2_at_q3) [has broken](e_dp2_at_q3) his [leg](e_dp2_at_q3) before, but [yesterdays](e_dp2_at_q3) injury was the worst one yet.
-    - [Since](e_dp2_at_q3) he [broke](e_dp2_at_q3) his leg [yesterday](e_dp2_at_q3), [he](e_dp2_at_q3) [has been](e_dp2_at_q3) taking it easy and trying not to put too much weight on it.
-    - [He](e_dp2_at_q3) [has been](e_dp2_at_q3) trying to [break](e_dp2_at_q3) the habit of sitting for too long, as it can lead to [leg](e_dp2_at_q3) problems over time.
-    - [Yesterday](e_dp2_at_q3), [he](e_dp2_at_q3) went for a run and felt a sharp pain in his leg, but thankfully it wasn't a serious [break](e_dp2_at_q3).
-    - After [breaking](e_dp2_at_q3) his [leg](e_dp2_at_q3), [he](e_dp2_at_q3) [has been](e_dp2_at_q3) relying on friends and family to help him with everyday tasks.
-
+    - [His](e_dp2_at_q3) [leg](e_dp2_at_q3)  [is](e_dp2_at_q3) [broken](e_dp2_at_q3) [since](e_dp2_at_q3) yesterday
+    - [His](e_dp2_at_q3) [leg](e_dp2_at_q3)  [is broken](e_dp2_at_q3) [since](e_dp2_at_q3) yesterday
+    - [His](e_dp2_at_q3) [leg](e_dp2_at_q3)  [is broken](e_dp2_at_q3) since [yesterday](e_dp2_at_q3)
+    - [His](e_dp2_at_q3) [leg](e_dp2_at_q3) [has been broken](e_dp2_at_q3) [since](e_dp2_at_q3) yesterday
+    - [his](e_dp2_at_q3) [leg](e_dp2_at_q3) [has been broken](e_dp2_at_q3) [since](e_dp2_at_q3) yesterday
+    - [His](e_dp2_at_q3) [leg](e_dp2_at_q3) [has been broken](e_dp2_at_q3) [leg](e_dp2_at_q3) since [yesterday](e_dp2_at_q3)
+    - [his](e_dp2_at_q3) [leg](e_dp2_at_q3) [has been broken](e_dp2_at_q3) since [yesterday](e_dp2_at_q3)
 
 - intent: i_dp2_at_q4
   examples: |

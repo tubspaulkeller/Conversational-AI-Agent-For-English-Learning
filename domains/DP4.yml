@@ -156,7 +156,7 @@ responses:
       - type: section 
         text:
           type: mrkdwn
-          text: "*Quest3A:* Erkläre den Touristen, dass dein Freund aus Gloria kommt und seit wann er dort wohnt. Bitte benutze das *Present Perfect*."
+          text: "*Quest3A:* Erkläre den Touristen, dass *dein Freund* aus Gloria kommt und seit wann *er* dort wohnt. Bitte benutze das *Present Perfect*."
   
   utter_ask_s_dp4_q3B:
   - custom:
@@ -164,7 +164,7 @@ responses:
       - type: section 
         text:
           type: mrkdwn
-          text: "*Quest3B:* Nun erzähle den Touristen, dass du aus Gloria kommst und seit wann du dort wohnst. Bitte benutze das *Present Perfect*"
+          text: "*Quest3B:* Nun erzähle den Touristen, dass *du* aus Gloria kommst und seit wann *du* dort wohnst. Bitte benutze das *Present Perfect*"
   
 
   utter_dp4_finish:

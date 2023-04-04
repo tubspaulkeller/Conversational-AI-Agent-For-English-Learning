@@ -6,6 +6,8 @@ stories:
   steps:
   - intent: i_greet
   - action: action_get_user_credentials
+  - action: action_explain_gamification_elements
+  - action: action_hint_for_rules
   - action: action_set_reminder_set_dp
 
 - story: DP1
