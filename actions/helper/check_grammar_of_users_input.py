@@ -37,21 +37,13 @@ def validate_grammar_for_user_answer(value, json_file, name_of_slot, dispatcher,
         if not exist_present_perfect(name_of_slot, entities, entities_list, dispatcher):
             increase_tries()
             if get_tries() > 2:
-                solution = entities_list[name_of_slot]["solution"]
-                solution_text = "Du hast *keine weiteren Versuche mehr* zur Verfügung. Eine Lösung wäre: *%s*" % solution
-                dispatcher.utter_message(
-                    json_message=markdown_formatting(solution_text))
-                return {name_of_slot: "solution"}
+                return give_solution(name_of_slot, entities_list, dispatcher)
             return {name_of_slot: None}
 
     if not exist_all_parts_of_question(number_of_entities, name_of_slot, entities, entities_list, dispatcher):
         increase_tries()
         if get_tries() > 2:
-            solution = entities_list[name_of_slot]["solution"]
-            solution_text = "Du hast *keine weiteren Versuche mehr* zur Verfügung. Eine Lösung wäre: *%s*" % solution
-            dispatcher.utter_message(
-                json_message=markdown_formatting(solution_text))
-            return {name_of_slot: "solution"}
+            return give_solution(name_of_slot, entities_list, dispatcher)
         return {name_of_slot: None}
 
     # get Userinput
@@ -60,34 +52,40 @@ def validate_grammar_for_user_answer(value, json_file, name_of_slot, dispatcher,
     usertext = usertext[0].upper() + usertext[1:]
 
     if not valid_grammar(usertext, dispatcher):
+        increase_tries()
         if get_tries() > 2:
-            solution = entities_list[name_of_slot]["solution"]
-            solution_text = "Du hast *keine weiteren Versuche mehr* zur Verfügung. Eine Lösung wäre: *%s*" % solution
-            dispatcher.utter_message(
-                json_message=json_formatter(solution_text))
-            return {name_of_slot: "solution"}
-        else:
-            increase_tries()
-            return {name_of_slot: None}
-    else:
-        points = 0
-        if get_tries() == 0:
-            set_points(5, name_of_slot[4: 7])
-            points = 5
-        elif get_tries() == 1:
-            set_points(4, name_of_slot[4: 7])
-            points = 4
-        elif get_tries() == 2:
-            set_points(3, name_of_slot[4: 7])
-            points = 3
+            return give_solution(name_of_slot, entities_list, dispatcher)
+        return {name_of_slot: None}
 
-        resetTries()
-        dispatcher.utter_message(
-            response="utter_correct_answer_qn", points=points)
-        user_score[name_of_slot] = 1
-        return {name_of_slot: True}
-    # else:
-     #   return {name_of_slot: True}
+    return evaluate_points(name_of_slot, dispatcher)
+
+
+def give_solution(name_of_slot, entities_list, dispatcher):
+    solution = entities_list[name_of_slot]["solution"]
+    solution_text = "Du hast *keine weiteren Versuche mehr* zur Verfügung. Eine Lösung wäre: *%s*" % solution
+    dispatcher.utter_message(
+        json_message=markdown_formatting(solution_text))
+    resetTries()
+    return {name_of_slot: "solution"}
+
+
+def evaluate_points(name_of_slot, dispatcher):
+    points = 0
+    if get_tries() == 0:
+        set_points(5, name_of_slot[4: 7])
+        points = 5
+    elif get_tries() == 1:
+        set_points(4, name_of_slot[4: 7])
+        points = 4
+    elif get_tries() == 2:
+        set_points(3, name_of_slot[4: 7])
+        points = 3
+
+    resetTries()
+    dispatcher.utter_message(
+        response="utter_correct_answer_qn", points=points)
+    user_score[name_of_slot] = 1
+    return {name_of_slot: True}
 
 
 def check_if_user_answered_current_question(tracker, name_of_slot, dispatcher):
