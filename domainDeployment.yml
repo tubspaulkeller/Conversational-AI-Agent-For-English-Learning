@@ -879,7 +879,7 @@ responses:
     text: "Lass uns ein kurzes Quiz starten, damit wir dein neues Wissen festigen\
       \ \U0001F601\nSpielregel: F\xFCr eine korrekte Antwort erh\xE4lst du 5 Punkte\
       \ und f\xFCr eine korrekte Antwort im zweiten Versuch erh\xE4lst du 2 Punkte.\
-      \ Du bekommst zwei Chancen von mir die Frage richtig zu beantworten."
+      \ Du bekommst zwei Chancen von mir, die Frage richtig zu beantworten."
   utter_s_dp1_q1/msg:
   - custom:
       blocks:
@@ -1425,7 +1425,7 @@ responses:
       title: "Starte Quiz  \U0001F3AE"
     text: "Spielregel: F\xFCr eine korrekte Antwort erh\xE4lst du 5 Punkte und f\xFC\
       r eine korrekte Antwort im zweiten Versuch erh\xE4lst du 2 Punkte. Du bekommst\
-      \ zwei Chancen von mir die Frage richtig zu beantworten."
+      \ zwei Chancen von mir, die Frage richtig zu beantworten."
   utter_correct_answer_qn:
   - text: "Korrekt! \U0001F60A Damit hast du dir {points} von 5 Punkten verdient!"
   - text: "Richtig! \U0001F389 Du hast {points} von 5 Punkten erzielt."
