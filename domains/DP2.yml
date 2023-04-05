@@ -1,396 +1,385 @@
 version: "3.0"
-intents: 
+intents:
   - i_dp2_q0:
-     use_entities: e_dp2_q0
+      use_entities: e_dp2_q0
   - i_dp2_q1:
-     use_entities: e_dp2_q1
+      use_entities: e_dp2_q1
   - i_dp2_q1_2:
-     use_entities: e_dp2_q1_2
+      use_entities: e_dp2_q1_2
   - i_dp2_q2:
-     use_entities: e_dp2_q2
+      use_entities: e_dp2_q2
   - i_dp2_q3:
-     use_entities: e_dp2_q3
+      use_entities: e_dp2_q3
   - i_dp2_q4:
-     use_entities: e_dp2_q4
+      use_entities: e_dp2_q4
   - i_dp2_q5:
-     use_entities: e_dp2_q5
+      use_entities: e_dp2_q5
   - i_dp2_q6:
-     use_entities: e_dp2_q6
+      use_entities: e_dp2_q6
   - i_dp2_q7:
-     use_entities: e_dp2_q7
+      use_entities: e_dp2_q7
   - i_dp2_q8:
-     use_entities: e_dp2_q8
+      use_entities: e_dp2_q8
 
   - i_dp2_at_q1:
-     use_entities: e_dp2_at_q1
+      use_entities: e_dp2_at_q1
   - i_dp2_at_q2:
-     use_entities: e_dp2_at_q2
+      use_entities: e_dp2_at_q2
   - i_dp2_at_q3:
       use_entities: e_dp2_at_q3
   - i_dp2_at_q4:
       use_entities: e_dp2_at_q4
-  
+
   - i_dp2_evaluation:
-     use_entities: e_dp2_evaluation
+      use_entities: e_dp2_evaluation
 
 entities:
-- e_dp2_q0
-- e_dp2_q1
-- e_dp2_q1_2
-- e_dp2_q2
-- e_dp2_q3
-- e_dp2_q4
-- e_dp2_q5
-- e_dp2_q6
-- e_dp2_q7
-- e_dp2_q8
-- e_dp2_evaluation
-- e_dp2_at_q1
-- e_dp2_at_q2
-- e_dp2_at_q3
-- e_dp2_at_q4
-
+  - e_dp2_q0
+  - e_dp2_q1
+  - e_dp2_q1_2
+  - e_dp2_q2
+  - e_dp2_q3
+  - e_dp2_q4
+  - e_dp2_q5
+  - e_dp2_q6
+  - e_dp2_q7
+  - e_dp2_q8
+  - e_dp2_evaluation
+  - e_dp2_at_q1
+  - e_dp2_at_q2
+  - e_dp2_at_q3
+  - e_dp2_at_q4
 
 slots:
   s_dp2_q0:
     type: text
     mappings:
-    - type: from_entity
-      entity: e_dp2_q0
+      - type: from_entity
+        entity: e_dp2_q0
 
   s_dp2_q1:
     type: text
     mappings:
-    - type: from_entity
-      entity: e_dp2_q1
-    
+      - type: from_entity
+        entity: e_dp2_q1
+
   s_dp2_q1_2:
     type: text
     mappings:
-    - type: from_entity
-      entity: e_dp2_q1_2
+      - type: from_entity
+        entity: e_dp2_q1_2
 
   s_dp2_q2:
     type: text
     mappings:
-    - type: from_entity
-      entity: e_dp2_q2
+      - type: from_entity
+        entity: e_dp2_q2
 
   s_dp2_q3:
     type: text
     mappings:
-    - type: from_entity
-      entity: e_dp2_q3
-  
+      - type: from_entity
+        entity: e_dp2_q3
+
   s_dp2_q4:
     type: text
     mappings:
-    - type: from_entity
-      entity: e_dp2_q4
+      - type: from_entity
+        entity: e_dp2_q4
 
   s_dp2_q5:
     type: text
     mappings:
-    - type: from_entity
-      entity: e_dp2_q5
+      - type: from_entity
+        entity: e_dp2_q5
 
-  
   s_dp2_q6:
     type: text
     mappings:
-    - type: from_entity
-      entity: e_dp2_q6
+      - type: from_entity
+        entity: e_dp2_q6
 
   s_dp2_q7:
     type: text
     mappings:
-    - type: from_entity
-      entity: e_dp2_q7
+      - type: from_entity
+        entity: e_dp2_q7
 
   s_dp2_q8:
     type: text
     mappings:
-    - type: from_entity
-      entity: e_dp2_q8
-
-
-
+      - type: from_entity
+        entity: e_dp2_q8
 
   s_dp2_evaluation:
     type: text
     mappings:
-    - type: from_entity
-      entity: e_dp2_evaluation
+      - type: from_entity
+        entity: e_dp2_evaluation
 
   s_dp2_part_one_end:
     type: text
     mappings:
-    - type: custom
+      - type: custom
 
   s_dp2_at_q1:
     type: text
     mappings:
-    - type: from_entity
-      entity: e_dp2_at_q1
+      - type: from_entity
+        entity: e_dp2_at_q1
 
   s_dp2_at_q2:
     type: list
     mappings:
-    - type: from_entity
-      entity: e_dp2_at_q2
-      intent: i_dp2_at_q2
-      not_intent: 
-      - i_dp2_at_q3
-      - i_dp2_at_q4
-  
+      - type: from_entity
+        entity: e_dp2_at_q2
+        intent: i_dp2_at_q2
+        not_intent:
+          - i_dp2_at_q3
+          - i_dp2_at_q4
+
   s_dp2_at_q3:
     type: list
     mappings:
-    - type: from_entity
-      entity: e_dp2_at_q3
-      intent: i_dp2_at_q3
-      not_intent: 
-      - i_dp2_at_q2
-      - i_dp2_at_q4
+      - type: from_entity
+        entity: e_dp2_at_q3
+        intent: i_dp2_at_q3
+        not_intent:
+          - i_dp2_at_q2
+          - i_dp2_at_q4
 
   s_dp2_at_q4:
     type: list
     mappings:
-    - type: from_entity
-      entity: e_dp2_at_q4
-      intent: i_dp2_at_q4
-      not_intent: 
-      - i_dp2_at_q2
-      - i_dp2_at_q3
-
-
+      - type: from_entity
+        entity: e_dp2_at_q4
+        intent: i_dp2_at_q4
+        not_intent:
+          - i_dp2_at_q2
+          - i_dp2_at_q3
 
   s_dp2_part_two_end:
     type: text
     mappings:
-    - type: custom
-    
-responses:
+      - type: custom
 
+responses:
   utter_ask_s_dp2_q0:
-  - buttons:
-    - payload: /i_dp2_q0{{"e_dp2_q0":"AFFIRM"}}
-      title: Alles klar, das klingt gut! 😊
-    text: Wie du weißt, habe ich den gleichen Studiengang wie du belegt. Ich bin allerdings schon im 4. Semester und wenn du magst, dann kann ich dir als dein Lern-Companion Tipps zu diesem Kurs geben und gemeinsam mit dir üben! 😁  
+    - buttons:
+        - payload: /i_dp2_q0{{"e_dp2_q0":"AFFIRM"}}
+          title: Alles klar, das klingt gut! 😊
+      text: Wie du weißt, habe ich den gleichen Studiengang wie du belegt. Ich bin allerdings schon im 4. Semester und wenn du magst, dann kann ich dir als dein Lern-Companion Tipps zu diesem Kurs geben und gemeinsam mit dir üben! 😁
 
   utter_s_dp2_q1:
-  - buttons:
-    - payload: /i_dp2_q1{{"e_dp2_q1":"Zusammenfassung"}}
-      title: Zusammenfassung
-    
-   # - payload: /i_dp2_q1{{"e_dp2_q1":"Abzeichen"}}
-    #  title: Bedingungen für Abzeichen 
+    - buttons:
+        - payload: /i_dp2_q1{{"e_dp2_q1":"Zusammenfassung"}}
+          title: Zusammenfassung
 
-    - payload: /i_dp2_q1{{"e_dp2_q1":"Quiz"}}
-      title: Quiz
-    text: Soll ich dir eine kurze Zusammenfassung zum Present Perfect geben oder möchtest du direkt das Quiz beginnen?
+        # - payload: /i_dp2_q1{{"e_dp2_q1":"Abzeichen"}}
+        #  title: Bedingungen für Abzeichen
+
+        - payload: /i_dp2_q1{{"e_dp2_q1":"Quiz"}}
+          title: Quiz
+      text: Soll ich dir eine kurze Zusammenfassung zum Present Perfect geben oder möchtest du direkt das Quiz beginnen?
 
   utter_ask_s_dp2_q1_2:
-  - buttons:
-    - payload: /i_dp2_q1_2{{"e_dp2_q1_2":"START_QUIZ"}}
-      title: Starte Quiz  🎮
-    text: "Spielregel: Für eine korrekte Antwort erhälst du 5 Punkte und für eine korrekte Antwort im zweiten Versuch erhälst du 2 Punkte. Du bekommst zwei Chancen von mir, die Frage richtig zu beantworten."
+    - buttons:
+        - payload: /i_dp2_q1_2{{"e_dp2_q1_2":"START_QUIZ"}}
+          title: Starte Quiz  🎮
+      text: "Spielregel: Für eine korrekte Antwort erhältst du 5 Punkte und für eine korrekte Antwort im zweiten Versuch erhältst du 2 Punkte. Du bekommst zwei Chancen von mir, die Frage richtig zu beantworten."
 
   utter_correct_answer_qn:
-  - text: Korrekt! 😊 Damit hast du dir {points} von 5 Punkten verdient!
-  - text: Richtig! 🎉 Du hast {points} von 5 Punkten erzielt.
-  - text: Super, richitg! 🙌 {points} von 5 Punkten gehen auf dein Konto.
-  - text: Gut gemacht! Du hast {points} von 5 Punkten erzielt. 🎉
+    - text: Korrekt! 😊 Damit hast du dir {points} von 5 Punkten verdient!
+    - text: Richtig! 🎉 Du hast {points} von 5 Punkten erzielt.
+    - text: Super, richitg! 🙌 {points} von 5 Punkten gehen auf dein Konto.
+    - text: Gut gemacht! Du hast {points} von 5 Punkten erzielt. 🎉
 
   utter_wrong_answer:
-  - text: Das war leider nicht richtig. Versuche dir die Bildung durch 'have/has' + 'dritte From des Verbs' vor Auge zu führen. Damit sollte es die erfahrungsgemäß am einfachsten gelingen, das Present Perfect zu erkennen 👌
-  
+    - text: Das war leider nicht richtig. Versuche dir die Bildung durch 'have/has' + 'dritte From des Verbs' vor Auge zu führen. Damit sollte es die erfahrungsgemäß am einfachsten gelingen, das Present Perfect zu erkennen 👌
+
   utter_zusammenfassung:
-  - custom:
-      blocks:
-      - type: section 
-        text:
-          type: mrkdwn
-          text: " Gerne doch! 😊\n*Bildung:* 'have/has' + dritte Form des Verbs\n*Verwendung:*\n - Etwas hat in der Vergangenheit begonnen und dauert bis in die Gegenwart an\n - Etwas wurde in der Vergangenheit abgeschlossen, aber die Folgen reichen bis in die Gegenwart"
-  
+    - custom:
+        blocks:
+          - type: section
+            text:
+              type: mrkdwn
+              text: " Gerne doch! 😊\n*Bildung:* 'have/has' + dritte Form des Verbs\n*Verwendung:*\n - Etwas hat in der Vergangenheit begonnen und dauert bis in die Gegenwart an\n - Etwas wurde in der Vergangenheit abgeschlossen, aber die Folgen reichen bis in die Gegenwart"
+
   utter_abzeichen:
-  - custom:
-      blocks:
-      - type: section 
-        text:
-          type: mrkdwn
-          text: "*Abzeichen* werden für herausragende Leistungen verliehen und stehen somit für Erfolge, die durch besondere Leistungen erzielt wurden. Wenn du beispielsweise *60% der Punkte erreichst*, wirst du dafür mit einem *Abzeichen belohnt*."
-  
+    - custom:
+        blocks:
+          - type: section
+            text:
+              type: mrkdwn
+              text: "*Abzeichen* werden für herausragende Leistungen verliehen und stehen somit für Erfolge, die durch besondere Leistungen erzielt wurden. Wenn du beispielsweise *60% der Punkte erreichst*, wirst du dafür mit einem *Abzeichen belohnt*."
+
   utter_s_dp2_q2:
-  - buttons:
-    - payload: /i_dp2_q2{{"e_dp2_q2":"have played"}}
-      title: have played
+    - buttons:
+        - payload: /i_dp2_q2{{"e_dp2_q2":"have played"}}
+          title: have played
 
-    - payload: /i_dp2_q2{{"e_dp2_q2":"jumped"}}
-      title: jumped
+        - payload: /i_dp2_q2{{"e_dp2_q2":"jumped"}}
+          title: jumped
 
-    - payload: /i_dp2_q2{{"e_dp2_q2":"skip"}}
-      title: skip
+        - payload: /i_dp2_q2{{"e_dp2_q2":"skip"}}
+          title: skip
 
-    - payload: /i_dp2_q2{{"e_dp2_q2":"return"}}
-      title: return
-    text: "(Frage 1 von 4): Bei welchem der folgenden Wörter handelt es sich um eine Present Perfect-Form? 🤔"
+        - payload: /i_dp2_q2{{"e_dp2_q2":"return"}}
+          title: return
+      text: "(Frage 1 von 4): Bei welchem der folgenden Wörter handelt es sich um eine Present Perfect-Form? 🤔"
 
-  
   utter_s_dp2_q3:
-  - buttons:
-    - payload: /i_dp2_q3{{"e_dp2_q3":"stole"}}
-      title: stole
+    - buttons:
+        - payload: /i_dp2_q3{{"e_dp2_q3":"stole"}}
+          title: stole
 
-    - payload: /i_dp2_q3{{"e_dp2_q3":"swam"}}
-      title: swam
+        - payload: /i_dp2_q3{{"e_dp2_q3":"swam"}}
+          title: swam
 
-    - payload: /i_dp2_q3{{"e_dp2_q3":"fought"}}
-      title: fought
+        - payload: /i_dp2_q3{{"e_dp2_q3":"fought"}}
+          title: fought
 
-    - payload: /i_dp2_q3{{"e_dp2_q3":"have bought"}}
-      title: have bought
-    text: "(Frage 2 von 4): Welches der folgenden Wörter ist eine Present Perfect-Form? 🤔"
+        - payload: /i_dp2_q3{{"e_dp2_q3":"have bought"}}
+          title: have bought
+      text: "(Frage 2 von 4): Welches der folgenden Wörter ist eine Present Perfect-Form? 🤔"
 
-  utter_s_dp2_q4/msg: 
-  - custom:
-      blocks:
-      - type: section 
-        text:
-          text: "(Frage 3 von 4): Bei welchem der folgenden Wörter handelt es sich *nicht* um eine Present Perfect-Form? 🤔"
-          type: mrkdwn
-  
+  utter_s_dp2_q4/msg:
+    - custom:
+        blocks:
+          - type: section
+            text:
+              text: "(Frage 3 von 4): Bei welchem der folgenden Wörter handelt es sich *nicht* um eine Present Perfect-Form? 🤔"
+              type: mrkdwn
+
   utter_s_dp2_q4/button:
-  - buttons:
-    - payload: /i_dp2_q4{{"e_dp2_q4":"mean"}}
-      title: mean
+    - buttons:
+        - payload: /i_dp2_q4{{"e_dp2_q4":"mean"}}
+          title: mean
 
-    - payload: /i_dp2_q4{{"e_dp2_q4":"have called"}}
-      title: have called
+        - payload: /i_dp2_q4{{"e_dp2_q4":"have called"}}
+          title: have called
 
-    - payload: /i_dp2_q4{{"e_dp2_q4":"have talked"}}
-      title: have talked
+        - payload: /i_dp2_q4{{"e_dp2_q4":"have talked"}}
+          title: have talked
 
-    - payload: /i_dp2_q4{{"e_dp2_q4":"have done"}}
-      title: have done
-    text: " "
+        - payload: /i_dp2_q4{{"e_dp2_q4":"have done"}}
+          title: have done
+      text: " "
 
-  utter_s_dp2_q5/msg: 
-  - custom:
-      blocks:
-      - type: section 
-        text:
-          text: "(Frage 4 von 4): Bei welchem der folgenden Wörter handelt es sich *nicht* um eine Present Perfect-Form? 🤔"
-          type: mrkdwn
-  
+  utter_s_dp2_q5/msg:
+    - custom:
+        blocks:
+          - type: section
+            text:
+              text: "(Frage 4 von 4): Bei welchem der folgenden Wörter handelt es sich *nicht* um eine Present Perfect-Form? 🤔"
+              type: mrkdwn
+
   utter_s_dp2_q5/button:
-  - buttons:
-    - payload: /i_dp2_q5{{"e_dp2_q5":"have cleaned"}}
-      title: have cleaned
+    - buttons:
+        - payload: /i_dp2_q5{{"e_dp2_q5":"have cleaned"}}
+          title: have cleaned
 
-    - payload: /i_dp2_q5{{"e_dp2_q5":"have buried"}}
-      title: have buried
+        - payload: /i_dp2_q5{{"e_dp2_q5":"have buried"}}
+          title: have buried
 
-    - payload: /i_dp2_q5{{"e_dp2_q5":"meant"}}
-      title: meant
+        - payload: /i_dp2_q5{{"e_dp2_q5":"meant"}}
+          title: meant
 
-    - payload: /i_dp2_q5{{"e_dp2_q5":"have cancelled"}}
-      title: have cancelled
-    text: " "
+        - payload: /i_dp2_q5{{"e_dp2_q5":"have cancelled"}}
+          title: have cancelled
+      text: " "
 
   utter_ask_s_dp2_q6:
-  - buttons:
-    - payload: /i_dp2_q6{{"e_dp2_q6":"kept"}}
-      title: kept
+    - buttons:
+        - payload: /i_dp2_q6{{"e_dp2_q6":"kept"}}
+          title: kept
 
-    - payload: /i_dp2_q6{{"e_dp2_q6":"have cried"}}
-      title: have cried
+        - payload: /i_dp2_q6{{"e_dp2_q6":"have cried"}}
+          title: have cried
 
-    - payload: /i_dp2_q6{{"e_dp2_q6":"moved"}}
-      title: moved
+        - payload: /i_dp2_q6{{"e_dp2_q6":"moved"}}
+          title: moved
 
-    - payload: /i_dp2_q6{{"e_dp2_q6":"is working"}}
-      title: is working
-    text: "(Frage 5 von 7): Welches der folgenden Wörter ist eine Present Perfect-Form? 🤔"
+        - payload: /i_dp2_q6{{"e_dp2_q6":"is working"}}
+          title: is working
+      text: "(Frage 5 von 7): Welches der folgenden Wörter ist eine Present Perfect-Form? 🤔"
 
   utter_ask_s_dp2_q7:
-  - buttons:
-    - payload: /i_dp2_q7{{"e_dp2_q7":"deny"}}
-      title: deny
+    - buttons:
+        - payload: /i_dp2_q7{{"e_dp2_q7":"deny"}}
+          title: deny
 
-    - payload: /i_dp2_q7{{"e_dp2_q7":"used"}}
-      title: used
+        - payload: /i_dp2_q7{{"e_dp2_q7":"used"}}
+          title: used
 
-    - payload: /i_dp2_q7{{"e_dp2_q7":"drove"}}
-      title: drove
+        - payload: /i_dp2_q7{{"e_dp2_q7":"drove"}}
+          title: drove
 
-    - payload: /i_dp2_q7{{"e_dp2_q7":"have smiled"}}
-      title: have smiled
-    text: "(Frage 6 von 7): Welches der folgenden Wörter ist eine Present Perfect-Form? 🤔"
+        - payload: /i_dp2_q7{{"e_dp2_q7":"have smiled"}}
+          title: have smiled
+      text: "(Frage 6 von 7): Welches der folgenden Wörter ist eine Present Perfect-Form? 🤔"
 
-  utter_s_dp2_q8/msg: 
-  - custom:
-      blocks:
-      - type: section 
-        text:
-          text: "(Frage 7 von 7): Bei welchem der folgenden Wörter handelt es sich *nicht* um eine Present Perfect-Form? 🤔"
-          type: mrkdwn
-  
+  utter_s_dp2_q8/msg:
+    - custom:
+        blocks:
+          - type: section
+            text:
+              text: "(Frage 7 von 7): Bei welchem der folgenden Wörter handelt es sich *nicht* um eine Present Perfect-Form? 🤔"
+              type: mrkdwn
+
   utter_s_dp2_q8/button:
-  - buttons:
-    - payload: /i_dp2_q8{{"e_dp2_q8":"have travelled"}}
-      title: have travelled
+    - buttons:
+        - payload: /i_dp2_q8{{"e_dp2_q8":"have travelled"}}
+          title: have travelled
 
-    - payload: /i_dp2_q8{{"e_dp2_q8":"is turning"}}
-      title: is turning
+        - payload: /i_dp2_q8{{"e_dp2_q8":"is turning"}}
+          title: is turning
 
-    - payload: /i_dp2_q8{{"e_dp2_q8":"have watched"}}
-      title: have watched
+        - payload: /i_dp2_q8{{"e_dp2_q8":"have watched"}}
+          title: have watched
 
-    - payload: /i_dp2_q8{{"e_dp2_q8":"have written"}}
-      title: have written
-    text: " "
-
+        - payload: /i_dp2_q8{{"e_dp2_q8":"have written"}}
+          title: have written
+      text: " "
 
   utter_ask_s_dp2_evaluation:
-  - buttons:
-    - payload: /i_dp2_evaluation{{"e_dp2_evaluation":"EVALUATION"}}
-      title: Quiz Auswertung 📊
-    text: " "
-  
+    - buttons:
+        - payload: /i_dp2_evaluation{{"e_dp2_evaluation":"EVALUATION"}}
+          title: Quiz Auswertung 📊
+      text: " "
+
   utter_s_dp2_at_q1:
-  - buttons:
-    - payload: /i_dp2_at_q1{{"e_dp2_at_q1":"yes"}}
-      title: Ja
-    - payload: /i_dp2_at_q1{{"e_dp2_at_q1":"no"}}
-      title: Nein
-    text: "Die Klausuren der letzten Jahre bestanden zu einem Großteil aus Anwendungsaufgaben. Wollen wir zusammen so eine Anwendungsaufgabe üben, damit du gut vorbereitet bist?"
+    - buttons:
+        - payload: /i_dp2_at_q1{{"e_dp2_at_q1":"yes"}}
+          title: Ja
+        - payload: /i_dp2_at_q1{{"e_dp2_at_q1":"no"}}
+          title: Nein
+      text: "Die Klausuren der letzten Jahre bestanden zu einem Großteil aus Anwendungsaufgaben. Wollen wir zusammen so eine Anwendungsaufgabe üben, damit du gut vorbereitet bist?"
 
   utter_s_dp2_at_q2:
-  - custom:
-      blocks:
-      - type: section 
-        text:
-          type: mrkdwn
-          text: "Versuche bitte aus den folgenden Wörtern:\n *Germany, She, since, live*\n einen Satz im *Present Perfect* zu formulieren:"
+    - custom:
+        blocks:
+          - type: section
+            text:
+              type: mrkdwn
+              text: "Versuche bitte aus den folgenden Wörtern:\n *Germany, She, since, live*\n einen Satz im *Present Perfect* zu formulieren:"
 
   utter_s_dp2_at_q3:
-  - custom:
-      blocks:
-      - type: section 
-        text:
-          type: mrkdwn
-          text:  "Versuche bitte aus den folgenden Wörtern:\n *break, leg, be, since yesterday, his*\n einen Satz im *Present Perfect* zu formulieren:"
-
+    - custom:
+        blocks:
+          - type: section
+            text:
+              type: mrkdwn
+              text: "Versuche bitte aus den folgenden Wörtern:\n *break, leg, be, since yesterday, his*\n einen Satz im *Present Perfect* zu formulieren:"
 
   utter_s_dp2_at_q4:
-  - custom:
-      blocks:
-      - type: section 
-        text:
-          type: mrkdwn
-          text:  "Versuche bitte aus den folgenden Wörtern:\n *never, She, London, be*\n einen Satz im *Present Perfect* zu formulieren:"
-  
+    - custom:
+        blocks:
+          - type: section
+            text:
+              type: mrkdwn
+              text: "Versuche bitte aus den folgenden Wörtern:\n *never, She, London, be*\n einen Satz im *Present Perfect* zu formulieren:"
+
 actions:
   - validate_dp2_application_tasks_form
   - validate_dp2_form
@@ -408,30 +397,26 @@ actions:
   - action_ask_s_dp2_part_two_end
   - action_ask_s_dp2_part_one_end
 
-
-
 forms:
   dp2_form:
     required_slots:
-    - s_dp2_q0
-    - s_dp2_q1
-    - s_dp2_q1_2
-    - s_dp2_q2
-    - s_dp2_q3
-    - s_dp2_q4
-    - s_dp2_q5
-    #- s_dp2_q6
-    #- s_dp2_q7
-    #- s_dp2_q8
-    - s_dp2_evaluation
-    - s_dp2_part_one_end 
+      - s_dp2_q0
+      - s_dp2_q1
+      - s_dp2_q1_2
+      - s_dp2_q2
+      - s_dp2_q3
+      - s_dp2_q4
+      - s_dp2_q5
+      #- s_dp2_q6
+      #- s_dp2_q7
+      #- s_dp2_q8
+      - s_dp2_evaluation
+      - s_dp2_part_one_end
 
   dp2_application_tasks_form:
     required_slots:
-    - s_dp2_at_q1 
-    - s_dp2_at_q2 
-    - s_dp2_at_q3
-    - s_dp2_at_q4
-    - s_dp2_part_two_end 
-
-
+      - s_dp2_at_q1
+      - s_dp2_at_q2
+      - s_dp2_at_q3
+      - s_dp2_at_q4
+      - s_dp2_part_two_end

@@ -437,4 +437,4 @@ def utter_shorter_learntime(dispatcher, quest, goal):
 
 def utter_longer_learntime(dispatcher, quest, goal):
     dispatcher.utter_message(
-        json_message=markdown_formatting("*Cool*, dann erhöhren wir das %s von 60 auf 85 Fragen. So kannst du dein Ziel *%s* sogar übertreffen!" % (quest, goal)))
+        json_message=markdown_formatting("*Cool*, dann erhöhen wir das %s von 60 auf 85 Fragen. So kannst du dein Ziel *%s* sogar übertreffen!" % (quest, goal)))

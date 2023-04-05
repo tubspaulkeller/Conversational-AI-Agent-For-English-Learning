@@ -1,7 +1,6 @@
 version: "3.0"
 
 intents:
-
   - i_dp1_q0:
       use_entities: e_dp1_q0
   - i_dp1_q1:
@@ -28,9 +27,6 @@ intents:
       use_entities: e_dp1_q11
   - i_dp1_q12:
       use_entities: e_dp1_q12
-  
-    
-
 
   - i_dp1_evaluation:
       use_entities: e_dp1_evaluation
@@ -40,13 +36,13 @@ intents:
 entities:
   - e_dp1_q0
   - e_dp1_q1
-  - e_dp1_q2 
+  - e_dp1_q2
   - e_dp1_q3
   - e_dp1_q4
-  - e_dp1_q5 
+  - e_dp1_q5
   - e_dp1_q6
   - e_dp1_q7
-  - e_dp1_q8 
+  - e_dp1_q8
   - e_dp1_q9
   - e_dp1_q10
   - e_dp1_q11
@@ -55,354 +51,353 @@ entities:
   - e_dp1_long_term_scenario
 
 slots:
-  s_dp1_q0:  
+  s_dp1_q0:
     type: text
     mappings:
-    - type: from_entity
-      entity: e_dp1_q0
+      - type: from_entity
+        entity: e_dp1_q0
 
   s_dp1_q1:
     type: text
     mappings:
-    - type: from_entity
-      entity: e_dp1_q1
+      - type: from_entity
+        entity: e_dp1_q1
 
   s_dp1_q2:
     type: text
     mappings:
-    - type: from_entity
-      entity: e_dp1_q2
+      - type: from_entity
+        entity: e_dp1_q2
 
   s_dp1_q3:
     type: text
     mappings:
-    - type: from_entity
-      entity: e_dp1_q3
-      
+      - type: from_entity
+        entity: e_dp1_q3
+
   s_dp1_q4:
     type: text
     mappings:
-    - type: from_entity
-      entity: e_dp1_q4
-  
+      - type: from_entity
+        entity: e_dp1_q4
+
   s_dp1_q5:
     type: text
     mappings:
-    - type: from_entity
-      entity: e_dp1_q5
+      - type: from_entity
+        entity: e_dp1_q5
 
   s_dp1_q6:
     type: text
     mappings:
-    - type: from_entity
-      entity: e_dp1_q6
-  
+      - type: from_entity
+        entity: e_dp1_q6
+
   s_dp1_q7:
     type: text
     mappings:
-    - type: from_entity
-      entity: e_dp1_q7
-    
+      - type: from_entity
+        entity: e_dp1_q7
+
   s_dp1_q8:
     type: text
     mappings:
-    - type: from_entity
-      entity: e_dp1_q8
-      
+      - type: from_entity
+        entity: e_dp1_q8
+
   s_dp1_q9:
     type: text
     mappings:
-    - type: from_entity
-      entity: e_dp1_q9
-  
+      - type: from_entity
+        entity: e_dp1_q9
+
   s_dp1_q10:
     type: text
     mappings:
-    - type: from_entity
-      entity: e_dp1_q10
+      - type: from_entity
+        entity: e_dp1_q10
 
   s_dp1_q11:
     type: text
     mappings:
-    - type: from_entity
-      entity: e_dp1_q11
-  
+      - type: from_entity
+        entity: e_dp1_q11
+
   s_dp1_q12:
     type: text
     mappings:
-    - type: from_entity
-      entity: e_dp1_q12
+      - type: from_entity
+        entity: e_dp1_q12
 
   s_dp1_evaluation:
     type: text
     mappings:
-    - type: from_entity
-      entity: e_dp1_evaluation
+      - type: from_entity
+        entity: e_dp1_evaluation
 
   s_dp1_end:
     type: text
     mappings:
-    - type: custom
+      - type: custom
 
   s_dp1_long_term_scenario:
     type: text
     mappings:
-    - type: from_entity
-      entity: e_dp1_long_term_scenario
+      - type: from_entity
+        entity: e_dp1_long_term_scenario
 
   s_dp1_call_next_dp:
     type: text
     mappings:
-    - type: custom
+      - type: custom
 
-    
 responses:
   utter_ask_s_dp1_q0:
-  - buttons:
-    - payload: /i_dp1_q0{{"e_dp1_q0":"PLAY"}}
-      title: Legen wir los! 🎮
-    text: "Lass uns ein kurzes Quiz starten, damit wir dein neues Wissen festigen 😁\nSpielregel: Für eine korrekte Antwort erhälst du 5 Punkte und für eine korrekte Antwort im zweiten Versuch erhälst du 2 Punkte. Du bekommst zwei Chancen von mir, die Frage richtig zu beantworten."
+    - buttons:
+        - payload: /i_dp1_q0{{"e_dp1_q0":"PLAY"}}
+          title: Legen wir los! 🎮
+      text: "Lass uns ein kurzes Quiz starten, damit wir dein neues Wissen festigen 😁\nSpielregel: Für eine korrekte Antwort erhältst du 5 Punkte und für eine korrekte Antwort im zweiten Versuch erhältst du 2 Punkte. Du bekommst zwei Chancen von mir, die Frage richtig zu beantworten."
 
-  utter_s_dp1_q1/msg: 
-  - custom:
-      blocks:
-      - type: section 
-        text:
-          text: "Bei welchem der folgenden Wörter handelt es sich *nicht* um eine Simple-Past-Form?"
-          type: mrkdwn
-
-  utter_s_dp1_q1/button:
-  - buttons:
-    - payload: /i_dp1_q1{{"e_dp1_q1":"Went"}}
-      title: went
-
-    - payload: /i_dp1_q1{{"e_dp1_q1":"Drank"}}
-      title: drank
-
-    - payload: /i_dp1_q1{{"e_dp1_q1":"Sleep"}}
-      title: sleep
-
-    - payload: /i_dp1_q1{{"e_dp1_q1":"Bought"}}
-      title: bought
-    text: " "
-
-  utter_ask_s_dp1_q2:
-  - buttons:
-    - payload: /i_dp1_q2{{"e_dp1_q2":"Sell"}}
-      title: sell
-
-    - payload: /i_dp1_q2{{"e_dp1_q2":"Fought"}}
-      title: fought
-
-    - payload: /i_dp1_q2{{"e_dp1_q2":"Run"}}
-      title: run
-
-    - payload: /i_dp1_q2{{"e_dp1_q2":"Wash"}}
-      title: wash
-    text: "\nWelches der folgenden Wörter ist eine Simple Past-Form?"
-  
-  utter_s_dp1_q3/msg: 
-  - custom:
-      blocks:
-      - type: section 
-        text:
-          text: "\nWelches der folgenden Wörter ist *keine* Simple Past-Form? 🤔"
-          type: mrkdwn
-
-  utter_s_dp1_q3/button:
-  - buttons:
-    - payload: /i_dp1_q3{{"e_dp1_q3":"Visited"}}
-      title: visited
-
-    - payload: /i_dp1_q3{{"e_dp1_q3":"Take"}}
-      title: take
-
-    - payload: /i_dp1_q3{{"e_dp1_q3":"Ate"}}
-      title: ate
-
-    - payload: /i_dp1_q3{{"e_dp1_q3":"Drove"}}
-      title: drove
-    text: " "
-
-  utter_ask_s_dp1_q4:
-  - buttons:
-    - payload: /i_dp1_q4{{"e_dp1_q4":"am calling"}}
-      title: am calling
-
-    - payload: /i_dp1_q4{{"e_dp1_q4":"called"}}
-      title: called
-
-    - payload: /i_dp1_q4{{"e_dp1_q4":"sleep"}}
-      title: sleep
-
-    - payload: /i_dp1_q4{{"e_dp1_q4":"built"}}
-      title: built
-    text: "\nBei welchem der folgenden Wörter handelt es sich um eine Present-Progressiv-Form?"
-
-  utter_s_dp1_q5/msg: 
-  - custom:
-      blocks:
-      - type: section 
-        text:
-          text: "\nBei welchem der folgenden Wörter handelt es sich *nicht* um eine Present-Progressiv-Form? 🤔"
-          type: mrkdwn
-
-  utter_s_dp1_q5/button:
-  - buttons:
-    - payload: /i_dp1_q5{{"e_dp1_q5":"are jumping"}}
-      title: are jumping
-
-    - payload: /i_dp1_q5{{"e_dp1_q5":"am speaking"}}
-      title: am speaking
-
-    - payload: /i_dp1_q5{{"e_dp1_q5":"flew"}}
-      title: flew
-
-    - payload: /i_dp1_q5{{"e_dp1_q5":"is growing"}}
-      title: is growing
-    text: " "
-
-  utter_s_dp1_q6/msg: 
-  - custom:
-      blocks:
-      - type: section 
-        text:
-          text: "\nWelches der folgenden Wörter ist *keine* Simple Past-Form? 🤔"
-          type: mrkdwn
-
-  utter_s_dp1_q6/button:
-  - buttons:
-    - payload: /i_dp1_q6{{"e_dp1_q6":"fly"}}
-      title: fly
-
-    - payload: /i_dp1_q6{{"e_dp1_q6":"carried"}}
-      title: carried
-
-    - payload: /i_dp1_q6{{"e_dp1_q6":"raised"}}
-      title: raised
-
-    - payload: /i_dp1_q6{{"e_dp1_q6":"brought"}}
-      title: brought
-    text: " "
-
-  utter_ask_s_dp1_q7:
-  - buttons:
-    - payload: /i_dp1_q7{{"e_dp1_q7":"study"}}
-      title: study
-
-    - payload: /i_dp1_q7{{"e_dp1_q7":"seen"}}
-      title: seen
-
-    - payload: /i_dp1_q7{{"e_dp1_q7":"looked"}}
-      title: looked
-
-    - payload: /i_dp1_q7{{"e_dp1_q7":"walk"}}
-      title: walk
-    text: "\nWelches der folgenden Wörter ist eine Simple Past-Form?"
-
-  utter_ask_s_dp1_q8:
-  - buttons:
-    - payload: /i_dp1_q8{{"e_dp1_q8":"have gone"}}
-      title: have gone
-
-    - payload: /i_dp1_q8{{"e_dp1_q8":"catch"}}
-      title: catch
-
-    - payload: /i_dp1_q8{{"e_dp1_q8":"are playing"}}
-      title: are playing
-
-    - payload: /i_dp1_q8{{"e_dp1_q8":"played"}}
-      title: played
-    text: "\nBei welchem der folgenden Wörter handelt es sich um eine Present-Progressiv-Form?"
-
-  utter_s_dp1_q9/msg: 
-  - custom:
-      blocks:
-      - type: section 
-        text:
-          text: "\nBei welchem der folgenden Wörter handelt es sich *nicht* um eine Present-Progressiv-Form? 🤔"
-          type: mrkdwn
-
-  utter_s_dp1_q9/button:
-  - buttons:
-    - payload: /i_dp1_q9{{"e_dp1_q9":"is going"}}
-      title: is going
-
-    - payload: /i_dp1_q9{{"e_dp1_q9":"written"}}
-      title: written
-
-    - payload: /i_dp1_q9{{"e_dp1_q9":"is lying"}}
-      title: is lying
-
-    - payload: /i_dp1_q9{{"e_dp1_q9":"is happening"}}
-      title: is happening
-    text: " "
- 
-  utter_s_dp1_q10/msg: 
+  utter_s_dp1_q1/msg:
     - custom:
         blocks:
-        - type: section 
-          text:
-            text: "\nWelches der folgenden Wörter ist *keine* Simple Past-Form? 🤔"
-            type: mrkdwn
+          - type: section
+            text:
+              text: "Bei welchem der folgenden Wörter handelt es sich *nicht* um eine Simple-Past-Form?"
+              type: mrkdwn
+
+  utter_s_dp1_q1/button:
+    - buttons:
+        - payload: /i_dp1_q1{{"e_dp1_q1":"Went"}}
+          title: went
+
+        - payload: /i_dp1_q1{{"e_dp1_q1":"Drank"}}
+          title: drank
+
+        - payload: /i_dp1_q1{{"e_dp1_q1":"Sleep"}}
+          title: sleep
+
+        - payload: /i_dp1_q1{{"e_dp1_q1":"Bought"}}
+          title: bought
+      text: " "
+
+  utter_ask_s_dp1_q2:
+    - buttons:
+        - payload: /i_dp1_q2{{"e_dp1_q2":"Sell"}}
+          title: sell
+
+        - payload: /i_dp1_q2{{"e_dp1_q2":"Fought"}}
+          title: fought
+
+        - payload: /i_dp1_q2{{"e_dp1_q2":"Run"}}
+          title: run
+
+        - payload: /i_dp1_q2{{"e_dp1_q2":"Wash"}}
+          title: wash
+      text: "\nWelches der folgenden Wörter ist eine Simple Past-Form?"
+
+  utter_s_dp1_q3/msg:
+    - custom:
+        blocks:
+          - type: section
+            text:
+              text: "\nWelches der folgenden Wörter ist *keine* Simple Past-Form? 🤔"
+              type: mrkdwn
+
+  utter_s_dp1_q3/button:
+    - buttons:
+        - payload: /i_dp1_q3{{"e_dp1_q3":"Visited"}}
+          title: visited
+
+        - payload: /i_dp1_q3{{"e_dp1_q3":"Take"}}
+          title: take
+
+        - payload: /i_dp1_q3{{"e_dp1_q3":"Ate"}}
+          title: ate
+
+        - payload: /i_dp1_q3{{"e_dp1_q3":"Drove"}}
+          title: drove
+      text: " "
+
+  utter_ask_s_dp1_q4:
+    - buttons:
+        - payload: /i_dp1_q4{{"e_dp1_q4":"am calling"}}
+          title: am calling
+
+        - payload: /i_dp1_q4{{"e_dp1_q4":"called"}}
+          title: called
+
+        - payload: /i_dp1_q4{{"e_dp1_q4":"sleep"}}
+          title: sleep
+
+        - payload: /i_dp1_q4{{"e_dp1_q4":"built"}}
+          title: built
+      text: "\nBei welchem der folgenden Wörter handelt es sich um eine Present-Progressiv-Form?"
+
+  utter_s_dp1_q5/msg:
+    - custom:
+        blocks:
+          - type: section
+            text:
+              text: "\nBei welchem der folgenden Wörter handelt es sich *nicht* um eine Present-Progressiv-Form? 🤔"
+              type: mrkdwn
+
+  utter_s_dp1_q5/button:
+    - buttons:
+        - payload: /i_dp1_q5{{"e_dp1_q5":"are jumping"}}
+          title: are jumping
+
+        - payload: /i_dp1_q5{{"e_dp1_q5":"am speaking"}}
+          title: am speaking
+
+        - payload: /i_dp1_q5{{"e_dp1_q5":"flew"}}
+          title: flew
+
+        - payload: /i_dp1_q5{{"e_dp1_q5":"is growing"}}
+          title: is growing
+      text: " "
+
+  utter_s_dp1_q6/msg:
+    - custom:
+        blocks:
+          - type: section
+            text:
+              text: "\nWelches der folgenden Wörter ist *keine* Simple Past-Form? 🤔"
+              type: mrkdwn
+
+  utter_s_dp1_q6/button:
+    - buttons:
+        - payload: /i_dp1_q6{{"e_dp1_q6":"fly"}}
+          title: fly
+
+        - payload: /i_dp1_q6{{"e_dp1_q6":"carried"}}
+          title: carried
+
+        - payload: /i_dp1_q6{{"e_dp1_q6":"raised"}}
+          title: raised
+
+        - payload: /i_dp1_q6{{"e_dp1_q6":"brought"}}
+          title: brought
+      text: " "
+
+  utter_ask_s_dp1_q7:
+    - buttons:
+        - payload: /i_dp1_q7{{"e_dp1_q7":"study"}}
+          title: study
+
+        - payload: /i_dp1_q7{{"e_dp1_q7":"seen"}}
+          title: seen
+
+        - payload: /i_dp1_q7{{"e_dp1_q7":"looked"}}
+          title: looked
+
+        - payload: /i_dp1_q7{{"e_dp1_q7":"walk"}}
+          title: walk
+      text: "\nWelches der folgenden Wörter ist eine Simple Past-Form?"
+
+  utter_ask_s_dp1_q8:
+    - buttons:
+        - payload: /i_dp1_q8{{"e_dp1_q8":"have gone"}}
+          title: have gone
+
+        - payload: /i_dp1_q8{{"e_dp1_q8":"catch"}}
+          title: catch
+
+        - payload: /i_dp1_q8{{"e_dp1_q8":"are playing"}}
+          title: are playing
+
+        - payload: /i_dp1_q8{{"e_dp1_q8":"played"}}
+          title: played
+      text: "\nBei welchem der folgenden Wörter handelt es sich um eine Present-Progressiv-Form?"
+
+  utter_s_dp1_q9/msg:
+    - custom:
+        blocks:
+          - type: section
+            text:
+              text: "\nBei welchem der folgenden Wörter handelt es sich *nicht* um eine Present-Progressiv-Form? 🤔"
+              type: mrkdwn
+
+  utter_s_dp1_q9/button:
+    - buttons:
+        - payload: /i_dp1_q9{{"e_dp1_q9":"is going"}}
+          title: is going
+
+        - payload: /i_dp1_q9{{"e_dp1_q9":"written"}}
+          title: written
+
+        - payload: /i_dp1_q9{{"e_dp1_q9":"is lying"}}
+          title: is lying
+
+        - payload: /i_dp1_q9{{"e_dp1_q9":"is happening"}}
+          title: is happening
+      text: " "
+
+  utter_s_dp1_q10/msg:
+    - custom:
+        blocks:
+          - type: section
+            text:
+              text: "\nWelches der folgenden Wörter ist *keine* Simple Past-Form? 🤔"
+              type: mrkdwn
 
   utter_s_dp1_q10/button:
-  - buttons:
-    - payload: /i_dp1_q10{{"e_dp1_q10":"mixed"}}
-      title: mixed
+    - buttons:
+        - payload: /i_dp1_q10{{"e_dp1_q10":"mixed"}}
+          title: mixed
 
-    - payload: /i_dp1_q10{{"e_dp1_q10":"bit"}}
-      title: bit
+        - payload: /i_dp1_q10{{"e_dp1_q10":"bit"}}
+          title: bit
 
-    - payload: /i_dp1_q10{{"e_dp1_q10":"travelled"}}
-      title: travelled
+        - payload: /i_dp1_q10{{"e_dp1_q10":"travelled"}}
+          title: travelled
 
-    - payload: /i_dp1_q10{{"e_dp1_q10":"is bursting"}}
-      title: is bursting
-    text: " "
+        - payload: /i_dp1_q10{{"e_dp1_q10":"is bursting"}}
+          title: is bursting
+      text: " "
 
   utter_ask_s_dp1_q11:
-  - buttons:
-    - payload: /i_dp1_q11{{"e_dp1_q11":"ridden"}}
-      title: ridden
+    - buttons:
+        - payload: /i_dp1_q11{{"e_dp1_q11":"ridden"}}
+          title: ridden
 
-    - payload: /i_dp1_q11{{"e_dp1_q11":"jump"}}
-      title: jump
+        - payload: /i_dp1_q11{{"e_dp1_q11":"jump"}}
+          title: jump
 
-    - payload: /i_dp1_q11{{"e_dp1_q11":"have cleaned"}}
-      title: have cleaned
+        - payload: /i_dp1_q11{{"e_dp1_q11":"have cleaned"}}
+          title: have cleaned
 
-    - payload: /i_dp1_q11{{"e_dp1_q11":"cooked"}}
-      title: cooked
-    text: "\nWelches der folgenden Wörter ist eine Simple Past-Form?"
-   
+        - payload: /i_dp1_q11{{"e_dp1_q11":"cooked"}}
+          title: cooked
+      text: "\nWelches der folgenden Wörter ist eine Simple Past-Form?"
+
   utter_ask_s_dp1_q12:
-  - buttons:
-    - payload: /i_dp1_q12{{"e_dp1_q12":"drink"}}
-      title: drink
+    - buttons:
+        - payload: /i_dp1_q12{{"e_dp1_q12":"drink"}}
+          title: drink
 
-    - payload: /i_dp1_q12{{"e_dp1_q12":"is looking"}}
-      title: is looking
+        - payload: /i_dp1_q12{{"e_dp1_q12":"is looking"}}
+          title: is looking
 
-    - payload: /i_dp1_q12{{"e_dp1_q12":"feel"}}
-      title: feel
+        - payload: /i_dp1_q12{{"e_dp1_q12":"feel"}}
+          title: feel
 
-    - payload: /i_dp1_q12{{"e_dp1_q12":"done"}}
-      title: done
-    text: "\nBei welchem der folgenden Wörter handelt es sich um eine Present-Progressiv-Form?"
+        - payload: /i_dp1_q12{{"e_dp1_q12":"done"}}
+          title: done
+      text: "\nBei welchem der folgenden Wörter handelt es sich um eine Present-Progressiv-Form?"
 
   utter_ask_s_dp1_evaluation:
-  - buttons:
-    - payload: /i_dp1_evaluation{{"e_dp1_evaluation":"EVALUATION"}}
-      title: Quiz Auswertung 📊
-    text: " "
+    - buttons:
+        - payload: /i_dp1_evaluation{{"e_dp1_evaluation":"EVALUATION"}}
+          title: Quiz Auswertung 📊
+      text: " "
 
   utter_s_dp1_long_term_scenario:
-  - buttons:
-    - payload: /i_dp1_long_term_scenario{{"e_dp1_long_term_scenario":"LONG_TERM_SCENARIO"}}
-      title: Langzeit Szenario erleben
-    text: "Stell dir vor, du hast zwei Monate gelernt.."
-actions: 
+    - buttons:
+        - payload: /i_dp1_long_term_scenario{{"e_dp1_long_term_scenario":"LONG_TERM_SCENARIO"}}
+          title: Langzeit Szenario erleben
+      text: "Stell dir vor, du hast zwei Monate gelernt.."
+actions:
   - validate_dp1_form
   - action_ask_s_dp1_q1
   - action_ask_s_dp1_q3
@@ -415,19 +410,19 @@ actions:
 forms:
   dp1_form:
     required_slots:
-    - s_dp1_q0
-    - s_dp1_q1
-    - s_dp1_q2
-    - s_dp1_q3
-    - s_dp1_q4
-    - s_dp1_q5
-    - s_dp1_q6
-    - s_dp1_q7
-    - s_dp1_q8
-    - s_dp1_q9
-    - s_dp1_q10
-    - s_dp1_q11
-    - s_dp1_q12
-    - s_dp1_evaluation
-    - s_dp1_long_term_scenario
-    - s_dp1_call_next_dp
+      - s_dp1_q0
+      - s_dp1_q1
+      - s_dp1_q2
+      - s_dp1_q3
+      - s_dp1_q4
+      - s_dp1_q5
+      - s_dp1_q6
+      - s_dp1_q7
+      - s_dp1_q8
+      - s_dp1_q9
+      - s_dp1_q10
+      - s_dp1_q11
+      - s_dp1_q12
+      - s_dp1_evaluation
+      - s_dp1_long_term_scenario
+      - s_dp1_call_next_dp

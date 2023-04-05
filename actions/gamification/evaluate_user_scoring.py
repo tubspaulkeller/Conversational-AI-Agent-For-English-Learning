@@ -219,5 +219,5 @@ def utter_finished_quiz_with_points(dispatcher, dp, dp_n):
 def utter_all_quest_correct_at_first_attempt(dp_n, dispatcher):
     increase_badges("badge_naturtalent")
     dispatcher.utter_message(
-        text="Da du das Quiz direkt beim ersten Versuch fehlerfrei beendet hast, erhälst du außerdem ein neues Abzeichen. 🏆")
+        text="Da du das Quiz direkt beim ersten Versuch fehlerfrei beendet hast, erhältst du außerdem ein neues Abzeichen. 🏆")
     dispatcher.utter_message(image=dp_n["badge_naturtalent"])

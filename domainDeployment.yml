@@ -877,8 +877,8 @@ responses:
     - payload: /i_dp1_q0{{"e_dp1_q0":"PLAY"}}
       title: "Legen wir los! \U0001F3AE"
     text: "Lass uns ein kurzes Quiz starten, damit wir dein neues Wissen festigen\
-      \ \U0001F601\nSpielregel: F\xFCr eine korrekte Antwort erh\xE4lst du 5 Punkte\
-      \ und f\xFCr eine korrekte Antwort im zweiten Versuch erh\xE4lst du 2 Punkte.\
+      \ \U0001F601\nSpielregel: F\xFCr eine korrekte Antwort erh\xE4ltst du 5 Punkte\
+      \ und f\xFCr eine korrekte Antwort im zweiten Versuch erh\xE4ltst du 2 Punkte.\
       \ Du bekommst zwei Chancen von mir, die Frage richtig zu beantworten."
   utter_s_dp1_q1/msg:
   - custom:
@@ -1423,8 +1423,8 @@ responses:
   - buttons:
     - payload: /i_dp2_q1_2{{"e_dp2_q1_2":"START_QUIZ"}}
       title: "Starte Quiz  \U0001F3AE"
-    text: "Spielregel: F\xFCr eine korrekte Antwort erh\xE4lst du 5 Punkte und f\xFC\
-      r eine korrekte Antwort im zweiten Versuch erh\xE4lst du 2 Punkte. Du bekommst\
+    text: "Spielregel: F\xFCr eine korrekte Antwort erh\xE4ltst du 5 Punkte und f\xFC\
+      r eine korrekte Antwort im zweiten Versuch erh\xE4ltst du 2 Punkte. Du bekommst\
       \ zwei Chancen von mir, die Frage richtig zu beantworten."
   utter_correct_answer_qn:
   - text: "Korrekt! \U0001F60A Damit hast du dir {points} von 5 Punkten verdient!"
