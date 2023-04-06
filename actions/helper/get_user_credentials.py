@@ -32,7 +32,7 @@ class ActionGetUserCredentials(Action):
                 # SlotSet("s_get_dp_form", None), SlotSet("s_set_next_form", None), FollowupAction("get_dp_form")]
                 return [SlotSet("first_name", first_name)]
             else:
-                text = "Hi,\n ich bin dein Buddy Ben und ich werde dich während des Englischtrainings mit *Punkten*, *Sternen* und *Abzeichen* belohnen, damit du immer motiviert bleibst und deine Fortschritte feiern kannst. 🎉\n\n Jedes Mal, wenn du eine Frage richtig beantwortest oder eine Lektion abschließt, wirst du Punkte sammeln und Sterne verdienen, um zu zeigen, wie gut du dich schlägst. Wenn du bestimmte Ziele erreichst, wirst du außerdem Abzeichen freischalten, die deine Leistungen noch weiter unterstreichen.\nVor jeder Übung werde ich dir die jeweiligen *Spielregeln* erläutern, da diese sich *bei jeder Übung ändern können*.\n\nEgal ob du gerade erst anfängst oder schon ein fortgeschrittener Englischlerner bist - meine Belohnungen werden dir helfen, motiviert und engagiert zu bleiben. Und wenn du mal eine Frage verpasst oder Hilfe brauchst, stehe ich dir immer zur Seite.\n\nLass uns gemeinsam dein Englisch verbessern und dabei auch noch jede Menge Spaß haben! Let's go! 🚀"
+                text = "Hi,\n ich bin dein Buddy Ben und ich werde dich während des Englischtrainings mit *Punkten*, *Sternen* und *Abzeichen* belohnen, damit du immer motiviert bleibst und deine Fortschritte feiern kannst. 🎉"
                 dispatcher.utter_message(
                     json_message=markdown_formatting(text))
                 dispatcher.utter_message(

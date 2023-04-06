@@ -16,10 +16,10 @@ class ActionEndDPs(Action):
 
             if tracker.get_slot("first_name") is None:
 
-                dispatcher.utter_message(response="utter_quest_end_give_user_score",
+                dispatcher.utter_message(response="utter_quest_end_give_user_score_2",
                                          total_points__end_game=user_score["total_points"], name="Buddy")
             else:
-                dispatcher.utter_message(response="utter_quest_end_give_user_score",
+                dispatcher.utter_message(response="utter_quest_end_give_user_score_2",
                                          total_points__end_game=user_score["total_points"], name=tracker.get_slot("first_name"))
             # dispatcher.utter_message(
             #   text="Du hast insgesamt: {} Punkte erreicht. 🎉\nAls nächstes werden wir eine gemeinsame Lern-Session durchführen, da dies eine gute Möglichkeit ist, dein neu erlerntes Englisch-Wissen mit anderen Kommilitonen auszuprobieren!\nDafür wirst du einem Team mit Lern-Partnern, die auf dem gleichen Lern-Level sind wie du, zugeteilt.\nAllerdings, müssen wir dafür in einen Gruppenchat wechseln. Wir sehen uns gleich im anderen Channel {}! 😊".format(user_score["total_points"], tracker.get_slot("first_name")))

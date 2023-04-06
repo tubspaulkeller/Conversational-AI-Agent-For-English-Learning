@@ -1658,6 +1658,9 @@ responses:
       \ die auf dem gleichen Lern-Level sind wie du, zugeteilt.\nAllerdings, m\xFC\
       ssen wir daf\xFCr in einen Gruppenchat wechseln. Wir sehen uns gleich im anderen\
       \ Channel, {name}! \U0001F60A"
+  utter_quest_end_give_user_score_2:
+  - text: "Du hast insgesamt: {total_points__end_game}  Punkte erreicht. \U0001F389\
+      \ Bis dann! \U0001F60A"
   utter_quest_wrong:
   - text: "Das war leider nicht richtig. Versuche es nochmal. Du hast noch einen weiteren\
       \ Versuch f\xFCr diese Frage \xFCbrig."
