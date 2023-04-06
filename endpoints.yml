@@ -11,7 +11,7 @@
 # https://rasa.com/docs/rasa/custom-actions
 
 action_endpoint:
- url: "https://rasa-actions-ben-dp1-dp4-paulkeller94.cloud.okteto.net/webhook"
+ url: ${RASA_ACTIONS_URL}
  #url: "http://localhost:5055/webhook"
 
 # tracker_store:
