@@ -24,6 +24,30 @@ services:
       USERNAME: ${USERNAME}
       PSWD: ${PSWD}
 
+  rasa-two:
+    image: rasa-server-okteto-two:latest
+    build: "./"
+    volumes:
+      - ./actions:/app/actions
+      - ./data:/app/data
+    command: bash -c "rm -rf .rasa/* && rasa train && MAX_NUMBER_OF_PREDICTIONS=30 rasa run --enable-api --cors \"*\" --debug -p 5007"
+    working_dir: /app
+    ports:
+      - "5007:5007"
+    networks:
+      - all
+    env_file:
+      - .env
+    environment:
+      SLACK_TOKEN: ${SLACK_TOKEN_TWO}
+      SLACK_CHANNEL: ${SLACK_CHANNEL_TWO}
+      SLACK_SIGNING_SECRET: ${SLACK_SIGNING_SECRET_TWO}
+      RASA_URL: ${RASA_URL}
+      MONGO_DB_URL: ${MONGO_DB_URL}
+      DB_NAME: ${DB_NAME}
+      USERNAME: ${USERNAME}
+      PSWD: ${PSWD}
+
   rasa-actions:
     image: rasa-server-okteto:latest
     build: "./"
@@ -41,6 +65,24 @@ services:
       GRAMMAR_TOOL_KEY: ${GRAMMAR_TOOL_KEY}
       TRANSLATE_KEY: ${TRANSLATE_KEY}
       SLACK_TOKEN: ${SLACK_TOKEN}
+
+  rasa-actions-two:
+    image: rasa-server-okteto-two:latest
+    build: "./"
+    volumes:
+      - ./actions:/app/actions
+    command: bash -c "rasa run actions --debug"
+    working_dir: /app
+    ports:
+      - "5056:5056"
+    networks:
+      - all
+    env_file:
+      - .env
+    environment:
+      GRAMMAR_TOOL_KEY: ${GRAMMAR_TOOL_KEY}
+      TRANSLATE_KEY: ${TRANSLATE_KEY}
+      SLACK_TOKEN: ${SLACK_TOKEN_TWO}
 
 networks:
   all:
