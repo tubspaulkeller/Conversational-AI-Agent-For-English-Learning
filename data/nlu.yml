@@ -719,6 +719,8 @@ nlu:
 - intent: i_dp4_q1A
   examples: |
     - [We](e_dp4_q1A) want to the [Coliseum](e_dp4_q1A)
+    - [We](e_dp4_q1A) want to go to [Coliseum](e_dp4_q1A)
+    - hello Taxi driver, [we](e_dp4_q1A) would like to go to [Coliseum](e_dp4_q1A)
     - [We](e_dp4_q1A) are going to the [Coliseum](e_dp4_q1A) 
     - [We](e_dp4_q1A) would like to go to the [Coliseum](e_dp4_q1A) 
     - [We](e_dp4_q1A) would like to visit [Coliseum](e_dp4_q1A) 
@@ -836,6 +838,10 @@ nlu:
 
 - intent: i_dp4_q3A
   examples: |
+    - My [boyfriend](e_dp4_q3A) is from [Gloria](e_dp4_q3A) and he [has lived](e_dp4_q3A) there [since](e_dp4_q3A) his [childhood](e_dp4_q3A)
+    - My [boyfriend](e_dp4_q3A) is from [Gloria](e_dp4_q3A) and he [has lived](e_dp4_q3A) there [since](e_dp4_q3A) two [years](e_dp4_q3A)
+    - My [boyfriend](e_dp4_q3A) is from [Gloria](e_dp4_q3A) and he [has lived](e_dp4_q3A) there [since](e_dp4_q3A) 2020
+    - My [boyfriend](e_dp4_q3A) is from [Gloria](e_dp4_q3A) and he [has lived](e_dp4_q3A) there [since](e_dp4_q3A) he has been a child
     - My [friend](e_dp4_q3A) [has lived](e_dp4_q3A) in [Gloria](e_dp4_q3A) [for](e_dp4_q3A) two [years](e_dp4_q3A)
     - My [buddy](e_dp4_q3A) [has lived](e_dp4_q3A) in [Gloria](e_dp4_q3A) [for](e_dp4_q3A) two [years](e_dp4_q3A)
     - My [mate](e_dp4_q3A) [has lived](e_dp4_q3A) in [Gloria](e_dp4_q3A) [for](e_dp4_q3A) two [years](e_dp4_q3A) 
