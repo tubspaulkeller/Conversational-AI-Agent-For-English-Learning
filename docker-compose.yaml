@@ -80,7 +80,7 @@ services:
     build: "./"
     volumes:
       - ./actions:/app/actions
-    command: bash -c "rasa run actions --debug"
+    command: bash -c "rasa run actions --debug -p 5055"
     working_dir: /app
     ports:
       - "5055:5055"
@@ -98,7 +98,7 @@ services:
     build: "./"
     volumes:
       - ./actions:/app/actions
-    command: bash -c "rasa run actions --debug"
+    command: bash -c "rasa run actions --debug -p 5056"
     working_dir: /app
     ports:
       - "5056:5056"
@@ -116,7 +116,7 @@ services:
     build: "./"
     volumes:
       - ./actions:/app/actions
-    command: bash -c "rasa run actions --debug"
+    command: bash -c "rasa run actions --debug -p 5057"
     working_dir: /app
     ports:
       - "5057:5057"
