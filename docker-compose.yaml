@@ -75,6 +75,56 @@ services:
       PSWD: ${PSWD}
       RASA_ACTIONS_URL: "https://rasa-actions-three-ben-dp1-dp4-paulkeller94.cloud.okteto.net/webhook"
 
+  rasa-four:
+    image: rasa-server-okteto-four:latest
+    build: "./"
+    volumes:
+      - ./actions:/app/actions
+      - ./data:/app/data
+    command: bash -c "rm -rf .rasa/* && rasa train && MAX_NUMBER_OF_PREDICTIONS=30 rasa run --enable-api --cors \"*\" --debug -p 5009"
+    working_dir: /app
+    ports:
+      - "5009:5009"
+    networks:
+      - all
+    env_file:
+      - .env
+    environment:
+      SLACK_TOKEN: ${SLACK_TOKEN_FOUR}
+      SLACK_CHANNEL: ${SLACK_CHANNEL_FOUR}
+      SLACK_SIGNING_SECRET: ${SLACK_SIGNING_SECRET_FOUR}
+      RASA_URL: ${RASA_URL}
+      MONGO_DB_URL: ${MONGO_DB_URL}
+      DB_NAME: ${DB_NAME}
+      USERNAME: ${USERNAME}
+      PSWD: ${PSWD}
+      RASA_ACTIONS_URL: "https://rasa-actions-four-ben-dp1-dp4-paulkeller94.cloud.okteto.net/webhook"
+
+  rasa-five:
+    image: rasa-server-okteto-five:latest
+    build: "./"
+    volumes:
+      - ./actions:/app/actions
+      - ./data:/app/data
+    command: bash -c "rm -rf .rasa/* && rasa train && MAX_NUMBER_OF_PREDICTIONS=30 rasa run --enable-api --cors \"*\" --debug -p 5010"
+    working_dir: /app
+    ports:
+      - "5010:5010"
+    networks:
+      - all
+    env_file:
+      - .env
+    environment:
+      SLACK_TOKEN: ${SLACK_TOKEN_FIVE}
+      SLACK_CHANNEL: ${SLACK_CHANNEL_FIVE}
+      SLACK_SIGNING_SECRET: ${SLACK_SIGNING_SECRET_FIVE}
+      RASA_URL: ${RASA_URL}
+      MONGO_DB_URL: ${MONGO_DB_URL}
+      DB_NAME: ${DB_NAME}
+      USERNAME: ${USERNAME}
+      PSWD: ${PSWD}
+      RASA_ACTIONS_URL: "https://rasa-actions-five-ben-dp1-dp4-paulkeller94.cloud.okteto.net/webhook"
+
   rasa-actions:
     image: rasa-server-okteto:latest
     build: "./"
@@ -128,6 +178,42 @@ services:
       GRAMMAR_TOOL_KEY: ${GRAMMAR_TOOL_KEY}
       TRANSLATE_KEY: ${TRANSLATE_KEY}
       SLACK_TOKEN: ${SLACK_TOKEN_THREE}
+
+  rasa-actions-four:
+    image: rasa-server-okteto-four:latest
+    build: "./"
+    volumes:
+      - ./actions:/app/actions
+    command: bash -c "rasa run actions --debug -p 5058"
+    working_dir: /app
+    ports:
+      - "5058:5058"
+    networks:
+      - all
+    env_file:
+      - .env
+    environment:
+      GRAMMAR_TOOL_KEY: ${GRAMMAR_TOOL_KEY}
+      TRANSLATE_KEY: ${TRANSLATE_KEY}
+      SLACK_TOKEN: ${SLACK_TOKEN_FOUR}
+
+  rasa-actions-five:
+    image: rasa-server-okteto-five:latest
+    build: "./"
+    volumes:
+      - ./actions:/app/actions
+    command: bash -c "rasa run actions --debug -p 5059"
+    working_dir: /app
+    ports:
+      - "5059:5059"
+    networks:
+      - all
+    env_file:
+      - .env
+    environment:
+      GRAMMAR_TOOL_KEY: ${GRAMMAR_TOOL_KEY}
+      TRANSLATE_KEY: ${TRANSLATE_KEY}
+      SLACK_TOKEN: ${SLACK_TOKEN_FIVE}
 
 networks:
   all:
