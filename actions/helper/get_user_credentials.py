@@ -32,7 +32,7 @@ class ActionGetUserCredentials(Action):
                 # SlotSet("s_get_dp_form", None), SlotSet("s_set_next_form", None), FollowupAction("get_dp_form")]
                 return [SlotSet("first_name", first_name)]
             else:
-                text = "Hi,\n ich bin dein Buddy Ben und ich werde dich während des Englischtrainings mit *Punkten*, *Sternen* und *Abzeichen* belohnen, damit du immer motiviert bleibst und deine Fortschritte feiern kannst. 🎉"
+                text = "Hi! 😊,\n ich bin dein Buddy Ben und ich werde dich während des Englischtrainings mit *Punkten*, *Sternen* und *Abzeichen* belohnen, damit du immer motiviert bleibst und deine Fortschritte feiern kannst. 🎉"
                 dispatcher.utter_message(
                     json_message=markdown_formatting(text))
                 dispatcher.utter_message(

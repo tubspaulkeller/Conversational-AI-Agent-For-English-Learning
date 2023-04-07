@@ -15,14 +15,10 @@ load_dotenv()
 async def get_user(id, tracker):
     print("API CALL: GET USER")
     try:
-        # TODO TEST
-        print("\nTOKEN", _get_token())
+        client = AsyncWebClient(token=_get_token())
         if tracker.get_slot("first_name") is None:
-            client = AsyncWebClient(token=_get_token())
-            user_cred = await client.users_info(user=id)
+            user_cred = await client.users_info(user=id, token=_get_token())
             return user_cred['user']['profile']['first_name']
-            # l_name = user_cred['user']['profile']['last_name']
-            # email = user_cred['user']['profile']['email']
 
         else:
             return tracker.get_slot("first_name")
