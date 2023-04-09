@@ -58,3 +58,7 @@ def update_required_slots(updated_slots, tracker, domain, dp_name):
         if value_of_slot != None and slot != last_requested_slot:
             updated_slots.remove(slot)
     return updated_slots
+
+
+def get_skills_text():
+    return "Frage mich gerne jeder Zeit zu deinen:\n- erzielten Punkten 🎯\n- gesammelten Sternen 🌟\n- verdienten Abzeichen 🎖\n\nAußerdem erkläre ich dir gerne, *wofür du Punkte, Abzeichen und Sterne erhältst*, damit du genau weißt, welche Leistungen ich belohne und wie du noch besser werden kannst, frag mich einfach nach dem jeweiligen Element z.B. _Wofür stehen Sterne?_\nEbenfalls kannst du mich immer nach der Bildung bestimmter Zeitformen fragen, wie z.B. _Wie wird das *Simple Past* gebildet_.\n\nFalls wir während deinen Fragen in einem Quiz stecken, kannst du jederzeit zur *letzten Quiz-Frage oder zur DP-Auswahl zurückkehren*, frag mich einfach nach der letzten Frage bzw. nach dem Menü.\n\nUnd wenn du dein *Lernziel anpassen* möchtest, weil du vielleicht noch intensiver lernen möchtest oder dein Tempo verändern willst, dann ist das überhaupt kein Problem! Sag mir einfach bescheid, dass du dein Lernziel anpassen möchtest.\n\nFalls du mich neustarten willst, schreib mir ein einfaches *restart*. 😎"
