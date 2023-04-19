@@ -43,6 +43,11 @@ rules:
   - intent: i_ask_stars
   - action: action_give_stars
 
+- rule: forget date selection
+  steps:
+  - intent: i_date
+  - action: action_get_date
+
 
 # Skills of Ben
 - rule: give user Bens Skills

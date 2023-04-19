@@ -841,6 +841,10 @@ responses:
       title: Festlegen
     - payload: /i_lg_1{{"e_lg_1":"deny"}}
       title: "Anderes Ziel w\xE4hlen"
+    - payload: /i_lg_1{{"e_lg_1":"need_longer"}}
+      title: "Brauche l\xE4nger f\xFCr mein Ziel"
+    - payload: /i_lg_1{{"e_lg_1":"faster"}}
+      title: Schaffe mein Ziel schneller
     text: "Soll ich das als Lernziel festlegen oder m\xF6chtest du das Ziel anpassen\
       \ bzw. wechseln? \U0001F914"
   utter_s_lg_1/vokabelziel:
@@ -1106,6 +1110,10 @@ responses:
       title: Festlegen
     - payload: /i_dp3_q2{{"e_dp3_q2":"deny"}}
       title: "Anderes Ziel w\xE4hlen"
+    - payload: /i_dp3_q2{{"e_dp3_q2":"need_longer"}}
+      title: "Brauche l\xE4nger f\xFCr mein Ziel"
+    - payload: /i_dp3_q2{{"e_dp3_q2":"faster"}}
+      title: Schaffe mein Ziel schneller
     text: "Soll ich das uns als Lernziel f\xFCr diesen Kurs festlegen? Oder m\xF6\
       chtest du ein anderes Thema als Lernziel w\xE4hlen? \U0001F914"
   utter_s_dp3_q2/need_longer:
@@ -1767,6 +1775,7 @@ actions:
 - action_ask_s_dp3_g_end
 - action_ask_s_dp3_display_form_button
 - action_ask_s_dp3_activate_form
+- action_get_date
 - validate_dp2_application_tasks_form
 - validate_dp2_form
 - action_ask_s_dp2_q1

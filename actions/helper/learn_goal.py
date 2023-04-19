@@ -56,6 +56,7 @@ def customize_learn_goal(slot_value, slot, get_goal, customize, dispatcher, trac
         # User want change the date
         for event in reversed(tracker.events):
             if event['event'] == 'user' and event['parse_data']['intent']['name'] == 'i_date':
+                #print("event: ", event)
                 date_picker = event['parse_data']['text']
                 break
 

@@ -137,10 +137,10 @@ responses:
       title: Festlegen
     - payload: /i_lg_1{{"e_lg_1":"deny"}}
       title: Anderes Ziel wählen
-    # - payload: /i_lg_1{{"e_lg_1":"need_longer"}}
-    #   title: Brauche länger für mein Ziel
-    # - payload: /i_lg_1{{"e_lg_1":"faster"}}
-    #   title: Schaffe mein Ziel schneller
+    - payload: /i_lg_1{{"e_lg_1":"need_longer"}}
+      title: Brauche länger für mein Ziel
+    - payload: /i_lg_1{{"e_lg_1":"faster"}}
+      title: Schaffe mein Ziel schneller
     text: "Soll ich das als Lernziel festlegen oder möchtest du das Ziel anpassen bzw. wechseln? 🤔"
 
   

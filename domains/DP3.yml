@@ -392,10 +392,10 @@ responses:
       title: Festlegen
     - payload: /i_dp3_q2{{"e_dp3_q2":"deny"}}
       title: Anderes Ziel wählen
-    # - payload: /i_dp3_q2{{"e_dp3_q2":"need_longer"}}
-    #   title: Brauche länger für mein Ziel
-    # - payload: /i_dp3_q2{{"e_dp3_q2":"faster"}}
-    #   title: Schaffe mein Ziel schneller
+    - payload: /i_dp3_q2{{"e_dp3_q2":"need_longer"}}
+      title: Brauche länger für mein Ziel
+    - payload: /i_dp3_q2{{"e_dp3_q2":"faster"}}
+      title: Schaffe mein Ziel schneller
     text: "Soll ich das uns als Lernziel für diesen Kurs festlegen? Oder möchtest du ein anderes Thema als Lernziel wählen? 🤔"
 
   utter_s_dp3_q2/need_longer:
@@ -802,6 +802,7 @@ actions:
   - action_ask_s_dp3_g_end
   - action_ask_s_dp3_display_form_button
   - action_ask_s_dp3_activate_form
+  - action_get_date
 
 
 
