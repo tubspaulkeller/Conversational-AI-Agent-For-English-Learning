@@ -181,6 +181,7 @@ nlu:
 - intent: i_zeitform
   examples: |
     - wie wird das [present progressive](e_zeitform) gebildet?
+    - wie wird das [Present Progressive](e_zeitform) gebildet?
     - Ben, erklär mir mal das [present progressive](e_zeitform) 
     - was ist das [present progressive](e_zeitform) 
     - [present progressive](e_zeitform) ?
@@ -270,6 +271,7 @@ nlu:
     - wofür bekomme ich [stars](e_why_points_badges_stars)?
     - warum bekomme ich [stars](e_why_points_badges_stars)?
     - wofür bekomme ich [Sterne](e_why_points_badges_stars)?
+    - wofür bekomme ich [Sterne](e_why_points_badges_stars)
     - warum bekomme ich [Sterne](e_why_points_badges_stars)?
     - warum bekomme ich [Sterne](e_why_points_badges_stars) und [Punkte](e_why_points_badges_stars)?
     - warum bekomme ich [Punkte](e_why_points_badges_stars) und [Sterne](e_why_points_badges_stars)?
