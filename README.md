@@ -1,4 +1,4 @@
-# Software Architecture of the PCA Ben
+# Software Architecture of the Pedagogical Conversational Agent Ben
 The following figure illustrates the architecture of our prototype. 
 <br>
 <img width="454" alt="image" src="https://github.com/tubspaulkeller/companionben/assets/102319452/7ae66caa-dc8b-4bde-a2c8-28f3ea6e240a"> 
