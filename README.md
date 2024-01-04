@@ -1,11 +1,13 @@
-# Software Architecture of the Pedagogical Conversational Agent Ben
+# Pedagogical Conversational Agent Ben moderates Quiz-Game in Slack for English Learning
+
+## Software Architecture of the Pedagogical Conversational Agent Ben
 The following figure illustrates the architecture of our prototype. 
 <br>
 <img width="454" alt="image" src="https://github.com/tubspaulkeller/companionben/assets/102319452/7ae66caa-dc8b-4bde-a2c8-28f3ea6e240a"> 
 <br>
 We utilized the Rasa framework together with its software development kit (SDK) for implementation (Bocklisch et al. 2017). We use the natural language understanding pipeline to handle open-ended questions, such as inquiries about the user's score or questions related to specific verb tenses. During goal setting, the PCA provides the user with various suggestions for a learning goal. The iterative process, beginning with the initial determination of the goal and subsequent specification of the timeframe, is made possible by the use of “Rasa forms”. Moreover, the utilization of Rasa forms enables the validation of user responses to English tasks. One advantage of this validation process is the ability to integrate API calls. To verify user inputs for English tasks, we are using a language-checking tool called “LanguageTool”. This tool enables the assessment of the correctness of the response and the calculation of a score. Additionally, Rasa forms offer the opportunity for the user to respond again in the case of an incorrect answer. Before granting this opportunity, our PCA provides the user with hints through the LanguageTool API interface. With this guidance, users can independently acquire knowledge, and receive assistance by the PCA to solve the tasks. The communication channel between the user and the PCA is via the messaging tool “Slack.”
 
-# Excerpts of the Conversations with Ben Related to the DPs
+## Excerpts of the Conversations with Ben Related to the DPs
 
 <img width="1441" alt="Screenshot 2024-01-04 at 15 35 52" src="https://github.com/tubspaulkeller/companionben/assets/102319452/3e0996f8-fbda-44ea-90d3-65830074f7ba">
 
@@ -14,7 +16,7 @@ In DP2, Ben acts as a more experienced classmate (Kim and Baylor 2016; Khosrawi-
 In DP3, we focus on rewarding learners’ individual performance. We decided not to implement rankings because interviewees mentioned that rankings could cause frustration, which is consistent with literature findings (Super et al. 2019). Ben rewards points based on the learner's attempts to answer the question. The learner earns five points for correctly answering on the first attempt and two points for correctly responding on the second attempt. Ben moreover grants stars to learners to recognize their accomplishments in a specific field. These stars serve as a marker of the learner's progress over a medium term.  Learners who reach long-term milestones, such as mastering two different tenses, receive a badge as a reward. Learners can level up by completing a certain number of tasks correctly. When learners reach the next level, a progress bar indicates how much of the lesson remains until completion. Overall, the positive reinforcement through different game elements aligned to short-, medium- and long-term learning goals fosters learners' perception of competency awareness (Ryan and Deci 2000; Sailer et al. 2017; Krath et al. 2021). 
 In DP4, Ben helps students apply knowledge by simulating real-life situations (Forsyth et al. 2020). Therefore, Ben acts as a narrator and guides learners through a fictive case, i.e., traveling to Rome with a friend. Along the way, Ben presents learners with tasks, e.g., ordering a taxi or asking for Student tickets to the Colosseum. If learners answer incorrectly, Ben provides hints to help them correct their answers. Using quests, the story contains smaller subgoals that the learner can achieve one by one. This allows the learner feel like he/she is making progress step by step (Krath et al. 2021).
 
-## Literature
+### Literature
 Ackerman R, Lauterman T (2012) Taking reading comprehension exams on screen or on paper? A metacognitive analysis of learning texts under time pressure. Comput Hum Behav 28:1816–1828
 
 Anderson LW, Krathwohl DR (2001) A taxonomy for learning, teaching, and assessing: A revision of Bloom’s taxonomy of educational objectives. Longman, New York
@@ -48,3 +50,63 @@ Sailer M, Hense JU, Mayr SK, Mandl H (2017) How gamification motivates: An exper
 Strohmann T, Siemon D, Khosrawi-Rad B, Robra-Bissantz S (2022) Toward a design theory for virtual companionship. Human–Computer Interact 38:1–41
 
 Super J, Keller RH, Betts TK, Roach Humphreys J (2019) Simulation Games: Learning Goal Orientations and Norms for Knowledge Sharing. Acad Manag Proc 2019
+
+## Prerequisites
+- Rasa
+- Slack-Account 
+- MongoDBAtlas
+- NGROK
+- LANGUAGE_TOOL_API_KEY
+- DEEPL_TRANSLATOR_API_KEY
+
+## Environments 
+Create a .env file with the following variables: 
+GRAMMAR_TOOL_KEY = <LANGUAGE_TOOL_API_KEY>
+TRANSLATE_KEY = <DEEPL_TRANSLATOR_API_KEY>
+RASA_URL = "http://localhost:5002/api"
+MONGO_DB_URL = <MONGO_DB_URL>
+DB_NAME = <MONGO_DB_NAME>
+USERNAME = <MONGO_DB_USERNAME>
+PSWD = <MONGO_DB_PASSWORD
+SLACK_TOKEN_ONE = <SLACK_TOKEN>
+SLACK_CHANNEL= <SLACK_CHANNEL>
+SLACK_SIGNING_SECRET= <SLACK_SECRET>
+
+## Installation 
+
+- Install Rasa: Follow the steps at [Rasa Documentation](https://rasa.com/docs/rasa/2.x/installation/).
+- Install dependent packages using: `pip install -r /Conversational-AI-Agent-For-English-Learning/requirements.txt`.
+- Install NGROK from: [NGROK Download](https://ngrok.com/download).
+  
+### MongoDB:
+
+Update the connection string under `/Conversational-AI-Agent-For-English-Learning/.env` for the variable `MONGO_DB_URL`.
+
+### NGROK:
+
+For HTTPS connection between Telegram and Rasa, use NGROK.
+1. Open a terminal.
+2. Run: `ngrok http 5005`.
+Under Forwarding, note the URL ending with ngrok-free.app for further steps.
+
+### RASA:
+Next, open two additional terminal windows. Activate the Rasa environment in both terminals from installation. After that, in both terminals, navigate to the directory containing the source code: `/Conversational-AI-Agent-For-English-Learning/`.
+
+1. If no model exists, run the following command in one terminal: 
+    ```bash
+    rasa train --domain domains 
+    ```
+
+2. Next, insert the NGROK URL into the file `/Conversational-AI-Agent-For-English-Learning/credentials_dev.yml` in the format: `"NGROK-URL/webhooks/slack/webhook"` for the `webhook_url`.
+
+Afterward, execute the following commands:
+
+### Terminal 2:
+
+```bash
+ rasa run --connector slack --credentials credentials-dev.yml --endpoints endpoints-dev.yml
+ ```
+### Terminal 3:
+  ```bash
+rasa run actions
+ ```
