@@ -53,7 +53,8 @@ Super J, Keller RH, Betts TK, Roach Humphreys J (2019) Simulation Games: Learnin
 
 ## Prerequisites
 - Rasa
-- Slack-Account 
+- Slack-Account
+- Slack-Bot
 - MongoDBAtlas
 - NGROK
 - LANGUAGE_TOOL_API_KEY
@@ -97,7 +98,7 @@ Next, open two additional terminal windows. Activate the Rasa environment in bot
     rasa train --domain domains 
     ```
 
-2. Next, insert the NGROK URL into the file `/Conversational-AI-Agent-For-English-Learning/credentials_dev.yml` in the format: `"NGROK-URL/webhooks/slack/webhook"` for the `webhook_url`.
+2. Next, insert the NGROK URL into your Slack-Bot-Account in the format: `"NGROK-URL/webhooks/slack/webhook"` for the `webhook_url`.
 
 Afterward, execute the following commands:
 
